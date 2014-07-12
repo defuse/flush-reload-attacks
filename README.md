@@ -30,3 +30,10 @@ Directories
 - `flush-reload`: The `FLUSH+RELOAD` source code provided by the original paper's
   author Yuval Yarom.
 - `experiments`: Experiments.
+
+Credit
+------
+
+The code in the `flush-reload` was provided by Yuval Yarom, the author of
+[FLUSH+RELOAD: a High Resolution, Low Noise, L3 Cache Side-Channel
+Attack](https://eprint.iacr.org/2013/448.pdf).
