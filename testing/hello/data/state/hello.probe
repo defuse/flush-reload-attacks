@@ -1,0 +1,7 @@
+map ./hello
+base 0x400000
+probe 0x400647 H
+probe 0x400751 E
+probe 0x400883 L
+probe 0x4009B5 O
+slot 2048
