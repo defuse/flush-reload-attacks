@@ -1,8 +1,9 @@
-CPSC 502.04 Project: Side Channels Against Non-Crypto Software.
-===============================================================
+CPSC 502.04 Project
+====================
+Side Channels In Non-Crypto Software.
+-------------------------------------
 
-Project Description
---------------------
+### Project Description
 
 This repository tracks the progress of a 502.04 project about applying the
 `FLUSH+RELOAD` side channel to non-cryptographic software. The main goal is to
@@ -19,13 +20,11 @@ attack.
 
 Most of the work will be done by Taylor Hornby, supervised by John Aycock.
 
-This Repository
-----------------
+### This Repository
 
 This public repository will contain all of the source code, data, and other work
 related to the project (copyright permitting).
 
-Project Status
---------------
+### Project Status
 
 Getting started.
