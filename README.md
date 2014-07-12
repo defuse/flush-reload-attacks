@@ -34,6 +34,6 @@ Directories
 Credit
 ------
 
-The code in the `flush-reload` folder was provided by Yuval Yarom, the author of
-[FLUSH+RELOAD: a High Resolution, Low Noise, L3 Cache Side-Channel
+The code in the `flush-reload` folder was provided by Yuval Yarom, one of the
+authors of [FLUSH+RELOAD: a High Resolution, Low Noise, L3 Cache Side-Channel
 Attack](https://eprint.iacr.org/2013/448.pdf).
