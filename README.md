@@ -1,7 +1,5 @@
-CPSC 502.04 Project
-====================
 Side Channels In Non-Crypto Software.
--------------------------------------
+=====================================
 
 ### Project Description
 
