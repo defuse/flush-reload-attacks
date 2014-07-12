@@ -13,6 +13,8 @@ scripting languages (i.e. JavaScript in the browser) and to find out if programs
 can defend against this attack in an automated way (i.e. compiler
 modifications).
 
+Most of the work will be done by Taylor Hornby, supervised by John Aycock.
+
 This Repository
 ----------------
 
