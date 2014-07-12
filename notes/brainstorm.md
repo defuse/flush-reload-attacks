@@ -21,12 +21,15 @@ Offense
         - Client
     - Web server, mail server, DNS server, FTP server
     - Web browsers and their extensions (look at Cryptocat).
-
+    - Shells (bash, zsh, etc.)
+    - Standard system utilities (ls, cat, dd, etc.)
 
 - Scripting languages?
     - Python / Ruby run on the command line.
     - JavaScript in the browser (different browsers).
     - JVM?
+
+- Get FLUSH+RELOAD working on Windows.
 
 - Virtual machines
     - Probe the virtual machine software itself, might reveal a lot of
