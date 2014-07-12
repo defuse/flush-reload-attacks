@@ -7,9 +7,7 @@ mkdir data
 mkdir data/state
 cp * data/state/
 cp ../../flush-reload/spy data/state/
-uname -a > data/uname.output
-date > data/date.output
-uptime > data/uptime.output
+../systeminfo.sh > data/systeminfo.output
 
 # Start the spy process.
 # (You must have built the spy tool.)
