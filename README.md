@@ -23,3 +23,9 @@ Project Status
 --------------
 
 Getting started.
+
+Directories
+-----------
+
+- `cache`: The `FLUSH+RELOAD` source code provided by the original paper's
+  author Yuval Yarom.

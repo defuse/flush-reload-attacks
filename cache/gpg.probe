@@ -1,0 +1,7 @@
+map /home/yval/gpg
+base 0x8048000
+probe 0x0810090d S #mpih-mul.c:270 (First cache line in mpih_sqr_n())
+probe 0x080ffdc3 r #mpih-div.c:329 (Loop in default case in mpihelp_divrem())
+probe 0x08100191 M #mpih-mul.c:121 (First cache line of mul_n())
+slot 2048
+
