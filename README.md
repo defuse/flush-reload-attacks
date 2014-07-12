@@ -27,5 +27,5 @@ Getting started.
 Directories
 -----------
 
-- `cache`: The `FLUSH+RELOAD` source code provided by the original paper's
+- `flush-reload`: The `FLUSH+RELOAD` source code provided by the original paper's
   author Yuval Yarom.
