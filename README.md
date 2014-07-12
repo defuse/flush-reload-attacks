@@ -1,4 +1,4 @@
-Side Channels In Non-Crypto Software.
+Side Channels In Non-Crypto Software
 =====================================
 
 ### Project Description
