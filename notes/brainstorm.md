@@ -47,3 +47,10 @@ Defense
     - What's the performance impact?
 
 - Change the compiler to make programs (or parts of them) immune.
+
+Random Cool Stuff
+-----------------
+
+- Build a "SideChat" obscure messaging system that lets one user communicate
+  with another (pass messages back and forth) through the FLUSH+RELOAD side
+  channel. Use a lot of error correction so that it's reliable.
