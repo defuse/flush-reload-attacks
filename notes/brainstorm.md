@@ -39,6 +39,10 @@ Offense
     - In the case of VirtualBox / VMware, anything that's still implemented in
       software (Try disabling VT-X and AMD-V).
 
+- Evaluate the *actual* limitations of FLUSH+RELOAD.
+    - What is the actual granularity, e.g. cache lines?
+    - Where exactly does the noise come from, etc.
+
 Defense
 -------
 
