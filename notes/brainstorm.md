@@ -43,6 +43,9 @@ Offense
     - What is the actual granularity, e.g. cache lines?
     - Where exactly does the noise come from, etc.
 
+- Password strength checkers.
+    - zxcvbn
+
 Defense
 -------
 
