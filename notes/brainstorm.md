@@ -46,6 +46,10 @@ Offense
 - Password strength checkers.
     - zxcvbn
 
+- Bitcoin? Other cryptocurrencies?
+    - Especially mining, e.g. find out when someone in another AWS instance has
+      won a block?
+
 Defense
 -------
 
