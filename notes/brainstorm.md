@@ -50,6 +50,8 @@ Offense
     - Especially mining, e.g. find out when someone in another AWS instance has
       won a block?
 
+- Qubes OS?
+
 Defense
 -------
 
