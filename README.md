@@ -37,3 +37,12 @@ Credit
 The code in the `flush-reload` folder was provided by Yuval Yarom, one of the
 authors of [FLUSH+RELOAD: a High Resolution, Low Noise, L3 Cache Side-Channel
 Attack](https://eprint.iacr.org/2013/448.pdf).
+
+Publishing This Repository
+--------------------------
+
+This repository contains copyrighted material and cannot be published as-is.
+When the project is finished, remove the copyrighted/secret material and publish
+as much as possible (Don't forget the issue tracker. It's important to publish
+that for transparency).
+
