@@ -11,6 +11,7 @@ September
 ------------
 
 - Catch up on side channel literature (8 hours).
+- Look for non-two-column side channel research.
 - Create a bibliography of relevant research (2 hours).
 - Reproduce the original FLUSH+RELOAD attack against GPG (10 hours).
 
