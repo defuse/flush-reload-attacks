@@ -52,6 +52,8 @@ Offense
 
 - Qubes OS?
 
+- Databases! (Indexes, extract *data*, etc.)
+
 Defense
 -------
 
