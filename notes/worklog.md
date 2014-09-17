@@ -1,3 +1,11 @@
+Tuesday, September 16, 2014
+---------------------------------
+
+Hours: 1
+
+- Trying to SpinRite the research laptop I bought, couldn't get it working.
+- Weekly meeting with John Aycock
+
 Monday, September 15, 2014
 ---------------------------------
 

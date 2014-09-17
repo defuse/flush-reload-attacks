@@ -57,6 +57,10 @@ Offense
 Defense
 -------
 
+- Use the side channel as a defense mechanism itself. For example, use it to
+  detect ROP. Make a side-channel profile of a process, then look for deviations
+  in that profile.
+
 - Disable code sharing between processes.
     - How do you do it?
     - What's the performance impact?
