@@ -1,3 +1,18 @@
+Wednesday, September 17, 2014
+---------------------------------
+
+- Looked through old printed papers to find side-channel relevant ones.
+
+TODO
+-----
+
+* Find Yarom's other FLUSH+RELOAD papers and download them.
+* Download the Acoustic Cryptanalysis paper
+* Download this book at UofC:
+    http://www.bookdepository.com/Constructive-Side-Channel-Analysis-Secure-Design/9783642299117
+  (Download Aycock's Spam / Virus books while you're at it)
+* Download the side channel PDFs from the read pile.
+
 Tuesday, September 16, 2014
 ---------------------------------
 
@@ -14,16 +29,6 @@ Hours: 0.25
 - Tracked down a database side channel paper after @touced asked me on
   Twitter.
 
-TODO
------
-
-* Find Yarom's other FLUSH+RELOAD papers and download them.
-* Download the Acoustic Cryptanalysis paper
-* Download this book at UofC:
-    http://www.bookdepository.com/Constructive-Side-Channel-Analysis-Secure-Design/9783642299117
-  (Download Aycock's Spam / Virus books while you're at it)
-* Look over defuse.ca/reading-list for s.c. paper's I've already read
-  (because I might remember things from them and need to cite them).
 
 Sunday, September 14, 2014
 ---------------------------------
