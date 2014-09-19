@@ -1,5 +1,7 @@
 \documentclass{acm_proc_article-sp}
 
+\usepackage{url}
+
 \begin{document}
 
 \title{CPSC 502.04 Project Proposal}
@@ -161,9 +163,21 @@ what the result of the project will be if it is successful.
 % Strong experimental / reproducible  (scientific) basis.
 % Learn from the attacks to see if there are effective defenses.
 
-The essence of this research problem is to determine whether side channels are
-realistic threats against non-cryptographic applications. The best way to answer
-this is to try to attack them.
+To find out whether side channel attacks are a significant threat to
+non-cryptographic programs, we will start by trying to apply known side-channel
+attacks to these programs.
+
+A recently discovered generic side-channel attack called \textsc{Flush+Reload}
+\cite{yarom2013flush} is particularly applicable. Using \textsc{Flush+Reload},
+a spy process can monitor which code a victim process runs, as long as it can
+map the victim process' binary into its address space. The attack works by
+timing memory access to determine whether the code is present in the x86
+architecture's L3 cache.
+
+The authors of the \textsc{Flush+Reload} attack originally applied it to extract
+the secret RSA key from GnuPG. I have speculated \cite{hornby2013flush} that the
+attack would also be devastating against non-cryptographic applications, since
+it is so general.
 
 TODO: Address project failure here too (i.e. what happens if no attacks are
 found)?

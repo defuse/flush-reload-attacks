@@ -1,4 +1,4 @@
-proposal.pdf: proposal.tex
+proposal.pdf: proposal.tex proposal.bib
 	pdflatex proposal.tex
 	bibtex proposal
 	pdflatex proposal.tex
