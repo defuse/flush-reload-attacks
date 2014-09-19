@@ -17,9 +17,10 @@ Taylor Hornby
 \section{Introduction}
 
 This is a proposal for a research project on applying side-channel attacks to
-non-cryptographic applications. In section 2, we describe what side channel
-attacks are. In section 3, we present the research questions that this project
-will attempt to address. Section 4 shows the path forward.
+non-cryptographic applications. Section 2, describes what side-channel attacks
+are. In section 3, we present the research questions that this project will
+attempt to answer. Section 4 shows how the questions will be attacked. Section
+5 concludes.
 
 % TODO: Use actual references for the sections.
 
@@ -55,30 +56,55 @@ long it takes to perform an operation, as long as it stays within reasonable
 bounds. These variations are called side channels, and they tell us a little bit
 about what is going on inside the computer.
 
-Indeed, side channels sometimes leak sensitive information. Research [CITE] has
-shown that by taking a close look at the power usage signature of a smart card,
-we can tell which bits of its secret key are 1 and which are 0 (because
-processing the 1 bits uses more power than the 0 bits), thus extracting the
-secret key. Attacks like these, which use side channels to gather information
-about a system are called side channel attacks. Many more examples are known.
+Indeed, side channels sometimes leak sensitive information. Research
+\cite{messerges1999power} has shown that by taking a close look at the power
+usage signature of a smart card, we can tell which bits of its secret key are
+1 and which are 0 (because processing the 1 bits uses more power than the
+0 bits), thus extracting the secret key. Attacks like these, which use side
+channels to gather information about a system are called side channel attacks.
+Many more interesting examples are known:
 
-TODO: Cite more.
+\begin{itemize}
+\item Genkin et al. \cite{genkin2013rsa} showed that by listening to the sounds
+made by a computer performing RSA decryptions, it is possible to extract the
+secret key.
 
-Side channels are interesting because a computer program can be logically
+\item SSH sends one packet per keystroke, immediately after the key is pressed.
+Song et al. \cite{song2001timing} showed that some information about what the
+user is typing can be inferred from the timing of the packets.
+
+\item There is a lot of research \cite{bernstein2005cache, osvik2006cache,
+weiss2012cache, aciiccmez2006cache} showing that it is very hard to write
+a side-channel-free implementation of the AES cipher.
+
+\item Timing side channels were shown to work even across a local network by
+Brumley and Boneh \cite{brumley2005remote}.
+
+\item More famously, the BREACH attack on SSL \cite{gluck2013breach} uses the
+compression ratio as a side channel to learn secret tokens embedded in an
+encrypted web page.
+
+\end{itemize}
+
+Side channels are a challenge because a computer program can be logically
 correct yet still vulnerable to a side channel attack. The program can respond
 to all inputs in all the right ways, always getting the right answer, but still
-be leaking its secrets out through the time it takes or the amount of power it
-uses.
+be leaking its secrets out through the time it takes to run or the amount of
+power it uses.
 
-Side channel attacks are still not well understood. The next section presents
-the open questions about side channels that this project will attempt to answer.
+Side channel attacks are not well understood. Indeed, the list above shows how
+diverse and prevalent side channel attacks are. The next section presents the
+open questions about side channels that this project will try to answer.
 
 \section{Research Problem}
 
 While many examples of side channels have been produced, they are still poorly
 understood. This is mainly because we do not yet know everything that is
 possible. To get a better understanding, we need to see more attacks, and in
-particular, more general attacks, before we can effectively defend our systems.
+particular, more \emph{general} attacks. It is hard to defend against
+side-channel attacks without understanding where they can be found and how
+reliable they are. If we develop defenses prematurely, they will not cover all
+types of attacks.
 
 Most side channels are applied in the context of cryptography. Cryptography is
 especially easy to attack with side channels, because small information leaks,
@@ -156,6 +182,9 @@ understanding of the impact side-channel attacks have in that context.
 
 Throughout the project, there will be a focus on experimentation and
 reproducibility of results.
+
+\bibliographystyle{abbrv}
+\bibliography{proposal}
 
 \end{document}
 
