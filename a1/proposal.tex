@@ -18,53 +18,48 @@ Taylor Hornby
 
 \section{Introduction}
 
-This is a proposal for a research project on applying side-channel attacks to
-non-cryptographic applications. Section 2, describes what side-channel attacks
-are. In section 3, we present the research questions that this project will
-attempt to answer. Section 4 shows how the questions will be attacked. Section
-5 concludes.
+This is a proposal for an undergraduate research project on applying
+side-channel attacks to non-cryptographic applications. Section 2, describes
+what side-channel attacks are and why we care about them. In section 3, we
+present the research questions that will be the focus of this project. Section
+4 explains how the research will proceed and what the results should look like.
+Section 5 concludes.
 
 % TODO: Use actual references for the sections.
 
 \section{Side Channel Attacks}
 
-Computers are physical realizations of abstract machines. Indeed, the origins of
-computation are rooted in purely mathematical designs like the Turing Machine.
-Even von Neumann's architecture, upon which our modern systems are based, is an
-abstract system (albeit one that lends itself easily to a real implementation).
-
-When we program computers, it is easiest to think abstractly. We hide complexity
-behind interfaces. Systems are organized into layers of abstraction with the
-highest-level ideas and operations at the top, the bits and bytes further down,
-and the physical implementation \textendash wires and voltages on them
-\textendash still further down. The lower layers are available for us to use,
-but we do not need to understand their internal function to get our work done.
-Likewise, designers of the lower layers do need to know in advance all of the
-things we will use their layer for.
-
+Computers are physical realizations of abstract machines. Therefore, when we
+program computers, it is easiest to think abstractly. Systems are organized into
+layers of abstraction with the highest-level ideas and operations at the top,
+the bits and bytes further down, and the physical implementation \textendash
+wires and voltages on them \textendash still further down. Complexity is hidden
+behind interfaces and APIs. We can use the lower layers without having to
+understand all of the details about how they work. Likewise, we can write
+libraries without having to consider and understand all of the possible uses.
 Thinking about computers this way makes them manageable. It is impossible to
-remember all of the details, but if the details can be summarized succinctly,
-divided into layers and regions with boundaries, we can remember the summaries
-and get on with our work without worrying about the details.
+remember all of the details. If the details can be divided into parts with clear
+boundaries, we can remember how each part is to be used, without knowing how
+that part works.
 
-Seeing computers this way also causes problems. In particular, security
-vulnerabilities arise when a user at one level misuses the functionality
-provided by another level.
+Because we think about computers as abstract machines, we are trained to think
+in terms of explicit communication paths. The explicit communication channels
+are the ones that matter: Reading input and writing output. Implicit information
+flow gets much less attention. The user does not care exactly how much power
+their computer is using, how much noise it makes, or how long it takes to
+perform an operation, so long as the values stay within reasonable bounds.
+Variations like these are called \emph{side channels}, and if we look closely,
+they tell us a little bit about what is going on inside the computer.
 
-Seeing computers abstractly, we spend most of our effort thinking about explicit
-communication paths, for they are the ones that matter. The user does not care
-exactly how much power their computer is using, how much noise it makes, or how
-long it takes to perform an operation, as long as it stays within reasonable
-bounds. These variations are called side channels, and they tell us a little bit
-about what is going on inside the computer.
-
-Indeed, side channels sometimes leak sensitive information. Research
-\cite{messerges1999power} has shown that by taking a close look at the power
-usage signature of a smart card, we can tell which bits of its secret key are
-1 and which are 0 (because processing the 1 bits uses more power than the
-0 bits), thus extracting the secret key. Attacks like these, which use side
-channels to gather information about a system are called side channel attacks.
-Many more interesting examples are known:
+Side channels sometimes leak information that the programmer never intended to
+leave the program. For example, research \cite{messerges1999power} has shown
+that by taking a close look at the amount of power used by smart card, we can
+steal the closely-guarded RSA secret keys inside them. This is possible because the
+device performs a longer operation when the bit is 1 and a shorter operation
+when the bit is 0. So by looking at the amount of power it uses over time, it is
+possible to tell which bits are 0 and which are 1. Attacks like these, which use
+side channels to learn information about a system are called \emph{side channel
+attacks}. Many more examples are known:
 
 \begin{itemize}
 \item Genkin et al. \cite{genkin2013rsa} showed that by listening to the sounds
@@ -85,74 +80,75 @@ Brumley and Boneh \cite{brumley2005remote}.
 \item More famously, the BREACH attack on SSL \cite{gluck2013breach} uses the
 compression ratio as a side channel to learn secret tokens embedded in an
 encrypted web page.
-
 \end{itemize}
 
 Side channels are a challenge because a computer program can be logically
-correct yet still vulnerable to a side channel attack. The program can respond
+correct and still be vulnerable to side channel attacks. The program can respond
 to all inputs in all the right ways, always getting the right answer, but still
-be leaking its secrets out through the time it takes to run or the amount of
-power it uses.
+it leaks its secrets out through the time it takes to run or the amount of power
+it uses.
 
-Side channel attacks are not well understood. Indeed, the list above shows how
-diverse and prevalent side channel attacks are. The next section presents the
-open questions about side channels that this project will try to answer.
+The list above shows how diverse and widespread side channel attacks are.
+Despite their prevalence, we still don't understand them very well. The next
+section presents some open questions that this project will try to answer.
 
 \section{Research Problem}
 
-While many examples of side channels have been produced, they are still poorly
-understood. This is mainly because we do not yet know everything that is
-possible. To get a better understanding, we need to see more attacks, and in
-particular, more \emph{general} attacks. It is hard to defend against
-side-channel attacks without understanding where they can be found and how
-reliable they are. If we develop defenses prematurely, they will not cover all
-types of attacks.
+In the last section, we saw that side channel attacks are everywhere, and that
+they can be devastating for a system's security. In order to build defenses
+against channel attacks, we need to understand them. Our ignorance about side
+channel attacks boils down to two central questions: Under what conditions are
+side-channel attacks possible? and When a side-channel attack is found, how
+reliably can it be exploited?
 
-Most side channels are applied in the context of cryptography. Cryptography is
-especially easy to attack with side channels, because small information leaks,
-like leaking a secret key, can be devastating to the entire system. Compounding
-the issue, crypto usually makes heavy use of the few secret bits that it has,
-making them more exposed to side channel attacks.
+Many examples of side-channel attacks have been presented in the literature.
+Most research is focused on developing new attack vectors. Acoustic
+cryptanalysis [CITE] and extracting keys from ground potential fluctuations
+[CITE, CHECK] are recent examples. The new styles of attack are almost
+universally applied to cryptography first. This makes sense, because leaking
+a small number of bits (the key) from a cryptgoraphic application completely
+breaks the security. Compounding the issue, cryptography makes heavy, repeated,
+use of the few bits that it does need to keep secret, making them more likely to
+influence the side channels.
 
-TODO: Cite counterexamples and respond to that.
+It is unclear if this focus on cryptography because non-cryptographic programs
+are hard to attack, or if cryptography is just the low-hanging fruit that gets
+attacked first. This is an important question to resolve, since if
+non-cryptographic programs \emph{are} vulnerable to side-channels, we might be
+overlooking serious vulnerabilities in the programs we use every day. An attack
+against a regular program can be just as devastating as an attack against an
+implementation of cryptography. For example, if it is possible for one user to
+spy on another user as they compose an email, that is just as serious an attack
+as if the first user could steal the second user's PGP private key.
 
-We ask whether this focus on cryptography is because non-cryptographic things
-are hard to attack, or if cryptography is just the low hanging fruit that gets
-all of the attention. This is an important question, since if we have been
-putting undue focus on cryptography, we may be overlooking significant and
-exploitable flaws in the programs we rely on every day [EXAMPLE/ILLUSTRATE]
-(WORDS: Dormant, undiscovered).
-
-TODO: something about defense
-
-TODO: motivation that side channels are hard to fix, because they are in the
-hardware (so even if they are sev:lo they can be so expensive it makes it
-worthwhile)
-
-In particular, we ask the following questions:
+This project will try to answer that question. In particular, we ask:
 
 \begin{enumerate}
-\item What is the impact of side channel attacks on non-cryptographic
-      applications?
+\item What impact do side-channel attacks have on non-cryptographic systems?
 
-\item Do all developers, not just the ones working on cryptoraphy, need to be
-      educated about side channels and design their code to resist them, or is
-      it ok to only consider side channels in security-critical code?
+\item Under what conditions are side channels a threat? Under what conditions
+      are they not?
 
-\item If the above two questions are answered in the affirmative, what can we do
-      to reduce the risk? Are there automated technological defenses? Are there
-      easy-to-follow coding guidelines that, when followed, make side channels
-      less of a risk?
+\item Does every developer have to be aware of side channels and design their
+      code to resist attacks? Or is it enough to care about side channels only
+      for sensitive applications like cryptography?
 
-\item Given the broadened scope, can side channels be applied for good instead
-      of bad? Can we use side channels as a means of identifying attacks?
+\item Are there automated technological defenses against side-channel attacks?
+      Are there easy-to-follow coding guidelines that reduce the impact of side
+      channels?
+
+\item Can side channels be used for good? Could we, perhaps, use side channels
+      monitoring as a mechanism for spotting attacks?
 \end{enumerate}
 
-If this research finds that such attacks exist and are widespread, it will
-motivate the community to broaden their horizons beyond crypto.
+If this project finds that non-crypto attacks represent real threats, it will
+motivate the research community to apply their attacks and defenses beyond
+cryptography. If the result find that side-channels cannot be applied to regular
+programs, we can learn \emph{why not}, and begin to apply that knowledge to
+build defenses.
 
-The next section discusses the methods we can use to answer these questions, and
-what the result of the project will be if it is successful.
+The next section discusses the methods we will use to answer these questions,
+and what the results of the project should look like.
 
 \section{Steps Forward}
 
