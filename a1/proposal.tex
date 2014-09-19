@@ -152,46 +152,45 @@ and what the results of the project should look like.
 
 \section{Steps Forward}
 
-% HERE, NOT above, note FLUSH+RELOAD as being particularly applicable to non-crypto attacks.
-% 
-% 
-% Attack Non-crypto apps with FLUSH+RELOAD.
-% Strong experimental / reproducible  (scientific) basis.
-% Learn from the attacks to see if there are effective defenses.
-
-To find out whether side channel attacks are a significant threat to
-non-cryptographic programs, we will start by trying to apply known side-channel
-attacks to these programs.
+The best way to find out whether non-cryptographic applications are vulnerable
+to side channel attacks is to attack them.
 
 A recently discovered generic side-channel attack called \textsc{Flush+Reload}
 \cite{yarom2013flush} is particularly applicable. Using \textsc{Flush+Reload},
-a spy process can monitor which code a victim process runs, as long as it can
-map the victim process' binary into its address space. The attack works by
-timing memory access to determine whether the code is present in the x86
-architecture's L3 cache.
+a spy process running on a modern Intel processor can get a good view of which
+code a victim process, executing on the same processor, is running over time.
 
 The authors of the \textsc{Flush+Reload} attack originally applied it to extract
-the secret RSA key from GnuPG. I have speculated \cite{hornby2013flush} that the
-attack would also be devastating against non-cryptographic applications, since
-it is so general.
+the secret RSA key from GnuPG. More recently, it has been applied to extract
+secret keys from OpenSSL's ECDSA implementation [CITE]. I have speculated
+\cite{hornby2013flush} that the attack would also be devastating against
+non-cryptographic applications, since it is so general.
 
-TODO: Address project failure here too (i.e. what happens if no attacks are
-found)?
+The project will begin by using \textsc{Flush+Reload} to attack
+non-cryptographic programs like web browsers, databases, email clients, and text
+editors. Because of the nature of side-channel attacks, there will be consistent
+focus on experiment and reproducibility.
+
+If the hypothesis is correct, the project will result in a set of reliable
+attacks against non-cryptographic applications, demonstrating that
+vulnerabilities exist in that space of programs, which will hopefully shift the
+global research community's focus towards these threats.
+
+If the hypothesis is wrong, and no significant attacks are found, then the
+result will be some new knowledge about why attacking non-crypto applications is
+hard.
 
 \section{Conclusion}
 
 Side channel attacks exploit the boundary between the abstract notion of
 a computer program and its real physical implementation. They use physical
 measurements of time, power, vibrations, and radiation to learn what a computer
-is doing. So far, most research has focused on applying these attacks against
-cryptographic systems. The project proposed here is to explore the impact these
-attacks have on everyday programs like web browsers, databases, and text
-editors. Questions will be answered by trying to apply previously-known side
-channel techniques to these programs. The outcome will be a greater
-understanding of the impact side-channel attacks have in that context.
-
-Throughout the project, there will be a focus on experimentation and
-reproducibility of results.
+is doing. Most research has focuses on applying these attacks to cryptographic
+systems. The project proposed here is to explore the impact these attacks have
+on everyday programs like web browsers, databases, and text editors. This
+question will be explored by trying to apply previously-known side channel
+techniques to these programs. The outcome will be a greater understanding of the
+impact side-channel attacks have in that context.
 
 \bibliographystyle{abbrv}
 \bibliography{proposal}
