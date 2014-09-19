@@ -1,5 +1,22 @@
+Friday, September 19, 2014
+---------------------------------
+
+Hours: 3
+
+- More work on the proposal draft.
+
+Thursday, September 18, 2014
+---------------------------------
+
+Hours: 3
+
+- Typed up proposal draft.
+- Converted proposal draft to LaTeX.
+
 Wednesday, September 17, 2014
 ---------------------------------
+
+Hours: 0.5
 
 - Looked through old printed papers to find side-channel relevant ones.
 
