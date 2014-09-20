@@ -1,8 +1,13 @@
 \documentclass{acm_proc_article-sp}
 
 \usepackage{url}
+\usepackage{microtype}
 
 \begin{document}
+
+% Without this, stuff overfills into the margin. TODO: Eventually, rewrite those
+% paragraphs so that they don't.
+\sloppy
 
 \title{[DRAFT] CPSC 502.04 Project Proposal}
 \subtitle{Side Channel Attacks Against Non-Cryptographic Applications}
@@ -21,10 +26,10 @@ Taylor Hornby
 This is a proposal for an undergraduate research project. The project is to
 apply side-channel attacks to non-cryptographic applications. Section
 \ref{sec:attacks} describes what side-channel attacks are and why we care about
-them. In section \ref{sec:problem}, we present the research questions that will
-be the focus of this project. Section \ref{sec:stepsforward} explains how the
-research will proceed and what the results should look like. Section
-\ref{sec:conclusion} concludes.
+them. In section \ref{sec:problem}, we present the research questions that this
+project will focus on. Section \ref{sec:stepsforward} explains how the research
+will proceed and what the results should look like. Section \ref{sec:conclusion}
+concludes.
 
 \section{Side Channel Attacks}
 \label{sec:attacks}
@@ -44,15 +49,19 @@ is impossible to remember all of the details. When the details are be divided
 into parts with clear boundaries, we can remember how each part is \emph{to be
 used}, without having to know how each part \emph{works}.
 
-Because we think about computers as abstract machines, it is natural to think in
+The divisions are not always perfect, and this often leads to security problems.
+APIs are often misused and assumptions are often made about the internal
+workings of a different part. An interesting boundary is the one between the
+computer as an abstract machine, and the computer as a physical machine.
+
+When we think about computers as abstract machines, it is natural to think in
 terms of explicit communication paths. After all, the explicit communication
-channels are the ones that matter: Reading input and writing output. Implicit
-information flow gets much less attention. The user does not care exactly how
-much power their computer is using, how much noise it makes, or how long it
-takes to perform an operation, so long as the behavior stays within reasonable
-bounds. Measurable variations of these values are called \emph{side channels},
-because if we look closely, they tell us a little bit about what is going on
-inside the computer.
+channels are the ones that matter: Reading input and writing output. The user
+does not care exactly how much power their computer is using, how much noise it
+makes, or how long it takes to perform an operation, so long as the behavior
+stays within reasonable bounds. Thinking physically, things are different. These
+values all represent information about what is going on inside the computer.
+Measurable variations of these values are called \emph{side channels}.
 
 Side channels sometimes leak information that is supposed to be kept secret. For
 example, research \cite{messerges1999power} has shown that by taking a close
@@ -161,10 +170,11 @@ and what the results of the project should look like.
 The best way to find out whether non-cryptographic applications are vulnerable
 to side channel attacks is to attack them.
 
-A recently discovered generic side-channel attack called \textsc{Flush+Reload}
-\cite{yarom2013flush} is particularly applicable. Using \textsc{Flush+Reload},
-a spy process running on a modern Intel processor can get a good view of which
-code a victim process, executing on the same processor, is running over time.
+The recently-discovered \textsc{Flush+Reload} \cite{yarom2013flush} side-channel
+attack is particularly applicable. Using \textsc{Flush+Reload}, a spy process
+running on a modern Intel processor can get observe which code a victim process
+executes over time. The attack is amazingly effective, providing cache-line-size
+granularity and a sample rate on the order of a megahertz.
 
 The authors of the \textsc{Flush+Reload} attack originally applied it to extract
 the secret RSA key from GnuPG. More recently, it has been applied to extract
@@ -178,13 +188,14 @@ editors. Because of the physical nature of side-channel attacks, there will be
 a consistent focus on experiment and reproducibility.
 
 If the hypothesis is correct, the project will result in a set of reliable
-attacks against non-cryptographic applications, demonstrating that
-vulnerabilities exist in that space of programs, which will hopefully shift the
-global research community's focus towards these threats.
+attacks against non-cryptographic applications. This will demonstrate that it is
+worth looking for side-channel vulnerabilities in that space of programs, which
+will hopefully incentive other researchers to pay closer attention to these
+threats.
 
 If the hypothesis is wrong, and no significant attacks are found, then the
-result will be some new knowledge about why attacking non-crypto applications is
-hard.
+result will be some new knowledge about why attacking non-cryptographic
+applications is hard.
 
 \section{Conclusion}
 \label{sec:conclusion}
