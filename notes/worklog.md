@@ -1,9 +1,10 @@
 Friday, September 19, 2014
 ---------------------------------
 
-Hours: 3
+Hours: 5
 
 - More work on the proposal draft.
+- Completed the draft and sent it to John.
 
 Thursday, September 18, 2014
 ---------------------------------
