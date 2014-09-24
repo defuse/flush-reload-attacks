@@ -9,29 +9,28 @@
 % paragraphs so that they don't.
 \sloppy
 
-\title{[DRAFT] CPSC 502.04 Project Proposal}
-\subtitle{Side Channel Attacks Against Non-Cryptographic Applications}
+\title{Side Channel Attacks Against Non-Cryptographic Applications}
+\subtitle{CPSC 502.04 Project Proposal}
 
 \numberofauthors{1}
 
 \author{
 \alignauthor
-Taylor Hornby
+Taylor Hornby (Supervised by Dr. John Aycock)\\
+\email{th@defuse.ca}
 }
+
 
 \maketitle
 
+\footnotetext[1]{A draft of this document was reviewed and edited by John Aycock prior to submission.}
+
+\begin{abstract}
+This is a proposal\footnotemark[1] for an undergraduate research project. The
+project is to apply side-channel attacks to non-cryptographic applications.
+\end{abstract}
+
 \section{Introduction}
-
-This is a proposal for an undergraduate research project. The project is to
-apply side-channel attacks to non-cryptographic applications. Section
-\ref{sec:attacks} describes what side-channel attacks are and why we care about
-them. In section \ref{sec:problem}, we present the research questions that this
-project will focus on. Section \ref{sec:stepsforward} explains how the research
-will proceed and what the results should look like. Section \ref{sec:conclusion}
-concludes.
-
-\section{Side Channel Attacks}
 \label{sec:attacks}
 
 Computers are physical realizations of abstract machines. Therefore, when we
@@ -45,9 +44,9 @@ having to understand their inner workings. Likewise, we can write libraries
 without having to consider and understand all of the possible uses.
 
 Thinking about computers this way makes them manageable. Without abstraction, it
-is impossible to remember all of the details. When the details are be divided
-into parts with clear boundaries, we can remember how each part is \emph{to be
-used}, without having to know how each part \emph{works}.
+is impossible to remember all of the details. When the details are divided into
+parts with clear boundaries, we can remember how each part is \emph{to be used},
+without having to know how each part \emph{works}.
 
 The divisions are not always perfect, and this often leads to security problems.
 APIs are often misused and assumptions are often made about the internal
@@ -56,7 +55,7 @@ computer as an abstract machine, and the computer as a physical machine.
 
 When we think about computers as abstract machines, it is natural to think in
 terms of explicit communication paths. After all, the explicit communication
-channels are the ones that matter: Reading input and writing output. The user
+channels are the ones that matter: reading input and writing output. The user
 does not care exactly how much power their computer is using, how much noise it
 makes, or how long it takes to perform an operation, so long as the behavior
 stays within reasonable bounds. Thinking physically, things are different. These
@@ -64,14 +63,14 @@ values all represent information about what is going on inside the computer.
 Measurable variations of these values are called \emph{side channels}.
 
 Side channels sometimes leak information that is supposed to be kept secret. For
-example, research \cite{messerges1999power} has shown that by taking a close
-look at the amount of power used by smart cards, we can steal the
-closely-guarded RSA secret keys inside them. This is possible because the device
-performs a longer operation when the bit is 1 and a shorter operation when the
-bit is 0. So by looking at the amount of power it uses over time, it is possible
-to tell which bits are 0 and which are 1. Attacks like these, which use side
-channels to learn secret information about a system are called \emph{side
-channel attacks}. Many fascinating examples are known:
+example, research has shown that by taking a close look at the amount of power
+used by smart cards, we can steal the closely-guarded RSA secret keys inside
+them \cite{messerges1999power}. This is possible because the device performs
+a longer operation for key bits that are 1 and a shorter operation for key bits
+that are is 0. So by looking at the amount of power it uses over time, it is
+possible to tell which bits of the key are 0 and which are 1. Attacks like
+these, which use side channels to learn secret information about a system are
+called \emph{side channel attacks}. Many examples are known:
 
 \begin{itemize}
 \item Genkin et al. \cite{genkin2013rsa} showed that by listening to the sounds
@@ -82,16 +81,16 @@ secret key.
 Song et al. \cite{song2001timing} showed that information about users' passwords
 can be inferred from the timing of the packets.
 
-\item There is a lot of research \cite{bernstein2005cache, osvik2006cache,
-weiss2012cache, aciiccmez2006cache} showing that it is very hard to write
-a side-channel-free implementation of the industry-standard AES cipher.
+\item There is a lot of research \cite{aciiccmez2006cache, bernstein2005cache,
+    osvik2006cache, weiss2012cache} showing that it is very hard to write
+    a side-channel-free implementation of the industry-standard AES cipher.
 
 \item Timing side channels were shown to work even remotely across a local
 network by Brumley and Boneh \cite{brumley2005remote}.
 
-\item More famously, the BREACH attack on SSL \cite{gluck2013breach} uses
-variations in the compressibility of data as a side channel to learn secret
-tokens embedded in an encrypted web page.
+\item The BREACH attack on SSL \cite{gluck2013breach} uses variations in the
+    compressibility of data as a side channel to learn secret tokens embedded in
+    an encrypted web page.
 \end{itemize}
 
 Side channels present a challenge because a computer program can be logically
@@ -104,6 +103,12 @@ The list above shows how diverse and widespread side channel attacks are.
 Despite their prevalence, we still don't understand them very well. The next
 section presents some open questions that this project will try to answer.
 
+In this section we described described what side-channel attacks are and why we
+care about them. In Section \ref{sec:problem}, we present the research questions
+that this project will focus on. Section \ref{sec:stepsforward} explains how the
+research will proceed and what the results should look like. Section
+\ref{sec:conclusion} concludes.
+
 \section{Research Problem}
 \label{sec:problem}
 
@@ -111,18 +116,18 @@ In the last section, we saw that side channel attacks are everywhere, and that
 they can be devastating for a system's security. In order to build defenses
 against side-channel attacks, we have to understand them. Our ignorance about
 side channel attacks boils down to two central questions: Under what conditions
-are side-channel attacks possible? and When a side-channel vulnerability exists,
+are side-channel attacks possible? and when a side-channel vulnerability exists,
 how reliably can it be exploited?
 
 Many examples of side-channel attacks have been presented in the literature.
 Most research is focused on developing new attack vectors. Acoustic
 cryptanalysis \cite{genkin2013rsa} and extracting keys from ground potential
-fluctuations \cite{genkin2014get} are recent examples. The new styles of attack
+fluctuations \cite{genkin2014get} are recent examples. These new types of attack
 are almost universally applied to cryptography. This makes sense, because
 leaking a small number of bits (i.e. the key) from a cryptographic application
-completely breaks its security. To compound the issue, cryptography makes heavy,
-repeated, use of the few bits that it does need to keep secret, making them more
-likely to influence the side channels.
+weakens and may completely break its security. To compound the issue,
+cryptography makes heavy, repeated, use of the few bits that it does need to
+keep secret, making them more likely to influence the side channels.
 
 It makes sense why cryptography is attacked, but it is unclear if this focus on
 cryptography is because non-cryptographic programs can not be attacked, or if
@@ -158,7 +163,7 @@ This project will try to answer that question. In particular, we ask:
 If this project finds that non-cryptographic attacks represent real threats, it
 will motivate the research community to widen the scope of their attacks and
 defenses. If the result is that side-channels cannot be applied to regular
-programs, we can learn \emph{why not}, and begin to apply that knowledge to
+programs, we can learn \emph{why} not, and begin to apply that knowledge to
 build defenses.
 
 The next section discusses the methods we will use to answer these questions,
@@ -172,9 +177,9 @@ to side channel attacks is to attack them.
 
 The recently-discovered \textsc{Flush+Reload} \cite{yarom2013flush} side-channel
 attack is particularly applicable. Using \textsc{Flush+Reload}, a spy process
-running on a modern Intel processor can get observe which code a victim process
+running on a modern Intel processor can observe which code a victim process
 executes over time. The attack is amazingly effective, providing cache-line-size
-granularity and a sample rate on the order of a megahertz.
+granularity and a sample rate on the order of one megahertz.
 
 The authors of the \textsc{Flush+Reload} attack originally applied it to extract
 the secret RSA key from GnuPG. More recently, it has been applied to extract
@@ -197,7 +202,7 @@ If the hypothesis is wrong, and no significant attacks are found, then the
 result will be some new knowledge about why attacking non-cryptographic
 applications is hard.
 
-\section{Conclusion}
+\section{Summary}
 \label{sec:conclusion}
 
 Side channel attacks exploit the boundary between the abstract notion of
