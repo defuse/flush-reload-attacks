@@ -9,25 +9,31 @@
 % paragraphs so that they don't.
 \sloppy
 
-\title{Side Channel Attacks Against Non-Cryptographic Applications}
+\title{Side Channel Attacks Against Non-Cryptographic Applications\titlenote{Submitted September 23, 2014}}
 \subtitle{CPSC 502.04 Project Proposal}
 
 \numberofauthors{1}
 
 \author{
 \alignauthor
-Taylor Hornby (Supervised by Dr. John Aycock)\\
+Taylor Hornby (Supervised by Dr. John Aycock)\titlenote{John Aycock reviewed and
+edited a draft of this document before it was submitted.}\\
 \email{th@defuse.ca}
 }
 
 
 \maketitle
 
-\footnotetext[1]{A draft of this document was reviewed and edited by John Aycock prior to submission.}
-
 \begin{abstract}
-This is a proposal\footnotemark[1] for an undergraduate research project. The
-project is to apply side-channel attacks to non-cryptographic applications.
+This is a proposal for an undergraduate research project. The project is to
+apply side-channel attacks to non-cryptographic applications. Side channel
+attacks are almost always applied to cryptography-related software and hardware,
+so we ask whether significant side-channel vulnerabilities exist in
+non-cryptographic systems. The question will be approached by attacking
+non-cryptographic software with previously-known side-channel attack techniques.
+This should either uncover serious vulnerabilities that have been overlooked, or
+if not, at least give further insight into where and when side channel
+information leakage is a threat.
 \end{abstract}
 
 \section{Introduction}
@@ -60,7 +66,8 @@ does not care exactly how much power their computer is using, how much noise it
 makes, or how long it takes to perform an operation, so long as the behavior
 stays within reasonable bounds. Thinking physically, things are different. These
 values all represent information about what is going on inside the computer.
-Measurable variations of these values are called \emph{side channels}.
+Measurable variations of these values are called \emph{side channels}
+\cite{kelsey1998side}.
 
 Side channels sometimes leak information that is supposed to be kept secret. For
 example, research has shown that by taking a close look at the amount of power
@@ -103,11 +110,11 @@ The list above shows how diverse and widespread side channel attacks are.
 Despite their prevalence, we still don't understand them very well. The next
 section presents some open questions that this project will try to answer.
 
-In this section we described described what side-channel attacks are and why we
-care about them. In Section \ref{sec:problem}, we present the research questions
-that this project will focus on. Section \ref{sec:stepsforward} explains how the
-research will proceed and what the results should look like. Section
-\ref{sec:conclusion} concludes.
+In this section we described what side-channel attacks are and why we care about
+them. In Section \ref{sec:problem}, we present the research questions that this
+project will focus on. Section \ref{sec:stepsforward} explains how the research
+will proceed and what the results should look like. Section \ref{sec:conclusion}
+concludes.
 
 \section{Research Problem}
 \label{sec:problem}
@@ -178,7 +185,7 @@ to side channel attacks is to attack them.
 The recently-discovered \textsc{Flush+Reload} \cite{yarom2013flush} side-channel
 attack is particularly applicable. Using \textsc{Flush+Reload}, a spy process
 running on a modern Intel processor can observe which code a victim process
-executes over time. The attack is amazingly effective, providing cache-line-size
+executes over time. The attack is unusually effective, providing cache-line-size
 granularity and a sample rate on the order of one megahertz.
 
 The authors of the \textsc{Flush+Reload} attack originally applied it to extract
@@ -195,12 +202,31 @@ a consistent focus on experiment and reproducibility.
 If the hypothesis is correct, the project will result in a set of reliable
 attacks against non-cryptographic applications. This will demonstrate that it is
 worth looking for side-channel vulnerabilities in that space of programs, which
-will hopefully incentive other researchers to pay closer attention to these
+will hopefully incentivize other researchers to pay closer attention to these
 threats.
 
 If the hypothesis is wrong, and no significant attacks are found, then the
 result will be some new knowledge about why attacking non-cryptographic
 applications is hard.
+
+A rough timeline for the project is as follows:
+
+\begin{itemize}
+    \item \textbf{October:} Finish the related work list with critiques assignment and
+          reproduce the FLUSH+RELOAD attack against GnuPG.
+      \item \textbf{November:} Begin attacking non-crypto applications with the
+          FLUSH+RELOAD attack.
+      \item \textbf{December:} Continue vulnerability-finding and start writing
+          the final paper.
+      \item \textbf{January:} Interim report. Some significant vulnerabilities
+          will hopefully have been found by this time.
+      \item \textbf{February-March:} Paper-writing and presentation preparation. Extra time
+          will be used to explore other questions (e.g. defenses), and to find
+          better attacks.
+      \item \textbf{April:} Finish the final paper and give the presentation. If
+          the paper is of good quality, submit to a conference (Current target
+          is USENIX WOOT '15).
+\end{itemize}
 
 \section{Summary}
 \label{sec:conclusion}
