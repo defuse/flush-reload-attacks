@@ -9,6 +9,10 @@ Offense
 
 - Get FLUSH+RELOAD to work on AMD processors.
 
+- Attack a PDF renderer. Seems like a good case where FLUSH+RELOAD could hook
+  some of the rendering functions and learn what the PDF looks like (font
+  loading, etc).
+
 - What is *theoretically* possible, assuming the attacker gets perfect knowledge
   of all branches?
     - Automate the process of finding out what an attacker could learn.
