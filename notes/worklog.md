@@ -1,3 +1,31 @@
+Wednesday, September 24, 2014
+---------------------------------
+
+- Met with Michael Jacobson (introduction)
+
+Tuesday, September 23, 2014
+---------------------------------
+
+Hours: 2
+
+- Made corrections to the proposal and submitted it.
+- Weekly meeting with John.
+
+Monday, September 22, 2014
+---------------------------------
+
+- Nothing
+
+Sunday, September 21, 2014
+---------------------------------
+
+- Nothing
+
+Saturday, September 20, 2014
+---------------------------------
+
+- Nothing
+
 Friday, September 19, 2014
 ---------------------------------
 
