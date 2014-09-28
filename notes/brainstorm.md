@@ -58,6 +58,9 @@ Offense
 
 - Databases! (Indexes, extract *data*, etc.)
 
+- Note that we don't actually have to get detailed information about
+  keys-pressed when observing typed text. Just the timings might be enough.
+
 Defense
 -------
 
