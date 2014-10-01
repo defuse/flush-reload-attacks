@@ -1,6 +1,8 @@
 Other Research (Not A Two-Column Paper)
 =======================================
 
+http://hackaday.io/project/956/log/10108-aes256-is-not-enough-breaking-a-bootloader
+
 TODO: Filter the two-column stuff out of this list.
 TODO: Write a summary for everything in here.
 
