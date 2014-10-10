@@ -1,0 +1,193 @@
+\documentclass{acm_proc_article-sp}
+
+\usepackage{url}
+\usepackage{microtype}
+
+\begin{document}
+
+% Without this, stuff overfills into the margin. TODO: Eventually, rewrite those
+% paragraphs so that they don't.
+\sloppy
+
+\title{Related Work with Two Critiques\titlenote{Submitted October 10, 2014}}
+\subtitle{Side Channel Attacks Against Non-Cryptographic Applications}
+
+\numberofauthors{1}
+
+\author{
+\alignauthor
+Taylor Hornby (Supervised by Dr. John Aycock)\\
+\email{th@defuse.ca}
+}
+
+\maketitle
+
+\begin{abstract}
+This report critiques two papers related to the side-channels in
+non-cryptographic applications project. For each paper, an overview of the
+results, strength, and weaknesses are given.
+
+The two papers are the \textsc{Flush+Reload} attack \cite{yarom2013flush} and
+a paper presenting novel side-channel attacks in web applications
+\cite{chen2010side}.
+
+This report concludes with a list of previous work that is relevant to the
+project.
+\end{abstract}
+
+\section{Side-Channel Leaks in Web Applications}
+
+
+The paper presents a new class of side-channel vulnerabilities in web
+applications. It begins with an abstract model of a web application, and
+demonstrates how the attack works against the abstract model. The authors then
+apply the attack to several popular web applications, referring back to the
+abstract model to explain what is going on. Finally, they discuss defense
+strategies and better development practices.
+
+The attack exploits the fact that web applications are just like normal
+applications, except that they are split into two parts -- the server and the
+client -- with the Internet in between. They show that an attack can observe the
+amount of data flowing between the two parts to infer what state the web
+application is in and what its input is. Because the attacker is only looking at
+the amount of data crossing between the client and the server, the attacks work
+even when the connection is encrypted with SSL or WPA2.
+
+The authors show that the traffic patterns created by using an online health
+website's search feature reliably reveal which medical conditions the user is
+adding to their profile, even though the website is strictly SSL-encrypted. It
+is also shown that the state transitions of a popular tax website reveal the
+user's income range (because different tax rules apply depending on the income).
+They also attack an online investment firm, as well as the Google, Yahoo, and
+Bing search autocomplete.
+
+After presenting evidence for the severity and pervasiveness of the new class of
+vulnerability, the authors begin to consider defenses. They evaluate the obvious
+solution of padding packets to hide their sizes, and show that security
+applications this way would be inefficient. They argue that there is no
+universal fix, and that successful mitigations will have to be
+application-specific. Then they go on to recommend software engineering
+practices to cope with the vulnerability.
+
+\subsection{Strengths}
+
+The paper presents a new class of side-channel attack against web applications.
+This is a significant result, because it shows that common technologies like
+SSL, which we previously assumed to be adequate, are not enough to protect
+privacy in the applications we want to build. The paper makes this statement in
+by showing that several major web applications are vulnerable. The fact that
+such big players in the industry are vulnerable is strong evidence that the
+authors did not have to cherry-pick to find vulnerable applications. So the
+paper successfully convinces the reader that the new vulnerabilities are both
+widespread and represent real threats.
+
+The results are presented in an understandable way, although there are some
+distractions (see the next section). In particular, each concrete attack is
+thoroughly explained, in enough detail that it could be reproduced with a bit of
+work. The examples of attacks given are very broad, from autocomplete to
+inferring the ratios in a pie chart by observing small changes over time. This
+leaves the reader with an impression of how varied this class of vulnerabilities
+is, so that they can begin to look for them in their own applications.
+
+The authors do a good job separating their research from previous work. They
+cite historical examples of side-channel attacks as well as recent research that
+is very similar to their own. Then they clearly state how their research is
+different and better than what came before it. The previous work section is
+almost narrative which makes it easy to read.
+
+\subsection{Weaknesses}
+
+The paper's main weakness is that it does not describe the experimental setup.
+The authors don't say which web browser they did testing with, or what tools
+they used to measure packet sizes. It is unclear whether they actually
+implemented an attack tool and performed attacks as an experiment, or if they
+just observed the application's behavior and argued that an attack would be
+possible. Their demonstration would have been stronger if they mentioned that
+they actually carried out an attack, and stronger still if they had built an
+automated attack tool.
+
+The mathematical modelling is flawed in some minor ways. To argue that web
+objects usually have distinct and recognizable sizes, they look at the mean and
+standard deviation of the sizes of objects they collected from various websites.
+They then note that the standard deviation is large. This is a flawed analysis
+because (1) They do not mention which shape the distribution is. Is it a normal
+distribution? It seems unlikely, since the goal on the web is to make all files
+as small as possible. (2) The standard deviation is a measure of variance from
+the mean. It is not a measure of the variance of each data point from each
+other, which is what the authors intended to measure. So even though their
+conclusions are correct, they don't follow from their reasoning. There are
+reasonable counterexamples to their reasoning. Consider a website with lots of
+small icon images all of similar sizes and lots of high-resolution images, also
+all of similar sizes. The mean would be near the middle, so the standard
+deviation would be large, even though the images don't have distinct and
+recognizable sizes.
+
+This problem is somewhat remedied later on in the paper when they define
+``density'' as a metric that is supposed to correlate with how uniquely
+identifiable different traffic flows are. They define the density, for a set of
+packet sizes $P$ as $density(P) = |P| / (max\{P\} - min\{P\})$. If this value is small, it is
+supposed to indicate that packet sizes are distinct and recognizable. This
+measure has similar problems. If there are a bunch of small packets of the same
+size, and one very large outlier, the difference between the max and the min
+will be large, artificially reducing the density. A better metric would be, for
+a multiset of packet sizes $P$, $density(P) = |P| / |supp(P)|$ where $supp(P)$
+means the set of unique elements in $P$. This is better because it is exactly
+the average amount of ambiguity (number of possibilities for a given size). An
+even better definition would account for noise in the sizes, and count sizes
+near each other as ambiguous even though they are not exactly equal. 
+
+\section{FLUSH+RELOAD}
+
+
+\textsc{Flush+Reload} is a generic L3 cache side-channel attack. Taking
+advantage of executable code page sharing, it allows one process to spy on which
+code another process is running. The authors apply the attack to GnuPG 1.4.13.
+They show how to see which of the square, multiply, and reduce steps of the RSA
+modular exponentiation algorithm are running at any given time. By watching
+which steps are executed, they can extract the secret exponent, since which
+steps are executed depends on the secret exponent.
+
+\subsection{Strengths}
+
+The \textsc{Flush+Reload} attack is more reliable than most other cache-based
+side channel attacks. The authors show that the attack can be used to extract
+``96.7\% of the bits of the secret key by observing a single signature or
+decryption round.'' Therefore this research is significant.
+
+The paper is well-written and describes the attack in detail, using the GnuPG as
+a running example. Prerequisites to understanding the attack, such as
+a description of the Intel cache architecture are included so that the paper is
+readable without having to refer to the Intel manuals.
+
+Another strength is that the authors evaluate \emph{why} the error in their
+measurement exists, concluding that it is partially caused by speculative
+execution and missed time slots. Understanding where the error comes from is
+important in determining how effective the attack will be on busy production
+systems.
+
+\subsection{Weaknesses}
+
+The paper's related work list is lacking. The authors cite the appropriate
+relevant research, but don't do a good job of comparing it and contrasting it to
+the new attack. Some of the attacks are based on very similar ideas, so it's not
+exactly clear if the attack is totally novel or if it is only
+a small-but-effective tweak to past attacks.
+
+The attack implementation is not public. The authors will give you the code if
+you email them. However, reproducing the attack would be much easier if the code
+and reproduction instructions were available and from the time of the paper's
+publication. Reproducibility is commonly missing from computer science research
+\cite{moraila2013measuring}, despite its importance.
+
+\section{Related Work List}
+
+See the bibliography for a list of research that is related to this project.
+Note that the list errs on the side of inclusion.
+
+\nocite{*}
+
+\bibliographystyle{abbrv}
+\bibliography{relwork}
+
+\end{document}
+
