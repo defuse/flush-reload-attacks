@@ -57,6 +57,7 @@ Offense
 - Qubes OS?
 
 - Databases! (Indexes, extract *data*, etc.)
+    - http://patshaughnessy.net/2014/10/13/following-a-select-statement-through-postgres-internals
 
 - Note that we don't actually have to get detailed information about
   keys-pressed when observing typed text. Just the timings might be enough.
