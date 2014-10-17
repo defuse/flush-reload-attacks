@@ -62,6 +62,12 @@ Offense
 - Note that we don't actually have to get detailed information about
   keys-pressed when observing typed text. Just the timings might be enough.
 
+- Run side channels in Bochs to understand precisely why the error arises
+  (you'll have to add caching to bochs because I don't think there is any).
+
+- Can program's be *affected* by side channels? Yes, side channel attack
+  programs are affected by definition. What else? (See note in defense section).
+
 Defense
 -------
 
@@ -74,6 +80,30 @@ Defense
     - What's the performance impact?
 
 - Change the compiler to make programs (or parts of them) immune.
+
+- Side-channel attack programs are likely to have side channels. Detect side
+  channel attacks by watching for *their* side channel signatures?
+
+- Use side-channel signatures to detect attacks on other programs (e.g. program
+  gets ROPed, the ROP payload's side channel sig is very different from the
+  program's). Try doing things to *amplify* the program's usual side-channel
+  signatures (instrumentation), then when those signatures disappear or change
+  (transfer control to attacker), kill it.
+
+- Defending against some classes of side channels can be done by removing *all*
+  programs' abilities to be *affected* by side channels. If no program
+  (including the attack programs) can be affected, then the attack programs will
+  not work.
+
+    - Defend against FLUSH+RELOAD by hooking RDTSC (and other sources of time)
+      and making N of the LSBs zero. This would probably work best in
+      virtualized environments, but could work as an OS-level defense.
+
+    - Some simple CPU modifications (extra state to mask RDSTC) could be a big
+      help.
+
+    - Don't stop the information leakage, just stop the collection of the
+      leakage.
 
 Random Cool Stuff
 -----------------
