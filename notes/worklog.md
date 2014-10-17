@@ -1,3 +1,20 @@
+Friday, October 17, 2014
+---------------------------------
+
+Hours: 2
+
+- Brainstorm session about side channels and weird machines.
+
+September 25 - October 16
+--------------------------
+
+Hours: 8
+
+- Work on assignment 2 (reference list with critiques), about 8 hours total.
+    - This involved reading some papers.
+- Regular meetings with John.
+- Sorry for bad record keeping!
+
 Wednesday, September 24, 2014
 ---------------------------------
 
