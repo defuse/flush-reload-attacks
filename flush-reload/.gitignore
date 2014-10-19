@@ -1,0 +1,4 @@
+config.o
+mem.o
+spy
+spy.o
