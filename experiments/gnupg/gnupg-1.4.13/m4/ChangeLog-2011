@@ -1,0 +1,262 @@
+2011-12-02  Werner Koch  <wk@g10code.com>
+
+	NB: ChangeLog files are no longer manually maintained.  Starting
+	on December 1st, 2011 we put change information only in the GIT
+	commit log, and generate a top-level ChangeLog file from logs at
+	"make dist".  See doc/HACKING for details.
+
+2011-08-09  Werner Koch  <wk@g10code.com>
+
+	* libcurl.m4: s/ifelse/m4_if/.
+
+2009-07-21  Werner Koch  <wk@g10code.com>
+
+	* estream.m4: New.  Taken from libestream.
+
+2007-12-17  Werner Koch  <wk@g10code.com>
+
+	* ldap.m4: Test for ldap_start_tls_sA.
+
+2007-10-23  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* gettext.m4: Upgrade to gettext-0.16.1.
+	* iconv.m4: Upgrade to gettext-0.16.1.
+	* lib-ld.m4: Upgrade to gettext-0.16.1.
+	* lib-link.m4: Upgrade to gettext-0.16.1.
+	* lib-prefix.m4: Upgrade to gettext-0.16.1.
+	* nls.m4: Upgrade to gettext-0.16.1.
+	* po.m4: Upgrade to gettext-0.16.1.
+	* progtest.m4: Upgrade to gettext-0.16.1.
+	* codeset.m4: Upgrade to gettext-0.16.1.
+	* glibc2.m4: New file, from gettext-0.16.1.
+	* glibc21.m4: Upgrade to gettext-0.16.1.
+	* intdiv0.m4: Upgrade to gettext-0.16.1.
+	* intl.m4: New file, from gettext-0.16.1.
+	* intldir.m4: New file, from gettext-0.16.1.
+	* intmax.m4: Upgrade to gettext-0.16.1.
+	* inttypes_h.m4: Upgrade to gettext-0.16.1.
+	* inttypes-pri.m4: Upgrade to gettext-0.16.1.
+	* lcmessage.m4: Upgrade to gettext-0.16.1.
+	* lock.m4: New file, from gettext-0.16.1.
+	* longdouble.m4: Upgrade to gettext-0.16.1.
+	* longlong.m4: Upgrade to gettext-0.16.1.
+	* printf-posix.m4: Upgrade to gettext-0.16.1.
+	* size_max.m4: Upgrade to gettext-0.16.1.
+	* stdint_h.m4: Upgrade to gettext-0.16.1.
+	* uintmax_t.m4: Upgrade to gettext-0.16.1.
+	* ulonglong.m4: Upgrade to gettext-0.16.1.
+	* visibility.m4: New file, from gettext-0.16.1.
+	* wchar_t.m4: Upgrade to gettext-0.16.1.
+	* wint_t.m4: Upgrade to gettext-0.16.1.
+	* xsize.m4: Upgrade to gettext-0.16.1.
+	* Makefile.am (EXTRA_DIST): Add the new files.
+
+2007-08-02  David Shaw  <dshaw@jabberwocky.com>
+
+	* ldap.m4: Revert the mozldap change: mozldap has some significant
+	differences around TLS compared to OpenLDAP, and will segfault (!)
+	if the NSS library is not initialized first.  Nothing impossible
+	to do, but I think I'll wait until someone actually asks us for
+	mozldap support.
+
+2007-07-27  David Shaw  <dshaw@jabberwocky.com>
+
+	* ldap.m4: If we don't find ldap or winldap, try for mozldap.
+
+2007-01-16  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Check for curl_easy_escape() and
+	curl_easy_unescape().  Replace with curl_escape() and
+	curl_unescape() if libcurl doesn't have it.
+
+2006-10-02  Werner Koch  <wk@g10code.com>
+
+	* autobuild.m4: New.
+
+2006-07-12  David Shaw  <dshaw@jabberwocky.com>
+
+	* tar-ustar.m4: Use dd instead of strings as it's more likely to
+	be around.  Suggested by Nelson H. F. Beebe.
+
+2006-07-11  David Shaw  <dshaw@jabberwocky.com>
+
+	* tar-ustar.m4: Not all greps know the -q (quiet) flag, so
+	redirect to /dev/null instead.
+
+	* tar-ustar.m4: Pass tar data through strings so that greps that
+	don't grep in binary files (Solaris) can detect the string.  Noted
+	by Mark Davies.
+
+2006-06-25  Werner Koch  <wk@g10code.com>
+
+	* Makefile.am: Added noexecstack.m4 and ldap.m4
+
+2006-05-22  Marcus Brinkmann  <marcus@g10code.de>
+
+	* noexecstack.m4: New file.
+
+2006-05-09  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Fix mistaken AC_SUBST when curl is not found.
+
+2006-01-17  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Add IDN, SSPI, NTLM, and TFTP defines.
+
+2006-01-16  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Remove GOPHER, as that is not supported in libcurl
+	any longer.
+
+2005-11-05  David Shaw  <dshaw@jabberwocky.com>
+
+	* libusb.m4: Check for libusb-config and if we find it, use --libs
+	and --cflags.  This is needed for OS X since libusb brings in
+	dependencies to various Apple libraries.
+
+2005-10-21  David Shaw  <dshaw@jabberwocky.com>
+
+	* readline.m4: Check for rl_completion_func_t and
+	rl_completion_matches.
+
+2005-08-05  David Shaw  <dshaw@jabberwocky.com>
+
+	* ldap.m4: If a PATH is given to --with-ldap, bias directory
+	search towards the given path for includes and libraries.  Noted
+	by Jason Harris.
+
+	* Makefile.am: Distribute tar-ustar.m4.
+
+	* libcurl.m4: If a PATH is given to --with-libcurl, look for
+	curl-config in that path.  Bias directory search towards the given
+	path for includes and libraries.
+
+2005-08-04  David Shaw  <dshaw@jabberwocky.com>
+
+	* tar-ustar.m4: New.  Check for a tar that creates USTAR format
+	tar files.
+
+2005-07-20  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Check that our libcurl has
+	curl_version_info(CURLINFO_NOW).
+
+2005-06-22  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Only do the OS X linker fix on Panther.  Tiger has a
+	clean curl-config.
+
+2005-04-24  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Add a check for curl_free() since older versions of
+	libcurl don't have it.  Substitute free() as an alternative.
+
+2005-03-21  David Shaw  <dshaw@jabberwocky.com>
+
+	* readline.m4: Check for completion functionality.
+
+	* ldap.m4: Comments.
+
+2005-03-16  David Shaw  <dshaw@jabberwocky.com>
+
+	* ldap.m4: New.  Moved from configure.ac.
+
+2005-02-28  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Use $LIBS instead of $LDFLAGS.  This should help
+	build problems on Mingw32.
+
+2005-02-03  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: More comments.
+
+2005-01-24  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: All versions of curl-config support --feature.
+
+2005-01-22  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Note that FTPS existed, but wasn't fully
+	standards-compliant until version 7.11.0.
+
+2005-01-17  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Use LIBCURL_CPPFLAGS and not LIBCURL_INCLUDES to
+	match automake syntax.
+
+2005-01-03  David Shaw  <dshaw@jabberwocky.com>
+
+	* Makefile.am, libusb.m4: New libusb check macro.
+
+2004-12-24  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Rewrite this to use the new --protocols flag I gave
+	to the libcurl people.
+
+	* Makefile.am: Add readline.m4 and libcurl.m4.
+
+2004-12-23  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: OSX has a problem with their curl-config script.
+
+	* readline.m4: Make sure that readline is modern enough to
+	understand rl_catch_signals.
+
+	* libcurl.m4: Don't require curl-config to be present since it
+	seems some binary packages don't include it.  Allow users to
+	specify LIBCURL and LIBCURL_INCLUDES for us.
+
+2004-12-22  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: Be much more strict with libcurl by trying to
+	compile and link a test program that uses the features that we
+	need.
+
+2004-12-21  David Shaw  <dshaw@jabberwocky.com>
+
+	* libcurl.m4: New.
+
+2004-12-18  David Shaw  <dshaw@jabberwocky.com>
+
+	* readline.m4: New.
+
+2004-07-27  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* gettext.m4: Upgrade to gettext-0.14.1.
+	* intmax.m4: New file, from gettext-0.14.1.
+	* lib-ld.m4: Upgrade to gettext-0.14.1.
+	* lib-prefix.m4: Upgrade to gettext-0.14.1.
+	* longdouble.m4: New file, from gettext-0.14.1.
+	* longlong.m4: New file, from gettext-0.14.1.
+	* po.m4: Upgrade to gettext-0.14.1.
+	* printf-posix.m4: New file, from gettext-0.14.1.
+	* signed.m4: New file, from gettext-0.14.1.
+	* size_max.m4: New file, from gettext-0.14.1.
+	* ulonglong.m4: Upgrade to gettext-0.14.1.
+	* wchar_t.m4: New file, from gettext-0.14.1.
+	* wint_t.m4: New file, from gettext-0.14.1.
+	* xsize.m4: New file, from gettext-0.14.1.
+	* Makefile.am (EXTRA_DIST): Add the new files.
+
+2003-10-25  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* codeset.m4: New file, from gettext-0.12.1.
+	* gettext.m4: New file, from gettext-0.12.1.
+	* glibc21.m4: New file, from gettext-0.12.1.
+	* iconv.m4: New file, from gettext-0.12.1.
+	* intdiv0.m4: New file, from gettext-0.12.1.
+	* inttypes.m4: New file, from gettext-0.12.1.
+	* inttypes_h.m4: New file, from gettext-0.12.1.
+	* inttypes-pri.m4: New file, from gettext-0.12.1.
+	* isc-posix.m4: New file, from gettext-0.12.1.
+	* lcmessage.m4: New file, from gettext-0.12.1.
+	* lib-ld.m4: New file, from gettext-0.12.1.
+	* lib-link.m4: New file, from gettext-0.12.1.
+	* lib-prefix.m4: New file, from gettext-0.12.1.
+	* nls.m4: New file, from gettext-0.12.1.
+	* po.m4: New file, from gettext-0.12.1.
+	* progtest.m4: New file, from gettext-0.12.1.
+	* stdint_h.m4: New file, from gettext-0.12.1.
+	* uintmax_t.m4: New file, from gettext-0.12.1.
+	* ulonglong.m4: New file, from gettext-0.12.1.
+	* Makefile.am: New file.

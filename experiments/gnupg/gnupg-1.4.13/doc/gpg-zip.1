@@ -1,0 +1,136 @@
+.\" Created from Texinfo source by yat2m 1.0
+.TH GPG-ZIP 1 2011-02-23 "GnuPG 1.4" "GNU Privacy Guard"
+.SH NAME
+.B gpg-zip \- Encrypt or sign files into an archive
+.SH SYNOPSIS
+.B  gpg-zip
+.RI [ options ]
+.I filename1
+.I [ filename2, ... ]
+.I directory1
+.I [ directory2, ... ]
+
+.SH DESCRIPTION
+\fBgpg-zip\fR encrypts or signs files into an archive.  It is an
+gpg-ized tar using the same format as used by PGP's PGP Zip.
+
+.SH OPTIONS
+
+\fBgpg-zip\fR understands these options:
+
+
+.TP
+.B  --encrypt
+.TP
+.B  -e
+Encrypt data.  This option may be combined with \fB--symmetric\fR (for  output that may be decrypted via a secret key or a passphrase).
+
+.TP
+.B  --decrypt
+.TP
+.B  -d
+Decrypt data.
+
+.TP
+.B  --symmetric
+.TP
+.B  -c
+Encrypt with a symmetric cipher using a passphrase.  The default
+symmetric cipher used is CAST5, but may be chosen with the
+\fB--cipher-algo\fR option to \fBgpg\fR.
+
+.TP
+.B  --sign
+.TP
+.B  -s
+Make a signature.  See \fBgpg\fR.
+
+.TP
+.B  --recipient \fIuser\fR
+.TP
+.B  -r \fIuser\fR
+Encrypt for user id \fIuser\fR. See \fBgpg\fR.
+
+.TP
+.B  --local-user \fIuser\fR
+.TP
+.B  -u \fIuser\fR
+Use \fIuser\fR as the key to sign with.  See \fBgpg\fR.
+
+.TP
+.B  --list-archive
+List the contents of the specified archive.
+
+.TP
+.B  --output \fIfile\fR
+.TP
+.B  -o \fIfile\fR
+Write output to specified file \fIfile\fR.
+
+.TP
+.B  --gpg \fIgpgcmd\fR
+Use the specified command \fIgpgcmd\fR instead of \fBgpg\fR.
+
+.TP
+.B  --gpg-args \fIargs\fR
+Pass the specified options to \fBgpg\fR.
+
+.TP
+.B  --tar \fItarcmd\fR
+Use the specified command \fItarcmd\fR instead of \fBtar\fR.
+
+.TP
+.B  --tar-args \fIargs\fR
+Pass the specified options to \fBtar\fR.
+
+.TP
+.B  --version
+Print version of the program and exit.
+
+.TP
+.B  --help
+Display a brief help page and exit.
+
+
+.SH EXAMPLES
+
+Encrypt the contents of directory \(oq\fImydocs\fR\(cq for user Bob to file
+\(oq\fItest1\fR\(cq:
+
+.RS 2
+.nf
+gpg-zip --encrypt --output test1 --gpg-args  -r Bob mydocs
+.fi
+.RE
+
+
+List the contents of archive \(oq\fItest1\fR\(cq:
+
+.RS 2
+.nf
+gpg-zip --list-archive test1
+.fi
+.RE
+
+
+.SH DIAGNOSTICS
+
+The program returns 0 if everything was fine, 1 otherwise.
+
+
+.SH SEE ALSO
+\fBgpg\fR(1),
+\fBtar\fR(1),
+
+The full documentation for this tool is maintained as a Texinfo manual.
+If GnuPG and the info program are properly installed at your site, the
+command
+
+.RS 2
+.nf
+info gnupg
+.fi
+.RE
+
+should give you access to the complete manual including a menu structure
+and an index.

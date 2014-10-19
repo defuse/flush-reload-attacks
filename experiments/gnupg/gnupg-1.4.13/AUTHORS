@@ -1,0 +1,167 @@
+Program: GnuPG
+Version: 1.4
+Maintainer:  Werner Koch <wk@gnupg.org>
+Bug reports: http://bugs.gnupg.org
+Security related bug reports: <security@gnupg.org>
+License: GPLv3+
+
+
+Authors
+=======
+
+Ales Nyakhaychyk <nyakhaychyk@i1fn.linux.by> Translations [be]
+
+Birger Langkjer <birger.langkjer@image.dk> Translations [da]
+
+Maxim Britov <maxbritov@tut.by> Translations [ru]
+
+Daniel Resare  <daniel@resare.com> Translations [sv]
+Per Tunedal    <per@clipanish.com> Translations [sv]
+Daniel Nylander <po@danielnylander.se> [sv]
+
+David Shaw <dshaw@jabberwocky.com> Assigns past and future changes.
+    (all in keyserver/,
+     a lot of changes in g10/ see the ChangeLog,
+     bug fixes here and there)
+
+Dokianakis Theofanis <madf@hellug.gr> Translations [el]
+
+Edmund GRIMLEY EVANS <edmundo@rano.org> Translations [eo]
+
+Florian Weimer	<fw@deneb.enyo.de>  Assigns past and future changes
+    (changed:g10/parse-packet.c, include/iobuf.h, util/iobuf.c)
+
+Gaël Quéri  <gael@lautre.net>  Translations [fr]
+    (fixed a lot of typos)
+
+Gregory Steuck <steuck@iname.com> Translations [ru]
+
+Nagy Ferenc László <nfl@nfllab.com> Translations [hu]
+
+Ivar Snaaijer <Ivar@Snaaijer.nl>  Translations [nl]
+
+Ivo Timmermans <itimmermans@bigfoot.com> Translations [nl]
+
+Jacobo Tarri'o Barreiro <jtarrio@iname.com> Translations [gl]
+
+Jakub Bogusz <qboosh at pld-linux dot org> Translations [pl]
+
+Janusz Aleksander Urbanowicz <alex@bofh.torun.pl> Translations [pl]
+
+Jedi Lin <Jedi@idej.org> Translations [zh-tw]
+
+Jouni Hiltunen <jouni.hiltunen@kolumbus.fi> Translations [fi]
+Tommi Vainikainen <Tommi.Vainikainen@iki.fi> Translations [fi]
+
+Laurentiu Buzdugan <lbgnupg@rolix.org> Translations [ro]
+
+Magda Procha'zkova'  <magda@math.muni.cz> Translations [cs]
+
+Meng Jie <zuxyhere@eastday.com> Translations [zh_CN]
+
+Michael Roth  <mroth@nessie.de>  Assigns changes.
+    (wrote cipher/des.c., changes and bug fixes all over the place)
+
+Michal Majer <mmajer@econ.umb.sk> Translations [sk]
+
+Marco d'Itri <md@linux.it> Translations [it]
+
+Matthew Skala <mskala@ansuz.sooke.bc.ca>  Disclaimer
+    (wrote cipher/twofish.c)
+
+Niklas Hernaeus <nh@df.lth.se> Disclaimer
+    (weak key patches)
+
+Nilgun Belma Buguner <nilgun@technologist.com> Translations [tr]
+
+Nils Ellmenreich  <nils 'at' infosun.fmi.uni-passau.de>
+                                      Assigns past and future changes
+    (configure.in, cipher/rndlinux.c, FAQ)
+
+Paul Eggert <eggert@twinsun.com>
+    (configuration macros for LFS)
+
+Pavel I. Shajdo <pshajdo@gmail.com> Translations [ru]
+    (man pages)
+
+Pedro Morais <morais@poli.org> Translations [pt_PT]
+
+Rémi Guyomarch	<rguyom@mail.dotcom.fr> Assigns past and future changes.
+    (g10/compress.c, g10/encr-data.c,
+     g10/free-packet.c, g10/mdfilter.c, g10/plaintext.c, util/iobuf.c)
+
+Stefan Bellon   <sbellon@sbellon.de> Assigns past and future changes.
+   (All patches to support RISC OS)
+
+Timo Schulz     <twoaday@freakmail.de> Assigns past and future changes.
+   (util/w32reg.c, g10/passphrase.c, g10/hkp.c)
+
+Tedi Heriyanto	<tedi_h@gmx.net> Translations [id]
+
+Thiago Jung Bauermann <jungmann@cwb.matrix.com.br> Translations [pt_BR]
+Rafael Caetano dos Santos <rcaetano@linux.ime.usp.br> Translations [pt_BR]
+
+Toomas Soome <tsoome@ut.ee> Translations [et]
+
+Trond Endrestøl <Trond.Endrestol@fagskolen.gjovik.no> Translations [nb]
+
+Urko Lusa <ulusa@euskalnet.net> Translations [es]
+Jaime Sua'rez <jjsuarez@iname.com> Translations [es]
+
+Walter Koch <koch@u32.de>  Translations [de]
+
+Werner Koch  <wk@gnupg.org>  Assigns GNU Privacy Guard and future changes.
+    (started the whole thing)
+
+Yosiaki IIDA <iida@ring.gr.jp> Translations [ja]
+
+Yuri Chornoivan, yurchor at ukr dot net: Translations [uk]
+
+
+
+Other authors
+=============
+
+The need for copyright disclaimers for translations has been waived in
+December 2012.
+
+This program uses the zlib compression library written by
+Jean-loup Gailly and Mark Adler.
+
+Most of the stuff in mpi has been taken from the GMP library by
+Torbjorn Granlund <tege@noisy.tmg.se>.
+
+The Rijndael implementation (cipher/rijndael.c) is based on the
+public domain reference code provided for the AES selection process.
+The Rijndael algorithm is due to Joan Daemen and Vincent Rijmen.
+
+The files cipher/rndunix.c and cipher/rndw32.c are based on rndunix.c
+and rndwin32.c from cryptlib.
+Copyright Peter Gutmann, Paul Kendall, and Chris Wedgwood 1996-1999.
+
+The code to help with the VMS port (indicated by __VMS and
+corresponding Changelog entries) was contributed by Steven M. Schweda.
+<sms at antinode dot info>.
+
+The RPM specs file scripts/gnupg.spec has been contributed by
+several people.
+
+The files below scripts/conf-w32brg/ is a contribution to GnuPG by
+Brian Gladman and not to be considered a proper part of GnuPG.
+
+When building for W32, this program uses the included bzip2 code which
+was written by 1996-2010 Julian R Seward.  See bzip/LICENSE for
+details.
+
+
+ Copyright 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007,
+           2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+
+ This file is free software; as a special exception the author gives
+ unlimited permission to copy and/or distribute it, with or without
+ modifications, as long as this notice is preserved.
+
+ This file is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+ implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+

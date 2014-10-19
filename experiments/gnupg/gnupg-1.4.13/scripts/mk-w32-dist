@@ -1,0 +1,279 @@
+#!/bin/sh
+#
+# Copyright (C) 2000, 2001, 2002, 2004, 2005,
+#               2012 Free Software Foundation, Inc.
+#
+# This file is free software; as a special exception the author gives
+# unlimited permission to copy and/or distribute it, with or without
+# modifications, as long as this notice is preserved.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+set -e
+
+PGM="mk-w32-dist"
+[ -z "$w32root" ] && w32root="$HOME/w32root"
+
+# Windows uses an internal build number.  We use the last day of the
+# year concatenated with the hour. for it.  If it happens that a new
+# release of the same version is to be made in the next year, the
+# build number must be given manually by adding the appropriate number
+# of days.
+if [ "$1" = "--build-number" -a -n "$2" ]; then
+   build_number="$2"
+   shift
+   shift
+else
+   build_number=$(date -u '+%j%H' | sed 's/^0*\(.*\)/\1/')
+fi
+
+if [ "$1" = "--iconv-dir" -a -n "$2" ]; then
+   iconvdir="$2"
+   shift
+   shift
+else
+   iconvdir="${w32root}/share/gnupg-1-extra/iconv"
+fi
+
+if [ $# -lt 1 -o $# -gt 2 -o "$1" = "--help" ]; then
+   echo "usage: $PGM [options] TARBALL [PATCHFILE]" >&2
+   echo "       Options:" >&2
+   echo "         --build-number N    Windows build number" >&2
+   echo "         --iconv-dir DIR     Directory with inconv files" >&2
+   exit 1
+fi
+
+
+if [ ! -d "$iconvdir" ]; then
+   echo "$PGM: iconv directory does not exists (use option --iconv-dir)" >&2
+   exit 1
+fi
+( set +e
+  cd "${iconvdir}"
+  cat <<EOF | sha1sum -c >/dev/null
+44f7289042b71631acac29b2f143330d2da2479e  COPYING.LIB
+3f4262714a3b508cf20428f046d511f7bfb9fd89  README.iconv
+a21c860b81ed158e91b2b921b752f48fda6d6f1e  iconv.dll
+EOF
+  if [ $? != 0 ]; then
+    echo "$PGM: iconv files are not available or not correct" >&2
+    exit 1
+  fi
+  set -e
+)
+
+here="$(pwd)"
+builddir=w32-build-root
+tarball="$1"
+patchfile="$2"
+
+if [ ! -f "$tarball" ]; then
+    echo "$PGM: tarball does not exist" >&2
+    exit 1
+fi
+[ "$(echo "$tarball" | head -c 1)" != "/" ] && tarball="$(pwd)/$tarball"
+
+if [ -n "$patchfile" -a ! -f "$patchfile" ]; then
+    echo "$PGM: patchfile does not exist" >&2
+    exit 1
+fi
+
+if ! makensis -version >/dev/null 2>&1 ; then
+    echo "$PGM: error: makensis is not installed" >&2
+    exit 1
+fi
+
+
+if i686-w64-mingw32-strip --version >/dev/null 2>&1 ; then
+   STRIP=i686-w64-mingw32-strip
+elif i586-mingw32msvc-strip --version >/dev/null 2>&1 ; then
+   STRIP=i586-mingw32msvc-strip
+else
+   echo "$PGM: error: strip tool not found" >&2
+   exit 1
+fi
+
+echo "tarball: $tarball" >&2
+version="$(echo "$tarball" | sed 's,.*/gnupg-\(.*\)\.tar\.gz$,\1,')"
+prod_version=$(echo "$version"|awk -F'[^0-9]' '{print $1 "." $2 "." $3 }')
+prod_version="${prod_version}.${build_number}"
+echo "version: $version ($prod_version)" >&2
+
+[ -n "$patchfile" ] && echo "patchfile: $patchfile" >&2
+echo "workdir: $builddir" >&2
+
+echo "preparing work directory ..." >&2
+[ -d "$builddir" ] && rm -rf "$builddir"
+mkdir "$builddir"
+cd "$builddir"
+mkdir dist-w32
+
+echo "unpacking tarball ..." >&2
+tar xzf "$tarball"
+cd gnupg-"$version"
+
+if [ -n "$patchfile" ]; then
+  echo "applying patchfile ..." >&2
+  patch -p1 -t < "$patchfile"
+fi
+
+echo "running configure ..." >&2
+./autogen.sh --build-w32 --silent
+
+echo "running make ..." >&2
+make -s
+
+
+cd ../dist-w32
+srcdir="../gnupg-$version"
+bindir="../gnupg-$version"
+
+
+# A function to return a plain ASCII (or Latin-1) encoded description
+# text for a language identifier.  We need this to display the list of
+# available languages in the installer.  NSIS does not support utf-8
+# so we need to standardize on one character set.  Note that this
+# script itself is written in utf-8 but the resulting file will get
+# converted to Latin-1
+get_langname () {
+    case "$1" in
+        be)    r="Belarusian"; ;;
+        ca)    r="Català"; ;;
+        cs)    r="Cesky"; ;;
+        da)    r="Danish"; ;;
+        de)    r="Deutsch"; ;;
+        el)    r="Greek"; ;;
+        en|en@*)  r="English"; ;;
+        eo)    r="Esperanto"; ;;
+        es)    r="Español"; ;;
+        et)    r="Eesti keel"; ;;
+        fi)    r="Suomi"; ;;
+        fr)    r="Français"; ;;
+        gl)    r="Galician"; ;;
+        hu)    r="Magyar"; ;;
+        id)    r="Indonesian"; ;;
+        it)    r="Italiano"; ;;
+        ja)    r="Japanese"; ;;
+        pl)    r="Polski"; ;;
+        pt)    r="Português"; ;;
+        pt_BR) r="Português (do Brasil)"; ;;
+        ro)    r="Romana"; ;;
+        ru)    r="Russian"; ;;
+        sk)    r="Slovensky"; ;;
+        sv)    r="Svenska"; ;;
+        tr)    r="Türkçe"; ;;
+        uk)    r="Ukrainian"; ;;
+        zh_CN) r="Chinese (simplified)"; ;;
+        zh_TW) r="Chinese (traditional)"; ;;
+
+        *) r="" ;;
+    esac
+    echo "$r"
+}
+
+echo "copying files ..." >&2
+cp ${bindir}/g10/gpg.exe gpg.exe
+$STRIP gpg.exe
+cp ${bindir}/g10/gpgv.exe gpgv.exe
+$STRIP gpgv.exe
+for name in hkp curl ldap finger; do
+  cp ${bindir}/keyserver/gpgkeys_$name.exe gpgkeys_$name.exe
+  $STRIP gpgkeys_$name.exe
+done
+cp ${bindir}/tools/gpgsplit.exe gpgsplit.exe
+$STRIP gpgsplit.exe
+
+man -Tlatin1 -l ${srcdir}/doc/gpg.1 | sed `printf "s/_\b//g;s/\b.//g"`  >gpg.man
+todos gpg.man
+man -Tlatin1 -l ${srcdir}/doc/gpgv.1 | sed `printf "s/_\b//g;s/\b.//g"`  >gpgv.man
+todos gpgv.man
+man -Tlatin1 -l ${srcdir}/doc/gnupg.7 | sed `printf "s/_\b//g;s/\b.//g"`  >gnupg.man
+todos gnupg.man
+for i in README COPYING NEWS; do
+  cp ${srcdir}/$i $i.txt
+  todos $i.txt
+done
+
+cp ${srcdir}/doc/README.W32 README-W32.txt
+todos README-W32.txt
+
+if [ -n "$patchfile" ]; then
+  echo "copying patch file ..." >&2
+  cp $patchfile patches.diff
+  patches_defs="-DWITH_PATCHES"
+fi
+
+
+echo "converting MO files ..." >&2
+# We must distribute the MO files in UTF-8, the conversion is done by
+# gpg at runtime.  To include English at the right position in the list we
+# need a special case.
+langlist=""
+langdesclist=""
+for i in `(ls ${srcdir}/po/*.po; echo ${srcdir}/po/en.po) | sort`; do
+   lang=$(basename $i .po)
+   if [ $lang != "en" ]; then
+       grep -s $lang ${srcdir}/po/LINGUAS >/dev/null || continue
+       [ -f$lang.mo -a $lang.mo -nt $i ] && continue
+
+       fromset=`sed -n '/^"Content-Type:/ s/.*charset=\([a-zA-Z0-9_-]*\).*/\1/p' $i`
+       case "$fromset" in
+         utf8|utf-8|UTF8|UTF-8)
+           echo "$lang: keeping $fromset" >&2
+           msgfmt --output-file=$lang.mo $i
+           ;;
+         *)
+           echo "$lang: converting from $fromset to utf-8" >&2
+           iconv --silent --from-code=$fromset --to-code=utf-8 < $i | \
+             sed "/^\"Content-Type:/ s/charset=[a-zA-Z0-9_-]*/charset=utf-8/"|\
+             msgfmt --output-file=$lang.mo -
+           ;;
+       esac
+   fi
+   langlist="$langlist $lang"
+   langname="`get_langname $lang`"
+   [ -n "$langdesclist" ] && langdesclist="${langdesclist}|"
+   langdesclist="${langdesclist}${lang} - ${langname}"
+done
+
+
+# Create the option file for use with the NSIS installer.
+cat <<EOF | iconv --silent --from-code=utf-8 --to-code=latin1 >opt.ini
+[Settings]
+NumFields=1
+
+[Field 1]
+Type=DropList
+Left=0
+Right=130
+Top=20
+Bottom=100
+ListItems="$langdesclist"
+EOF
+
+
+src_defs=
+buildinfo="`date -u '+%Y-%m-%d %H:%M UTC'`"
+
+echo "copying iconv ..." >&2
+cp "${iconvdir}/iconv.dll" iconv.dll
+for i in COPYING.LIB README.iconv; do
+   cp ${iconvdir}/$i $i.txt
+   todos $i.txt
+done
+
+# Now run the installer
+echo "invoking installer as:"
+echo makensis -v0  -nocd -DVERSION="${version}" \
+         -DPROD_VERSION="${prod_version}" \
+         -DGNUPG_SRCDIR="${srcdir}" ${winpt_defs} ${src_defs} \
+         ${patches_defs} ${srcdir}/scripts/w32installer.nsi
+BUILDINFO=$buildinfo makensis -v0 -nocd -DVERSION="${version}" \
+         -DPROD_VERSION="${prod_version}" \
+         -DGNUPG_SRCDIR="${srcdir}" ${winpt_defs} ${src_defs} \
+         ${patches_defs} ${srcdir}/scripts/w32installer.nsi
+mv gnupg-w32cli-${version}.exe "${here}"/
+cd "${here}"
+echo "gnupg-w32cli-${version}.exe ready." >&2
