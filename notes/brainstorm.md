@@ -68,6 +68,10 @@ Offense
 - Can program's be *affected* by side channels? Yes, side channel attack
   programs are affected by definition. What else? (See note in defense section).
 
+- Is it possible to attach FLUSH+RELOAD to a *lot* of things, like libc, or
+  a lot of different executables at the same time? So we just collect one
+  massive data set, exfiltrate it, then analyse it offline?
+
 Defense
 -------
 
