@@ -1,3 +1,20 @@
+Sunday, October 19, 2014
+---------------------------------
+
+Hours: 6
+
+- Got flush+reload working against GnuPG 1.4.13.
+    - Not the full attack, just saw the square, multiply, reduce.
+- Thinking about experiment setup.
+- Designing the experiment setup.
+
+Saturday, October 18, 2014
+---------------------------------
+
+Hours: 0
+
+- Nothing
+
 Friday, October 17, 2014
 ---------------------------------
 
