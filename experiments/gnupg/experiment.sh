@@ -24,7 +24,7 @@ SPY_PID=$!
 # Wait for the spy to get started.
 sleep 2
 
-GNUPGHOME=./dot-gnupg
+export GNUPGHOME=./dot-gnupg
 
 status "Running a GnuPG decryption"
 $GPG_DIR/g10/gpg -d ./testfiles/hello.txt.gpg 2>$OUTPUT_DIR/gpg.err 1>$OUTPUT_DIR/gpg.out
