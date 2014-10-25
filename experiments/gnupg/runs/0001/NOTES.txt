@@ -1,0 +1,5 @@
+Experiment Notes
+-----------------
+Date: Sat Oct 25 15:04:16 MDT 2014
+
+Ran to test the --keep switch and add this folder to git.
