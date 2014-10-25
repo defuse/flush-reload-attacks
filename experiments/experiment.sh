@@ -39,6 +39,10 @@ status "Copying input."
 mkdir $THIS_RUN/input
 rsync -a ./ $THIS_RUN/input --exclude runs --exclude testrun
 
+# Save the helper scripts, so that it's possible to know exactly what happened.
+mkdir $THIS_RUN/helpers
+cp $OUR_DIR/*.sh $THIS_RUN/helpers/
+
 # Give the experiment script a place to put its own additional input.
 mkdir $THIS_RUN/extra_input
 EXTRA_INPUT=$THIS_RUN/extra_input
