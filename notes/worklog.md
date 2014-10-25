@@ -1,3 +1,12 @@
+Saturday, October 25, 2014
+---------------------------------
+
+Hours: 2
+
+- Finished implementing experiment run scripts.
+- Converted the hello experiment over to the new format.
+- Properly added the GnuPG experiment.
+
 Sunday, October 19, 2014
 ---------------------------------
 
