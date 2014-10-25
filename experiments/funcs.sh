@@ -27,3 +27,10 @@ function save_secondary_input {
     git rev-parse HEAD > $2/revision.txt
     git ls-files --others --exclude-standard $1 > $2/untracked.txt
 }
+
+function ensure_spy_not_running {
+    if [ "$(pidof spy)" ]; then
+        negative "Spy process is already running. Kill it first!"
+        exp_failed
+    fi
+}

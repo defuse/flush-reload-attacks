@@ -6,6 +6,8 @@
 source ../funcs.sh
 trap 'exp_failed' ERR
 
+ensure_spy_not_running
+
 # Leaves the ouput directory in $OUTPUT_DIR.
 source ../experiment.sh
 

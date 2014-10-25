@@ -3,3 +3,7 @@ Experiment Notes
 Date: Sat Oct 25 15:04:16 MDT 2014
 
 Ran to test the --keep switch and add this folder to git.
+
+The reason the spy didn't work is because there were already spy processes
+running, trampling on each other. To avoid this in the future, I added a check
+in the experiment scripts to make sure it is not running.
