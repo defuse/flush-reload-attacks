@@ -1,9 +1,7 @@
 hello: hello.c
 	gcc -std=c99 hello.c -o hello
 
-experiment: hello
-	./experiment.sh
-
+.PHONY: clean
 clean:
-	rm hello
+	rm -f hello
 
