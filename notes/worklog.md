@@ -1,11 +1,13 @@
 Saturday, October 25, 2014
 ---------------------------------
 
-Hours: 2
+Hours: 3
 
 - Finished implementing experiment run scripts.
 - Converted the hello experiment over to the new format.
 - Properly added the GnuPG experiment.
+- Fix GnuPG experiment
+- Improve systeminfo.sh with better format and compiler information.
 
 Sunday, October 19, 2014
 ---------------------------------
