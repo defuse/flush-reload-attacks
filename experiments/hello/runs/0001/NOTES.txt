@@ -1,0 +1,6 @@
+Experiment Notes
+-----------------
+Date: Sat Oct 25 14:07:32 MDT 2014
+
+Ran this experiment to test the experiment scripts.
+
