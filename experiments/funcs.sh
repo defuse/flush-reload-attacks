@@ -22,3 +22,8 @@ function exp_failed {
     exit 1
 }
 
+function save_secondary_input {
+    git diff $1 > $2/changes.diff
+    git rev-parse HEAD > $2/revision.txt
+    git ls-files --others --exclude-standard $1 > $2/untracked.txt
+}

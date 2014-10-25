@@ -14,6 +14,8 @@ source ../experiment.sh
 
 cp ../../flush-reload/spy $EXTRA_INPUT/spy
 cp $GPG_DIR/g10/gpg $EXTRA_INPUT/gpg
+mkdir "$EXTRA_INPUT/source"
+save_secondary_input "$GPG_DIR" "$EXTRA_INPUT/source"
 
 status "Starting the spy process."
 ../../flush-reload/spy mygpg.conf > $OUTPUT_DIR/spy.output &
