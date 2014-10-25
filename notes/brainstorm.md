@@ -109,6 +109,11 @@ Defense
     - Don't stop the information leakage, just stop the collection of the
       leakage.
 
+- When the spy process is already running, running it again fails. This leads to
+  the idea for a defense: Have a program, running all the time, that just
+  accesses all process' memory in random orders to throw off the spy (critical
+  code, like crypto, can be prioritized).
+
 Random Cool Stuff
 -----------------
 
