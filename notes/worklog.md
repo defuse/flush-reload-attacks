@@ -1,3 +1,10 @@
+Sunday, October 26, 2014
+---------------------------------
+
+Hours: 1
+
+- Prioritizing which papers to read, printing them.
+
 Saturday, October 25, 2014
 ---------------------------------
 
