@@ -1,6 +1,8 @@
 Other Research (Not A Two-Column Paper)
 =======================================
 
+http://www.pvk.ca/Blog/2012/07/03/binary-search-star-eliminates-star-branch-mispredictions/
+
 http://hackaday.io/project/956/log/10108-aes256-is-not-enough-breaking-a-bootloader
 
 TODO: Filter the two-column stuff out of this list.
