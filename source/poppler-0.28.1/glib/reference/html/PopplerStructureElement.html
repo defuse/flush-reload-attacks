@@ -1,0 +1,3781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Poppler Reference Manual: PopplerStructureElement</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Poppler Reference Manual">
+<link rel="up" href="ch01.html" title="Poppler">
+<link rel="prev" href="PopplerMovie.html" title="PopplerMovie">
+<link rel="next" href="poppler-PopplerColor.html" title="PopplerColor">
+<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#PopplerStructureElement.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#PopplerStructureElement.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="PopplerMovie.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="poppler-PopplerColor.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="PopplerStructureElement"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="PopplerStructureElement.top_of_page"></a>PopplerStructureElement</span></h2>
+<p>PopplerStructureElement — Document structure element.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="PopplerStructureElement.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="returnvalue">PopplerStructureElementIter</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-new" title="poppler_structure_element_iter_new ()">poppler_structure_element_iter_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-next" title="poppler_structure_element_iter_next ()">poppler_structure_element_iter_next</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="returnvalue">PopplerStructureElementIter</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-copy" title="poppler_structure_element_iter_copy ()">poppler_structure_element_iter_copy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-free" title="poppler_structure_element_iter_free ()">poppler_structure_element_iter_free</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="returnvalue">PopplerStructureElementIter</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-get-child" title="poppler_structure_element_iter_get_child ()">poppler_structure_element_iter_get_child</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="returnvalue">PopplerStructureElement</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-get-element" title="poppler_structure_element_iter_get_element ()">poppler_structure_element_iter_get_element</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureElementKind" title="enum PopplerStructureElementKind"><span class="returnvalue">PopplerStructureElementKind</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-kind" title="poppler_structure_element_get_kind ()">poppler_structure_element_get_kind</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-page" title="poppler_structure_element_get_page ()">poppler_structure_element_get_page</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-is-content" title="poppler_structure_element_is_content ()">poppler_structure_element_is_content</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-is-inline" title="poppler_structure_element_is_inline ()">poppler_structure_element_is_inline</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-is-block" title="poppler_structure_element_is_block ()">poppler_structure_element_is_block</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-is-grouping" title="poppler_structure_element_is_grouping ()">poppler_structure_element_is_grouping</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-id" title="poppler_structure_element_get_id ()">poppler_structure_element_get_id</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-title" title="poppler_structure_element_get_title ()">poppler_structure_element_get_title</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-abbreviation" title="poppler_structure_element_get_abbreviation ()">poppler_structure_element_get_abbreviation</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-language" title="poppler_structure_element_get_language ()">poppler_structure_element_get_language</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text" title="poppler_structure_element_get_text ()">poppler_structure_element_get_text</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-alt-text" title="poppler_structure_element_get_alt_text ()">poppler_structure_element_get_alt_text</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-actual-text" title="poppler_structure_element_get_actual_text ()">poppler_structure_element_get_actual_text</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="returnvalue">PopplerTextSpan</span></a> **
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text-spans" title="poppler_structure_element_get_text_spans ()">poppler_structure_element_get_text_spans</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructurePlacement" title="enum PopplerStructurePlacement"><span class="returnvalue">PopplerStructurePlacement</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-placement" title="poppler_structure_element_get_placement ()">poppler_structure_element_get_placement</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureWritingMode" title="enum PopplerStructureWritingMode"><span class="returnvalue">PopplerStructureWritingMode</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-writing-mode" title="poppler_structure_element_get_writing_mode ()">poppler_structure_element_get_writing_mode</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-background-color" title="poppler_structure_element_get_background_color ()">poppler_structure_element_get_background_color</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-border-color" title="poppler_structure_element_get_border_color ()">poppler_structure_element_get_border_color</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-border-style" title="poppler_structure_element_get_border_style ()">poppler_structure_element_get_border_style</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-border-thickness" title="poppler_structure_element_get_border_thickness ()">poppler_structure_element_get_border_thickness</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-padding" title="poppler_structure_element_get_padding ()">poppler_structure_element_get_padding</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-color" title="poppler_structure_element_get_color ()">poppler_structure_element_get_color</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-space-before" title="poppler_structure_element_get_space_before ()">poppler_structure_element_get_space_before</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-space-after" title="poppler_structure_element_get_space_after ()">poppler_structure_element_get_space_after</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-start-indent" title="poppler_structure_element_get_start_indent ()">poppler_structure_element_get_start_indent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-end-indent" title="poppler_structure_element_get_end_indent ()">poppler_structure_element_get_end_indent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text-indent" title="poppler_structure_element_get_text_indent ()">poppler_structure_element_get_text_indent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureTextAlign" title="enum PopplerStructureTextAlign"><span class="returnvalue">PopplerStructureTextAlign</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text-align" title="poppler_structure_element_get_text_align ()">poppler_structure_element_get_text_align</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-bounding-box" title="poppler_structure_element_get_bounding_box ()">poppler_structure_element_get_bounding_box</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-width" title="poppler_structure_element_get_width ()">poppler_structure_element_get_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-height" title="poppler_structure_element_get_height ()">poppler_structure_element_get_height</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureBlockAlign" title="enum PopplerStructureBlockAlign"><span class="returnvalue">PopplerStructureBlockAlign</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-block-align" title="poppler_structure_element_get_block_align ()">poppler_structure_element_get_block_align</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureInlineAlign" title="enum PopplerStructureInlineAlign"><span class="returnvalue">PopplerStructureInlineAlign</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-inline-align" title="poppler_structure_element_get_inline_align ()">poppler_structure_element_get_inline_align</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-table-border-style" title="poppler_structure_element_get_table_border_style ()">poppler_structure_element_get_table_border_style</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-table-padding" title="poppler_structure_element_get_table_padding ()">poppler_structure_element_get_table_padding</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-baseline-shift" title="poppler_structure_element_get_baseline_shift ()">poppler_structure_element_get_baseline_shift</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-line-height" title="poppler_structure_element_get_line_height ()">poppler_structure_element_get_line_height</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text-decoration-color" title="poppler_structure_element_get_text_decoration_color ()">poppler_structure_element_get_text_decoration_color</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text-decoration-thickness" title="poppler_structure_element_get_text_decoration_thickness ()">poppler_structure_element_get_text_decoration_thickness</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureTextDecoration" title="enum PopplerStructureTextDecoration"><span class="returnvalue">PopplerStructureTextDecoration</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text-decoration-type" title="poppler_structure_element_get_text_decoration_type ()">poppler_structure_element_get_text_decoration_type</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureRubyAlign" title="enum PopplerStructureRubyAlign"><span class="returnvalue">PopplerStructureRubyAlign</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-ruby-align" title="poppler_structure_element_get_ruby_align ()">poppler_structure_element_get_ruby_align</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureRubyPosition" title="enum PopplerStructureRubyPosition"><span class="returnvalue">PopplerStructureRubyPosition</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-ruby-position" title="poppler_structure_element_get_ruby_position ()">poppler_structure_element_get_ruby_position</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureGlyphOrientation" title="enum PopplerStructureGlyphOrientation"><span class="returnvalue">PopplerStructureGlyphOrientation</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-glyph-orientation" title="poppler_structure_element_get_glyph_orientation ()">poppler_structure_element_get_glyph_orientation</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-column-count" title="poppler_structure_element_get_column_count ()">poppler_structure_element_get_column_count</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-column-gaps" title="poppler_structure_element_get_column_gaps ()">poppler_structure_element_get_column_gaps</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-column-widths" title="poppler_structure_element_get_column_widths ()">poppler_structure_element_get_column_widths</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureListNumbering" title="enum PopplerStructureListNumbering"><span class="returnvalue">PopplerStructureListNumbering</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-list-numbering" title="poppler_structure_element_get_list_numbering ()">poppler_structure_element_get_list_numbering</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureFormRole" title="enum PopplerStructureFormRole"><span class="returnvalue">PopplerStructureFormRole</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-form-role" title="poppler_structure_element_get_form_role ()">poppler_structure_element_get_form_role</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureFormState" title="enum PopplerStructureFormState"><span class="returnvalue">PopplerStructureFormState</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-form-state" title="poppler_structure_element_get_form_state ()">poppler_structure_element_get_form_state</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-form-description" title="poppler_structure_element_get_form_description ()">poppler_structure_element_get_form_description</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-table-row-span" title="poppler_structure_element_get_table_row_span ()">poppler_structure_element_get_table_row_span</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-table-column-span" title="poppler_structure_element_get_table_column_span ()">poppler_structure_element_get_table_column_span</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-table-headers" title="poppler_structure_element_get_table_headers ()">poppler_structure_element_get_table_headers</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerStructureTableScope" title="enum PopplerStructureTableScope"><span class="returnvalue">PopplerStructureTableScope</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-table-scope" title="poppler_structure_element_get_table_scope ()">poppler_structure_element_get_table_scope</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-table-summary" title="poppler_structure_element_get_table_summary ()">poppler_structure_element_get_table_summary</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="returnvalue">PopplerTextSpan</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-copy" title="poppler_text_span_copy ()">poppler_text_span_copy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-free" title="poppler_text_span_free ()">poppler_text_span_free</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-is-fixed-width-font" title="poppler_text_span_is_fixed_width_font ()">poppler_text_span_is_fixed_width_font</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-is-serif-font" title="poppler_text_span_is_serif_font ()">poppler_text_span_is_serif_font</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-is-bold-font" title="poppler_text_span_is_bold_font ()">poppler_text_span_is_bold_font</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-get-color" title="poppler_text_span_get_color ()">poppler_text_span_get_color</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-get-text" title="poppler_text_span_get_text ()">poppler_text_span_get_text</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="PopplerStructureElement.html#poppler-text-span-get-font-name" title="poppler_text_span_get_font_name ()">poppler_text_span_get_font_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="PopplerStructureElementIter"></a><div class="refsect1">
+<a name="PopplerStructureElement.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureElement-struct" title="PopplerStructureElement">PopplerStructureElement</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureElementKind" title="enum PopplerStructureElementKind">PopplerStructureElementKind</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter-struct" title="PopplerStructureElementIter">PopplerStructureElementIter</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureGetTextFlags" title="enum PopplerStructureGetTextFlags">PopplerStructureGetTextFlags</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructurePlacement" title="enum PopplerStructurePlacement">PopplerStructurePlacement</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureWritingMode" title="enum PopplerStructureWritingMode">PopplerStructureWritingMode</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureBorderStyle" title="enum PopplerStructureBorderStyle">PopplerStructureBorderStyle</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureTextAlign" title="enum PopplerStructureTextAlign">PopplerStructureTextAlign</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureBlockAlign" title="enum PopplerStructureBlockAlign">PopplerStructureBlockAlign</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureInlineAlign" title="enum PopplerStructureInlineAlign">PopplerStructureInlineAlign</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureTextDecoration" title="enum PopplerStructureTextDecoration">PopplerStructureTextDecoration</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureRubyAlign" title="enum PopplerStructureRubyAlign">PopplerStructureRubyAlign</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureRubyPosition" title="enum PopplerStructureRubyPosition">PopplerStructureRubyPosition</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureGlyphOrientation" title="enum PopplerStructureGlyphOrientation">PopplerStructureGlyphOrientation</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureListNumbering" title="enum PopplerStructureListNumbering">PopplerStructureListNumbering</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureTableScope" title="enum PopplerStructureTableScope">PopplerStructureTableScope</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureFormRole" title="enum PopplerStructureFormRole">PopplerStructureFormRole</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerStructureFormState" title="enum PopplerStructureFormState">PopplerStructureFormState</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan">PopplerTextSpan</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="PopplerStructureElement.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-Boxed-Types.html">GBoxed</a>
+    <span class="lineart">╰──</span> PopplerStructureElementIter
+    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+    <span class="lineart">╰──</span> PopplerStructureElement
+</pre>
+</div>
+<div class="refsect1">
+<a name="PopplerStructureElement.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;poppler.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="PopplerStructureElement.description"></a><h2>Description</h2>
+<p>Instances of <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> are used to describe the structure
+of a <a class="link" href="PopplerDocument.html" title="PopplerDocument"><span class="type">PopplerDocument</span></a>. To access the elements in the structure of the
+document, use <a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-new" title="poppler_structure_element_iter_new ()"><code class="function">poppler_structure_element_iter_new()</code></a> to obtain an iterator
+for the top-level <span class="type">PopplerStructure</span>, and then use the
+<a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> methods to traverse the structure tree.</p>
+</div>
+<div class="refsect1">
+<a name="PopplerStructureElement.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="poppler-structure-element-iter-new"></a><h3>poppler_structure_element_iter_new ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="returnvalue">PopplerStructureElementIter</span></a> *
+poppler_structure_element_iter_new (<em class="parameter"><code><a class="link" href="PopplerDocument.html" title="PopplerDocument"><span class="type">PopplerDocument</span></a> *poppler_document</code></em>);</pre>
+<p>Returns the root <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> for <em class="parameter"><code>document</code></em>
+, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. The
+returned value must be freed with <a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-free" title="poppler_structure_element_iter_free ()"><code class="function">poppler_structure_element_iter_free()</code></a>.</p>
+<p>Documents may have an associated structure tree &amp;mdashmostly, Tagged-PDF
+compliant documents— which can be used to obtain information about
+the document structure and its contents. Each node in the tree contains
+a <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a>.</p>
+<p>Here is a simple example that walks the whole tree:</p>
+<div class="informalexample"><pre class="programlisting">
+static void
+walk_structure (PopplerStructureElementIter *iter)
+{
+  do {
+    /* Get the element and do something with it */
+    PopplerStructureElementIter *child = poppler_structure_element_iter_get_child (iter);
+    if (child)
+      walk_structure (child);
+    poppler_structure_element_iter_free (child);
+  } while (poppler_structure_element_iter_next (iter));
+}
+...
+{
+  iter = poppler_structure_element_iter_new (document);
+  walk_structure (iter);
+  poppler_structure_element_iter_free (iter);
+}
+</pre></div>
+<div class="refsect3">
+<a name="id-1.2.12.9.2.8"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_document</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerDocument.html" title="PopplerDocument"><span class="type">PopplerDocument</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.2.9"></a><h4>Returns</h4>
+<p> a new <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if document
+doesn't have structure tree. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-iter-next"></a><h3>poppler_structure_element_iter_next ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_iter_next (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> *iter</code></em>);</pre>
+<p>Sets <em class="parameter"><code>iter</code></em>
+ to point to the next structure element at the current level
+of the tree, if valid. See <a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-new" title="poppler_structure_element_iter_new ()"><code class="function">poppler_structure_element_iter_new()</code></a> for more
+information.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.3.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>iter</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.3.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, if <em class="parameter"><code>iter</code></em>
+was set to the next structure element</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-iter-copy"></a><h3>poppler_structure_element_iter_copy ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="returnvalue">PopplerStructureElementIter</span></a> *
+poppler_structure_element_iter_copy (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> *iter</code></em>);</pre>
+<p>Creates a new <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> as a copy of <em class="parameter"><code>iter</code></em>
+. The
+returned value must be freed with <a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-free" title="poppler_structure_element_iter_free ()"><code class="function">poppler_structure_element_iter_free()</code></a>.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.4.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>iter</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.4.6"></a><h4>Returns</h4>
+<p> a new <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-iter-free"></a><h3>poppler_structure_element_iter_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+poppler_structure_element_iter_free (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> *iter</code></em>);</pre>
+<p>Frees <em class="parameter"><code>iter</code></em>
+.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.5.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>iter</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-iter-get-child"></a><h3>poppler_structure_element_iter_get_child ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="returnvalue">PopplerStructureElementIter</span></a> *
+poppler_structure_element_iter_get_child
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> *parent</code></em>);</pre>
+<p>Returns a new iterator to the children elements of the
+<a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> associated with <em class="parameter"><code>iter</code></em>
+. The returned value must
+be freed with <a class="link" href="PopplerStructureElement.html#poppler-structure-element-iter-free" title="poppler_structure_element_iter_free ()"><code class="function">poppler_structure_element_iter_free()</code></a>.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.6.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>parent</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.6.6"></a><h4>Returns</h4>
+<p> a new <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a></p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-iter-get-element"></a><h3>poppler_structure_element_iter_get_element ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="returnvalue">PopplerStructureElement</span></a> *
+poppler_structure_element_iter_get_element
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> *iter</code></em>);</pre>
+<p>Returns the <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a> associated with <em class="parameter"><code>iter</code></em>
+.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.7.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>iter</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.7.6"></a><h4>Returns</h4>
+<p> a new <a class="link" href="PopplerStructureElement.html#PopplerStructureElementIter"><span class="type">PopplerStructureElementIter</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-kind"></a><h3>poppler_structure_element_get_kind ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureElementKind" title="enum PopplerStructureElementKind"><span class="returnvalue">PopplerStructureElementKind</span></a>
+poppler_structure_element_get_kind (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.12.9.8.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.8.5"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureElementKind" title="enum PopplerStructureElementKind"><span class="type">PopplerStructureElementKind</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-page"></a><h3>poppler_structure_element_get_page ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+poppler_structure_element_get_page (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the page number in which the element is contained.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.9.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.9.6"></a><h4>Returns</h4>
+<p> Number of the page that contains the element, of</p>
+<code class="code">-1</code> if not defined.
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-is-content"></a><h3>poppler_structure_element_is_content ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_is_content (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Checks whether an element is actual document content.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.10.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.10.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the element is content, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-is-inline"></a><h3>poppler_structure_element_is_inline ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_is_inline (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Checks whether an element is an inline element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.11.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.11.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the element is an inline element, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-is-block"></a><h3>poppler_structure_element_is_block ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_is_block (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Checks whether an element is a block element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.12.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.12.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if  the element is a block element, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-is-grouping"></a><h3>poppler_structure_element_is_grouping ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_is_grouping (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Checks whether an element is a grouping element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.13.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.13.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the element is a grouping element, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-id"></a><h3>poppler_structure_element_get_id ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_id (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the identifier of an element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.14.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.14.6"></a><h4>Returns</h4>
+<p> The identifier of the element (if
+defined), or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-title"></a><h3>poppler_structure_element_get_title ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_title (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the title of an element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.15.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.15.6"></a><h4>Returns</h4>
+<p> The title of the element, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-abbreviation"></a><h3>poppler_structure_element_get_abbreviation ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_abbreviation
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-language"></a><h3>poppler_structure_element_get_language ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_language
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the language and country code for the content in an element,
+in two-letter ISO format, e.g. <code class="code">en_ES</code>, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not
+defined.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.17.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.17.6"></a><h4>Returns</h4>
+<p> language and country code, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-text"></a><h3>poppler_structure_element_get_text ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_text (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                    <em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureGetTextFlags" title="enum PopplerStructureGetTextFlags"><span class="type">PopplerStructureGetTextFlags</span></a> flags</code></em>);</pre>
+<p>Obtains the text enclosed by an element, or the text enclosed by the
+elements in the subtree (including the element itself).</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.18.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>flags</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html#PopplerStructureGetTextFlags" title="enum PopplerStructureGetTextFlags"><span class="type">PopplerStructureGetTextFlags</span></a> value, or
+<a class="link" href="PopplerStructureElement.html#POPPLER-STRUCTURE-GET-TEXT-NONE:CAPS"><code class="literal">POPPLER_STRUCTURE_GET_TEXT_NONE</code></a> to disable all the flags.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.18.6"></a><h4>Returns</h4>
+<p> A string. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-alt-text"></a><h3>poppler_structure_element_get_alt_text ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_alt_text
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the “alternate” text representation of the element (and its child
+elements). This is mostly used for non-text elements like images and
+figures, to specify a textual description of the element.</p>
+<p>Note that for elements containing proper text, the function
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text" title="poppler_structure_element_get_text ()"><code class="function">poppler_structure_element_get_text()</code></a> must be used instead.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.19.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.19.7"></a><h4>Returns</h4>
+<p> The alternate text representation for the
+element, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not defined. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-actual-text"></a><h3>poppler_structure_element_get_actual_text ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_actual_text
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the actual text enclosed by the element (and its child elements).
+The actual text is mostly used for non-text elements like images and
+figures which <span class="emphasis"><em>do</em></span> have the graphical appearance of text, like
+a logo. For those the actual text is the equivalent text to those
+graphical elements which look like text when rendered.</p>
+<p>Note that for elements containing proper text, the function
+<a class="link" href="PopplerStructureElement.html#poppler-structure-element-get-text" title="poppler_structure_element_get_text ()"><code class="function">poppler_structure_element_get_text()</code></a> must be used instead.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.20.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.20.7"></a><h4>Returns</h4>
+<p> The actual text for the element, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+if not defined. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-text-spans"></a><h3>poppler_structure_element_get_text_spans ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="returnvalue">PopplerTextSpan</span></a> **
+poppler_structure_element_get_text_spans
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_text_spans</code></em>);</pre>
+<p>Obtains the text enclosed by an element, as an array of <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a>
+structures. Each item in the list is a piece of text which share the same
+attributes, plus its attributes. The following example shows how to
+obtain and free the text spans of an element:</p>
+<div class="informalexample"><pre class="programlisting">
+guint i, n_spans;
+PopplerTextSpan **text_spans =
+   poppler_structure_element_get_text_spans (element, &amp;n_spans);
+/* Use the text spans */
+for (i = 0; i &lt; n_spans; i++)
+   poppler_text_span_free (text_spans[i]);
+g_free (text_spans);
+</pre></div>
+<div class="refsect3">
+<a name="id-1.2.12.9.21.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_text_spans</p></td>
+<td class="parameter_description"><p> A pointer to the location where the number of elements in
+the returned array will be stored. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.21.7"></a><h4>Returns</h4>
+<p>   An array of <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> elments. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_text_spans][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> PopplerTextSpan]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-placement"></a><h3>poppler_structure_element_get_placement ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructurePlacement" title="enum PopplerStructurePlacement"><span class="returnvalue">PopplerStructurePlacement</span></a>
+poppler_structure_element_get_placement
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the placement type of the structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.22.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.22.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructurePlacement" title="enum PopplerStructurePlacement"><span class="type">PopplerStructurePlacement</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-writing-mode"></a><h3>poppler_structure_element_get_writing_mode ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureWritingMode" title="enum PopplerStructureWritingMode"><span class="returnvalue">PopplerStructureWritingMode</span></a>
+poppler_structure_element_get_writing_mode
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the writing mode (writing direction) of the content associated
+with a structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.23.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.23.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureWritingMode" title="enum PopplerStructureWritingMode"><span class="type">PopplerStructureWritingMode</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-background-color"></a><h3>poppler_structure_element_get_background_color ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_get_background_color
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a> *color</code></em>);</pre>
+<p>Obtains the background color of the element. If this attribute is
+not specified, the element shall be treated as if it were transparent.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.24.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p> A <a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.24.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a color is defined for the element,
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-border-color"></a><h3>poppler_structure_element_get_border_color ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_get_border_color
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a> *colors</code></em>);</pre>
+<p>Obtains the color of border around the element. The result values
+are in before-after-start-end ordering (for the typical Western
+left-to-right writing, that is top-bottom-left-right).
+If this attribute is not specified, the border color for this element shall
+be the current text fill color in effect at the start of its associated
+content.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.25.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>colors</p></td>
+<td class="parameter_description"><p> An array
+of four <a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> PopplerColor]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.25.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a color is defined for the element,
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-border-style"></a><h3>poppler_structure_element_get_border_style ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+poppler_structure_element_get_border_style
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureBorderStyle" title="enum PopplerStructureBorderStyle"><span class="type">PopplerStructureBorderStyle</span></a> *border_styles</code></em>);</pre>
+<p>Obtains the border style of a structure element. The result values
+are in before-after-start-end ordering. For example, using Western
+left-to-right writing, that is top-bottom-left-right.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.26.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>border_styles</p></td>
+<td class="parameter_description"><p>   An array of four <a class="link" href="PopplerStructureElement.html#PopplerStructureBorderStyle" title="enum PopplerStructureBorderStyle"><span class="type">PopplerStructureBorderStyle</span></a> elements. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> PopplerStructureBorderStyle]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-border-thickness"></a><h3>poppler_structure_element_get_border_thickness ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_get_border_thickness
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *border_thicknesses</code></em>);</pre>
+<p>Obtains the thickness of the border of an element. The result values
+are in before-after-start-end ordering (for the typical Western
+left-to-right writing, that is top-bottom-left-right).
+A value of 0 indicates that the border shall not be drawn.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.27.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>border_thicknesses</p></td>
+<td class="parameter_description"><p>   Array with the four values of border thicknesses. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gdouble]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.27.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the border thickness attribute is defined for
+the element, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-padding"></a><h3>poppler_structure_element_get_padding ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+poppler_structure_element_get_padding (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                       <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *paddings</code></em>);</pre>
+<p>Obtains the padding of an element (space around it). The result
+values are in before-after-start-end ordering. For example using
+Western left-to-right writing, that is top-bottom-left-right.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.28.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>paddings</p></td>
+<td class="parameter_description"><p>   Padding for the four sides of the element. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gdouble]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-color"></a><h3>poppler_structure_element_get_color ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_get_color (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                     <em class="parameter"><code><a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a> *color</code></em>);</pre>
+<p>Obtains the color of the content contained in the element.
+If this attribute is not specified, the color for this element shall
+be the current text fill color in effect at the start of its associated content.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.29.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p> A <a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.29.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a color is defined for the element,
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-space-before"></a><h3>poppler_structure_element_get_space_before ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_space_before
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the amount of empty space before the block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.30.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.30.6"></a><h4>Returns</h4>
+<p> A positive value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-space-after"></a><h3>poppler_structure_element_get_space_after ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_space_after
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the amount of empty space after the block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.31.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.31.6"></a><h4>Returns</h4>
+<p> A positive value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-start-indent"></a><h3>poppler_structure_element_get_start_indent ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_start_indent
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the amount of indentation at the beginning of the block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.32.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.32.6"></a><h4>Returns</h4>
+<p> A numeric value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-end-indent"></a><h3>poppler_structure_element_get_end_indent ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_end_indent
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the amount of indentation at the end of the block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.33.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.33.6"></a><h4>Returns</h4>
+<p> A numeric value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-text-indent"></a><h3>poppler_structure_element_get_text_indent ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_text_indent
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the amount of indentation of the text contained in the block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.34.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.34.6"></a><h4>Returns</h4>
+<p> A numeric value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-text-align"></a><h3>poppler_structure_element_get_text_align ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureTextAlign" title="enum PopplerStructureTextAlign"><span class="returnvalue">PopplerStructureTextAlign</span></a>
+poppler_structure_element_get_text_align
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the text alignment mode of the text contained into a
+block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.35.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.35.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureTextAlign" title="enum PopplerStructureTextAlign"><span class="type">PopplerStructureTextAlign</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-bounding-box"></a><h3>poppler_structure_element_get_bounding_box ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_get_bounding_box
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a class="link" href="PopplerPage.html#PopplerRectangle" title="PopplerRectangle"><span class="type">PopplerRectangle</span></a> *bounding_box</code></em>);</pre>
+<p>Obtains the size of the bounding box of a block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.36.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>bounding_box</p></td>
+<td class="parameter_description"><p> A <a class="link" href="PopplerPage.html#PopplerRectangle" title="PopplerRectangle"><span class="type">PopplerRectangle</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.36.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a bounding box is defined for the element,
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-width"></a><h3>poppler_structure_element_get_width ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_width (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the width of the block-level structure element. Note that for elements which do
+not specify a width, it has to be calculated, and in this case -1 is returned.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.37.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.37.6"></a><h4>Returns</h4>
+<p> A positive value if a width is defined, or -1
+if the width is to be calculated automatically.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-height"></a><h3>poppler_structure_element_get_height ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_height (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the height of the block-level structure element. Note that for elements which do
+not specify a height, it has to be calculated, and in this case -1 is returned.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.38.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.38.6"></a><h4>Returns</h4>
+<p> A positive value if a width is defined, or -1
+if the height is to be calculated automatically.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-block-align"></a><h3>poppler_structure_element_get_block_align ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureBlockAlign" title="enum PopplerStructureBlockAlign"><span class="returnvalue">PopplerStructureBlockAlign</span></a>
+poppler_structure_element_get_block_align
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the block-alignment mode of the block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.39.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.39.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureBlockAlign" title="enum PopplerStructureBlockAlign"><span class="type">PopplerStructureBlockAlign</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-inline-align"></a><h3>poppler_structure_element_get_inline_align ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureInlineAlign" title="enum PopplerStructureInlineAlign"><span class="returnvalue">PopplerStructureInlineAlign</span></a>
+poppler_structure_element_get_inline_align
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the inline-alignment mode of the block-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.40.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.40.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureInlineAlign" title="enum PopplerStructureInlineAlign"><span class="type">PopplerStructureInlineAlign</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-table-border-style"></a><h3>poppler_structure_element_get_table_border_style ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+poppler_structure_element_get_table_border_style
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerStructureBorderStyle" title="enum PopplerStructureBorderStyle"><span class="type">PopplerStructureBorderStyle</span></a> *border_styles</code></em>);</pre>
+<p>Obtains the table cell border style of a block-level structure element. The result values
+are in before-after-start-end ordering. For example, using Western
+left-to-right writing, that is top-bottom-left-right.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.41.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>border_styles</p></td>
+<td class="parameter_description"><p>   An array of four <a class="link" href="PopplerStructureElement.html#PopplerStructureBorderStyle" title="enum PopplerStructureBorderStyle"><span class="type">PopplerStructureBorderStyle</span></a> elements. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> PopplerStructureBorderStyle]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-table-padding"></a><h3>poppler_structure_element_get_table_padding ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+poppler_structure_element_get_table_padding
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *paddings</code></em>);</pre>
+<p>Obtains the padding between the table cell’s content rectangle and the
+surrounding border of a block-level structure element. The result
+values are in before-after-start-end ordering (for the typical
+Western left-to-right writing, that is top-bottom-left-right).</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.42.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>paddings</p></td>
+<td class="parameter_description"><p>   Padding for the four sides of the element. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gdouble]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-baseline-shift"></a><h3>poppler_structure_element_get_baseline_shift ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_baseline_shift
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains how much the text contained in the inline-level structure element should be shifted,
+measuring from the baseline of the glyphs.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.43.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.43.6"></a><h4>Returns</h4>
+<p> A numeric value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-line-height"></a><h3>poppler_structure_element_get_line_height ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_line_height
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the line height for the text contained in the inline-level structure element.
+Note that for elements which do not specify a line height, it has to be calculated,
+and in this case -1 is returned.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.44.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.44.6"></a><h4>Returns</h4>
+<p> A positive value if a line height is defined, or -1
+if the height is to be calculated automatically.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-text-decoration-color"></a><h3>poppler_structure_element_get_text_decoration_color ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_structure_element_get_text_decoration_color
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a> *color</code></em>);</pre>
+<p>Obtains the color of the text decoration for the text contained
+in the inline-level structure element.
+If this attribute is not specified, the color for this element shall be the current fill
+color in effect at the start of its associated content.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.45.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p> A <a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.45.6"></a><h4>Returns</h4>
+<p> <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a color is defined for the element,
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-text-decoration-thickness"></a><h3>poppler_structure_element_get_text_decoration_thickness ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+poppler_structure_element_get_text_decoration_thickness
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the thickness of the text decoration for the text contained
+in the inline-level structure element.
+If this attribute is not specified, it shall be derived from the current
+stroke thickness in effect at the start of the element’s associated content.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.46.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.46.6"></a><h4>Returns</h4>
+<p> Thickness of the text decoration, or <code class="literal">NaN</code> if not defined.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-text-decoration-type"></a><h3>poppler_structure_element_get_text_decoration_type ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureTextDecoration" title="enum PopplerStructureTextDecoration"><span class="returnvalue">PopplerStructureTextDecoration</span></a>
+poppler_structure_element_get_text_decoration_type
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the text decoration type of the text contained in the
+inline-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.47.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.47.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureTextDecoration" title="enum PopplerStructureTextDecoration"><span class="type">PopplerStructureTextDecoration</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-ruby-align"></a><h3>poppler_structure_element_get_ruby_align ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureRubyAlign" title="enum PopplerStructureRubyAlign"><span class="returnvalue">PopplerStructureRubyAlign</span></a>
+poppler_structure_element_get_ruby_align
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the alignment for the ruby text contained in a
+inline-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.48.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.48.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureRubyAlign" title="enum PopplerStructureRubyAlign"><span class="type">PopplerStructureRubyAlign</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-ruby-position"></a><h3>poppler_structure_element_get_ruby_position ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureRubyPosition" title="enum PopplerStructureRubyPosition"><span class="returnvalue">PopplerStructureRubyPosition</span></a>
+poppler_structure_element_get_ruby_position
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the position for the ruby text contained in a
+inline-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.49.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.49.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureRubyPosition" title="enum PopplerStructureRubyPosition"><span class="type">PopplerStructureRubyPosition</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-glyph-orientation"></a><h3>poppler_structure_element_get_glyph_orientation ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureGlyphOrientation" title="enum PopplerStructureGlyphOrientation"><span class="returnvalue">PopplerStructureGlyphOrientation</span></a>
+poppler_structure_element_get_glyph_orientation
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the glyph orientation for the text contained in a
+inline-level structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.50.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.50.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureGlyphOrientation" title="enum PopplerStructureGlyphOrientation"><span class="type">PopplerStructureGlyphOrientation</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-column-count"></a><h3>poppler_structure_element_get_column_count ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+poppler_structure_element_get_column_count
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the number of columns used to lay out the content contained
+in the grouping element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.51.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.51.6"></a><h4>Returns</h4>
+<p> Number of columns.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-column-gaps"></a><h3>poppler_structure_element_get_column_gaps ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a> *
+poppler_structure_element_get_column_gaps
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_values</code></em>);</pre>
+<p>Obtains the size of the gaps in between adjacent columns. Returns an
+array of elements: the first one is the size of the gap in between
+columns 1 and 2, second is the size between columns 2 and 3, and so on.</p>
+<p>For elements which use a single column, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned and <code class="literal">n_values</code>
+is set to zero.</p>
+<p>If the attribute is undefined, <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned and <code class="literal">n_values</code> is set
+to a non-zero value.</p>
+<p>The array with the results is allocated by the function. When it is
+not needed anymore, be sure to call <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> on it.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.52.8"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_values</p></td>
+<td class="parameter_description"><p> Size of the returned array. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.52.9"></a><h4>Returns</h4>
+<p>   Array containing the values for the column gaps, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the
+array is empty or the attribute is not defined. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_values][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gdouble]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-column-widths"></a><h3>poppler_structure_element_get_column_widths ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a> *
+poppler_structure_element_get_column_widths
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>,
+                                <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_values</code></em>);</pre>
+<p>Obtains an array with the widths of the columns.</p>
+<p>The array with the results is allocated by the function. When it is
+not needed anymore, be sure to call <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> on it.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.53.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_values</p></td>
+<td class="parameter_description"><p> Size of the returned array. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.53.7"></a><h4>Returns</h4>
+<p>   Array containing widths of the columns, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the attribute
+is not defined. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_values][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gdouble]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-list-numbering"></a><h3>poppler_structure_element_get_list_numbering ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureListNumbering" title="enum PopplerStructureListNumbering"><span class="returnvalue">PopplerStructureListNumbering</span></a>
+poppler_structure_element_get_list_numbering
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the list numbering style for list items.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.54.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.54.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureListNumbering" title="enum PopplerStructureListNumbering"><span class="type">PopplerStructureListNumbering</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-form-role"></a><h3>poppler_structure_element_get_form_role ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureFormRole" title="enum PopplerStructureFormRole"><span class="returnvalue">PopplerStructureFormRole</span></a>
+poppler_structure_element_get_form_role
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the role of a form structure element that is part of a form, or is
+a form field. This hints how the control for the element is intended
+to be rendered.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.55.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.55.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureFormRole" title="enum PopplerStructureFormRole"><span class="type">PopplerStructureFormRole</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-form-state"></a><h3>poppler_structure_element_get_form_state ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureFormState" title="enum PopplerStructureFormState"><span class="returnvalue">PopplerStructureFormState</span></a>
+poppler_structure_element_get_form_state
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>For a structure element that is a form field, obtains in which state
+the associated control is expected to be rendered.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.56.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.56.6"></a><h4>Returns</h4>
+<p> A <a class="link" href="PopplerStructureElement.html#PopplerStructureFormState" title="enum PopplerStructureFormState"><span class="type">PopplerStructureFormState</span></a> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-form-description"></a><h3>poppler_structure_element_get_form_description ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_form_description
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the textual description of the form element. Note that the
+description is for informative purposes, and it is not intended
+to be rendered. For example, assistive technologies may use the
+description field to provide an alternate way of presenting an
+element to the user.</p>
+<p>The returned string is allocated by the function. When it is
+not needed anymore, be sure to call <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> on it.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.57.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.57.7"></a><h4>Returns</h4>
+<p> A string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the attribute
+is not defined. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-table-row-span"></a><h3>poppler_structure_element_get_table_row_span ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+poppler_structure_element_get_table_row_span
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the number of rows the table element spans to.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.58.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.58.6"></a><h4>Returns</h4>
+<p> A positive, non-zero value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-table-column-span"></a><h3>poppler_structure_element_get_table_column_span ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+poppler_structure_element_get_table_column_span
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the number of columns the table element spans to.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.59.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.59.6"></a><h4>Returns</h4>
+<p> A positive, non-zero value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-table-headers"></a><h3>poppler_structure_element_get_table_headers ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **
+poppler_structure_element_get_table_headers
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains an array with the names of the table column headers. This is only
+useful for table header row elements.</p>
+<p>The array with the results is allocated by the function. The number
+of items in the returned array can be obtained with <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strv-length"><code class="function">g_strv_length()</code></a>.
+The returned value must be freed using <a href="https://developer.gnome.org/glib/unstable/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.60.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.60.7"></a><h4>Returns</h4>
+<p>   Zero-terminated array of strings with the table header names,
+or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the attribute is not defined. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gchar*]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-table-scope"></a><h3>poppler_structure_element_get_table_scope ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerStructureTableScope" title="enum PopplerStructureTableScope"><span class="returnvalue">PopplerStructureTableScope</span></a>
+poppler_structure_element_get_table_scope
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the scope of a table structure element.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.61.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.61.6"></a><h4>Returns</h4>
+<p> A <span class="type">PopplerStructureScope</span> value.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-structure-element-get-table-summary"></a><h3>poppler_structure_element_get_table_summary ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_structure_element_get_table_summary
+                               (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a> *poppler_structure_element</code></em>);</pre>
+<p>Obtains the textual summary of the contents of the table element. Note that
+the summary is meant for informative purposes, and it is not intended
+to be rendered. For example, assistive technologies may use the
+description field to provide an alternate way of presenting an element
+to the user, or a document indexer may want to scan it for additional
+keywords.</p>
+<p>The returned string is allocated by the function. When it is
+not needed anymore, be sure to call <a href="https://developer.gnome.org/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> on it.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.62.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_structure_element</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html" title="PopplerStructureElement"><span class="type">PopplerStructureElement</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.62.7"></a><h4>Returns</h4>
+<p> A string, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the attribute
+is not defined. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-copy"></a><h3>poppler_text_span_copy ()</h3>
+<pre class="programlisting"><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="returnvalue">PopplerTextSpan</span></a> *
+poppler_text_span_copy (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>);</pre>
+<p>Makes a copy of a text span.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.63.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.63.6"></a><h4>Returns</h4>
+<p> A new <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-free"></a><h3>poppler_text_span_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+poppler_text_span_free (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>);</pre>
+<p>Frees a text span.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.64.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>A <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-is-fixed-width-font"></a><h3>poppler_text_span_is_fixed_width_font ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_text_span_is_fixed_width_font (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>);</pre>
+<p>Check wether a text span is meant to be rendered using a fixed-width font.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.65.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.65.6"></a><h4>Returns</h4>
+<p> Whether the span uses a fixed-width font.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-is-serif-font"></a><h3>poppler_text_span_is_serif_font ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_text_span_is_serif_font (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>);</pre>
+<p>Check whether a text span is meant to be rendered using a serif font.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.66.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.66.6"></a><h4>Returns</h4>
+<p> Whether the span uses a serif font.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-is-bold-font"></a><h3>poppler_text_span_is_bold_font ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+poppler_text_span_is_bold_font (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>);</pre>
+<p>Check whether a text span is meant to be rendered using a bold font.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.67.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.67.6"></a><h4>Returns</h4>
+<p> Whether the span uses bold font.</p>
+<p></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-get-color"></a><h3>poppler_text_span_get_color ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+poppler_text_span_get_color (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>,
+                             <em class="parameter"><code><a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a> *color</code></em>);</pre>
+<p>Obtains the color in which the text is to be rendered.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.68.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p> a return location for a <a class="link" href="poppler-PopplerColor.html#PopplerColor" title="PopplerColor"><span class="type">PopplerColor</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-get-text"></a><h3>poppler_text_span_get_text ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_text_span_get_text (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>);</pre>
+<p>Obtains the text contained in the span.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.69.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.69.6"></a><h4>Returns</h4>
+<p> A string. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="poppler-text-span-get-font-name"></a><h3>poppler_text_span_get_font_name ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+poppler_text_span_get_font_name (<em class="parameter"><code><a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a> *poppler_text_span</code></em>);</pre>
+<p>Obtains the name of the font in which the span is to be rendered.</p>
+<div class="refsect3">
+<a name="id-1.2.12.9.70.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>poppler_text_span</p></td>
+<td class="parameter_description"><p>a <a class="link" href="PopplerStructureElement.html#PopplerTextSpan" title="PopplerTextSpan"><span class="type">PopplerTextSpan</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.12.9.70.6"></a><h4>Returns</h4>
+<p> A string containing the font name, or
+<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if a font is not defined. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since 0.26</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="PopplerStructureElement.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="PopplerStructureElement-struct"></a><h3>PopplerStructureElement</h3>
+<pre class="programlisting">typedef struct _PopplerStructureElement PopplerStructureElement;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureElementKind"></a><h3>enum PopplerStructureElementKind</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.3.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-CONTENT:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_CONTENT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-OBJECT-REFERENCE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_OBJECT_REFERENCE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-DOCUMENT:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_DOCUMENT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-PART:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_PART</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-ARTICLE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_ARTICLE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-SECTION:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_SECTION</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-DIV:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_DIV</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-SPAN:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_SPAN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-QUOTE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_QUOTE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-NOTE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_NOTE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-REFERENCE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_REFERENCE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-BIBENTRY:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_BIBENTRY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-CODE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_CODE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-LINK:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_LINK</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-ANNOT:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_ANNOT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-BLOCKQUOTE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_BLOCKQUOTE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-CAPTION:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_CAPTION</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-NONSTRUCT:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_NONSTRUCT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TOC:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TOC</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TOC-ITEM:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TOC_ITEM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-INDEX:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_INDEX</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-PRIVATE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_PRIVATE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-PARAGRAPH:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_PARAGRAPH</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-HEADING:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_HEADING</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-HEADING-1:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_HEADING_1</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-HEADING-2:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_HEADING_2</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-HEADING-3:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_HEADING_3</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-HEADING-4:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_HEADING_4</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-HEADING-5:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_HEADING_5</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-HEADING-6:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_HEADING_6</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-LIST:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_LIST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-LIST-ITEM:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_LIST_ITEM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-LIST-LABEL:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_LIST_LABEL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-LIST-BODY:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_LIST_BODY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TABLE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TABLE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TABLE-ROW:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TABLE_ROW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TABLE-HEADING:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TABLE_HEADING</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TABLE-DATA:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TABLE_DATA</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TABLE-HEADER:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TABLE_HEADER</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TABLE-FOOTER:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TABLE_FOOTER</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-TABLE-BODY:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_TABLE_BODY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-RUBY:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_RUBY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-RUBY-BASE-TEXT:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_RUBY_BASE_TEXT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-RUBY-ANNOT-TEXT:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_RUBY_ANNOT_TEXT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-RUBY-PUNCTUATION:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_RUBY_PUNCTUATION</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-WARICHU:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_WARICHU</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-WARICHU-TEXT:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_WARICHU_TEXT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-WARICHU-PUNCTUATION:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_WARICHU_PUNCTUATION</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-FIGURE:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_FIGURE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-FORMULA:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_FORMULA</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-ELEMENT-FORM:CAPS"></a>POPPLER_STRUCTURE_ELEMENT_FORM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureElementIter-struct"></a><h3>PopplerStructureElementIter</h3>
+<pre class="programlisting">typedef struct _PopplerStructureElementIter PopplerStructureElementIter;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureGetTextFlags"></a><h3>enum PopplerStructureGetTextFlags</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.5.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-GET-TEXT-NONE:CAPS"></a>POPPLER_STRUCTURE_GET_TEXT_NONE</p></td>
+<td class="enum_member_description">
+<p>No flags.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-GET-TEXT-RECURSIVE:CAPS"></a>POPPLER_STRUCTURE_GET_TEXT_RECURSIVE</p></td>
+<td class="enum_member_description">
+<p>For non-leaf, non-content
+   elements, recursively obtain the text from all the elements
+   enclosed in the subtree.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructurePlacement"></a><h3>enum PopplerStructurePlacement</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.6.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-PLACEMENT-BLOCK:CAPS"></a>POPPLER_STRUCTURE_PLACEMENT_BLOCK</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-PLACEMENT-INLINE:CAPS"></a>POPPLER_STRUCTURE_PLACEMENT_INLINE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-PLACEMENT-BEFORE:CAPS"></a>POPPLER_STRUCTURE_PLACEMENT_BEFORE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-PLACEMENT-START:CAPS"></a>POPPLER_STRUCTURE_PLACEMENT_START</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-PLACEMENT-END:CAPS"></a>POPPLER_STRUCTURE_PLACEMENT_END</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureWritingMode"></a><h3>enum PopplerStructureWritingMode</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.7.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-WRITING-MODE-LR-TB:CAPS"></a>POPPLER_STRUCTURE_WRITING_MODE_LR_TB</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-WRITING-MODE-RL-TB:CAPS"></a>POPPLER_STRUCTURE_WRITING_MODE_RL_TB</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-WRITING-MODE-TB-RL:CAPS"></a>POPPLER_STRUCTURE_WRITING_MODE_TB_RL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureBorderStyle"></a><h3>enum PopplerStructureBorderStyle</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.8.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-NONE:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_NONE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-HIDDEN:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_HIDDEN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-DOTTED:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_DOTTED</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-DASHED:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_DASHED</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-SOLID:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_SOLID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-DOUBLE:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_DOUBLE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-GROOVE:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_GROOVE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-INSET:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_INSET</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BORDER-STYLE-OUTSET:CAPS"></a>POPPLER_STRUCTURE_BORDER_STYLE_OUTSET</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureTextAlign"></a><h3>enum PopplerStructureTextAlign</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.9.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-ALIGN-START:CAPS"></a>POPPLER_STRUCTURE_TEXT_ALIGN_START</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-ALIGN-CENTER:CAPS"></a>POPPLER_STRUCTURE_TEXT_ALIGN_CENTER</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-ALIGN-END:CAPS"></a>POPPLER_STRUCTURE_TEXT_ALIGN_END</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-ALIGN-JUSTIFY:CAPS"></a>POPPLER_STRUCTURE_TEXT_ALIGN_JUSTIFY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureBlockAlign"></a><h3>enum PopplerStructureBlockAlign</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.10.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BLOCK-ALIGN-BEFORE:CAPS"></a>POPPLER_STRUCTURE_BLOCK_ALIGN_BEFORE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BLOCK-ALIGN-MIDDLE:CAPS"></a>POPPLER_STRUCTURE_BLOCK_ALIGN_MIDDLE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BLOCK-ALIGN-AFTER:CAPS"></a>POPPLER_STRUCTURE_BLOCK_ALIGN_AFTER</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-BLOCK-ALIGN-JUSTIFY:CAPS"></a>POPPLER_STRUCTURE_BLOCK_ALIGN_JUSTIFY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureInlineAlign"></a><h3>enum PopplerStructureInlineAlign</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.11.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-INLINE-ALIGN-START:CAPS"></a>POPPLER_STRUCTURE_INLINE_ALIGN_START</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-INLINE-ALIGN-CENTER:CAPS"></a>POPPLER_STRUCTURE_INLINE_ALIGN_CENTER</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-INLINE-ALIGN-END:CAPS"></a>POPPLER_STRUCTURE_INLINE_ALIGN_END</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureTextDecoration"></a><h3>enum PopplerStructureTextDecoration</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.12.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-DECORATION-NONE:CAPS"></a>POPPLER_STRUCTURE_TEXT_DECORATION_NONE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-DECORATION-UNDERLINE:CAPS"></a>POPPLER_STRUCTURE_TEXT_DECORATION_UNDERLINE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-DECORATION-OVERLINE:CAPS"></a>POPPLER_STRUCTURE_TEXT_DECORATION_OVERLINE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TEXT-DECORATION-LINETHROUGH:CAPS"></a>POPPLER_STRUCTURE_TEXT_DECORATION_LINETHROUGH</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureRubyAlign"></a><h3>enum PopplerStructureRubyAlign</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.13.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-ALIGN-START:CAPS"></a>POPPLER_STRUCTURE_RUBY_ALIGN_START</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-ALIGN-CENTER:CAPS"></a>POPPLER_STRUCTURE_RUBY_ALIGN_CENTER</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-ALIGN-END:CAPS"></a>POPPLER_STRUCTURE_RUBY_ALIGN_END</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-ALIGN-JUSTIFY:CAPS"></a>POPPLER_STRUCTURE_RUBY_ALIGN_JUSTIFY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-ALIGN-DISTRIBUTE:CAPS"></a>POPPLER_STRUCTURE_RUBY_ALIGN_DISTRIBUTE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureRubyPosition"></a><h3>enum PopplerStructureRubyPosition</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.14.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-POSITION-BEFORE:CAPS"></a>POPPLER_STRUCTURE_RUBY_POSITION_BEFORE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-POSITION-AFTER:CAPS"></a>POPPLER_STRUCTURE_RUBY_POSITION_AFTER</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-POSITION-WARICHU:CAPS"></a>POPPLER_STRUCTURE_RUBY_POSITION_WARICHU</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-RUBY-POSITION-INLINE:CAPS"></a>POPPLER_STRUCTURE_RUBY_POSITION_INLINE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureGlyphOrientation"></a><h3>enum PopplerStructureGlyphOrientation</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.15.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-GLYPH-ORIENTATION-AUTO:CAPS"></a>POPPLER_STRUCTURE_GLYPH_ORIENTATION_AUTO</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-GLYPH-ORIENTATION-0:CAPS"></a>POPPLER_STRUCTURE_GLYPH_ORIENTATION_0</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-GLYPH-ORIENTATION-90:CAPS"></a>POPPLER_STRUCTURE_GLYPH_ORIENTATION_90</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-GLYPH-ORIENTATION-180:CAPS"></a>POPPLER_STRUCTURE_GLYPH_ORIENTATION_180</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-GLYPH-ORIENTATION-270:CAPS"></a>POPPLER_STRUCTURE_GLYPH_ORIENTATION_270</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureListNumbering"></a><h3>enum PopplerStructureListNumbering</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.16.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-NONE:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_NONE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-DISC:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_DISC</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-CIRCLE:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_CIRCLE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-SQUARE:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_SQUARE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-DECIMAL:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_DECIMAL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-UPPER-ROMAN:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_UPPER_ROMAN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-LOWER-ROMAN:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_LOWER_ROMAN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-UPPER-ALPHA:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_UPPER_ALPHA</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-LIST-NUMBERING-LOWER-ALPHA:CAPS"></a>POPPLER_STRUCTURE_LIST_NUMBERING_LOWER_ALPHA</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureTableScope"></a><h3>enum PopplerStructureTableScope</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.17.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TABLE-SCOPE-ROW:CAPS"></a>POPPLER_STRUCTURE_TABLE_SCOPE_ROW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TABLE-SCOPE-COLUMN:CAPS"></a>POPPLER_STRUCTURE_TABLE_SCOPE_COLUMN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-TABLE-SCOPE-BOTH:CAPS"></a>POPPLER_STRUCTURE_TABLE_SCOPE_BOTH</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureFormRole"></a><h3>enum PopplerStructureFormRole</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.18.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-ROLE-UNDEFINED:CAPS"></a>POPPLER_STRUCTURE_FORM_ROLE_UNDEFINED</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-ROLE-RADIO-BUTTON:CAPS"></a>POPPLER_STRUCTURE_FORM_ROLE_RADIO_BUTTON</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-ROLE-PUSH-BUTTON:CAPS"></a>POPPLER_STRUCTURE_FORM_ROLE_PUSH_BUTTON</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-ROLE-TEXT-VALUE:CAPS"></a>POPPLER_STRUCTURE_FORM_ROLE_TEXT_VALUE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-ROLE-CHECKBOX:CAPS"></a>POPPLER_STRUCTURE_FORM_ROLE_CHECKBOX</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerStructureFormState"></a><h3>enum PopplerStructureFormState</h3>
+<div class="refsect3">
+<a name="id-1.2.12.10.19.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-STATE-ON:CAPS"></a>POPPLER_STRUCTURE_FORM_STATE_ON</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-STATE-OFF:CAPS"></a>POPPLER_STRUCTURE_FORM_STATE_OFF</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="POPPLER-STRUCTURE-FORM-STATE-NEUTRAL:CAPS"></a>POPPLER_STRUCTURE_FORM_STATE_NEUTRAL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="PopplerTextSpan"></a><h3>PopplerTextSpan</h3>
+<pre class="programlisting">typedef struct _PopplerTextSpan PopplerTextSpan;</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="PopplerStructureElement.see-also"></a><h2>See Also</h2>
+<p><span class="type">PopplerStructure</span></p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21</div>
+</body>
+</html>
