@@ -1,7 +1,7 @@
 spy: spy.c flushreload.c flushreload.h args.h
 	gcc -c flushreload.c -o flushreload.o
 	gcc -c spy.c -o spy.o
-	gcc spy.o flushreload.o -o spy
+	gcc -lelf spy.o flushreload.o -o spy
 
 .PHONY: clean
 clean:
