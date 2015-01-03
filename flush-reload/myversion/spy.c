@@ -5,6 +5,9 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "args.h"
+#include "flushreload.h"
+
 #define MAX_PROBES 20
 
 static struct option long_options[] = {
@@ -15,20 +18,6 @@ static struct option long_options[] = {
     { "machine-readable",   no_argument,        NULL, 'm' },
     { NULL, 0, NULL, 0 }
 };
-
-typedef struct Probe {
-    unsigned long virtual_address;
-    unsigned long mapped_address;
-    char name;
-} probe_t;
-
-typedef struct SpyArguments {
-    const char *elf_path;
-    unsigned int threshold;
-    probe_t *probes;
-    unsigned int probe_count;
-    unsigned int machine_readable;
-} args_t;
 
 const char *program_name;
 
@@ -53,6 +42,7 @@ int main(int argc, char **argv)
 
     parseArgs(argc, argv, &args);
     validateArgs(&args);
+    startSpying(&args);
 
     return EXIT_SUCCESS;
 }
