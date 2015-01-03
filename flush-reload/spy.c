@@ -25,7 +25,8 @@
 
 
 #define NTIMING	100000
-#define CUTOFF 120
+//#define CUTOFF 120
+#define CUTOFF 180
 
 
 
@@ -58,7 +59,6 @@ inline int probe(char *adrs) {
 inline void flush(char *adrs) {
   asm __volatile__ ("mfence\nclflush 0(%0)" : : "r" (adrs) :);
 }
-
 
 
 int main(int c, char **v) {
@@ -100,68 +100,68 @@ int main(int c, char **v) {
 
 
   while (1) {
-    hit = 0;
-    for (i = 0; i < noffsets; i++) {
-      times[i] = probe(ptrs[i]);
-      touched[i] = (times[i] < CUTOFF);
-      hit |= touched[i];
-    }
-    if (timing && ind < NTIMING) {
-      if ((ind > 0) || hit) {
-        for (i = 0; i < noffsets; i++) 
-	  timings[ind * noffsets + i] = times[i];
-	ind++;
+      hit = 0;
+      for (i = 0; i < noffsets; i++) {
+          times[i] = probe(ptrs[i]);
+          touched[i] = (times[i] < CUTOFF);
+          hit |= touched[i];
       }
-    }
-
-    if (debug)
-      for (i = 0; i < noffsets; i++)
-	if (touched[i])
-	  putchar(conf->chars[i]);
-    if (hit) {
-      if (debug) putchar('|');
-      n = 100;
-    } else if (n) {
-      if (debug) putchar('|');
-      if (--n == 0) {
-	if (debug) putchar('\n');
-	if (timing) {
-	  if (ind < 500) {
-	    ind = 0;
-	  } else if (first) {
-	    first = 0;
-	    ind = 0;
-	  } else {
-	    printf("Index");
-	    for (i = 0; i < noffsets; i++)
-	      printf("\t%c", conf->chars[i]);
-	    putchar('\n');
-	    for (int j = 0; j < ind; j++) {
-	      printf("%d", j);
-	      for (i = 0; i < noffsets; i++) 
-	        printf("\t%d", timings[j * noffsets + i]);
-              putchar('\n');
-	    }
-	  ind = 0;
-
-	  }
-	}
+      if (timing && ind < NTIMING) {
+          if ((ind > 0) || hit) {
+              for (i = 0; i < noffsets; i++) 
+                  timings[ind * noffsets + i] = times[i];
+              ind++;
+          }
       }
-    }
 
-    do {
-      current = gettime();
-    } while (current - slotstart < conf->slotSize);
-    slotstart += conf->slotSize;
-    while (current - slotstart > conf->slotSize) {
-      if (n > 0)
-	putchar('-');
-      if (timing && ind < NTIMING && ind > 0) {
-        for (i = 0; i < noffsets; i++)
-	  timings[ind * noffsets + i] = -1;
-	ind++;
+      if (debug)
+          for (i = 0; i < noffsets; i++)
+              if (touched[i])
+                  putchar(conf->chars[i]);
+      if (hit) {
+          if (debug) putchar('|');
+          n = 100;
+      } else if (n) {
+          if (debug) putchar('|');
+          if (--n == 0) {
+              if (debug) putchar('\n');
+              if (timing) {
+                  if (ind < 500) {
+                      ind = 0;
+                  } else if (first) {
+                      first = 0;
+                      ind = 0;
+                  } else {
+                      printf("Index");
+                      for (i = 0; i < noffsets; i++)
+                          printf("\t%c", conf->chars[i]);
+                      putchar('\n');
+                      for (int j = 0; j < ind; j++) {
+                          printf("%d", j);
+                          for (i = 0; i < noffsets; i++) 
+                              printf("\t%d", timings[j * noffsets + i]);
+                          putchar('\n');
+                      }
+                      ind = 0;
+
+                  }
+              }
+          }
       }
+
+      do {
+          current = gettime();
+      } while (current - slotstart < conf->slotSize);
       slotstart += conf->slotSize;
-    }
+      while (current - slotstart > conf->slotSize) {
+          if (n > 0)
+              putchar('-');
+          if (timing && ind < NTIMING && ind > 0) {
+              for (i = 0; i < noffsets; i++)
+                  timings[ind * noffsets + i] = -1;
+              ind++;
+          }
+          slotstart += conf->slotSize;
+      }
   }
 }

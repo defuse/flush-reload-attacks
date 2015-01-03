@@ -90,6 +90,10 @@ void attackLoop(args_t *args)
         /* Wait for the next slot to begin. */
         /* XXX: make sure to check all the things that could go wrong. */
 
+    if (has_invariant_tsc()) {
+        printf("Yes!\n");
+    } else { 
+        printf("No. \n");
     }
 
 }
