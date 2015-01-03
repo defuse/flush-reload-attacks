@@ -1,0 +1,14 @@
+Building Evince and libpoppler.
+==================================
+
+Build libpoppler with:
+
+    ./configure --prefix=`realpath ../buildroot`
+    make
+    make install
+
+Build evince with:
+
+    ./configure --prefix=`realpath ../buildroot` --disable-nautilus
+    make
+    make install
