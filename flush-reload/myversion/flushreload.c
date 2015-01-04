@@ -36,7 +36,8 @@ void startSpying(args_t *args)
     }
 
     /* Map the victim binary into our address space. */
-    const char *binary = map(args->elf_path);
+    unsigned long size;
+    const char *binary = map(args->elf_path, &size);
 
     /* Construct pointers to the probe addresses. */
     int i = 0;
@@ -46,7 +47,10 @@ void startSpying(args_t *args)
             fprintf(stderr, "Virtual address 0x%lx is too low.\n", probe->virtual_address);
             exit(EXIT_FAILURE);
         }
-        /* FIXME: Add upper-bound check too! */
+        if (probe->virtual_address >= load_address + size) {
+            fprintf(stderr, "Virtual address 0x%lx is too high.\n", probe->virtual_address);
+            exit(EXIT_FAILURE);
+        }
         probe->mapped_pointer = binary + (probe->virtual_address - load_address);
         printf("%c: ", probe->name);
         printBytes(probe->mapped_pointer, 4);
@@ -62,13 +66,15 @@ void checkSystemConfiguration()
         printf("WARNING: This processor does not have an invariant TSC.\n");
     }
 
-    /* TODO: warn on multiple procs */
-
     char vendor[12];
     cpuid_get_vendor_string(vendor);
     if (memcmp("GenuineIntel", vendor, 12) != 0) {
         printf("WARNING: This is not an Intel processor.\n");
     }
+
+    /* TODO: Warn when there are more than one physical processors on the
+     * motherboard (not cores). I'm not going to do this yet because I don't
+     * have a multi-processor system to test with. */
 }
 
 void attackLoop(args_t *args)
@@ -106,17 +112,13 @@ void attackLoop(args_t *args)
         buffer[buffer_pos].start = current_slot_start;
         /* Calculate the number of slots we missed. */
         buffer[buffer_pos].missed = (current_slot_start - last_completed_slot_end) / args->slot;
+
+        /* Stop if RDTSC ever fails to be monotonic. */
         if (current_slot_start < last_completed_slot_end) {
             printf("Monotonicity failure!!!\n");
             printf("Current Start: %llu. Last end: %llu\n", current_slot_start, last_completed_slot_end);
             exit(1);
         }
-        /*
-        if (buffer[buffer_pos].missed != 0) {
-            printf("%llu -> %llu\n --> %lu\n", current_slot_start, last_completed_slot_end, buffer[buffer_pos].missed);
-        }
-        */
-
 
         /* Measure and reset the probes from the PREVIOUS slot. */
         for (i = 0; i < args->probe_count; i++) {
