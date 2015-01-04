@@ -77,6 +77,7 @@ inline unsigned long long gettime() {
     volatile uint64_t t;
     asm __volatile__(
         "lfence\n"
+        /* Guaranteed to clear the high-order 32 bits of RAX and RDX. */
         "rdtsc\n"
         "shlq $32, %%rdx\n"
         "orq %%rdx, %%rax\n"
