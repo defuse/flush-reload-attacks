@@ -8,8 +8,6 @@
 #include "args.h"
 #include "flushreload.h"
 
-#define MAX_PROBES 20
-
 static struct option long_options[] = {
     { "help",               no_argument,        NULL, 'h' },
     { "elf",                required_argument,  NULL, 'e' },

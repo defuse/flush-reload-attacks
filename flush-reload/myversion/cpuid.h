@@ -4,10 +4,10 @@
 #include <stdint.h>
 
 typedef struct CpuIdRegisters {
-    uint32_t eax, ebx, ecx, edx;
+    volatile uint32_t eax, ebx, ecx, edx;
 } cpuid_regs_t;
 
-void cpuid(uint32_t eax, cpuid_regs_t *regs)
+void cpuid(volatile uint32_t eax, cpuid_regs_t *regs)
 {
     asm __volatile__ (
         " movl %4, %%eax \n"
