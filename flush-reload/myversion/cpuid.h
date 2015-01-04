@@ -47,4 +47,15 @@ int cpuid_has_invariant_tsc()
     }
 }
 
+void cpuid_get_vendor_string(char vendor[12])
+{
+    uint32_t *vendor_as_ints = (uint32_t *)vendor;
+    cpuid_regs_t regs;
+    cpuid(0x00, &regs);
+    vendor_as_ints[0] = regs.ebx;
+    vendor_as_ints[1] = regs.edx;
+    vendor_as_ints[2] = regs.ecx;
+}
+
+
 #endif

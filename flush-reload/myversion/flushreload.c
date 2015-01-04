@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
+#include <string.h>
 
 #include "flushreload.h"
 #include "cpuid.h"
@@ -63,7 +64,11 @@ void checkSystemConfiguration()
 
     /* TODO: warn on multiple procs */
 
-    /* TODO: warn on AMD */
+    char vendor[12];
+    cpuid_get_vendor_string(vendor);
+    if (memcmp("GenuineIntel", vendor, 12) != 0) {
+        printf("WARNING: This is not an Intel processor.\n");
+    }
 }
 
 void attackLoop(args_t *args)
