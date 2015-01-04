@@ -183,7 +183,7 @@ void attackLoop(args_t *args)
             buffer[buffer_pos].probe_time[i] = probe(probes[i].mapped_pointer);
             /* We don't make the hit decision yet, we do that when we print the
              * buffer. */
-            if (buffer[buffer_pos].probe_time[i] > args->threshold) {
+            if (buffer[buffer_pos].probe_time[i] <= args->threshold) {
                 hit = 1;
             }
         }
