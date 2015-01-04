@@ -170,7 +170,6 @@ void printSlotBuffer(slot_t *buffer, unsigned long size, args_t *args)
         for (j = 0; j < args->probe_count; j++) {
             if (buffer[i].probe_time[j] <= args->threshold) {
                 printf("%c", args->probes[j].name);
-                printf("%lu", buffer[i].probe_time[j]);
                 hit = 1;
             }
         }
@@ -184,6 +183,7 @@ void printSlotBuffer(slot_t *buffer, unsigned long size, args_t *args)
     }
     if (any_hit) {
         printf("\n");
+        fflush(stdout);
     }
 }
 
