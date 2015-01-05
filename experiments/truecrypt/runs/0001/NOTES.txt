@@ -1,0 +1,7 @@
+Experiment Notes
+-----------------
+Date: Mon Jan  5 14:53:33 MST 2015
+
+First saved experiment run with truecrypt. Note that it is only deciding hidden
+vs. standard, and is not deciding hidden vs. standard vs. not-a-mount like we
+want this experiment to be.
