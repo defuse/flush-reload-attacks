@@ -6,6 +6,7 @@
 #include <ctype.h>
 
 #include "args.h"
+#include "exitcodes.h"
 #include "flushreload.h"
 
 static struct option long_options[] = {
@@ -70,7 +71,7 @@ void parseArgs(int argc, char **argv, args_t *args)
             case 'h':
                 /* Help menu. */
                 showHelp(NULL);
-                exit(EXIT_FAILURE);
+                exit(EXIT_SUCCESS);
             case 'e':
                 /* ELF path. */
                 args->elf_path = optarg;
@@ -86,7 +87,7 @@ void parseArgs(int argc, char **argv, args_t *args)
                     probe->name = argstr[0];
                 } else {
                     showHelp("Give the probe a 1-character name like A:0xDEADBEEF.");
-                    exit(EXIT_FAILURE);
+                    exit(EXIT_BAD_ARGUMENTS);
                 }
 
                 /* Skip over the colon. */
@@ -94,13 +95,13 @@ void parseArgs(int argc, char **argv, args_t *args)
 
                 if (strlen(argstr) < 2 || argstr[0] != '0' || argstr[1] != 'x') {
                     showHelp("Probe address must be given in hex (starting with 0x)");
-                    exit(EXIT_FAILURE);
+                    exit(EXIT_BAD_ARGUMENTS);
                 }
 
                 /* Parse the remainder as an integer in hex. */
                 if (sscanf(argstr, "%10li", &probe->virtual_address) != 1 || probe->virtual_address <= 0) {
                     showHelp("Bad probe address.");
-                    exit(EXIT_FAILURE);
+                    exit(EXIT_BAD_ARGUMENTS);
                 }
 
                 args->probe_count++;
@@ -110,14 +111,14 @@ void parseArgs(int argc, char **argv, args_t *args)
                 /* Threshold */
                 if (sscanf(optarg, "%10u", &args->threshold) != 1 || args->threshold <= 0) {
                     showHelp("Bad threshold (must be an integer > 0).");
-                    exit(EXIT_FAILURE);
+                    exit(EXIT_BAD_ARGUMENTS);
                 }
                 break;
             case 's':
                 /* Slot */
                 if (sscanf(optarg, "%10u", &args->slot) != 1 || args->slot <= 0) {
                     showHelp("Bad slot (must be an integer > 0).");
-                    exit(EXIT_FAILURE);
+                    exit(EXIT_BAD_ARGUMENTS);
                 }
                 break;
             case 'm':
@@ -125,7 +126,7 @@ void parseArgs(int argc, char **argv, args_t *args)
                 break;
             default:
                 showHelp("Invalid argument.");
-                exit(EXIT_FAILURE);
+                exit(EXIT_BAD_ARGUMENTS);
         }
     }
 }
@@ -134,22 +135,22 @@ void validateArgs(const args_t *args)
 {
     if (args->elf_path == NULL) {
         showHelp("Tell me what program to spy on with --elf.");
-        exit(EXIT_FAILURE);
+        exit(EXIT_BAD_ARGUMENTS);
     }
 
     if (args->probe_count <= 0) {
         showHelp("Tell me which addresses you want me to probe with --probe.");
-        exit(EXIT_FAILURE);
+        exit(EXIT_BAD_ARGUMENTS);
     }
 
     if ( ! (0 < args->threshold && args->threshold < 2000) ) {
         showHelp("Bad threshold cycles value. Try 120?");
-        exit(EXIT_FAILURE);
+        exit(EXIT_BAD_ARGUMENTS);
     }
 
     if (args->slot <= 0) {
         showHelp("Bad slot cycles value. Try 2048?");
-        exit(EXIT_FAILURE);
+        exit(EXIT_BAD_ARGUMENTS);
     }
 
     /* Check for duplicated probe names or addresses. */
@@ -159,12 +160,12 @@ void validateArgs(const args_t *args)
         for (j = i + 1; j < args->probe_count; j++) {
             if (args->probes[i].name == args->probes[j].name) {
                 showHelp("Two probes share the same name. This is not allowed.");
-                exit(EXIT_FAILURE);
+                exit(EXIT_BAD_ARGUMENTS);
             }
 
             if (args->probes[i].virtual_address == args->probes[j].virtual_address) {
                 showHelp("Two probes share the same virtual address. This is not allowed.");
-                exit(EXIT_FAILURE);
+                exit(EXIT_BAD_ARGUMENTS);
             }
         }
     }

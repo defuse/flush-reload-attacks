@@ -9,6 +9,7 @@
 #include "cpuid.h"
 #include "elftools.h"
 #include "attacktools.h"
+#include "exitcodes.h"
 
 #define SLOT_BUF_SIZE 10000
 #define MAX_QUIET_PERIOD 10000
@@ -45,11 +46,11 @@ void startSpying(args_t *args)
         probe_t *probe = &args->probes[i];
         if (probe->virtual_address < load_address) {
             fprintf(stderr, "Virtual address 0x%lx is too low.\n", probe->virtual_address);
-            exit(EXIT_FAILURE);
+            exit(EXIT_BAD_ARGUMENTS);
         }
         if (probe->virtual_address >= load_address + size) {
             fprintf(stderr, "Virtual address 0x%lx is too high.\n", probe->virtual_address);
-            exit(EXIT_FAILURE);
+            exit(EXIT_BAD_ARGUMENTS);
         }
         probe->mapped_pointer = binary + (probe->virtual_address - load_address);
         printf("%c: ", probe->name);
@@ -117,7 +118,7 @@ void attackLoop(args_t *args)
         if (current_slot_start < last_completed_slot_end) {
             printf("Monotonicity failure!!!\n");
             printf("Current Start: %llu. Last end: %llu\n", current_slot_start, last_completed_slot_end);
-            exit(1);
+            exit(EXIT_MONOTONICITY);
         }
 
         /* Measure and reset the probes from the PREVIOUS slot. */
