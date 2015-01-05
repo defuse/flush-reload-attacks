@@ -21,7 +21,6 @@ typedef struct SlotState {
 } slot_t;
 
 void checkSystemConfiguration();
-void printBytes(const unsigned char *start, unsigned long length);
 void printSlotBuffer(slot_t *buffer, unsigned long size, args_t *args);
 void attackLoop(args_t *args);
 
@@ -53,8 +52,6 @@ void startSpying(args_t *args)
             exit(EXIT_BAD_ARGUMENTS);
         }
         probe->mapped_pointer = binary + (probe->virtual_address - load_address);
-        printf("%c: ", probe->name);
-        printBytes(probe->mapped_pointer, 4);
     }
 
     /* Start the attack. */
@@ -192,18 +189,4 @@ void printSlotBuffer(slot_t *buffer, unsigned long size, args_t *args)
         fflush(stdout);
     }
 }
-
-void printBytes(const unsigned char *start, unsigned long length)
-{
-    unsigned long i = 0;
-    for (i = 0; i < length; i++) {
-        printf("%x", start[i]);
-        if (i != length - 1) {
-            printf(", ");
-        }
-    }
-    printf("\n");
-}
-
-
 
