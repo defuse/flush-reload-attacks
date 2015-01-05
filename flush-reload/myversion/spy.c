@@ -92,6 +92,11 @@ void parseArgs(int argc, char **argv, args_t *args)
                 /* Skip over the colon. */
                 argstr += 2;
 
+                if (strlen(argstr) < 2 || argstr[0] != '0' || argstr[1] != 'x') {
+                    showHelp("Probe address must be given in hex (starting with 0x)");
+                    exit(EXIT_FAILURE);
+                }
+
                 /* Parse the remainder as an integer in hex. */
                 if (sscanf(argstr, "%10li", &probe->virtual_address) != 1 || probe->virtual_address <= 0) {
                     showHelp("Bad probe address.");

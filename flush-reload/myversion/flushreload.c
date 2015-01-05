@@ -148,6 +148,11 @@ void attackLoop(args_t *args)
         /* Advance to the next time slot. */
         buffer_pos++;
 
+        /* FIXME: quiet and buffer doesn't work exactly as I think it does,
+         * because the buffer contains uneventful (no hits) slots...
+         * So, the buffer will *always* exhaust itself?
+         */
+
         /* If we've reached the end of the buffer, dump it. */
         if (buffer_pos >= SLOT_BUF_SIZE) {
             printSlotBuffer(buffer, buffer_pos, args);
