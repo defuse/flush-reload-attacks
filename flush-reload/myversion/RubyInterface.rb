@@ -9,6 +9,8 @@ class Spy
   EXIT_BAD_ARGUMENTS = 2
   EXIT_MONOTONICITY = 3
 
+  SPY_PATH = File.join( File.dirname( __FILE__ ), "spy" )
+
   attr_accessor :elf_path, :threshold, :slot
 
   def initialize(elf_path = nil)
@@ -41,8 +43,10 @@ class Spy
       raise ArgumentError.new("There are no probes.")
     end
 
+    puts SPY_PATH
+
     command = [
-        "./spy",
+        SPY_PATH,
         "-e", @elf_path,
         "-s", @slot.to_s,
         "-t", @threshold.to_s
@@ -60,7 +64,8 @@ class Spy
   def stop
     Process.kill("KILL", @spy_io.pid)
     # Read any remaining output.
-    @whole_output += @spy_io.read
+    # FIXME: this might block if there was no output
+    @whole_output += parse_output(@spy_io.read)
     @spy_io.close
     @spy_io = nil
     return @whole_output
@@ -76,6 +81,15 @@ class Spy
         yield output
       rescue IO::WaitReadable
         # Wait and try again later.
+      rescue EOFError
+        @spy_io.close
+        if $?.exitstatus == EXIT_BAD_ARGUMENTS
+          raise ArgumentError.new("Spy program says bad arguments.")
+        elsif $?.exitstatus == EXIT_MONOTONICITY
+          raise MonotonicityError.new("RDTSC behaved non-monotonically.")
+        else
+          raise ArgumentError.new("Unknown error.")
+        end
       end
       sleep 1
     end
@@ -93,21 +107,4 @@ class Spy
     return lines.join
   end
 
-end
-
-
-TC_PATH = "/home/firexware/Desktop/tc/truecrypt-7.1a-source/Main/truecrypt"
-HIDDEN_VOL = "/home/firexware/Desktop/tc/hidden.tc"
-STANDARD_VOL = "/home/firexware/Desktop/tc/standard.tc"
-
-spy = Spy.new(TC_PATH)
-spy.addProbe("R", 0x576520)
-spy.addProbe("S", 0x41c516)
-spy.start
-spy.each_burst do |output|
-  if output.end_with? "R|"
-    puts "STANDARD"
-  else
-    puts "HIDDEN (or not a mount)"
-  end
 end
