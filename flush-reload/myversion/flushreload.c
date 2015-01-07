@@ -9,6 +9,7 @@
 #include "cpuid.h"
 #include "elftools.h"
 #include "attacktools.h"
+#include "exitcodes.h"
 
 #define SLOT_BUF_SIZE 10000
 #define MAX_QUIET_PERIOD 10000
@@ -20,7 +21,6 @@ typedef struct SlotState {
 } slot_t;
 
 void checkSystemConfiguration();
-void printBytes(const unsigned char *start, unsigned long length);
 void printSlotBuffer(slot_t *buffer, unsigned long size, args_t *args);
 void attackLoop(args_t *args);
 
@@ -45,15 +45,13 @@ void startSpying(args_t *args)
         probe_t *probe = &args->probes[i];
         if (probe->virtual_address < load_address) {
             fprintf(stderr, "Virtual address 0x%lx is too low.\n", probe->virtual_address);
-            exit(EXIT_FAILURE);
+            exit(EXIT_BAD_ARGUMENTS);
         }
         if (probe->virtual_address >= load_address + size) {
             fprintf(stderr, "Virtual address 0x%lx is too high.\n", probe->virtual_address);
-            exit(EXIT_FAILURE);
+            exit(EXIT_BAD_ARGUMENTS);
         }
         probe->mapped_pointer = binary + (probe->virtual_address - load_address);
-        printf("%c: ", probe->name);
-        printBytes(probe->mapped_pointer, 4);
     }
 
     /* Start the attack. */
@@ -117,7 +115,7 @@ void attackLoop(args_t *args)
         if (current_slot_start < last_completed_slot_end) {
             printf("Monotonicity failure!!!\n");
             printf("Current Start: %llu. Last end: %llu\n", current_slot_start, last_completed_slot_end);
-            exit(1);
+            exit(EXIT_MONOTONICITY);
         }
 
         /* Measure and reset the probes from the PREVIOUS slot. */
@@ -147,6 +145,11 @@ void attackLoop(args_t *args)
 
         /* Advance to the next time slot. */
         buffer_pos++;
+
+        /* FIXME: quiet and buffer doesn't work exactly as I think it does,
+         * because the buffer contains uneventful (no hits) slots...
+         * So, the buffer will *always* exhaust itself?
+         */
 
         /* If we've reached the end of the buffer, dump it. */
         if (buffer_pos >= SLOT_BUF_SIZE) {
@@ -186,18 +189,4 @@ void printSlotBuffer(slot_t *buffer, unsigned long size, args_t *args)
         fflush(stdout);
     }
 }
-
-void printBytes(const unsigned char *start, unsigned long length)
-{
-    unsigned long i = 0;
-    for (i = 0; i < length; i++) {
-        printf("%x", start[i]);
-        if (i != length - 1) {
-            printf(", ");
-        }
-    }
-    printf("\n");
-}
-
-
 

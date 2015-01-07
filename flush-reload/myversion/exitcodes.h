@@ -1,0 +1,7 @@
+#ifndef EXITCODES_H
+#define EXITCODES_H
+
+#define EXIT_BAD_ARGUMENTS 2
+#define EXIT_MONOTONICITY 3
+
+#endif
