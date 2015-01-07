@@ -66,7 +66,27 @@
 
 \section{Attacks}
 
-\subsection{Vulnerable Program 1}
+\subsection{TrueCrypt}
+
+\subsubsection{Recovering Cipher Choice}
+
+TrueCrypt supports different ciphers. Because the cipher choice is not stored in
+in the metadata, it is impossible to find out which cipher is in use without
+knowing the password. To decrypt a volume, TrueCrypt itself must try all
+possible combinations of ciphers and hashes. Therefore, an attacker must do the
+same.
+
+The attacker is interested in knowing which cipher is in use, since it will
+speed up their dictionary attack on the password. We applied FLUSH+RELOAD to
+determine whether the Serpent or Twofish ciphers were in use when a volume is
+mounted.
+
+To do so, we placed probes on the \texttt{serpent\_decrypt} and
+\texttt{twofish\_decrypt} methods. By observing the output, it is obvious
+whether the cipher is Serpent or Twofish.
+
+TODO: actual experiment, more description of how it works.
+
 \subsection{Vulnerable Program 2}
 \subsection{Vulnerable Program 3}
 
