@@ -2,7 +2,7 @@
 
 require '../../flush-reload/myversion/RubyInterface.rb'
 
-SAMPLES = 500
+SAMPLES = 20
 TC_PATH = "/home/firexware/Desktop/tc/truecrypt-7.1a-source/Main/truecrypt"
 VOLUME_BYTES = 1_000_000
 HIDDEN_VOL = "./hidden.tc"

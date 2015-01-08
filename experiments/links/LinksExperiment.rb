@@ -9,10 +9,10 @@ if ARGV[0].nil?
 end
 
 URL_LIST_FILE = "url_sets/small-test.txt"
-SAMPLE_COUNT = 3
+SAMPLE_COUNT = 5
 OUTPUT_DIR = ARGV[0]
 LINKS_PATH = "binaries/links"
-VICTIM_RUNS = 3
+VICTIM_RUNS = 1
 
 results = {
   "url_list_file" => URL_LIST_FILE,
@@ -88,6 +88,9 @@ urls.each do |victim_url|
     record_files = Dir.entries(record_dir) - [".", ".."]
 
     if record_files.length != 1
+      if record_files.length == 0
+        File.open(File.join(record_dir, "MAKES_DIR_NONEMPTY_FOR_GIT"), "w") {}
+      end
       results["urls"][victim_url][run]["status"] = "fail_recording"
       print "R "
       next
