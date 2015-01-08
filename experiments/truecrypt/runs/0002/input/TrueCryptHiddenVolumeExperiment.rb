@@ -2,7 +2,7 @@
 
 require '../../flush-reload/myversion/RubyInterface.rb'
 
-SAMPLES = 100
+SAMPLES = 10
 TC_PATH = "./binaries/truecrypt"
 VOLUME_BYTES = 1_000_000
 HIDDEN_VOL = "./hidden.tc"

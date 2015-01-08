@@ -1,0 +1,64 @@
+Sample 0 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|]
+right
+Sample 1 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|]
+WRONG########################
+Sample 2 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|]
+right
+Sample 3 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|]
+WRONG########################
+Sample 4 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+right
+Sample 5 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|]
+WRONG########################
+Sample 6 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|
+S|]
+WRONG########################
+Sample 7 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+WRONG########################
+Sample 8 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|R|S|S|S|S|
+S|]
+WRONG########################
+Sample 9 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|]
+WRONG########################
+TOTALS:
+    SMPLS: 10
+    WRONG: 7
+    RIGHT: 3
+    MONO:  0
+    UNK:   0
+    STD:   7
+    HDN:   3

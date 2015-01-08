@@ -1,0 +1,11 @@
+Experiment Notes
+-----------------
+Date: Thu Jan  8 12:40:10 MST 2015
+
+Testing after moving the binary locally.
+This failed (probably) because TrueCrypt couldn't get admin rights with sudo.
+I have to remember to run `sudo ls` before running the experiment and did not.
+
+Actually, on later inspection, I don't think it was that, since I added a sudo
+echo to the experiment.sh and it didn't prompt me for a password but because
+volumes were already mounted.

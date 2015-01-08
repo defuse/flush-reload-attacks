@@ -6,9 +6,6 @@ trap 'exp_failed' ERR
 # Puts the ouput directory in $OUTPUT_DIR.
 source ../experiment.sh
 
-# Get sudo working (it's cached)
-sudo echo Thanks
-
 cp ../../flush-reload/myversion/spy $EXTRA_INPUT/
 cp ../../flush-reload/myversion/RubyInterface.rb $EXTRA_INPUT/
 
