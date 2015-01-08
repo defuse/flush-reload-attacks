@@ -37,16 +37,15 @@ end
 if $options[:outputdir].nil?
   exit_with_message(optparse, "Missing --output-dir")
 end
-unless Dir.exist?($options[:outputdir])
-  exit_with_message(optparse, "Output directory does not exist.")
-end
-unless (Dir.entries($options[:outputdir]) - [".", ".."]).empty?
-  exit_with_message(optparse, "Output directory is not empty.")
+if Dir.exist?($options[:outputdir])
+  exit_with_message(optparse, "Output directory already exists.")
 end
 
 if $options[:links].nil?
   exit_with_message(optparse, "Missing --links-path (path to links binary)")
 end
+
+Dir.mkdir($options[:outputdir])
 
 begin
   spy = Spy.new($options[:links])

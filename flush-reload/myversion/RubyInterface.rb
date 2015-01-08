@@ -43,8 +43,6 @@ class Spy
       raise ArgumentError.new("There are no probes.")
     end
 
-    puts SPY_PATH
-
     command = [
         SPY_PATH,
         "-e", @elf_path,
@@ -71,11 +69,11 @@ class Spy
     return @whole_output
   end
 
-  def each_burst
+  def each_burst(wait = 1)
     loop do
       begin
         output = ""
-        @spy_io.read_nonblock(10_000, output)
+        @spy_io.read_nonblock(1_000_000, output)
         output = parse_output(output)
         @whole_output += output
         yield output
@@ -91,7 +89,7 @@ class Spy
           raise ArgumentError.new("Unknown error.")
         end
       end
-      sleep 1
+      sleep wait
     end
   end
 
@@ -104,7 +102,7 @@ class Spy
     lines = raw_output.split("\n")
     lines.reject! { |l| l.include? "WARNING" }
 
-    return lines.join
+    return lines.join("\n")
   end
 
 end

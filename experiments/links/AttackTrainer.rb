@@ -55,11 +55,8 @@ end
 if $options[:traindir].nil?
   exit_with_message(optparse, "Missing --train-dir")
 end
-unless Dir.exist?($options[:traindir])
-  exit_with_message(optparse, "Training directory does not exist.")
-end
-unless (Dir.entries($options[:traindir]) - [".", ".."]).empty?
-  exit_with_message(optparse, "Training directory is not empty.")
+if Dir.exist?($options[:traindir])
+  exit_with_message(optparse, "Training directory already exists.")
 end
 
 if $options[:links].nil?
@@ -69,6 +66,8 @@ end
 if $options[:samples] <= 0
   exit_with_message(optparse, "Bad --samples value.")
 end
+
+Dir.mkdir($options[:traindir])
 
 urls = File.readlines($options[:urls]).uniq.map { |line| line.chomp }
 
@@ -114,3 +113,5 @@ urls.each_with_index do |train_url, index|
   end
 
 end
+
+metadata.close
