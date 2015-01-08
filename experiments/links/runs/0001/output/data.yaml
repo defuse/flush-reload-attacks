@@ -1,0 +1,80 @@
+---
+url_list_file: url_sets/small-test.txt
+sample_count: 1
+links_path: binaries/links
+victim_runs: 3
+training_time: 90.524305196
+urls:
+  https://en.wikipedia.org/wiki/Facebook:
+  - status: pass
+    recovery_time: 17.976598682
+  - status: pass
+    recovery_time: 19.555748256
+  - status: pass
+    recovery_time: 18.670736952
+  https://en.wikipedia.org/wiki/Deaths_in_2013:
+  - status: fail_bad_recovery
+    recovery_time: 2.780812838
+    bad_recovery_url: https://en.wikipedia.org/wiki/G-force
+  - status: fail_bad_recovery
+    recovery_time: 3.059922381
+    bad_recovery_url: https://en.wikipedia.org/wiki/G-force
+  - status: fail_bad_recovery
+    recovery_time: 3.879908162
+    bad_recovery_url: https://en.wikipedia.org/wiki/Wiki
+  https://en.wikipedia.org/wiki/Breaking_Bad:
+  - status: pass
+    recovery_time: 8.283213938
+  - status: pass
+    recovery_time: 8.782025324
+  - status: pass
+    recovery_time: 10.309884013
+  https://en.wikipedia.org/wiki/G-force:
+  - status: pass
+    recovery_time: 2.601501959
+  - status: pass
+    recovery_time: 2.734133155
+  - status: pass
+    recovery_time: 2.658323367
+  https://en.wikipedia.org/wiki/Google:
+  - status: pass
+    recovery_time: 18.854955578
+  - status: pass
+    recovery_time: 16.521617285
+  - status: pass
+    recovery_time: 17.515557326
+  https://en.wikipedia.org/wiki/World_War_II:
+  - status: pass
+    recovery_time: 15.000008415
+  - status: pass
+    recovery_time: 17.665358025
+  - status: pass
+    recovery_time: 15.173909876
+  https://en.wikipedia.org/wiki/Wiki:
+  - status: pass
+    recovery_time: 2.948300914
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 6.770930556
+  https://en.wikipedia.org/wiki/YouTube:
+  - status: pass
+    recovery_time: 27.346013286
+  - status: pass
+    recovery_time: 23.530602788
+  - status: pass
+    recovery_time: 29.97943914
+  https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013:
+  - status: pass
+    recovery_time: 11.585177947
+  - status: pass
+    recovery_time: 10.101502396
+  - status: pass
+    recovery_time: 9.931811317
+  https://en.wikipedia.org/wiki/United_States:
+  - status: pass
+    recovery_time: 21.738939088
+  - status: pass
+    recovery_time: 24.130463627
+  - status: pass
+    recovery_time: 22.214727572
