@@ -89,9 +89,10 @@ urls.each_with_index do |train_url, index|
       spy.addProbe("S", 0x41eab0)
       spy.start
 
-      links = IO.popen([$options[:links], train_url])
+      links = IO.popen([$options[:links], train_url, :err=>[:child, :out]])
       sleep 3
-      Process.kill("KILL", links.pid)
+      # Use SIGINT. SIGKILL leaves the terminal broken.
+      Process.kill("INT", links.pid)
 
       output = spy.stop.gsub("\n", "")
 

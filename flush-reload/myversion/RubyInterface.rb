@@ -70,15 +70,31 @@ class Spy
   end
 
   def each_burst(wait = 1)
+    # Holds the output from the current burst.
+    burst_output = ""
+
     loop do
       begin
+        # Attempt to read output.
         output = ""
         @spy_io.read_nonblock(1_000_000, output)
         output = parse_output(output)
-        @whole_output += output
-        yield output
+        # If we get output, add it to the burst buffer.
+        # We only want to yield the buffer after 'wait' seconds of silence.
+        # Or, equvalently, after we've waited and read nothing.
+        burst_output += output
+      rescue Errno::EWOULDBLOCK
+        # When nothing gets read, we end up here.
+          unless burst_output.empty?
+            # If the current burst is not empty, yield the buffer and empty.
+            yield burst_output
+            @whole_output += burst_output
+            burst_output = ""
+          end
       rescue IO::WaitReadable
-        # Wait and try again later.
+        # It's one of the other reasons read() fails.
+        # In this case, immediately retry reading without delay.
+        retry
       rescue EOFError
         @spy_io.close
         if $?.exitstatus == EXIT_BAD_ARGUMENTS
