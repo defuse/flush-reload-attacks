@@ -1,0 +1,9 @@
+Experiment Notes
+-----------------
+Date: Thu Jan  8 22:13:48 MST 2015
+
+Yay!!! 84%!!!
+
+Note that this was **without** the consolidation of the S outputs. Comparing to
+experiment 0002, which was the same except with consolidation, which had 76%
+success, it seems *not* consolidating the S has an advantage.
