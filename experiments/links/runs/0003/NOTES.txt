@@ -1,0 +1,6 @@
+Experiment Notes
+-----------------
+Date: Thu Jan  8 17:26:08 MST 2015
+
+This experiment FAILED partway through, because I closed my laptop lid, and for
+whatever reason that caused it to shut down.
