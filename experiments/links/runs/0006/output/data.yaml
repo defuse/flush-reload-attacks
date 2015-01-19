@@ -1,0 +1,2390 @@
+---
+url_list_file: url_sets/wiki-top-100-of-2013-HTTPS.txt
+sample_count: 1
+links_path: binaries/links
+victim_runs: 10
+training_time: 605.395958526
+urls:
+  https://en.wikipedia.org/wiki/Facebook:
+  - status: pass
+    recovery_time: 128.739928408
+  - status: pass
+    recovery_time: 136.10044929
+  - status: pass
+    recovery_time: 133.050723319
+  - status: fail_bad_recovery
+    recovery_time: 126.161199318
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: fail_bad_recovery
+    recovery_time: 125.201771071
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: pass
+    recovery_time: 124.092912424
+  - status: pass
+    recovery_time: 141.338818325
+  - status: fail_bad_recovery
+    recovery_time: 122.988714567
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: pass
+    recovery_time: 131.615511965
+  - status: pass
+    recovery_time: 141.706049418
+  https://en.wikipedia.org/wiki/Deaths_in_2013:
+  - status: pass
+    recovery_time: 18.626916781
+  - status: pass
+    recovery_time: 23.429176682
+  - status: pass
+    recovery_time: 17.033849025
+  - status: fail_bad_recovery
+    recovery_time: 14.341283661
+    bad_recovery_url: https://en.wikipedia.org/wiki/Sex
+  - status: pass
+    recovery_time: 18.265150419
+  - status: pass
+    recovery_time: 13.631318586
+  - status: pass
+    recovery_time: 19.697530755
+  - status: pass
+    recovery_time: 24.23443915
+  - status: pass
+    recovery_time: 24.323570534
+  - status: pass
+    recovery_time: 14.044665534
+  https://en.wikipedia.org/wiki/Breaking_Bad:
+  - status: pass
+    recovery_time: 45.940632031
+  - status: pass
+    recovery_time: 60.996288868
+  - status: pass
+    recovery_time: 44.65613532
+  - status: pass
+    recovery_time: 44.865873744
+  - status: pass
+    recovery_time: 51.679724147
+  - status: fail_bad_recovery
+    recovery_time: 83.290285258
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: pass
+    recovery_time: 46.309284115
+  - status: pass
+    recovery_time: 46.333336129
+  - status: pass
+    recovery_time: 45.120537019
+  - status: pass
+    recovery_time: 54.656079679
+  https://en.wikipedia.org/wiki/G-force:
+  - status: pass
+    recovery_time: 16.074117178
+  - status: pass
+    recovery_time: 13.611460193
+  - status: fail_bad_recovery
+    recovery_time: 16.002237081
+    bad_recovery_url: https://en.wikipedia.org/wiki/Human_penis_size
+  - status: pass
+    recovery_time: 14.436031333
+  - status: pass
+    recovery_time: 19.298698922
+  - status: pass
+    recovery_time: 17.44829255
+  - status: fail_bad_recovery
+    recovery_time: 13.898517675
+    bad_recovery_url: https://en.wikipedia.org/wiki/Human_penis_size
+  - status: fail_bad_recovery
+    recovery_time: 13.05667646
+    bad_recovery_url: https://en.wikipedia.org/wiki/Human_penis_size
+  - status: pass
+    recovery_time: 14.991447479
+  - status: pass
+    recovery_time: 17.231922556
+  https://en.wikipedia.org/wiki/Google:
+  - status: pass
+    recovery_time: 103.876926303
+  - status: pass
+    recovery_time: 106.032053089
+  - status: pass
+    recovery_time: 105.404692591
+  - status: fail_bad_recovery
+    recovery_time: 111.405026195
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 112.491697939
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: fail_bad_recovery
+    recovery_time: 113.858387373
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: fail_bad_recovery
+    recovery_time: 118.130758051
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: fail_bad_recovery
+    recovery_time: 113.928246404
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: pass
+    recovery_time: 102.123718545
+  - status: pass
+    recovery_time: 101.436751229
+  https://en.wikipedia.org/wiki/World_War_II:
+  - status: fail_bad_recovery
+    recovery_time: 87.815734722
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 107.936274619
+  - status: pass
+    recovery_time: 96.758910304
+  - status: pass
+    recovery_time: 106.476545062
+  - status: fail_bad_recovery
+    recovery_time: 86.463453825
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 104.787922198
+  - status: fail_bad_recovery
+    recovery_time: 87.398913938
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 106.030876473
+  - status: pass
+    recovery_time: 106.742816728
+  - status: pass
+    recovery_time: 114.358511986
+  https://en.wikipedia.org/wiki/Wiki:
+  - status: pass
+    recovery_time: 20.648302384
+  - status: fail_bad_recovery
+    recovery_time: 16.99743217
+    bad_recovery_url: https://en.wikipedia.org/wiki/Deaths_in_2013
+  - status: pass
+    recovery_time: 18.519231707
+  - status: pass
+    recovery_time: 19.616279702
+  - status: pass
+    recovery_time: 19.188283125
+  - status: pass
+    recovery_time: 20.395316346
+  - status: pass
+    recovery_time: 20.125686641
+  - status: pass
+    recovery_time: 20.852956711
+  - status: pass
+    recovery_time: 20.314518774
+  - status: pass
+    recovery_time: 24.255480166
+  https://en.wikipedia.org/wiki/YouTube:
+  - status: pass
+    recovery_time: 160.399449729
+  - status: pass
+    recovery_time: 166.770001049
+  - status: pass
+    recovery_time: 146.549059757
+  - status: pass
+    recovery_time: 170.883774098
+  - status: pass
+    recovery_time: 155.475496268
+  - status: pass
+    recovery_time: 144.560038189
+  - status: pass
+    recovery_time: 147.896815497
+  - status: pass
+    recovery_time: 156.131098697
+  - status: pass
+    recovery_time: 148.944316684
+  - status: pass
+    recovery_time: 177.180453307
+  https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013:
+  - status: pass
+    recovery_time: 74.492270119
+  - status: pass
+    recovery_time: 74.698318968
+  - status: pass
+    recovery_time: 63.52965618
+  - status: pass
+    recovery_time: 65.317394939
+  - status: fail_bad_recovery
+    recovery_time: 27.975551435
+    bad_recovery_url: https://en.wikipedia.org/wiki/Harlem_Shake_(meme)
+  - status: pass
+    recovery_time: 64.279774548
+  - status: pass
+    recovery_time: 66.234624239
+  - status: pass
+    recovery_time: 64.576645989
+  - status: pass
+    recovery_time: 65.327112656
+  - status: pass
+    recovery_time: 67.407354633
+  https://en.wikipedia.org/wiki/United_States:
+  - status: pass
+    recovery_time: 145.330263936
+  - status: fail_bad_recovery
+    recovery_time: 158.496286155
+    bad_recovery_url: https://en.wikipedia.org/wiki/United_Kingdom
+  - status: pass
+    recovery_time: 123.174339167
+  - status: pass
+    recovery_time: 128.865869785
+  - status: fail_bad_recovery
+    recovery_time: 142.592115884
+    bad_recovery_url: https://en.wikipedia.org/wiki/United_Kingdom
+  - status: fail_bad_recovery
+    recovery_time: 157.314368978
+    bad_recovery_url: https://en.wikipedia.org/wiki/United_Kingdom
+  - status: fail_bad_recovery
+    recovery_time: 147.250334969
+    bad_recovery_url: https://en.wikipedia.org/wiki/United_Kingdom
+  - status: fail_bad_recovery
+    recovery_time: 150.841225343
+    bad_recovery_url: https://en.wikipedia.org/wiki/United_Kingdom
+  - status: pass
+    recovery_time: 137.479040868
+  - status: fail_recording
+    recovery_time: 
+  https://en.wikipedia.org/wiki/The_Walking_Dead_(TV_series):
+  - status: pass
+    recovery_time: 61.37598328
+  - status: pass
+    recovery_time: 56.607624131
+  - status: pass
+    recovery_time: 53.034909045
+  - status: pass
+    recovery_time: 52.676436818
+  - status: pass
+    recovery_time: 56.132167603
+  - status: pass
+    recovery_time: 63.862033954
+  - status: pass
+    recovery_time: 57.194818902
+  - status: pass
+    recovery_time: 57.947579158
+  - status: pass
+    recovery_time: 67.248662858
+  - status: pass
+    recovery_time: 60.638168433
+  https://en.wikipedia.org/wiki/Game_of_Thrones:
+  - status: fail_bad_recovery
+    recovery_time: 94.600994336
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 101.579983983
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: pass
+    recovery_time: 58.944322698
+  - status: fail_bad_recovery
+    recovery_time: 105.331267465
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: fail_bad_recovery
+    recovery_time: 104.847295118
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: fail_bad_recovery
+    recovery_time: 109.146064337
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: pass
+    recovery_time: 58.690886533
+  - status: pass
+    recovery_time: 53.335372772
+  - status: fail_bad_recovery
+    recovery_time: 95.805669506
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 53.249772842
+  https://en.wikipedia.org/wiki/Lycos:
+  - status: pass
+    recovery_time: 6.757662247
+  - status: pass
+    recovery_time: 7.137050614
+  - status: pass
+    recovery_time: 5.922434164
+  - status: pass
+    recovery_time: 12.183231153
+  - status: pass
+    recovery_time: 8.776194624
+  - status: pass
+    recovery_time: 11.909076431
+  - status: pass
+    recovery_time: 12.878024673
+  - status: fail_bad_recovery
+    recovery_time: 5.650563322
+    bad_recovery_url: https://en.wikipedia.org/wiki/Alive
+  - status: pass
+    recovery_time: 10.669540888
+  - status: pass
+    recovery_time: 12.623634966
+  https://en.wikipedia.org/wiki/Yahoo!:
+  - status: fail_bad_recovery
+    recovery_time: 37.620695822
+    bad_recovery_url: https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy
+  - status: pass
+    recovery_time: 40.184797211
+  - status: fail_bad_recovery
+    recovery_time: 71.452315992
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: pass
+    recovery_time: 40.556049766
+  - status: pass
+    recovery_time: 36.919660375
+  - status: pass
+    recovery_time: 42.427124829
+  - status: pass
+    recovery_time: 42.826021685
+  - status: pass
+    recovery_time: 35.896362688
+  - status: pass
+    recovery_time: 37.574284189
+  - status: pass
+    recovery_time: 43.506013112
+  https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy:
+  - status: fail_bad_recovery
+    recovery_time: 57.746822393
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  - status: pass
+    recovery_time: 40.97902685
+  - status: pass
+    recovery_time: 34.859523332
+  - status: pass
+    recovery_time: 43.10879161
+  - status: pass
+    recovery_time: 38.349558623
+  - status: fail_bad_recovery
+    recovery_time: 68.175891686
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  - status: pass
+    recovery_time: 36.958689574
+  - status: fail_bad_recovery
+    recovery_time: 57.905010542
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  - status: pass
+    recovery_time: 32.441914678
+  - status: fail_bad_recovery
+    recovery_time: 60.814514618
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  https://en.wikipedia.org/wiki/Nelson_Mandela:
+  - status: pass
+    recovery_time: 125.446165232
+  - status: pass
+    recovery_time: 113.593263689
+  - status: pass
+    recovery_time: 124.936407621
+  - status: pass
+    recovery_time: 136.186283398
+  - status: pass
+    recovery_time: 118.713854396
+  - status: pass
+    recovery_time: 117.258434605
+  - status: pass
+    recovery_time: 123.776000585
+  - status: pass
+    recovery_time: 127.614578626
+  - status: pass
+    recovery_time: 125.586622843
+  - status: pass
+    recovery_time: 134.707236998
+  https://en.wikipedia.org/wiki/The_Big_Bang_Theory:
+  - status: pass
+    recovery_time: 69.728183233
+  - status: pass
+    recovery_time: 77.713764879
+  - status: fail_bad_recovery
+    recovery_time: 126.089752446
+    bad_recovery_url: https://en.wikipedia.org/wiki/Michael_Jordan
+  - status: fail_bad_recovery
+    recovery_time: 130.676958791
+    bad_recovery_url: https://en.wikipedia.org/wiki/Michael_Jordan
+  - status: pass
+    recovery_time: 67.621970074
+  - status: pass
+    recovery_time: 69.439092741
+  - status: pass
+    recovery_time: 70.33410385
+  - status: pass
+    recovery_time: 65.524270079
+  - status: pass
+    recovery_time: 70.682579763
+  - status: pass
+    recovery_time: 63.697275277
+  https://en.wikipedia.org/wiki/Arrow_(TV_series):
+  - status: pass
+    recovery_time: 38.920548887
+  - status: pass
+    recovery_time: 38.892978339
+  - status: pass
+    recovery_time: 48.77559366
+  - status: pass
+    recovery_time: 38.02833967
+  - status: pass
+    recovery_time: 37.959688684
+  - status: pass
+    recovery_time: 41.373101653
+  - status: pass
+    recovery_time: 38.027052215
+  - status: pass
+    recovery_time: 40.703290851
+  - status: pass
+    recovery_time: 41.743528125
+  - status: pass
+    recovery_time: 55.65828376
+  https://en.wikipedia.org/wiki/Wikipedia:
+  - status: pass
+    recovery_time: 103.722263253
+  - status: pass
+    recovery_time: 99.702691857
+  - status: pass
+    recovery_time: 119.381749661
+  - status: pass
+    recovery_time: 116.648980647
+  - status: pass
+    recovery_time: 112.888642241
+  - status: fail_bad_recovery
+    recovery_time: 48.523078632
+    bad_recovery_url: https://en.wikipedia.org/wiki/Mila_Kunis
+  - status: pass
+    recovery_time: 115.927518927
+  - status: fail_bad_recovery
+    recovery_time: 102.207825827
+    bad_recovery_url: https://en.wikipedia.org/wiki/Miley_Cyrus
+  - status: pass
+    recovery_time: 108.300504771
+  - status: pass
+    recovery_time: 115.381224054
+  https://en.wikipedia.org/wiki/India:
+  - status: fail_bad_recovery
+    recovery_time: 129.901604181
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nelson_Mandela
+  - status: fail_bad_recovery
+    recovery_time: 127.780646478
+    bad_recovery_url: https://en.wikipedia.org/wiki/Adolf_Hitler
+  - status: pass
+    recovery_time: 112.561476722
+  - status: fail_bad_recovery
+    recovery_time: 123.290686586
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nelson_Mandela
+  - status: pass
+    recovery_time: 111.216345548
+  - status: pass
+    recovery_time: 114.8349824
+  - status: pass
+    recovery_time: 113.682092381
+  - status: fail_bad_recovery
+    recovery_time: 118.999298265
+    bad_recovery_url: https://en.wikipedia.org/wiki/Steve_Jobs
+  - status: fail_bad_recovery
+    recovery_time: 113.593386819
+    bad_recovery_url: https://en.wikipedia.org/wiki/Steve_Jobs
+  - status: fail_bad_recovery
+    recovery_time: 120.134246195
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nelson_Mandela
+  https://en.wikipedia.org/wiki/How_I_Met_Your_Mother:
+  - status: pass
+    recovery_time: 42.341574277
+  - status: pass
+    recovery_time: 47.704346713
+  - status: pass
+    recovery_time: 39.948785472
+  - status: pass
+    recovery_time: 42.442169691
+  - status: pass
+    recovery_time: 42.568283157
+  - status: pass
+    recovery_time: 41.787239135
+  - status: pass
+    recovery_time: 40.493541183
+  - status: pass
+    recovery_time: 46.91718641
+  - status: pass
+    recovery_time: 43.845184279
+  - status: pass
+    recovery_time: 39.7659819
+  https://en.wikipedia.org/wiki/Jennifer_Lawrence:
+  - status: pass
+    recovery_time: 50.077510745
+  - status: pass
+    recovery_time: 44.375720024
+  - status: pass
+    recovery_time: 46.556926665
+  - status: pass
+    recovery_time: 45.439563305
+  - status: pass
+    recovery_time: 44.70933825
+  - status: pass
+    recovery_time: 49.392498357
+  - status: pass
+    recovery_time: 56.572901905
+  - status: pass
+    recovery_time: 44.755804987
+  - status: pass
+    recovery_time: 46.014451132
+  - status: pass
+    recovery_time: 45.724669281
+  https://en.wikipedia.org/wiki/Alive:
+  - status: pass
+    recovery_time: 5.775667581
+  - status: pass
+    recovery_time: 5.971758458
+  - status: pass
+    recovery_time: 5.538567784
+  - status: pass
+    recovery_time: 6.568412045
+  - status: pass
+    recovery_time: 3.163403358
+  - status: pass
+    recovery_time: 7.210187506
+  - status: pass
+    recovery_time: 5.100688315
+  - status: pass
+    recovery_time: 4.479675971
+  - status: pass
+    recovery_time: 4.66063692
+  - status: pass
+    recovery_time: 4.613619833
+  https://en.wikipedia.org/wiki/Sex:
+  - status: fail_bad_recovery
+    recovery_time: 12.342859499
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: pass
+    recovery_time: 13.144457394
+  - status: pass
+    recovery_time: 12.483179592
+  - status: fail_bad_recovery
+    recovery_time: 12.537373081
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: pass
+    recovery_time: 16.981693854
+  - status: pass
+    recovery_time: 18.219865815
+  - status: pass
+    recovery_time: 17.147911306
+  - status: pass
+    recovery_time: 19.177793312
+  - status: pass
+    recovery_time: 17.139095868
+  - status: pass
+    recovery_time: 13.715038808
+  https://en.wikipedia.org/wiki/Eminem:
+  - status: pass
+    recovery_time: 113.290960132
+  - status: fail_bad_recovery
+    recovery_time: 100.183580641
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 117.112253222
+  - status: pass
+    recovery_time: 108.439800223
+  - status: pass
+    recovery_time: 117.145101118
+  - status: fail_bad_recovery
+    recovery_time: 132.118929105
+    bad_recovery_url: https://en.wikipedia.org/wiki/Taylor_Swift
+  - status: pass
+    recovery_time: 108.380094719
+  - status: pass
+    recovery_time: 120.669012856
+  - status: pass
+    recovery_time: 110.312345933
+  - status: pass
+    recovery_time: 126.802304093
+  https://en.wikipedia.org/wiki/Java:
+  - status: pass
+    recovery_time: 20.677347211
+  - status: fail_bad_recovery
+    recovery_time: 17.887279633
+    bad_recovery_url: https://en.wikipedia.org/wiki/G
+  - status: pass
+    recovery_time: 19.995612615
+  - status: pass
+    recovery_time: 32.390998841
+  - status: pass
+    recovery_time: 23.050094081
+  - status: pass
+    recovery_time: 29.956892068
+  - status: pass
+    recovery_time: 22.183651271
+  - status: pass
+    recovery_time: 25.7426042
+  - status: pass
+    recovery_time: 21.73254449
+  - status: pass
+    recovery_time: 23.894967315
+  https://en.wikipedia.org/wiki/IPv6:
+  - status: pass
+    recovery_time: 25.008568605
+  - status: pass
+    recovery_time: 21.083897275
+  - status: pass
+    recovery_time: 22.053904382
+  - status: fail_bad_recovery
+    recovery_time: 18.427775584
+    bad_recovery_url: https://en.wikipedia.org/wiki/Aashiqui_2
+  - status: pass
+    recovery_time: 19.85983486
+  - status: pass
+    recovery_time: 24.669964828
+  - status: pass
+    recovery_time: 20.600795569
+  - status: fail_bad_recovery
+    recovery_time: 23.472109939
+    bad_recovery_url: https://en.wikipedia.org/wiki/Harlem_Shake_(meme)
+  - status: pass
+    recovery_time: 21.233404639
+  - status: fail_bad_recovery
+    recovery_time: 20.400864958
+    bad_recovery_url: https://en.wikipedia.org/wiki/Aashiqui_2
+  https://en.wikipedia.org/wiki/Macklemore:
+  - status: pass
+    recovery_time: 28.89783536
+  - status: pass
+    recovery_time: 29.137639901
+  - status: pass
+    recovery_time: 38.172442506
+  - status: pass
+    recovery_time: 32.441532367
+  - status: fail_bad_recovery
+    recovery_time: 26.027308869
+    bad_recovery_url: https://en.wikipedia.org/wiki/Paul_Walker
+  - status: pass
+    recovery_time: 29.670586287
+  - status: pass
+    recovery_time: 30.054967887
+  - status: pass
+    recovery_time: 29.380501186
+  - status: pass
+    recovery_time: 38.465875032
+  - status: pass
+    recovery_time: 31.198842582
+  https://en.wikipedia.org/wiki/Abraham_Lincoln:
+  - status: fail_bad_recovery
+    recovery_time: 116.565892558
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 102.181514727
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 118.168125307
+  - status: fail_bad_recovery
+    recovery_time: 80.473714936
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 106.029643355
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 92.188799011
+  - status: fail_bad_recovery
+    recovery_time: 84.591689568
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: pass
+    recovery_time: 86.850193547
+  - status: pass
+    recovery_time: 84.511592923
+  - status: pass
+    recovery_time: 91.678221253
+  https://en.wikipedia.org/wiki/Doctor_Who:
+  - status: pass
+    recovery_time: 95.048264177
+  - status: fail_bad_recovery
+    recovery_time: 104.928138996
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: fail_bad_recovery
+    recovery_time: 102.020396597
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  - status: fail_bad_recovery
+    recovery_time: 108.859625369
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 86.354037317
+  - status: fail_bad_recovery
+    recovery_time: 101.021271957
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 88.298776853
+  - status: pass
+    recovery_time: 82.295507122
+  - status: pass
+    recovery_time: 84.488299106
+  - status: fail_bad_recovery
+    recovery_time: 97.411202256
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  https://en.wikipedia.org/wiki/2013_in_film:
+  - status: pass
+    recovery_time: 94.391223855
+  - status: pass
+    recovery_time: 124.385934283
+  - status: pass
+    recovery_time: 110.787973084
+  - status: pass
+    recovery_time: 111.356842688
+  - status: pass
+    recovery_time: 112.059320357
+  - status: pass
+    recovery_time: 108.737839549
+  - status: pass
+    recovery_time: 112.691431598
+  - status: pass
+    recovery_time: 102.942501587
+  - status: pass
+    recovery_time: 111.604752102
+  - status: pass
+    recovery_time: 112.050396666
+  https://en.wikipedia.org/wiki/Paul_Walker:
+  - status: pass
+    recovery_time: 26.165997189
+  - status: pass
+    recovery_time: 23.815193615
+  - status: pass
+    recovery_time: 24.466963783
+  - status: pass
+    recovery_time: 28.620895086
+  - status: pass
+    recovery_time: 24.511891359
+  - status: pass
+    recovery_time: 28.256099779
+  - status: pass
+    recovery_time: 24.88917457
+  - status: pass
+    recovery_time: 20.01792153
+  - status: pass
+    recovery_time: 25.416306878
+  - status: pass
+    recovery_time: 29.580262571
+  https://en.wikipedia.org/wiki/One_Direction:
+  - status: pass
+    recovery_time: 45.516767963
+  - status: fail_bad_recovery
+    recovery_time: 38.35932879
+    bad_recovery_url: https://en.wikipedia.org/wiki/Justin_Timberlake
+  - status: pass
+    recovery_time: 41.134028979
+  - status: fail_bad_recovery
+    recovery_time: 41.741096531
+    bad_recovery_url: https://en.wikipedia.org/wiki/Justin_Timberlake
+  - status: pass
+    recovery_time: 44.70529388
+  - status: pass
+    recovery_time: 37.903479715
+  - status: pass
+    recovery_time: 42.841475048
+  - status: fail_bad_recovery
+    recovery_time: 43.979112916
+    bad_recovery_url: https://en.wikipedia.org/wiki/Justin_Timberlake
+  - status: pass
+    recovery_time: 45.112820115
+  - status: pass
+    recovery_time: 43.996584762
+  https://en.wikipedia.org/wiki/Illuminati:
+  - status: fail_bad_recovery
+    recovery_time: 9.568191647
+    bad_recovery_url: https://en.wikipedia.org/wiki/Sex
+  - status: pass
+    recovery_time: 13.415231868
+  - status: pass
+    recovery_time: 14.164506763
+  - status: pass
+    recovery_time: 14.172471954
+  - status: pass
+    recovery_time: 12.980831472
+  - status: fail_bad_recovery
+    recovery_time: 11.961311989
+    bad_recovery_url: https://en.wikipedia.org/wiki/Sex
+  - status: pass
+    recovery_time: 14.80012732
+  - status: pass
+    recovery_time: 11.111847876
+  - status: pass
+    recovery_time: 15.292843727
+  - status: pass
+    recovery_time: 13.946882071
+  https://en.wikipedia.org/wiki/Game_of_Thrones_(season_3):
+  - status: pass
+    recovery_time: 25.133725525
+  - status: fail_bad_recovery
+    recovery_time: 30.237240525
+    bad_recovery_url: https://en.wikipedia.org/wiki/The_Walking_Dead_(season_3)
+  - status: fail_bad_recovery
+    recovery_time: 25.618225313
+    bad_recovery_url: https://en.wikipedia.org/wiki/Paul_Walker
+  - status: pass
+    recovery_time: 26.903535675
+  - status: pass
+    recovery_time: 25.793390762
+  - status: pass
+    recovery_time: 23.901992092
+  - status: fail_bad_recovery
+    recovery_time: 25.004696883
+    bad_recovery_url: https://en.wikipedia.org/wiki/The_Walking_Dead_(season_3)
+  - status: pass
+    recovery_time: 26.858281592
+  - status: pass
+    recovery_time: 28.363296032
+  - status: pass
+    recovery_time: 23.694212786
+  https://en.wikipedia.org/wiki/The_Great_Gatsby:
+  - status: pass
+    recovery_time: 34.0977891
+  - status: pass
+    recovery_time: 31.135378221
+  - status: pass
+    recovery_time: 27.661109602
+  - status: pass
+    recovery_time: 24.965260649
+  - status: pass
+    recovery_time: 35.915280738
+  - status: pass
+    recovery_time: 30.872722238
+  - status: fail_bad_recovery
+    recovery_time: 26.022699693
+    bad_recovery_url: https://en.wikipedia.org/wiki/Harlem_Shake_(meme)
+  - status: pass
+    recovery_time: 27.735997414
+  - status: pass
+    recovery_time: 27.553226669
+  - status: pass
+    recovery_time: 25.52140077
+  https://en.wikipedia.org/wiki/Miley_Cyrus:
+  - status: pass
+    recovery_time: 95.342676296
+  - status: pass
+    recovery_time: 94.961048119
+  - status: pass
+    recovery_time: 104.599961616
+  - status: fail_bad_recovery
+    recovery_time: 93.468103581
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 105.041556921
+  - status: fail_bad_recovery
+    recovery_time: 94.219263772
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 93.182773972
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 105.165937485
+  - status: fail_bad_recovery
+    recovery_time: 92.335935404
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 89.972028696
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  https://en.wikipedia.org/wiki/Backslash:
+  - status: pass
+    recovery_time: 20.933104341
+  - status: pass
+    recovery_time: 22.944526385
+  - status: pass
+    recovery_time: 21.527330943
+  - status: pass
+    recovery_time: 21.714704788
+  - status: pass
+    recovery_time: 20.464771974
+  - status: pass
+    recovery_time: 31.700859264
+  - status: pass
+    recovery_time: 22.184010674
+  - status: pass
+    recovery_time: 23.620794853
+  - status: pass
+    recovery_time: 20.936474113
+  - status: pass
+    recovery_time: 20.87173033
+  https://en.wikipedia.org/wiki/Adolf_Hitler:
+  - status: pass
+    recovery_time: 113.935844647
+  - status: fail_bad_recovery
+    recovery_time: 109.519896131
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 114.887306028
+  - status: fail_bad_recovery
+    recovery_time: 107.836717325
+    bad_recovery_url: https://en.wikipedia.org/wiki/Steve_Jobs
+  - status: fail_bad_recovery
+    recovery_time: 112.73582405
+    bad_recovery_url: https://en.wikipedia.org/wiki/Steve_Jobs
+  - status: fail_bad_recovery
+    recovery_time: 112.513790137
+    bad_recovery_url: https://en.wikipedia.org/wiki/Steve_Jobs
+  - status: fail_bad_recovery
+    recovery_time: 142.957225478
+    bad_recovery_url: https://en.wikipedia.org/wiki/Barack_Obama
+  - status: fail_bad_recovery
+    recovery_time: 136.899768195
+    bad_recovery_url: https://en.wikipedia.org/wiki/Taylor_Swift
+  - status: pass
+    recovery_time: 114.895640608
+  - status: pass
+    recovery_time: 119.659127629
+  https://en.wikipedia.org/wiki/Go_(game):
+  - status: pass
+    recovery_time: 63.099027562
+  - status: pass
+    recovery_time: 101.402502737
+  - status: fail_bad_recovery
+    recovery_time: 85.677975091
+    bad_recovery_url: https://en.wikipedia.org/wiki/Michael_Jordan
+  - status: pass
+    recovery_time: 99.88769089
+  - status: pass
+    recovery_time: 101.211737118
+  - status: pass
+    recovery_time: 55.346447357
+  - status: pass
+    recovery_time: 105.774277126
+  - status: pass
+    recovery_time: 98.406108133
+  - status: pass
+    recovery_time: 49.998150715
+  - status: fail_bad_recovery
+    recovery_time: 87.186972511
+    bad_recovery_url: https://en.wikipedia.org/wiki/Michael_Jordan
+  https://en.wikipedia.org/wiki/Attack_on_Titan:
+  - status: fail_bad_recovery
+    recovery_time: 82.832999129
+    bad_recovery_url: https://en.wikipedia.org/wiki/Albert_Einstein
+  - status: fail_bad_recovery
+    recovery_time: 76.498372981
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 33.363768031
+    bad_recovery_url: https://en.wikipedia.org/wiki/Robin_Thicke
+  - status: pass
+    recovery_time: 41.328668484
+  - status: pass
+    recovery_time: 56.992264283
+  - status: pass
+    recovery_time: 49.995552619
+  - status: fail_bad_recovery
+    recovery_time: 33.939189725
+    bad_recovery_url: https://en.wikipedia.org/wiki/Robin_Thicke
+  - status: fail_bad_recovery
+    recovery_time: 37.069737505
+    bad_recovery_url: https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy
+  - status: pass
+    recovery_time: 53.315805757
+  - status: pass
+    recovery_time: 45.293095852
+  https://en.wikipedia.org/wiki/Man_of_Steel_(film):
+  - status: fail_bad_recovery
+    recovery_time: 81.898898616
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 89.701546996
+    bad_recovery_url: https://en.wikipedia.org/wiki/Albert_Einstein
+  - status: pass
+    recovery_time: 46.323952113
+  - status: fail_bad_recovery
+    recovery_time: 88.813552701
+    bad_recovery_url: https://en.wikipedia.org/wiki/Albert_Einstein
+  - status: pass
+    recovery_time: 47.420998153
+  - status: fail_bad_recovery
+    recovery_time: 74.489285662
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 66.318777198
+    bad_recovery_url: https://en.wikipedia.org/wiki/Dwayne_Johnson
+  - status: fail_bad_recovery
+    recovery_time: 72.654544272
+    bad_recovery_url: https://en.wikipedia.org/wiki/Dwayne_Johnson
+  - status: fail_bad_recovery
+    recovery_time: 13.989068235
+    bad_recovery_url: https://en.wikipedia.org/wiki/Human_penis_size
+  - status: fail_bad_recovery
+    recovery_time: 8.035045833
+    bad_recovery_url: https://en.wikipedia.org/wiki/Alive
+  https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_episodes:
+  - status: fail_bad_recovery
+    recovery_time: 0.405854584
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: pass
+    recovery_time: 48.096856722
+  - status: pass
+    recovery_time: 48.488229365
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_bad_recovery
+    recovery_time: 0.641413822
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_bad_recovery
+    recovery_time: 0.339202735
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: fail_bad_recovery
+    recovery_time: 0.377835376
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: fail_bad_recovery
+    recovery_time: 74.391492909
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013
+  https://en.wikipedia.org/wiki/United_Kingdom:
+  - status: pass
+    recovery_time: 135.650103011
+  - status: pass
+    recovery_time: 133.838370067
+  - status: fail_bad_recovery
+    recovery_time: 180.638861388
+    bad_recovery_url: https://en.wikipedia.org/wiki/Lionel_Messi
+  - status: fail_bad_recovery
+    recovery_time: 36.94038061
+    bad_recovery_url: https://en.wikipedia.org/wiki/Robin_Thicke
+  - status: fail_bad_recovery
+    recovery_time: 103.303701186
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 141.21655486
+  - status: pass
+    recovery_time: 141.168128096
+  - status: pass
+    recovery_time: 142.095476702
+  - status: fail_bad_recovery
+    recovery_time: 209.646778425
+    bad_recovery_url: https://en.wikipedia.org/wiki/YouTube
+  - status: fail_bad_recovery
+    recovery_time: 208.306368242
+    bad_recovery_url: https://en.wikipedia.org/wiki/YouTube
+  https://en.wikipedia.org/wiki/Justin_Bieber:
+  - status: pass
+    recovery_time: 46.434634914
+  - status: pass
+    recovery_time: 44.379936901
+  - status: fail_bad_recovery
+    recovery_time: 102.773743868
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 85.477840193
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 60.894927854
+    bad_recovery_url: https://en.wikipedia.org/wiki/Iron_Man_3
+  - status: fail_bad_recovery
+    recovery_time: 67.974078991
+    bad_recovery_url: https://en.wikipedia.org/wiki/Dwayne_Johnson
+  - status: pass
+    recovery_time: 47.755273167
+  - status: fail_bad_recovery
+    recovery_time: 84.254018522
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 99.905711549
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 36.736782911
+  https://en.wikipedia.org/wiki/Dwayne_Johnson:
+  - status: fail_bad_recovery
+    recovery_time: 36.296312051
+    bad_recovery_url: https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 64.785309206
+  - status: fail_bad_recovery
+    recovery_time: 102.656900226
+    bad_recovery_url: https://en.wikipedia.org/wiki/Android_(operating_system)
+  - status: fail_bad_recovery
+    recovery_time: 107.118019436
+    bad_recovery_url: https://en.wikipedia.org/wiki/Abraham_Lincoln
+  - status: fail_bad_recovery
+    recovery_time: 106.937788887
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: fail_bad_recovery
+    recovery_time: 8.688502249
+    bad_recovery_url: https://en.wikipedia.org/wiki/Lycos
+  - status: fail_bad_recovery
+    recovery_time: 110.376277185
+    bad_recovery_url: https://en.wikipedia.org/wiki/Abraham_Lincoln
+  - status: fail_bad_recovery
+    recovery_time: 84.881635267
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_recording
+    recovery_time: 
+  https://en.wikipedia.org/wiki/Barack_Obama:
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 136.014491842
+  - status: fail_bad_recovery
+    recovery_time: 68.948764696
+    bad_recovery_url: https://en.wikipedia.org/wiki/Albert_Einstein
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_bad_recovery
+    recovery_time: 1.162699298
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: fail_bad_recovery
+    recovery_time: 0.634357268
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: fail_bad_recovery
+    recovery_time: 0.251770798
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_bad_recovery
+    recovery_time: 116.391115846
+    bad_recovery_url: https://en.wikipedia.org/wiki/Steve_Jobs
+  https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes:
+  - status: pass
+    recovery_time: 137.960186039
+  - status: pass
+    recovery_time: 138.086831976
+  - status: pass
+    recovery_time: 112.881070118
+  - status: pass
+    recovery_time: 137.641588789
+  - status: pass
+    recovery_time: 175.525526493
+  - status: pass
+    recovery_time: 106.259837524
+  - status: pass
+    recovery_time: 141.472403622
+  - status: pass
+    recovery_time: 118.082868996
+  - status: pass
+    recovery_time: 142.135263399
+  - status: pass
+    recovery_time: 115.91814902
+  https://en.wikipedia.org/wiki/World_War_I:
+  - status: fail_bad_recovery
+    recovery_time: 102.645816344
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 97.978404679
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 97.499189362
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: pass
+    recovery_time: 102.377544423
+  - status: fail_bad_recovery
+    recovery_time: 101.193972706
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 107.909218242
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 107.2320366
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 108.50683075
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 102.492451993
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 102.526402613
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  https://en.wikipedia.org/wiki/Semi-acoustic_guitar:
+  - status: fail_bad_recovery
+    recovery_time: 13.689992394
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: fail_bad_recovery
+    recovery_time: 15.206520591
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: fail_bad_recovery
+    recovery_time: 5.979085648
+    bad_recovery_url: https://en.wikipedia.org/wiki/Acoustic-electric_guitar
+  - status: pass
+    recovery_time: 9.431496876
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_bad_recovery
+    recovery_time: 12.056477732
+    bad_recovery_url: https://en.wikipedia.org/wiki/Sex
+  - status: fail_bad_recovery
+    recovery_time: 8.107897213
+    bad_recovery_url: https://en.wikipedia.org/wiki/Acoustic-electric_guitar
+  - status: fail_bad_recovery
+    recovery_time: 15.575414255
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: pass
+    recovery_time: 9.927877995
+  - status: fail_bad_recovery
+    recovery_time: 13.52431691
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  https://en.wikipedia.org/wiki/Acoustic-electric_guitar:
+  - status: pass
+    recovery_time: 6.42909662
+  - status: fail_bad_recovery
+    recovery_time: 6.859536245
+    bad_recovery_url: https://en.wikipedia.org/wiki/Alive
+  - status: pass
+    recovery_time: 7.803263262
+  - status: pass
+    recovery_time: 6.543152685
+  - status: pass
+    recovery_time: 6.873304269
+  - status: pass
+    recovery_time: 7.003582231
+  - status: pass
+    recovery_time: 10.481638063
+  - status: pass
+    recovery_time: 12.897005441
+  - status: fail_bad_recovery
+    recovery_time: 7.485054819
+    bad_recovery_url: https://en.wikipedia.org/wiki/Alive
+  - status: pass
+    recovery_time: 7.393046601
+  https://en.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes:
+  - status: fail_bad_recovery
+    recovery_time: 137.813255748
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  - status: fail_bad_recovery
+    recovery_time: 139.722924061
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  - status: fail_bad_recovery
+    recovery_time: 138.770315468
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  - status: fail_bad_recovery
+    recovery_time: 143.797698572
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  - status: fail_bad_recovery
+    recovery_time: 138.99840902
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  - status: fail_bad_recovery
+    recovery_time: 141.084749539
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  - status: pass
+    recovery_time: 112.409111521
+  - status: fail_bad_recovery
+    recovery_time: 141.320432396
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  - status: pass
+    recovery_time: 102.442869566
+  - status: fail_bad_recovery
+    recovery_time: 127.509879966
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_How_I_Met_Your_Mother_episodes
+  https://en.wikipedia.org/wiki/XXX_(film):
+  - status: fail_bad_recovery
+    recovery_time: 13.40274236
+    bad_recovery_url: https://en.wikipedia.org/wiki/Human_penis_size
+  - status: pass
+    recovery_time: 19.550370966
+  - status: pass
+    recovery_time: 13.163794632
+  - status: fail_bad_recovery
+    recovery_time: 11.782678081
+    bad_recovery_url: https://en.wikipedia.org/wiki/Lycos
+  - status: pass
+    recovery_time: 16.602441398
+  - status: pass
+    recovery_time: 12.6972861
+  - status: pass
+    recovery_time: 16.567881273
+  - status: fail_bad_recovery
+    recovery_time: 19.401694013
+    bad_recovery_url: https://en.wikipedia.org/wiki/Human_penis_size
+  - status: pass
+    recovery_time: 16.95609709
+  - status: fail_recording
+    recovery_time: 
+  https://en.wikipedia.org/wiki/Argo_(2012_film):
+  - status: pass
+    recovery_time: 38.837930691
+  - status: pass
+    recovery_time: 39.560948404
+  - status: pass
+    recovery_time: 39.267390165
+  - status: pass
+    recovery_time: 36.771648662
+  - status: pass
+    recovery_time: 36.427547048
+  - status: pass
+    recovery_time: 36.380919397
+  - status: pass
+    recovery_time: 42.231737533
+  - status: pass
+    recovery_time: 32.189082222
+  - status: pass
+    recovery_time: 33.24737794
+  - status: pass
+    recovery_time: 39.431089838
+  https://en.wikipedia.org/wiki/Nicki_Minaj:
+  - status: pass
+    recovery_time: 52.740197517
+  - status: fail_bad_recovery
+    recovery_time: 80.347378467
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 100.777664418
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 67.454391345
+  - status: fail_bad_recovery
+    recovery_time: 48.305423209
+    bad_recovery_url: https://en.wikipedia.org/wiki/Lil_Wayne
+  - status: fail_bad_recovery
+    recovery_time: 96.497207725
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: fail_bad_recovery
+    recovery_time: 67.308837486
+    bad_recovery_url: https://en.wikipedia.org/wiki/Dwayne_Johnson
+  - status: fail_bad_recovery
+    recovery_time: 97.58583307
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 87.530083983
+  - status: fail_bad_recovery
+    recovery_time: 106.1194786
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  https://en.wikipedia.org/wiki/Duck_Dynasty:
+  - status: pass
+    recovery_time: 86.753627486
+  - status: fail_bad_recovery
+    recovery_time: 138.109415297
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nelson_Mandela
+  - status: pass
+    recovery_time: 83.676402275
+  - status: pass
+    recovery_time: 90.480914478
+  - status: fail_bad_recovery
+    recovery_time: 139.339580023
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nelson_Mandela
+  - status: fail_bad_recovery
+    recovery_time: 137.961904205
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nelson_Mandela
+  - status: pass
+    recovery_time: 88.322433774
+  - status: pass
+    recovery_time: 83.195700176
+  - status: pass
+    recovery_time: 84.047273635
+  - status: fail_bad_recovery
+    recovery_time: 205.803940204
+    bad_recovery_url: https://en.wikipedia.org/wiki/YouTube
+  https://en.wikipedia.org/wiki/.xxx:
+  - status: fail_bad_recovery
+    recovery_time: 16.549837497
+    bad_recovery_url: https://en.wikipedia.org/wiki/Deaths_in_2013
+  - status: pass
+    recovery_time: 12.607789514
+  - status: fail_bad_recovery
+    recovery_time: 11.588068538
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: fail_bad_recovery
+    recovery_time: 13.150075288
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: pass
+    recovery_time: 17.165355216
+  - status: fail_bad_recovery
+    recovery_time: 14.212088936
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  - status: pass
+    recovery_time: 18.486915513
+  - status: fail_bad_recovery
+    recovery_time: 16.429296458
+    bad_recovery_url: https://en.wikipedia.org/wiki/Aashiqui_2
+  - status: pass
+    recovery_time: 14.588598305
+  - status: fail_bad_recovery
+    recovery_time: 12.222685546
+    bad_recovery_url: https://en.wikipedia.org/wiki/Illuminati
+  https://en.wikipedia.org/wiki/Australia:
+  - status: pass
+    recovery_time: 122.14167283
+  - status: pass
+    recovery_time: 124.267701918
+  - status: pass
+    recovery_time: 134.882953774
+  - status: pass
+    recovery_time: 123.537661942
+  - status: pass
+    recovery_time: 138.426102108
+  - status: pass
+    recovery_time: 138.129859658
+  - status: fail_bad_recovery
+    recovery_time: 124.818169389
+    bad_recovery_url: https://en.wikipedia.org/wiki/Facebook
+  - status: pass
+    recovery_time: 138.4684656
+  - status: pass
+    recovery_time: 133.96782509
+  - status: fail_bad_recovery
+    recovery_time: 136.523764197
+    bad_recovery_url: https://en.wikipedia.org/wiki/Facebook
+  https://en.wikipedia.org/wiki/France:
+  - status: pass
+    recovery_time: 114.855644597
+  - status: fail_bad_recovery
+    recovery_time: 113.554600598
+    bad_recovery_url: https://en.wikipedia.org/wiki/Steve_Jobs
+  - status: pass
+    recovery_time: 123.088563587
+  - status: fail_bad_recovery
+    recovery_time: 164.300300779
+    bad_recovery_url: https://en.wikipedia.org/wiki/Taylor_Swift
+  - status: fail_bad_recovery
+    recovery_time: 107.467688239
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 12.216644553
+    bad_recovery_url: https://en.wikipedia.org/wiki/Lycos
+  - status: pass
+    recovery_time: 116.431925719
+  - status: pass
+    recovery_time: 118.678057243
+  - status: pass
+    recovery_time: 128.848768725
+  - status: pass
+    recovery_time: 123.802418611
+  https://en.wikipedia.org/wiki/Steve_Jobs:
+  - status: fail_bad_recovery
+    recovery_time: 106.15768465
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: fail_bad_recovery
+    recovery_time: 101.458170296
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: pass
+    recovery_time: 111.677350656
+  - status: fail_bad_recovery
+    recovery_time: 120.907606768
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: pass
+    recovery_time: 107.92763581
+  - status: fail_bad_recovery
+    recovery_time: 102.675327222
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 110.263530154
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 116.834805831
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: fail_bad_recovery
+    recovery_time: 100.491532822
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: fail_bad_recovery
+    recovery_time: 101.684454192
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  https://en.wikipedia.org/wiki/Downton_Abbey:
+  - status: pass
+    recovery_time: 54.412164628
+  - status: pass
+    recovery_time: 57.425233282
+  - status: pass
+    recovery_time: 65.554580222
+  - status: pass
+    recovery_time: 60.068028206
+  - status: fail_bad_recovery
+    recovery_time: 86.145795173
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013
+  - status: pass
+    recovery_time: 63.822142565
+  - status: pass
+    recovery_time: 63.690666754
+  - status: pass
+    recovery_time: 51.719143969
+  - status: pass
+    recovery_time: 58.776168965
+  - status: pass
+    recovery_time: 60.509864325
+  https://en.wikipedia.org/wiki/Lil_Wayne:
+  - status: fail_bad_recovery
+    recovery_time: 89.599528216
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  - status: pass
+    recovery_time: 45.26392964
+  - status: pass
+    recovery_time: 50.05271101
+  - status: fail_bad_recovery
+    recovery_time: 85.377378735
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  - status: pass
+    recovery_time: 47.710387985
+  - status: fail_bad_recovery
+    recovery_time: 105.025269024
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 53.047746084
+  - status: pass
+    recovery_time: 49.406243193
+  - status: pass
+    recovery_time: 44.717076456
+  - status: fail_bad_recovery
+    recovery_time: 94.197225144
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  https://en.wikipedia.org/wiki/Mila_Kunis:
+  - status: pass
+    recovery_time: 44.444748571
+  - status: pass
+    recovery_time: 45.465638411
+  - status: pass
+    recovery_time: 44.059963219
+  - status: pass
+    recovery_time: 45.364220615
+  - status: pass
+    recovery_time: 42.274785959
+  - status: pass
+    recovery_time: 49.540873106
+  - status: pass
+    recovery_time: 49.438810327
+  - status: pass
+    recovery_time: 44.403147048
+  - status: pass
+    recovery_time: 45.994908072
+  - status: pass
+    recovery_time: 44.512376871
+  https://en.wikipedia.org/wiki/Iron_Man_3:
+  - status: pass
+    recovery_time: 63.785058236
+  - status: pass
+    recovery_time: 63.384173488
+  - status: pass
+    recovery_time: 60.357897358
+  - status: pass
+    recovery_time: 57.391711278
+  - status: fail_bad_recovery
+    recovery_time: 96.295462497
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: fail_bad_recovery
+    recovery_time: 121.940738319
+    bad_recovery_url: https://en.wikipedia.org/wiki/Android_(operating_system)
+  - status: fail_bad_recovery
+    recovery_time: 100.999444389
+    bad_recovery_url: https://en.wikipedia.org/wiki/Miley_Cyrus
+  - status: fail_bad_recovery
+    recovery_time: 112.065890327
+    bad_recovery_url: https://en.wikipedia.org/wiki/Abraham_Lincoln
+  - status: fail_bad_recovery
+    recovery_time: 104.609130241
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: fail_bad_recovery
+    recovery_time: 105.370335216
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  https://en.wikipedia.org/wiki/Bitcoin:
+  - status: pass
+    recovery_time: 106.38645741
+  - status: pass
+    recovery_time: 103.600013687
+  - status: pass
+    recovery_time: 104.86551245
+  - status: pass
+    recovery_time: 103.198320946
+  - status: pass
+    recovery_time: 111.050998528
+  - status: pass
+    recovery_time: 106.716291983
+  - status: pass
+    recovery_time: 108.773116734
+  - status: pass
+    recovery_time: 107.085323376
+  - status: pass
+    recovery_time: 130.040735644
+  - status: pass
+    recovery_time: 117.814073266
+  https://en.wikipedia.org/wiki/List_of_Doctor_Who_serials:
+  - status: pass
+    recovery_time: 132.613874357
+  - status: pass
+    recovery_time: 132.378488954
+  - status: pass
+    recovery_time: 143.086969644
+  - status: pass
+    recovery_time: 132.202161136
+  - status: pass
+    recovery_time: 144.03083767
+  - status: pass
+    recovery_time: 139.444193477
+  - status: pass
+    recovery_time: 148.280813878
+  - status: pass
+    recovery_time: 139.023229219
+  - status: pass
+    recovery_time: 144.855707452
+  - status: pass
+    recovery_time: 142.055869776
+  https://en.wikipedia.org/wiki/Breaking_Bad_(season_5):
+  - status: fail_bad_recovery
+    recovery_time: 28.281313252
+    bad_recovery_url: https://en.wikipedia.org/wiki/Macklemore
+  - status: fail_bad_recovery
+    recovery_time: 28.604398015
+    bad_recovery_url: https://en.wikipedia.org/wiki/Game_of_Thrones_(season_3)
+  - status: pass
+    recovery_time: 38.670369283
+  - status: pass
+    recovery_time: 35.571654045
+  - status: pass
+    recovery_time: 36.787771524
+  - status: pass
+    recovery_time: 35.374435231
+  - status: pass
+    recovery_time: 29.776800852
+  - status: fail_bad_recovery
+    recovery_time: 29.651001812
+    bad_recovery_url: https://en.wikipedia.org/wiki/Macklemore
+  - status: pass
+    recovery_time: 34.548348046
+  - status: pass
+    recovery_time: 32.894230413
+  https://en.wikipedia.org/wiki/Daft_Punk:
+  - status: fail_bad_recovery
+    recovery_time: 31.408260574
+    bad_recovery_url: https://en.wikipedia.org/wiki/The_Great_Gatsby
+  - status: pass
+    recovery_time: 29.613314334
+  - status: pass
+    recovery_time: 37.329895056
+  - status: pass
+    recovery_time: 31.913082362
+  - status: fail_bad_recovery
+    recovery_time: 26.453249529
+    bad_recovery_url: https://en.wikipedia.org/wiki/The_Great_Gatsby
+  - status: fail_bad_recovery
+    recovery_time: 27.807146762
+    bad_recovery_url: https://en.wikipedia.org/wiki/The_Great_Gatsby
+  - status: fail_bad_recovery
+    recovery_time: 37.635245648
+    bad_recovery_url: https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy
+  - status: pass
+    recovery_time: 39.32804502
+  - status: fail_bad_recovery
+    recovery_time: 52.445130844
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nicki_Minaj
+  - status: pass
+    recovery_time: 31.599221818
+  https://en.wikipedia.org/wiki/Justin_Timberlake:
+  - status: pass
+    recovery_time: 43.801186082
+  - status: pass
+    recovery_time: 39.876209056
+  - status: pass
+    recovery_time: 39.298541894
+  - status: pass
+    recovery_time: 39.002950226
+  - status: pass
+    recovery_time: 38.921959541
+  - status: pass
+    recovery_time: 39.051084843
+  - status: fail_bad_recovery
+    recovery_time: 44.799306404
+    bad_recovery_url: https://en.wikipedia.org/wiki/Breaking_Bad
+  - status: pass
+    recovery_time: 36.969721425
+  - status: pass
+    recovery_time: 39.926427319
+  - status: pass
+    recovery_time: 39.892562045
+  https://en.wikipedia.org/wiki/Cristiano_Ronaldo:
+  - status: pass
+    recovery_time: 157.353194729
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 149.718368546
+  - status: pass
+    recovery_time: 163.018400767
+  - status: pass
+    recovery_time: 151.491951663
+  - status: pass
+    recovery_time: 166.713698143
+  - status: pass
+    recovery_time: 155.816710153
+  - status: pass
+    recovery_time: 156.857831687
+  - status: pass
+    recovery_time: 164.154291276
+  - status: pass
+    recovery_time: 156.597302861
+  https://en.wikipedia.org/wiki/G:
+  - status: pass
+    recovery_time: 21.776893011
+  - status: fail_bad_recovery
+    recovery_time: 24.372423051
+    bad_recovery_url: https://en.wikipedia.org/wiki/Game_of_Thrones_(season_3)
+  - status: fail_bad_recovery
+    recovery_time: 20.974640702
+    bad_recovery_url: https://en.wikipedia.org/wiki/IPv6
+  - status: pass
+    recovery_time: 17.789919967
+  - status: pass
+    recovery_time: 21.442904137
+  - status: pass
+    recovery_time: 16.026185519
+  - status: pass
+    recovery_time: 26.576410594
+  - status: fail_bad_recovery
+    recovery_time: 21.323536222
+    bad_recovery_url: https://en.wikipedia.org/wiki/Paul_Walker
+  - status: pass
+    recovery_time: 17.529211648
+  - status: pass
+    recovery_time: 16.677550957
+  https://en.wikipedia.org/wiki/Global_warming:
+  - status: pass
+    recovery_time: 80.798396131
+  - status: pass
+    recovery_time: 83.616602904
+  - status: pass
+    recovery_time: 87.352761557
+  - status: pass
+    recovery_time: 81.840053698
+  - status: pass
+    recovery_time: 83.743214129
+  - status: pass
+    recovery_time: 77.147695701
+  - status: pass
+    recovery_time: 80.804898286
+  - status: pass
+    recovery_time: 72.629829185
+  - status: pass
+    recovery_time: 79.601824296
+  - status: pass
+    recovery_time: 84.058355702
+  https://en.wikipedia.org/wiki/Martin_Luther_King,_Jr.:
+  - status: fail_bad_recovery
+    recovery_time: 111.523706172
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 116.09793894
+  - status: pass
+    recovery_time: 119.73225125
+  - status: pass
+    recovery_time: 118.883488415
+  - status: fail_bad_recovery
+    recovery_time: 114.153075017
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 121.388818289
+  - status: pass
+    recovery_time: 118.793020826
+  - status: fail_bad_recovery
+    recovery_time: 112.124841684
+    bad_recovery_url: https://en.wikipedia.org/wiki/Bitcoin
+  - status: fail_bad_recovery
+    recovery_time: 117.864651001
+    bad_recovery_url: https://en.wikipedia.org/wiki/Bitcoin
+  - status: fail_bad_recovery
+    recovery_time: 112.585429002
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire:
+  - status: pass
+    recovery_time: 93.412072288
+  - status: pass
+    recovery_time: 109.770597519
+  - status: pass
+    recovery_time: 103.889346388
+  - status: pass
+    recovery_time: 52.461581821
+  - status: pass
+    recovery_time: 110.808014881
+  - status: pass
+    recovery_time: 62.802965444
+  - status: pass
+    recovery_time: 52.978911765
+  - status: pass
+    recovery_time: 52.682847271
+  - status: pass
+    recovery_time: 91.696042306
+  - status: pass
+    recovery_time: 65.934336023
+  https://en.wikipedia.org/wiki/Selena_Gomez:
+  - status: pass
+    recovery_time: 53.986297581
+  - status: pass
+    recovery_time: 59.905680519
+  - status: pass
+    recovery_time: 57.904904871
+  - status: fail_bad_recovery
+    recovery_time: 97.545583325
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: pass
+    recovery_time: 54.113302921
+  - status: pass
+    recovery_time: 52.117400588
+  - status: pass
+    recovery_time: 53.377816442
+  - status: pass
+    recovery_time: 55.446204884
+  - status: fail_bad_recovery
+    recovery_time: 98.293356283
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: fail_bad_recovery
+    recovery_time: 95.432044444
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  https://en.wikipedia.org/wiki/The_Walking_Dead_(season_3):
+  - status: pass
+    recovery_time: 25.368468457
+  - status: pass
+    recovery_time: 35.272891233
+  - status: pass
+    recovery_time: 27.779982552
+  - status: pass
+    recovery_time: 22.516667675
+  - status: pass
+    recovery_time: 25.369003232
+  - status: pass
+    recovery_time: 30.491717814
+  - status: pass
+    recovery_time: 29.746740183
+  - status: pass
+    recovery_time: 31.881194156
+  - status: pass
+    recovery_time: 23.026159889
+  - status: pass
+    recovery_time: 29.726149573
+  https://en.wikipedia.org/wiki/Boat:
+  - status: pass
+    recovery_time: 9.009028655
+  - status: pass
+    recovery_time: 8.397400956
+  - status: fail_bad_recovery
+    recovery_time: 7.632502145
+    bad_recovery_url: https://en.wikipedia.org/wiki/Alive
+  - status: pass
+    recovery_time: 9.510091794
+  - status: pass
+    recovery_time: 8.625273253
+  - status: pass
+    recovery_time: 8.45816267
+  - status: pass
+    recovery_time: 9.594916835
+  - status: pass
+    recovery_time: 9.543533411
+  - status: pass
+    recovery_time: 7.602858777
+  - status: pass
+    recovery_time: 9.486071629
+  https://en.wikipedia.org/wiki/Amazon.com:
+  - status: pass
+    recovery_time: 112.497244455
+  - status: pass
+    recovery_time: 116.962041648
+  - status: fail_bad_recovery
+    recovery_time: 126.660450774
+    bad_recovery_url: https://en.wikipedia.org/wiki/Taylor_Swift
+  - status: fail_bad_recovery
+    recovery_time: 119.610123278
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: fail_bad_recovery
+    recovery_time: 134.238969861
+    bad_recovery_url: https://en.wikipedia.org/wiki/Taylor_Swift
+  - status: fail_bad_recovery
+    recovery_time: 136.457585384
+    bad_recovery_url: https://en.wikipedia.org/wiki/Taylor_Swift
+  - status: pass
+    recovery_time: 122.780694866
+  - status: pass
+    recovery_time: 121.275953575
+  - status: pass
+    recovery_time: 116.150838619
+  - status: pass
+    recovery_time: 115.047101993
+  https://en.wikipedia.org/wiki/Aashiqui_2:
+  - status: pass
+    recovery_time: 25.139689482
+  - status: pass
+    recovery_time: 17.944543974
+  - status: pass
+    recovery_time: 18.481202006
+  - status: pass
+    recovery_time: 24.327746765
+  - status: pass
+    recovery_time: 18.161874636
+  - status: pass
+    recovery_time: 20.598008203
+  - status: pass
+    recovery_time: 18.959324517
+  - status: pass
+    recovery_time: 18.92934221
+  - status: pass
+    recovery_time: 27.263392227
+  - status: pass
+    recovery_time: 26.848722135
+  https://en.wikipedia.org/wiki/Robin_Thicke:
+  - status: pass
+    recovery_time: 33.83198083
+  - status: pass
+    recovery_time: 28.423330489
+  - status: pass
+    recovery_time: 29.66285772
+  - status: pass
+    recovery_time: 30.320083959
+  - status: pass
+    recovery_time: 36.865480645
+  - status: pass
+    recovery_time: 29.300898876
+  - status: pass
+    recovery_time: 31.926103154
+  - status: pass
+    recovery_time: 31.919355995
+  - status: pass
+    recovery_time: 33.961891917
+  - status: pass
+    recovery_time: 31.106595297
+  https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes:
+  - status: fail_bad_recovery
+    recovery_time: 52.213285697
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_episodes
+  - status: fail_bad_recovery
+    recovery_time: 64.356750686
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013
+  - status: fail_bad_recovery
+    recovery_time: 70.178182959
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_episodes
+  - status: fail_bad_recovery
+    recovery_time: 60.020796566
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013
+  - status: fail_bad_recovery
+    recovery_time: 50.479184001
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_episodes
+  - status: fail_bad_recovery
+    recovery_time: 61.334784252
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013
+  - status: fail_bad_recovery
+    recovery_time: 64.818152422
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013
+  - status: fail_bad_recovery
+    recovery_time: 81.201548067
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_episodes
+  - status: fail_bad_recovery
+    recovery_time: 66.974681901
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013
+  - status: fail_bad_recovery
+    recovery_time: 60.680504617
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_episodes
+  https://en.wikipedia.org/wiki/Rihanna:
+  - status: pass
+    recovery_time: 119.606943194
+  - status: pass
+    recovery_time: 114.514716572
+  - status: fail_bad_recovery
+    recovery_time: 104.172175679
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 113.047884225
+  - status: pass
+    recovery_time: 111.301259427
+  - status: fail_bad_recovery
+    recovery_time: 105.584394441
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 111.051092883
+  - status: fail_bad_recovery
+    recovery_time: 111.249175215
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 115.338520645
+  - status: pass
+    recovery_time: 125.206982558
+  https://en.wikipedia.org/wiki/Taylor_Swift:
+  - status: pass
+    recovery_time: 131.02823129
+  - status: pass
+    recovery_time: 126.704764095
+  - status: pass
+    recovery_time: 127.34641838
+  - status: pass
+    recovery_time: 127.843638084
+  - status: pass
+    recovery_time: 141.095985256
+  - status: pass
+    recovery_time: 133.607573795
+  - status: pass
+    recovery_time: 146.142668652
+  - status: fail_bad_recovery
+    recovery_time: 208.053171425
+    bad_recovery_url: https://en.wikipedia.org/wiki/YouTube
+  - status: pass
+    recovery_time: 135.664454279
+  - status: pass
+    recovery_time: 136.059301177
+  https://en.wikipedia.org/wiki/Once_Upon_a_Time_(TV_series):
+  - status: fail_bad_recovery
+    recovery_time: 113.466719511
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: fail_bad_recovery
+    recovery_time: 97.489625575
+    bad_recovery_url: https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire
+  - status: fail_bad_recovery
+    recovery_time: 112.980688243
+    bad_recovery_url: https://en.wikipedia.org/wiki/Michael_Jordan
+  - status: fail_bad_recovery
+    recovery_time: 114.743762062
+    bad_recovery_url: https://en.wikipedia.org/wiki/Michael_Jordan
+  - status: fail_bad_recovery
+    recovery_time: 119.173982577
+    bad_recovery_url: https://en.wikipedia.org/wiki/Michael_Jordan
+  - status: pass
+    recovery_time: 84.635486483
+  - status: pass
+    recovery_time: 90.693540071
+  - status: pass
+    recovery_time: 103.007510908
+  - status: fail_bad_recovery
+    recovery_time: 99.660481038
+    bad_recovery_url: https://en.wikipedia.org/wiki/Abraham_Lincoln
+  - status: pass
+    recovery_time: 94.742570385
+  https://en.wikipedia.org/wiki/Android_(operating_system):
+  - status: pass
+    recovery_time: 111.01482025
+  - status: fail_bad_recovery
+    recovery_time: 112.704189507
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: fail_bad_recovery
+    recovery_time: 112.974487035
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: pass
+    recovery_time: 110.762497915
+  - status: pass
+    recovery_time: 123.515518132
+  - status: fail_bad_recovery
+    recovery_time: 107.894337927
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 116.574919475
+  - status: fail_bad_recovery
+    recovery_time: 116.248291454
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: fail_bad_recovery
+    recovery_time: 99.503582998
+    bad_recovery_url: https://en.wikipedia.org/wiki/Google
+  - status: pass
+    recovery_time: 118.225053642
+  https://en.wikipedia.org/wiki/China:
+  - status: pass
+    recovery_time: 144.602638373
+  - status: pass
+    recovery_time: 138.454703094
+  - status: pass
+    recovery_time: 152.162979799
+  - status: fail_bad_recovery
+    recovery_time: 130.496273297
+    bad_recovery_url: https://en.wikipedia.org/wiki/Nelson_Mandela
+  - status: pass
+    recovery_time: 147.708648184
+  - status: pass
+    recovery_time: 155.677142391
+  - status: pass
+    recovery_time: 148.280669586
+  - status: pass
+    recovery_time: 144.078894694
+  - status: pass
+    recovery_time: 148.845851499
+  - status: pass
+    recovery_time: 142.740293471
+  https://en.wikipedia.org/wiki/Kim_Kardashian:
+  - status: pass
+    recovery_time: 37.325779728
+  - status: pass
+    recovery_time: 43.333373124
+  - status: fail_bad_recovery
+    recovery_time: 32.72069911
+    bad_recovery_url: https://en.wikipedia.org/wiki/Robin_Thicke
+  - status: pass
+    recovery_time: 44.984612808
+  - status: pass
+    recovery_time: 39.382265468
+  - status: pass
+    recovery_time: 39.470378497
+  - status: pass
+    recovery_time: 37.65606841
+  - status: pass
+    recovery_time: 42.096710363
+  - status: pass
+    recovery_time: 46.458503455
+  - status: pass
+    recovery_time: 42.618701166
+  https://en.wikipedia.org/wiki/House_of_Cards_(U.S._TV_series):
+  - status: pass
+    recovery_time: 38.45172351
+  - status: pass
+    recovery_time: 42.952829652
+  - status: pass
+    recovery_time: 44.070932911
+  - status: pass
+    recovery_time: 42.445467248
+  - status: pass
+    recovery_time: 55.39974094
+  - status: pass
+    recovery_time: 38.428718767
+  - status: pass
+    recovery_time: 40.317645194
+  - status: pass
+    recovery_time: 37.807551375
+  - status: pass
+    recovery_time: 43.25665938
+  - status: pass
+    recovery_time: 36.816670872
+  https://en.wikipedia.org/wiki/Lionel_Messi:
+  - status: fail_bad_recovery
+    recovery_time: 165.638569697
+    bad_recovery_url: https://en.wikipedia.org/wiki/YouTube
+  - status: pass
+    recovery_time: 180.253195477
+  - status: fail_bad_recovery
+    recovery_time: 160.565634286
+    bad_recovery_url: https://en.wikipedia.org/wiki/Cristiano_Ronaldo
+  - status: pass
+    recovery_time: 146.333552233
+  - status: pass
+    recovery_time: 141.065703888
+  - status: fail_bad_recovery
+    recovery_time: 172.127941027
+    bad_recovery_url: https://en.wikipedia.org/wiki/Cristiano_Ronaldo
+  - status: fail_bad_recovery
+    recovery_time: 145.177507623
+    bad_recovery_url: https://en.wikipedia.org/wiki/Cristiano_Ronaldo
+  - status: pass
+    recovery_time: 154.075072581
+  - status: pass
+    recovery_time: 176.59105225
+  - status: pass
+    recovery_time: 150.244938493
+  https://en.wikipedia.org/wiki/Kaley_Cuoco:
+  - status: pass
+    recovery_time: 39.905091782
+  - status: pass
+    recovery_time: 42.240308457
+  - status: pass
+    recovery_time: 39.302080752
+  - status: pass
+    recovery_time: 36.673033877
+  - status: pass
+    recovery_time: 38.612739462
+  - status: pass
+    recovery_time: 26.44742714
+  - status: pass
+    recovery_time: 29.413896148
+  - status: pass
+    recovery_time: 41.137217374
+  - status: pass
+    recovery_time: 36.211684381
+  - status: pass
+    recovery_time: 36.906950587
+  https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States:
+  - status: pass
+    recovery_time: 90.911011115
+  - status: fail_bad_recovery
+    recovery_time: 107.243961372
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 108.830218833
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: pass
+    recovery_time: 92.795651871
+  - status: pass
+    recovery_time: 80.64014743
+  - status: pass
+    recovery_time: 91.162146287
+  - status: fail_bad_recovery
+    recovery_time: 121.540459375
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 106.727041396
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: fail_bad_recovery
+    recovery_time: 116.215657972
+    bad_recovery_url: https://en.wikipedia.org/wiki/World_War_II
+  - status: pass
+    recovery_time: 88.668319833
+  https://en.wikipedia.org/wiki/Sherlock_(TV_series):
+  - status: pass
+    recovery_time: 48.229182711
+  - status: pass
+    recovery_time: 49.855523765
+  - status: pass
+    recovery_time: 42.567774992
+  - status: pass
+    recovery_time: 47.551231278
+  - status: pass
+    recovery_time: 46.692094845
+  - status: pass
+    recovery_time: 45.00178287
+  - status: pass
+    recovery_time: 53.023686527
+  - status: pass
+    recovery_time: 37.720575293
+  - status: pass
+    recovery_time: 45.313500265
+  - status: pass
+    recovery_time: 44.185622228
+  https://en.wikipedia.org/wiki/Albert_Einstein:
+  - status: pass
+    recovery_time: 85.001766756
+  - status: fail_bad_recovery
+    recovery_time: 82.435922058
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: pass
+    recovery_time: 84.726621265
+  - status: fail_bad_recovery
+    recovery_time: 71.795115764
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 71.282320335
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 71.461573036
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: pass
+    recovery_time: 73.769157282
+  - status: fail_bad_recovery
+    recovery_time: 71.457467904
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: fail_bad_recovery
+    recovery_time: 74.189150607
+    bad_recovery_url: https://en.wikipedia.org/wiki/Global_warming
+  - status: pass
+    recovery_time: 76.299593006
+  https://en.wikipedia.org/wiki/Suits_(TV_series):
+  - status: pass
+    recovery_time: 19.456705065
+  - status: pass
+    recovery_time: 25.241213226
+  - status: pass
+    recovery_time: 24.216497271
+  - status: pass
+    recovery_time: 26.398697265
+  - status: pass
+    recovery_time: 21.456232369
+  - status: fail_bad_recovery
+    recovery_time: 23.2397942
+    bad_recovery_url: https://en.wikipedia.org/wiki/Aashiqui_2
+  - status: pass
+    recovery_time: 21.272703705
+  - status: pass
+    recovery_time: 23.670086671
+  - status: pass
+    recovery_time: 25.461532187
+  - status: pass
+    recovery_time: 27.031091853
+  https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles:
+  - status: pass
+    recovery_time: 109.051415001
+  - status: pass
+    recovery_time: 107.210477572
+  - status: pass
+    recovery_time: 125.337816737
+  - status: pass
+    recovery_time: 114.975244106
+  - status: pass
+    recovery_time: 108.301056518
+  - status: pass
+    recovery_time: 116.99937489
+  - status: pass
+    recovery_time: 112.556700625
+  - status: pass
+    recovery_time: 100.091460957
+  - status: fail_bad_recovery
+    recovery_time: 121.573189728
+    bad_recovery_url: https://en.wikipedia.org/wiki/Rihanna
+  - status: pass
+    recovery_time: 104.655334585
+  https://en.wikipedia.org/wiki/Human_penis_size:
+  - status: pass
+    recovery_time: 19.027553102
+  - status: pass
+    recovery_time: 18.897131476
+  - status: pass
+    recovery_time: 17.196336813
+  - status: fail_bad_recovery
+    recovery_time: 21.863654751
+    bad_recovery_url: https://en.wikipedia.org/wiki/Harlem_Shake_(meme)
+  - status: pass
+    recovery_time: 14.548307075
+  - status: pass
+    recovery_time: 16.62971519
+  - status: pass
+    recovery_time: 12.628410783
+  - status: pass
+    recovery_time: 16.822710283
+  - status: pass
+    recovery_time: 18.497388983
+  - status: pass
+    recovery_time: 16.623447214
+  https://en.wikipedia.org/wiki/Japan:
+  - status: fail_bad_recovery
+    recovery_time: 91.15708887
+    bad_recovery_url: https://en.wikipedia.org/wiki/Beyonc%C3%A9_Knowles
+  - status: pass
+    recovery_time: 118.920347505
+  - status: fail_bad_recovery
+    recovery_time: 121.219875139
+    bad_recovery_url: https://en.wikipedia.org/wiki/Amazon.com
+  - status: pass
+    recovery_time: 126.605074383
+  - status: pass
+    recovery_time: 130.83043384
+  - status: pass
+    recovery_time: 121.531780407
+  - status: fail_bad_recovery
+    recovery_time: 137.099050749
+    bad_recovery_url: https://en.wikipedia.org/wiki/Amazon.com
+  - status: pass
+    recovery_time: 120.887135797
+  - status: pass
+    recovery_time: 121.830932375
+  - status: fail_bad_recovery
+    recovery_time: 128.449717521
+    bad_recovery_url: https://en.wikipedia.org/wiki/Amazon.com
+  https://en.wikipedia.org/wiki/Michael_Jordan:
+  - status: pass
+    recovery_time: 88.552316662
+  - status: pass
+    recovery_time: 77.938974267
+  - status: pass
+    recovery_time: 115.297011172
+  - status: pass
+    recovery_time: 117.504807859
+  - status: pass
+    recovery_time: 108.970746983
+  - status: pass
+    recovery_time: 104.680193754
+  - status: fail_bad_recovery
+    recovery_time: 100.825047263
+    bad_recovery_url: https://en.wikipedia.org/wiki/Once_Upon_a_Time_(TV_series)
+  - status: fail_bad_recovery
+    recovery_time: 107.49934513
+    bad_recovery_url: https://en.wikipedia.org/wiki/Go_(game)
+  - status: pass
+    recovery_time: 113.573082489
+  - status: pass
+    recovery_time: 118.557001613
+  https://en.wikipedia.org/wiki/Django_Unchained:
+  - status: fail_bad_recovery
+    recovery_time: 56.762794926
+    bad_recovery_url: https://en.wikipedia.org/wiki/Mila_Kunis
+  - status: fail_bad_recovery
+    recovery_time: 4.931675254
+    bad_recovery_url: https://en.wikipedia.org/wiki/Alive
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 28.860938276
+  - status: fail_bad_recovery
+    recovery_time: 37.280494705
+    bad_recovery_url: https://en.wikipedia.org/wiki/Kim_Kardashian
+  - status: fail_bad_recovery
+    recovery_time: 21.957180689
+    bad_recovery_url: https://en.wikipedia.org/wiki/Harlem_Shake_(meme)
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 32.814097588
+  https://en.wikipedia.org/wiki/Harlem_Shake_(meme):
+  - status: fail_bad_recovery
+    recovery_time: 43.892567194
+    bad_recovery_url: https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy
+  - status: fail_recording
+    recovery_time: 
+  - status: fail_bad_recovery
+    recovery_time: 0.815955379
+    bad_recovery_url: https://en.wikipedia.org/wiki/List_of_Breaking_Bad_episodes
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 26.624769052
+  - status: fail_bad_recovery
+    recovery_time: 35.857867985
+    bad_recovery_url: https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy
+  - status: pass
+    recovery_time: 25.24019501
+  - status: pass
+    recovery_time: 34.79535944
+  - status: fail_bad_recovery
+    recovery_time: 35.926830601
+    bad_recovery_url: https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy
+  - status: fail_recording
+    recovery_time: 
