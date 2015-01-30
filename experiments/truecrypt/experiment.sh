@@ -15,7 +15,7 @@ cp ../../flush-reload/myversion/RubyInterface.rb $EXTRA_INPUT/
 status "Running the experiment script..."
 ruby TrueCryptHiddenVolumeExperiment.rb 2>$OUTPUT_DIR/stderr | tee $OUTPUT_DIR/stdout
 
-cp ./hidden.tc $OUTPUT_DIR/
-cp ./standard.tc $OUTPUT_DIR/
+mv ./hidden.tc $OUTPUT_DIR/
+mv ./standard.tc $OUTPUT_DIR/
 
 exp_completed
