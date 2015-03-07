@@ -8,19 +8,20 @@ if ARGV[0].nil?
   exit(false)
 end
 
-URL_LIST_FILE = "url_sets/small-test.txt"
-SAMPLE_COUNT = 2
+URL_LIST_FILE = "url_sets/wiki-top-100-of-2013-HTTPS.txt"
+SAMPLE_COUNT = 5
 OUTPUT_DIR = ARGV[0]
 LINKS_PATH = "binaries/links-debian"
 PROBES_PATH = "binaries/links-debian.probes"
 VICTIM_RUNS = 2
-STRING_TRUNCATE_LENGTH = 5000
+STRING_TRUNCATE_LENGTH = 3000
 
 results = {
   "url_list_file" => URL_LIST_FILE,
   "sample_count" => 1,
   "links_path" => LINKS_PATH,
   "victim_runs" => VICTIM_RUNS,
+  "truncation_length" => STRING_TRUNCATE_LENGTH,
   "training_time" => nil,
   "urls" => {}
 }
@@ -146,6 +147,7 @@ end
 recovery_times = (passes + url_failures).map { |s| s["recovery_time"] }
 maximum = recovery_times.max
 average = recovery_times.inject(:+) / recovery_times.length
+puts "Truncation Length: #{STRING_TRUNCATE_LENGTH}"
 puts "Maximum Recovery Time: #{maximum}"
 puts "Average Recovery Time: #{average}"
 puts "Total Passes: #{passes.length}"
