@@ -1,0 +1,6 @@
+Experiment Notes
+-----------------
+Date: Sat Mar  7 12:22:04 EST 2015
+
+The first run on the defuse.ca dedicated server after a night of fixing bugs and
+making minor changes to get the attack working.

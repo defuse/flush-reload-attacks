@@ -1,0 +1,38 @@
+---
+url_list_file: url_sets/small-test.txt
+sample_count: 1
+links_path: binaries/links-debian
+victim_runs: 1
+truncation_length: 1000
+training_time: 210.210370621
+urls:
+  https://en.wikipedia.org/wiki/Facebook:
+  - status: pass
+    recovery_time: 4.824929188
+  https://en.wikipedia.org/wiki/Deaths_in_2013:
+  - status: pass
+    recovery_time: 4.860822153
+  https://en.wikipedia.org/wiki/Breaking_Bad:
+  - status: pass
+    recovery_time: 4.816481079
+  https://en.wikipedia.org/wiki/G-force:
+  - status: pass
+    recovery_time: 4.872141753
+  https://en.wikipedia.org/wiki/Google:
+  - status: pass
+    recovery_time: 4.790598291
+  https://en.wikipedia.org/wiki/World_War_II:
+  - status: pass
+    recovery_time: 4.879601843
+  https://en.wikipedia.org/wiki/Wiki:
+  - status: pass
+    recovery_time: 4.815660724
+  https://en.wikipedia.org/wiki/YouTube:
+  - status: pass
+    recovery_time: 4.794081412
+  https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2013:
+  - status: pass
+    recovery_time: 4.823997316
+  https://en.wikipedia.org/wiki/United_States:
+  - status: pass
+    recovery_time: 5.001851902
