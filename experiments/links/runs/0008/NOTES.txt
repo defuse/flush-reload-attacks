@@ -1,0 +1,6 @@
+Experiment Notes
+-----------------
+Date: Sat Mar  7 12:31:56 EST 2015
+
+Same parameters as 0007 but on the top 100 pages. Looks like we need to use more
+length or samples in order to get more accuracy, but 76% is still pretty good.
