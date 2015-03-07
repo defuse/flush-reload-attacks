@@ -8,13 +8,14 @@ if ARGV[0].nil?
   exit(false)
 end
 
-URL_LIST_FILE = "url_sets/wiki-top-100-of-2013-HTTPS.txt"
-SAMPLE_COUNT = 5
+#URL_LIST_FILE = "url_sets/wiki-top-100-of-2013-HTTPS.txt"
+URL_LIST_FILE = "url_sets/small-test.txt"
+SAMPLE_COUNT = 3
 OUTPUT_DIR = ARGV[0]
 LINKS_PATH = "binaries/links-debian"
 PROBES_PATH = "binaries/links-debian.probes"
-VICTIM_RUNS = 2
-STRING_TRUNCATE_LENGTH = 3000
+VICTIM_RUNS = 1
+STRING_TRUNCATE_LENGTH = 1000
 
 results = {
   "url_list_file" => URL_LIST_FILE,
@@ -25,6 +26,9 @@ results = {
   "training_time" => nil,
   "urls" => {}
 }
+
+distances_dir = File.join(OUTPUT_DIR, "distances")
+Dir.mkdir(distances_dir)
 
 # Training
 # ---------------------------------------
@@ -64,7 +68,8 @@ urls.each do |victim_url|
       "status" => nil,
       "recovery_time" => nil,
     }
-    record_dir = File.join(recordings_dir, url_hash + "_" + run.to_s)
+    run_id = url_hash + "_" + run.to_s
+    record_dir = File.join(recordings_dir, run_id)
 
     recording_pid = Process.spawn(
       *[
@@ -108,7 +113,8 @@ urls.each do |victim_url|
         "AttackRecovery.rb",
         "--recording-dir", record_dir,
         "--train-dir", train_dir,
-        "--max-length", STRING_TRUNCATE_LENGTH.to_s
+        "--max-length", STRING_TRUNCATE_LENGTH.to_s,
+        "--output-file", File.join(distances_dir, run_id + ".yaml")
       ]
     )
     Process.wait(recovery.pid)
