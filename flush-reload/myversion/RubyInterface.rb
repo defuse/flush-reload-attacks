@@ -39,7 +39,7 @@ class Spy
       line.gsub!(/\s/, '')
       if /\A([a-zA-Z]):0x([0-9A-Fa-f]+)\Z/ =~ line
         addProbe($1, $2.to_i(16))
-      else
+      elsif !line.empty?
         puts "Invalid probe file!"
         exit
       end

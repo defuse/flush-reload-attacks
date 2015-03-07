@@ -2,8 +2,9 @@
 
 require '../../flush-reload/myversion/RubyInterface.rb'
 
-SAMPLES = 100
-TC_PATH = "./binaries/truecrypt"
+SAMPLES = 10
+TC_PATH = "./binaries/truecrypt-debian"
+PROBES_PATH = "./binaries/truecrypt-debian.probes"
 VOLUME_BYTES = 1_000_000
 HIDDEN_VOL = "./hidden.tc"
 STANDARD_VOL = "./standard.tc"
@@ -107,6 +108,7 @@ if $?.exitstatus != 0
 end
 
 SAMPLES.times do |i|
+  print "\n\n"
   puts "Sample #{i} ----------------------------------------------------"
   begin
     # Dismount both hidden and standard.
@@ -119,9 +121,10 @@ SAMPLES.times do |i|
 
     # Start spying
     spy = Spy.new(TC_PATH)
-    spy.addProbe("R", 0x576520)
-    spy.addProbe("S", 0x41c516)
-    #spy.addProbe("G", 0x57cce0)
+    spy.loadProbes(PROBES_PATH)
+    #spy.addProbe("R", 0x576520)
+    #spy.addProbe("S", 0x41c516)
+    ##spy.addProbe("G", 0x57cce0)
     spy.slot = 20480
     spy.start
 
