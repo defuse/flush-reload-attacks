@@ -5,6 +5,7 @@ $LOAD_PATH << File.dirname( __FILE__ )
 require 'optparse'
 require 'levenshtein'
 require 'parallel'
+require 'yaml'
 
 $options = {}
 optparse = OptionParser.new do |opts|
@@ -23,6 +24,11 @@ optparse = OptionParser.new do |opts|
   $options[:truncate] = 1_000_000
   opts.on( '-m', '--max-length LEN', 'Truncate strings to this length before computing distance.' ) do |len|
     $options[:truncate] = len.to_i
+  end
+
+  $options[:outputfile] = nil
+  opts.on( '-o', '--output-file FILE', 'Save computed distances to this YAML file.' ) do |path|
+    $options[:outputfile] = path
   end
 end
 
@@ -66,6 +72,8 @@ metadata.each do |line|
   hash_to_url[s[0]] = s[1]
 end
 
+output_yaml = {}
+
 Dir.foreach( $options[:recordingdir] ) do |filename|
   next if [".", ".."].include? filename
 
@@ -75,7 +83,7 @@ Dir.foreach( $options[:recordingdir] ) do |filename|
   # Remove missed slot counts
   recording.gsub!(/\{\d+\}/, '')
 
-  train_files = Dir.entries( $options[:traindir] ) - [".", ".."]
+  train_files = Dir.entries( $options[:traindir] ) - [".", "..", "METADATA"]
 
   distances = Parallel.map( train_files ) do |train_file|
     train_path = File.join($options[:traindir], train_file)
@@ -100,4 +108,12 @@ Dir.foreach( $options[:recordingdir] ) do |filename|
 
   url_hash = closest_file.split("_")[0]
   puts "#{filename}: #{hash_to_url[url_hash]}"
+
+  output_yaml[filename] = distances
+end
+
+if $options[:outputfile]
+  File.open( $options[:outputfile], "w" ) do |f|
+    f.write(YAML.dump(output_yaml))
+  end
 end
