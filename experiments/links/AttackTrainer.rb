@@ -29,6 +29,11 @@ optparse = OptionParser.new do |opts|
   opts.on( '-s', '--samples N', 'Number of samples to capture' ) do |n|
     $options[:samples] = n.to_i
   end
+
+  $options[:probefile] = nil
+  opts.on( '-p', '--probe-file FILE', 'Probe configuration file.' ) do |path|
+    $options[:probefile] = path
+  end
 end
 
 def exit_with_message(optparse, msg)
@@ -63,6 +68,10 @@ if $options[:links].nil?
   exit_with_message(optparse, "Missing --links-path (path to links binary).")
 end
 
+if $options[:probefile].nil?
+  exit_with_message(optparse, "Missing --probe-file (path to probe config)")
+end
+
 if $options[:samples] <= 0
   exit_with_message(optparse, "Bad --samples value.")
 end
@@ -83,14 +92,11 @@ urls.each_with_index do |train_url, index|
     begin
       puts "    #{sample_n}..."
       spy = Spy.new($options[:links])
-      spy.addProbe("R", 0x422460)
-      spy.addProbe("D", 0x41f8b0)
-      spy.addProbe("H", 0x41e480)
-      spy.addProbe("S", 0x41eab0)
+      spy.loadProbes($options[:probefile])
       spy.start
 
       links = IO.popen([$options[:links], train_url, :err=>[:child, :out]])
-      sleep 3
+      sleep 7
       # Use SIGINT. SIGKILL leaves the terminal broken.
       Process.kill("INT", links.pid)
 

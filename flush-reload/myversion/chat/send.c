@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     const char *ls;
     int i, j, k;
 
-    fd = open("/usr/bin/ls", O_RDONLY);
+    fd = open("/bin/ls", O_RDONLY);
     if (fd < 0) {
         printf("Opening file failed.\n");
     }

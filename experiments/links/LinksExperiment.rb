@@ -8,11 +8,13 @@ if ARGV[0].nil?
   exit(false)
 end
 
-URL_LIST_FILE = "url_sets/wiki-top-100-of-2013-HTTPS.txt"
+URL_LIST_FILE = "url_sets/small-test.txt"
 SAMPLE_COUNT = 2
 OUTPUT_DIR = ARGV[0]
-LINKS_PATH = "binaries/links"
-VICTIM_RUNS = 10
+LINKS_PATH = "binaries/links-debian"
+PROBES_PATH = "binaries/links-debian.probes"
+VICTIM_RUNS = 2
+STRING_TRUNCATE_LENGTH = 5000
 
 results = {
   "url_list_file" => URL_LIST_FILE,
@@ -35,7 +37,8 @@ train_pid = Process.spawn(
     "--url-list", URL_LIST_FILE,
     "--train-dir", train_dir,
     "--links-path", LINKS_PATH,
-    "--samples", SAMPLE_COUNT.to_s
+    "--samples", SAMPLE_COUNT.to_s,
+    "--probe-file", PROBES_PATH
   ]
 )
 Process.wait(train_pid)
@@ -67,7 +70,8 @@ urls.each do |victim_url|
         "ruby",
         "AttackRecorder.rb",
         "--links-path", LINKS_PATH,
-        "--output-dir", record_dir
+        "--output-dir", record_dir,
+        "--probe-file", PROBES_PATH
       ]
     )
 
@@ -77,13 +81,13 @@ urls.each do |victim_url|
     links = IO.popen([ LINKS_PATH, victim_url, :err=>[:child, :out]])
 
     # Wait for links to load the page, then kill it.
-    sleep 3
+    sleep 7
     # Use SIGINT. SIGKILL leaves the terminal broken.
     Process.kill("INT", links.pid)
     # Wait for the bursting algorithm to finish the burst.
     sleep 3
     # Kill the recorder.
-    Process.kill("KILL", recording_pid)
+    Process.kill("INT", recording_pid)
 
     record_files = Dir.entries(record_dir) - [".", ".."]
 
@@ -102,7 +106,8 @@ urls.each do |victim_url|
         "ruby",
         "AttackRecovery.rb",
         "--recording-dir", record_dir,
-        "--train-dir", train_dir
+        "--train-dir", train_dir,
+        "--max-length", STRING_TRUNCATE_LENGTH.to_s
       ]
     )
     Process.wait(recovery.pid)

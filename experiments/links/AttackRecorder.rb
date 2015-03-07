@@ -18,6 +18,11 @@ optparse = OptionParser.new do |opts|
   opts.on( '-d', '--output-dir DIR', 'Output directory.' ) do |dir|
     $options[:outputdir] = dir
   end
+
+  $options[:probefile] = nil
+  opts.on( '-p', '--probe-file FILE', 'Probe configuration file.' ) do |path|
+    $options[:probefile] = path
+  end
 end
 
 def exit_with_message(optparse, msg)
@@ -45,15 +50,20 @@ if $options[:links].nil?
   exit_with_message(optparse, "Missing --links-path (path to links binary)")
 end
 
+if $options[:probefile].nil?
+  exit_with_message(optparse, "Missing --probe-file (path to probe config)")
+end
+
 Dir.mkdir($options[:outputdir])
 
 begin
   spy = Spy.new($options[:links])
-  spy.addProbe("R", 0x422460)
-  spy.addProbe("D", 0x41f8b0)
-  spy.addProbe("H", 0x41e480)
-  spy.addProbe("S", 0x41eab0)
+  spy.loadProbes($options[:probefile])
   spy.start
+  trap("SIGINT") do 
+    spy.stop
+    exit
+  end
   spy.each_burst do |burst|
     # Ignore blips
     if burst.length > 5

@@ -19,6 +19,11 @@ optparse = OptionParser.new do |opts|
   opts.on( '-t', '--train-dir DIR', 'Training directory.') do |dir|
     $options[:traindir] = dir
   end
+
+  $options[:truncate] = 1_000_000
+  opts.on( '-m', '--max-length LEN', 'Truncate strings to this length before computing distance.' ) do |len|
+    $options[:truncate] = len.to_i
+  end
 end
 
 def exit_with_message(optparse, msg)
@@ -67,14 +72,18 @@ Dir.foreach( $options[:recordingdir] ) do |filename|
   rec_path = File.join($options[:recordingdir], filename)
   recording = File.read(rec_path)
 
+  # Remove missed slot counts
+  recording.gsub!(/\{\d+\}/, '')
 
   train_files = Dir.entries( $options[:traindir] ) - [".", ".."]
 
   distances = Parallel.map( train_files ) do |train_file|
     train_path = File.join($options[:traindir], train_file)
     training = File.read(train_path)
+    # Removed missed slot counts
+    training.gsub!(/\{\d+\}/, '')
     {
-      distance: Levenshtein.distance(recording, training),
+      distance: Levenshtein.distance(recording[0,$options[:truncate]], training[0,$options[:truncate]]),
       file: train_file
     }
   end

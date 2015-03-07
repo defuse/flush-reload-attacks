@@ -30,6 +30,22 @@ class Spy
     end
   end
 
+  def loadProbes(file)
+    lines = File.readlines(file)
+    lines.each do |line|
+      # Strip comments
+      line.gsub!(/#.*$/, '')
+      # Strip whitespace
+      line.gsub!(/\s/, '')
+      if /\A([a-zA-Z]):0x([0-9A-Fa-f]+)\Z/ =~ line
+        addProbe($1, $2.to_i(16))
+      else
+        puts "Invalid probe file!"
+        exit
+      end
+    end
+  end
+
   def start
     if @elf_path.nil?
       raise ArgumentError.new("The elf_path is not set.")
