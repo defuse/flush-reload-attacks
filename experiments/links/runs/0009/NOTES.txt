@@ -1,0 +1,5 @@
+Experiment Notes
+-----------------
+Date: Sat Mar  7 17:59:54 EST 2015
+
+Improvement over 0008 by using more samples.

@@ -20,7 +20,8 @@ def decide(output)
   puts "DECIDING..."
   puts "OUTPUT: [#{output}]"
   if output.length >= 4
-    if output.end_with? "R|"
+    #if output.end_with? "R|"
+    if output.scan("R|").length < 6
       return :standard
     else
       return :hidden
