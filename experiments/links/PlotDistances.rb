@@ -12,7 +12,6 @@ if data.keys.length != 1
   puts "There are more than one key, using the 'first'."
 end
 
-
 files_to_distances = Hash.new { |h,k| h[k] = Array.new }
 array = data[data.keys[0]]
 array.each do |entry|

@@ -9,7 +9,7 @@ set xrange[0:100]
 set xtics 10
  
 # Make some suitable labels.
-set title "Demo graph"
+#set title "Demo graph"
 set xlabel "Page"
 set ylabel "Distance"
  
@@ -20,4 +20,6 @@ set output "distanceplot.png"
  
 plot 'values.dat' using 1:2 title 'A', \
      'values.dat' using 1:3 title 'B', \
-     'values.dat' using 1:4 title 'C'
+     'values.dat' using 1:4 title 'C', \
+     'values.dat' using 1:5 title 'D', \
+     'values.dat' using 1:6 title 'E'
