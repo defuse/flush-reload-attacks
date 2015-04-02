@@ -2,15 +2,16 @@
 
 \usepackage{url}
 \usepackage{microtype}
+\usepackage{appendix}
 
 \begin{document}
 
 % Without this, stuff overfills into the margin. TODO: Eventually, rewrite those
 % paragraphs so that they don't.
-\sloppy
+%\sloppy
 
-\title{Side Channel Attacks Against Non-Cryptographic Applications\titlenote{Submitted January 22, 2015}}
-\subtitle{CPSC 502.04 Project Interim Report}
+\title{Compromising Privacy with the FLUSH+RELOAD attack\titlenote{Submitted April 5, 2015}}
+\subtitle{CPSC 502.04 Project Final Report}
 
 \numberofauthors{1}
 
@@ -24,523 +25,631 @@ edited a draft of this document before it was submitted.}\\
 \maketitle
 
 \begin{abstract}
-Side channel attacks are almost always applied to cryptography-related software
-and hardware, so we ask whether significant side-channel vulnerabilities exist
-in non-cryptographic systems. In this interim report, we present evidence that
-the FLUSH+RELOAD side channel attack can be successfully applied to
-non-cryptographic software. In particular, we show how to distinguish between
-hidden and normal TrueCrypt volumes, and to see which of the top 100 most
-visited Wikipedia pages the victim is visiting using the Links web browser.
-Finally, we lay out the next steps for the project, including a way to build the
-attacks automatically.
+    Side channel attacks are typically used to break implementations of
+    cryptography. More recently, side channel attacks have been discovered in
+    more general settings that violate user privacy. We continue this trend by
+    applying the \textsc{Flush+Reload} L3 cache side channel from Yuval Yarom and Katrina
+    Falkner \cite{yarom2013flush} to TrueCrypt and the Links web browser. We
+    show that an attacker can reliably determine whether a TrueCrypt volume
+    mounted by the victim contains a hidden volume or not. We also show that if
+    the attacker knows the victim visited one of the top 100 Wikipedia pages in
+    the Links browser, they can decide which page was visited with a success
+    rate of over 80\%.
 \end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
 
-Computers are physical realizations of abstract machines. Therefore, when we
-program computers, it is easiest to think abstractly. Systems are organized into
-layers of abstraction with the highest-level ideas and operations at the top,
-the bits and bytes further down, and the physical implementation \textendash\
-wires and the voltages on them \textendash\ still further down.
+Side channels are a well-known class of attack where an adversary learns
+information about their victim through implicit, rather than explicit,
+transmission of information.
 
-Complexity is hidden behind interfaces and APIs. We can use lower layers without
-having to understand their inner workings. Conversely, we can write libraries
-without having to consider and understand all of the possible uses.
+Side channels are most frequently used to extract secret keys from
+implementations of cryptography. For example, Thomas Messerges et al.\ were able
+to extract the secret RSA key from a smart card by looking at the amount of
+power it uses \cite{messerges1999power}. More recently, Genkin et al.\ were able
+to extract a secret RSA key just by listening to the sounds a computer makes as
+it is decrypting data \cite{genkin2013rsa}. 
 
-Thinking about computers this way makes them manageable. Without abstraction, it
-is impossible to remember all of the details. When the details are divided into
-parts with clear boundaries, we can remember how each part is \emph{to be used},
-without having to know how each part \emph{works}.
+Side channel attacks are also being used to compromise user privacy. For
+example, Liang Cai and Hao Chen have shown that keystrokes (including typed PIN
+numbers) can be reliably recovered from accelerometer data on smartphones
+\cite{cai2012practicality}. Shuo Chen et al.\ showed that observing a web
+application's behavior reveals information about the user's input. They gave
+real-world examples where they could determine which medical conditions the user
+was searching for, what their income range was, and how they allocated their
+investment funds \cite{chen2010side}.
 
-The divisions are not always perfect, and this often leads to security problems.
-APIs are often misused and assumptions are often made about the internal
-workings of a different part. An interesting boundary is the one between the
-computer as an abstract machine, and the computer as a physical machine.
+In this paper, we continue the trend of using side channels to attack the user's
+privacy. We show that the generic L3 cache side channel called \textsc{Flush+Reload}
+\cite{yarom2013flush} can be applied in non-cryptography settings to
+meaningfully violate confidentiality. The attacks we present let an attacker on
+a shared system (1) determine whether the TrueCrypt volume a victim mounted
+contained a hidden volume or not, and (2) determine which of the top 100
+Wikipedia pages the victim visited using the Links web browser.
 
-When we think about computers as abstract machines, it is natural to think in
-terms of explicit communication paths. After all, the explicit communication
-channels are the ones that matter: reading input and writing output. The user
-does not care exactly how much power their computer is using, how much noise it
-makes, or how long it takes to perform an operation, so long as the behavior
-stays within reasonable bounds. Thinking physically, things are different. These
-values all represent information about what is going on inside the computer.
-Measurable variations of these values are called \emph{side channels}
-\cite{kelsey1998side}.
+This is the first time that a generic cache-based side channel has been used to
+compromise privacy by attacking a non-cryptographic application. The attacks we
+present show that cache side channels have implications beyond just extracting
+secret keys from cryptography software. We hope that the attacks will bring more
+attention to the privacy issues caused by cache side channels, and the
+\textsc{Flush+Reload} attack in particular.
 
-Side channels sometimes leak information that is supposed to be kept secret. For
-example, research has shown that by taking a close look at the amount of power
-used by smart cards, we can steal the closely-guarded RSA secret keys inside
-them \cite{messerges1999power}. This is possible because the device performs
-a longer operation for key bits that are 1 and a shorter operation for key bits
-that are is 0. So by looking at the amount of power it uses over time, it is
-possible to tell which bits of the key are 0 and which are 1. Attacks like
-these, which use side channels to learn secret information about a system are
-called \emph{side channel attacks}. Many examples are known:
+We developed a robust \textsc{Flush+Reload} attack tool based on code the
+original paper's authors gave us. Our code is published online under an
+open-source license (see appendix \ref{sec:reproducing}), so other researchers
+can quickly reproduce our work and start developing better attacks. The source
+code for our experiments and the data they produced is being made available as
+well. We hope more researchers will follow our example of making code and data
+available prior to publication.
 
-\begin{itemize}
-\item Genkin et al. \cite{genkin2013rsa} showed that by listening to the sounds
-made by a computer performing RSA decryptions, it was possible to extract the
-secret key.
+In the next section, we summarize the \textsc{Flush+Reload} side channel that our attacks
+are based on. Section 3 describes our implementation of the \textsc{Flush+Reload} attack
+and explains our experimental methodology. The attacks and experimental results
+are given in section 4. Section 5 highlights recent work using side channels to
+break privacy and explains how our contributions fit in with that work. Finally
+we list some ideas for future work in section 6, and conclude in section 7.
 
-\item SSH sends one packet per keystroke, immediately after the key is pressed.
-Song et al. \cite{song2001timing} showed that information about users' passwords
-can be inferred from the timing of the packets.
+\section{The Flush+Reload Attack}
 
-\item There is a lot of research \cite{aciiccmez2006cache, bernstein2005cache,
-    osvik2006cache, weiss2012cache} showing that it is very hard to write
-    a side-channel-free implementation of the industry-standard AES cipher.
+The attacks we present use the \textsc{Flush+Reload} attack by Yuval Yarom and
+Katrina Falkner \cite{yarom2013flush}. The side channel was first described by
+Bangerter et al.\ \cite{gullasch2011cache} where it was used on AES lookup
+tables to extract keys and plaintext during encryption. Yuval Yarom and Katrina
+Falkner realized it could be applied more generally to spy on the code a process
+executes. It was given the name \textsc{Flush+Reload} and has since been applied
+to break GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
+yarom2014recovering}.
 
-\item Timing side channels were shown to work even remotely across a local
-network by Brumley and Boneh \cite{brumley2005remote}.
+Here we give a brief explanation of the \textsc{Flush+Reload} attack with enough detail
+to understand our attacks. For all of the details, refer to Yuval Yarom and
+Katrina Falkner's paper \cite{yarom2013flush}.
 
-\item The BREACH attack on SSL \cite{gluck2013breach} uses variations in the
-    compressibility of data as a side channel to learn secret tokens embedded in
-    an encrypted web page.
-\end{itemize}
+\textsc{Flush+Reload} is a generic L3 (or last-level) cache side channel attack. It takes
+advantage of executable code page sharing between processes. If Alice is the
+first to run a program, the operating system will load the program into physical
+memory. When Bob comes along and runs the same program, instead of loading
+a second copy into memory, the operating system will set Bob's page tables to
+use the copy that was loaded into memory for Alice. The result is that both
+Alice and Bob are working off of the same physical memory. If Bob can determine
+which cache lines of the shared memory are present in the cache over time, he
+can tell which cache lines Alice's process accesses over time. This is what the
+\textsc{Flush+Reload} attack does.
 
-Side channels present a challenge because a computer program can be logically
-correct and still be vulnerable to side channel attacks. A program can respond
-to all inputs in all the right ways, always getting the right answer, but still
-leak secrets out through the time it takes to run or the amount of power it
-uses.
+Suppose attacker knows their victim is running a certain program and would like
+to see which code the victim's process is running. \textsc{Flush+Reload} lets
+the attacker select a handful of cache lines to watch, called ``probes.'' The
+attacker flushes those lines out of the cache, waits for a certain number of
+clock cycles, then times how long it takes to read those lines. If the read is
+fast (i.e. consistent with being in the L3 cache), it means the victim accessed
+the line during the waiting period. If the read is slow, the victim did not
+access the line. The attacker can repeat the process (flushing, then reloading)
+to see which code the victim process is executing over time.
 
-The list above shows how diverse and widespread side channel attacks are.
-Despite their prevalence, we still don't understand them very well. The next
-section presents some open questions that this project will try to answer.
+For example, the attack against GnuPG puts probes on the RSA modular
+exponentiation routines and uses a waiting time of 2048 clock cycles.
+Effectively, the attacker gets 1.5 MHz resolution view into what the victim's
+process is doing \cite{yarom2013flush}.
 
-In this section, we described what side-channel attacks are and why we care
-about them. In Section \ref{sec:problem}, we present the research questions that
-we are trying to answer. Section \ref{sec:relwork} reviews related work and the
-FLUSH+RELOAD attack that our research is built on. Research methodology is
-described in Section \ref{sec:methods}. Attacks confirming our hypothesis are
-given in Section \ref{sec:results}. Section \ref{sec:future} explains where we
-will go from here, and finally Section \ref{sec:conclusion} concludes.
-
-\section{Research Problem}
-\label{sec:problem}
-
-In the last section, we saw that side channel attacks are everywhere, and that
-they can be devastating for a system's security. In order to build defenses
-against side-channel attacks, we have to understand them. Our ignorance about
-side channel attacks boils down to two central questions: Under what conditions
-are side-channel attacks possible? and when a side-channel vulnerability exists,
-how reliably can it be exploited?
-
-Many examples of side-channel attacks have been presented in the literature.
-Most research is focused on developing new attack vectors. Acoustic
-cryptanalysis \cite{genkin2013rsa} and extracting keys from ground potential
-fluctuations \cite{genkin2014get} are recent examples. These new types of attack
-are almost universally applied to cryptography. This makes sense, because
-leaking a small number of bits (i.e.\ the key) from a cryptographic application
-weakens and may completely break its security. To compound the issue,
-cryptography makes heavy, repeated, use of the few bits that it does need to
-keep secret, making them more likely to influence the side channels.
-
-It makes sense why cryptography is attacked, but it is unclear if this focus on
-cryptography is because non-cryptographic programs can not be attacked, or if
-cryptography just gets attacked first. This is an important question to resolve,
-since if non-cryptographic programs \emph{are} just as vulnerable to
-side-channels, we might be overlooking serious vulnerabilities in the programs
-we use every day. An attack against a regular program can be just as devastating
-as an attack against an implementation of cryptography. For example, if it is
-possible for one user to spy on another user's keystrokes as they compose an
-email, that is just as serious an attack as if the first user could steal the
-second user's PGP private key.
-
-This project will try to answer that question. In particular, we ask:
-
-\begin{enumerate}
-\item What impact do side-channel attacks have on non-cryptographic systems?
-
-\item Under what conditions are side channels a threat? Under what conditions
-      are they not?
-
-\item Does every developer have to be aware of side channels and design their
-      code to resist attacks? Or is it enough to care about side channels only
-      for sensitive applications like cryptography?
-
-\item Are there automated technological defenses against side-channel attacks?
-      Are there easy-to-follow coding guidelines that reduce the impact of side
-      channels?
-
-\item Can side channels be used for good? Could we, perhaps, use side channels
-      monitoring as a mechanism to spot attacks?
-\end{enumerate}
-
-If this project finds that non-cryptographic attacks represent real threats, it
-will motivate the research community to widen the scope of their attacks and
-defenses. If the result is that side-channels cannot be applied to regular
-programs, we can learn \emph{why} not, and begin to apply that knowledge to
-build defenses.
-
-We have made progress towards answering these questions. The next section
-discusses related work, and after that we lay out some attacks.
-
-\section{Related Work}
-\label{sec:relwork}
-
-Our attack demonstrations use the FLUSH+RELOAD attack \cite{yarom2013flush},
-which is described in detail in the next section. In the section after that, we
-list other related work, including previously-known non-cryptographic
-side-channel attacks.
-
-\subsection{The FLUSH+RELOAD Attack}
-
-\textsc{Flush+Reload} \cite{yarom2013flush} is a generic L3 (or last-level)
-cache side-channel attack. Taking advantage of executable code page sharing, it
-allows one process to spy on the code another process is running.
-
-The attacker first selects a handful of cache lines they want to monitor. When
-the attack starts, those cache lines are flushed out of the L3 cache. From then
-on, time is divided into slots whose durations are measured in clock cycles. For
-example, the original GnuPG attack in \cite{yarom2013flush} uses a slot size of
-2048 cycles. At the end of each slot, the target cache lines, called ``probes''
-are read. If the read is fast (i.e.\ consistent with being in L3 cache), it is
-likely that the victim process executed some code in that cache line in the
-slot. If the read is slow, the victim process did not read that cache line in
-the slot. After the probes are timed, they are flushed from the cache, and the
-next slot begins.
-
-The side-channel was first described by Bangerter et al.\
-\cite{gullasch2011cache}. There, it was used on AES lookup tables that were
-hard-coded into the binary. Yarom and Falkner realized it could be applied to
-code, and used it to extract the secret key from GnuPG \cite{yarom2013flush}.
-Since then, it has also been applied to extract private ECDSA keys from OpenSSL
-\cite{benger2014ooh}.
-
-\subsection{Other Non-Cryptographic Side Channel Attacks}
-
-Several papers have applied side-channel attacks to non-cryptographic
-applications. However, they are all attacks designed around a specific
-application. We are more ambitious, aiming to apply a general side-channel
-attack (FLUSH+RELOAD) broadly across a wide range of non-cryptographic software.
-
-Demme et al.\ proposed a measure for side-channel information leakage in
-\cite{demme2012side}. It is not applicable to our research, since it measures
-information leakage by simulating hardware, and is not a measure of information
-leakage for actual vulnerabilities.
-
-Malicious web pages can extract browser history through a side-channel attack
-\cite{weinberg2011still}. Timing variations from database indexes are enough to
-extract indexed records \cite{futoransky2007nd2db}. Variable bit rate encoding
-leaks information about encrypted VoIP conversations
-\cite{white2011phonotactic}. In an Android app, UI state can be inferred through
-side channels in the GUI framework \cite{chen2014peeking}. On Linux, keystroke
-timings can be learned by watching the size of a victim process's stack
-\cite{zhang2009peeping}. Timing of key strokes also leaks through SSH's
-encryption to reveal information about the password \cite{song2001timing}.
-A malicious web page can tell if the browser is running in a virtual machine
-(i.e.\ for malware analysis) with JavaScript side-channels \cite{ho2014tick}.
-A victim's Internet traffic volume and even individual packet times can be
-learned by exploiting side channels in router scheduling algorithms
-\cite{kadloor2010low}. Accelerometers in smart phones leak information about the
-passwords users type \cite{owusu2012accessory} \cite{cai2012practicality}. Cache
-side channels used against the Windows or Linux kernels break kernel space ASLR
-\cite{hund2013practical}. A server's power use patterns give away which virtual
-machines are running on it \cite{hlavacs2011energy}. It is possible to recover
-text from the sounds dot-matrix printers make \cite{backes2010acoustic}.
-Differences in the ways web applications interact with the server leak
-information about the user's input \cite{bortz2007exposing} \cite{chen2010side}.
-The CRIME \cite{duong2012crime} and BREACH \cite{gluck2013breach} attacks use
-compression-ratio variations to learn things about the plaintext.
-
-With the exception of the web application attacks (\cite{bortz2007exposing} and
-\cite{chen2014peeking}) all of these attacks are very application-specific. Our
-contribution is to show that one type of attack (FLUSH+RELOAD) can be easily
-applied to lots of different programs.
+In summary, the attacker specifies (1) a few (roughly 1 to 5; adding more probes
+makes the measurements less reliable) probe locations within a binary and (2)
+the amount of clock cycles to wait between measurements. As output, the attacker
+learns the sequence of probes that were accessed during the waiting periods.
 
 \section{Methods}
 \label{sec:methods}
 
+We set out to see if the \textsc{Flush+Reload} attack had privacy implications beyond
+attacking cryptographic software. We did this by (1) brainstorming possible
+attacks, (2) selecting a program to attack, (3) manually implementing the attack
+as best we could, and then (4) running experiments to see how well the attack
+works.
 
-By exhibiting attacks, we show that FLUSH+RELOAD can be used against
-non-cryptographic software to breach the user's privacy. For each piece of
-software, we find a feature where private information about the user's
-activities may be leaked. With the feature identified, we manually review the
-program's code and find the best locations in memory to place FLUSH+RELOAD
-probes for maximum information leakage.
+The binaries we attacked were built from source. We left symbols in to make it
+easier to find the probe locations in the binary. Symbols are not required for
+the attack to work, but without them, the manual work of discovering the attack
+would take longer.
 
-Attacks are implemented with the following tools:
+To make sure that we did not cherry pick vulnerable programs, we kept track of
+all the programs we looked at without developing any attacks. These are
+disclosed in section \ref{sec:failures}.
+
+\subsection{Attack Implementation}
+
+The attacks are built on the following tools.
 
 \begin{itemize}
-    \item A FLUSH+RELOAD attack tool, written in C, takes a binary and probe
+    \item A \textsc{Flush+Reload} attack tool, written in C, takes a binary and probe
         addresses with single-character names as arguments. When probes are hit,
         their single-character names are printed to standard output, with pipe
-        characters separating the slots. This tool is a re-implementation of the
-        attack tool the original paper's (\cite{yarom2013flush}) authors
-        provided us.
+        characters separating the waiting periods. This tool is
+        a re-implementation of the tool the original paper's
+        (\cite{yarom2013flush}) authors provided us.
 
-    \item A Ruby class that lets Ruby scripts to call the attack tool and
-        monitor its output. It augments the attack tool by letting the user get
-        a callback whenever there is a ``burst'' of probe hits. This lets the
-        attack script react to events (such as the entire execution of
-        a command) without having to continually parse the attack tool's output.
-
-    \item Ruby attack scripts are written for each attack, using the interface
-        class described above.
+    \item A Ruby class that lets Ruby scripts run the attack tool and monitor
+        its output. It provides a callback whenever there is a burst of probe
+        hits. This lets the attack script react to events (such as the entire
+        execution of a command) without having to continually parse the attack
+        tool's output. Our attacks are implemented as Ruby scripts that use this
+        class.
 \end{itemize}
 
-Experiments are run to determine how accurate the attack tool is at
-reconstructing the desired information. All experiments are implemented in code,
-so that they are easily repeatable. To facilitate reproduction, all code and raw
-experiment data will be published on the Web. 
+\subsection{Experimental Evaluation}
 
-To avoid confirmation bias, the experiment framework enforces the following
-property: the experimenter must decide whether the results are to be saved
-before the experiment is run. For example, if the experimenter is doing a test
-run, to check the correctness of the experiment code, they cannot save those
-results if they happen to confirm the hypothesis. On the other hand, the
-experimenter cannot get rid of non-test runs that show negative results. Of
-course, it is possible to bypass these measures, but it is impossible to do so
-accidentally: you have to manually move or delete a folder, which should never
-need to be done if the experimenter is being honest.
+We ran experiments on two systems. The first system is an author's personal
+laptop. The second system is the dedicated server hosting the same author's
+website. The specifications of these systems are given in Table
+\ref{table:specs}. We will refer to these systems as System 1 and System 2,
+respectively.
 
-Experiments are performed with an Intel Core2 Duo P8700 2.53GHz CPU inside an
-ASUS G51 laptop. For cache, it has a split 64kB L1 cache, a unified 3MB L2
-cache, and no L3 cache. Unless otherwise stated, all experiments are run with
-low system load (at most a few terminals and text editor windows open).
+\begin{table*}
+    \centering
+\begin{tabular}{|c|c|c|}
+    \hline
+    & \textbf{System 1} & \textbf{System 2} \\
+    \hline
+    \textbf{Use} & Laptop & Web server \\
+    \hline
+    \textbf{CPU} & Intel Core2 Duo P8700 2.53GHz & Intel Xeon E3-1245 V2 3.40GHz  \\
+    \hline
+    \textbf{RAM} & 4GiB DDR2 800MHz & 32GiB DDR3 1333MHz \\
+    \hline
+    \textbf{L1 Cache} & 64KiB Split & 256KiB Unified \\
+    \hline
+    \textbf{L2 Cache} & 3MiB Unified & 1MiB Unified \\
+    \hline
+    \textbf{L3 Cache} & N/A & 8MiB Unified \\
+    \hline
+\end{tabular}
+\caption{System Specifications. Cache specifications were obtained by the
+\texttt{dmidecode} utility and may not be accurate.}
+\label{table:specs}
+\end{table*}
 
-Binaries of attacked programs are built from source and symbols are not
-stripped, to make it easier for the experimenter to find probe locations.
-Symbols are not required for the attack to work, but without them, finding the
-probe locations manually would take longer.
+All of the experiments have been automated so that they are easy to repeat. The
+source code and data from all experiment runs have been published so that other
+researchers can verify and reproduce our work. See appendix
+\ref{sec:reproducing}.
+
+All experiments were run with low system load.
 
 \section{Results}
 \label{sec:results}
 
-We present two attacks. The first attack lets an attacking user tell whether
-a victim user's TrueCrypt volume is standard or hidden. The second lets the
-attacking user tell which of the top 100 Wikipedia pages the victim user visited
-using the Links web browser.
+We present two attacks. The first attack lets an attacker tell whether
+a victim's TrueCrypt volume is normal or hidden. The second lets the the
+attacker tell which of the top 100 Wikipedia pages the victim visited using the
+Links web browser.
 
 \subsection{TrueCrypt}
 
-TrueCrypt is disk encryption software that supports storing encrypted
-filesystems (called ``volumes'') in files. TrueCrypt has a ``hidden volume''
-feature, which hides a secret volume inside a normal volume to provide plausible
-deniability. The idea is that it is impossible to tell whether a hidden volume
-exists, so law enforcement (in some countries) could not legally force the user
-to disclose the password.
+TrueCrypt is a popular disk encryption utility. It supports storing encrypted
+filesystems in files called TrueCrypt volumes. TrueCrypt gives users the option
+to place a hidden volume inside a normal volume. Given the passphrase to the
+outer normal volume, it is not supposed to be possible to determine whether
+a hidden volume exists. This is to protect the user in case they are coerced
+into revealing their passphrase. They can reveal the passphrase to the outer
+volume and the contents of the hidden volume will be safe. 
 
-TrueCrypt has two classes representing the layout of the second version of
-hidden and normal volumes: \texttt{VolumeLayoutV2Normal} and
-\texttt{VolumeLayoutV2Hidden}. Both of these classes implement the
-\texttt{VolumeLayout} interface. There are three other classes for different
-kinds of layouts, but they are not relevant to this attack. 
+Our attack watches the victim mount a TrueCrypt volume and determines whether
+they mounted a hidden volume or a normal one.
 
-When TrueCrypt mounts a volume, it creates instances of all five
-\texttt{VolumeLayout} classes and tries to decrypt the volume with each until
-the decryption is successful. This is necessary, since to preserve plausible
-deniability, there must be no other way to tell which type of volume it is. In
-particular, for this attack, we note that \texttt{VolumeLayoutV2Hidden} is tried
-first, before \texttt{VolumeLayoutV2Normal}.
+\subsubsection{Attack Implementation}
 
-The \texttt{VolumeLayout} interface includes a \texttt{GetDataSize()} method,
-which all subclasses must implement. This method is only called after the
-decryption is successful. Therefore, we can place FLUSH+RELOAD probes as
-follows:
+TrueCrypt is written in C++ and has two classes defining the layout of hidden
+and normal volumes. The normal volume layout is represented by the class
+\texttt{VolumeLayoutV2Normal} and the \texttt{VolumeLayoutV2Hidden} class
+represents the hidden volume layout. There are three other classes for the
+operating system encryption layout and volume layouts from older versions,
+making five volume layout classes in total.
 
-\begin{enumerate}
-    \item On \texttt{VolumeLayoutV2Normal::GetDataSize}.
-    \item On the entry point to the TrueCrypt binary.
-\end{enumerate}
+When TrueCrypt mounts a volume, it instantiates of all five layout classes tries
+to decrypt the volume using each one. It has to do this because, by design,
+TrueCrypt volumes are supposed to be indistinguishable from random, so there is
+no way to tell which volume layout is the right one without trying to decrypt
+the volume and seeing if it worked.
 
-We tried placing probes on \texttt{VolumeLayoutV2Normal::GetDataSize} and
-\texttt{VolumeLayoutV2Hidden::GetDataSize}. This does not work, since, in the
-binary, the normal implementation is in the cache line immediately before the
-cache line containing the hidden implementation. Our test CPU seems to prefetch
-the hidden implementation when the normal one is executed, so there is no way to
-tell the difference.
+Each class implements a \texttt{GetDataSize()} method. This method is only
+called on a layout object after the volume has been successfully decrypted using
+that layout, so it is a good candidate for a \textsc{Flush+Reload} probe.
 
-Instead, since \texttt{VolumeLayoutV2Hidden} is tried first, the attack works as
-follows:
+At first we tried to place probes on both \texttt{VolumeLayoutV2Normal}'s
+\texttt{GetDataSize()} and \texttt{VolumeLayoutV2Hidden}'s
+\texttt{GetDataSize()}. This did not work because in the binary, the hidden
+method immediately follows the normal method, and instruction prefetching
+triggers the hidden probe when the normal method gets executed.
 
-\begin{itemize}
-    \item Capture the spy output when a TrueCrypt volume is mounted via the
-          command-line.
-      \item If the burst of probe hits ends in the one at
-          \texttt{VolumeLayoutV2Normal::GetDataSize}, then the volume is normal.
-          Otherwise, the volume is hidden.
-\end{itemize}
+To work around that problem, we placed two \textsc{Flush+Reload} probes. The
+first is placed on the entry point to the TrueCrypt binary, so that we can tell
+when the user runs a TrueCrypt command. The second is placed in
+\texttt{VolumeLayoutV2Normal}'s \texttt{GetDataSize()}, which will get hit once
+when the TrueCrypt binary is loaded, and then once again only if the volume is
+normal.
 
-We implemented the attack in an experiment, whose script does the following:
+The attacker records the probe sequence as the victim mounts the volume. They
+check if the probe sequence ends in the \texttt{VolumeLayoutV2Normal} probe. If
+it does, the volume was normal. If not, the volume was hidden (or what the
+attacker captured was not the result of a mount command; we assume the attacker
+knows that the user is mounting a volume).
 
-\begin{enumerate}
-    \item Create two 1,000,000-byte TrueCrypt volumes. One of which is normal,
-        the other hidden. Both have the same password.
-    \item Repeat the following $S$ times:
-        \begin{enumerate}
-            \item Unmount both volumes, to ensure neither of them is mounted.
-            \item Start the attack tool running on the TrueCrypt binary.
-            \item Randomly mount either the normal or hidden volume with
-                  TrueCrypt's command-line interface.
-            \item Stop the attack tool and retrieve its output.
-            \item Decide whether the volume was hidden or normal by checking if
-                the output string ends in the
-                \texttt{VolumeLayoutV2Normal::GetDataSize} probe. If so, the
-                volume is normal. If not, the volume is hidden.
-            \item Check if the decision made is correct.
-        \end{enumerate}
-\end{enumerate}
+\subsection{Experiment}
 
-In one run of the experiment with $S=500$, the decision is correct 416 times
-(83\% of the time). In a later run with $S=100$, the decision was correct 97
-times (97\% of the time).
+Our experiment creates two 1MB TrueCrypt volumes. The first of which is a normal
+volume. The second contains a hidden volume. Both volumes are protected by the
+same passphrase.
 
-So far, we have only tried this attack using TrueCrypt's command-line interface,
-and the attacker has to know that the user ran TrueCrypt to mount a volume (and
-not some other task, like unmounting a volume). Most TrueCrypt users use the
-graphical interface. We believe this attack can be extended to work with the
-graphical interface (which uses the same volume mounting code), and to detect
-when a volume is being mounted (by placing a third probe on volume-mounting
-code).
+The experiment starts the attack tool on the TrueCrypt binary. After waiting for
+the tool to start, it randomly mounts either the normal or hidden volume with
+TrueCrypt's command-line tool. It stops the attack tool and checks if the last
+probe hit was the \texttt{GetDataSize} probe. If it was, it guesses that the
+volume was normal. If not, it guesses that the volume was hidden. This process
+is repeated over and over $S$ times.
 
-\subsection{Links Web Browser}
+In one run\footnote{Run truecrypt/0001} of the experiment on System 1 with
+$S=500$, the guess was right 416 times (83\% of the time). In a later
+run\footnote{Run truecrypt/0003}, also on System 1, with $S=100$, the guess was
+right 97\% of the time.
 
-Links is a command-line web browser. By probing the HTML parsing code, we can
-determine which of the top 100 Wikipedia pages the user is visiting. We found
-good probe locations by trial and error. They are:
+We could not reproduce the attack on System 2. We believe this is due to
+differences in the way the two CPUs do instruction prefetching. The code for
+normal volumes and hidden volumes is very close together, so the attack is
+easily foiled by prefetching. System 2's processor seems to prefetch backwards
+and reads the normal volume \texttt{GetDataSize()} code when the hidden volume
+\texttt{GetDataSize()} is executing. This makes it impossible to distinguish the
+two cases on System 2 with these probes.
+
+We only tried the attack with TrueCrypt's command-line interface. The attack
+should extend to the graphical interface, since both interfaces are frontends to
+the same volume mounting code. 
+
+The experiment assumes the attacker knows the TrueCrypt command was run to mount
+a volume, and not some other task (like unmounting a volume). This could be done
+in practice by looking at the process list to see which command-line options
+were passed to TrueCrypt.
+
+\subsection{Links}
+
+Links is a command-line web browser. We are interested in learning which web
+page a user is visiting, out of a set of known pages. We found that it is
+possible to reliably distinguish between the top 100 Wikipedia pages.
+
+\subsubsection{Attack Implementation}
+
+The attack works by placing probes on key locations in Links' HTML parsing code.
+An ad-hoc machine learning technique is used to recognize the visited page from
+a single observed probe sequence.
+
+First, the attacker performs a training phase on the victim's machine
+\footnote{It is conceivable that the attacker could perform the training phase
+on a different machine with similar hardware, but we did not try it.}. After the
+training phase, the attacker observes the victim visiting a web page, saving the
+probe sequence. Finally, there is a recovery phase to decide which page the
+victim visited.
+
+In the training phase, the attacker runs the attack tool while they themselves
+visit each page in the set $S$ times. They save the observed probe sequences to
+files, labeled with the page that they correspond to.
+
+In the observation phase, the attacker spies on the Links program while the
+victim visits one of the pages in the set (it is assumed the attacker knows the
+page they visited is in the set). They write the observed sequence of probes to
+a file.
+
+Finally, in the recovery phase, the attacker attempts to decide which page the
+victim visited. This is done by computing the Levenshtein distance
+\cite{levenshtein1966binary} between the victim sequence and all of the training
+sequences. The training sequence with the shortest Levenshtein distance from the
+victim's sequence is assumed to be from the same page. To speed up the attack,
+we only compute the distance on the first 1000 characters of the recorded
+sequences\footnote{We made this change after the System 1 experiments, so this
+only applies to the System 2 experiments. The System 1 experiments we report
+computed the Levenshtein distance over the entire strings. We need to re-run the
+System 1 experiments with the truncation.}
+
+The probe sequences are recorded by taking the attack tool's output as a string,
+which is a sequence of single-character probe names. The first 200 bytes of
+a training sample is shown in figure \ref{figure:probetext}.
+
+\begin{figure}
+    \label{figure:probetext}
+    \centering
+\begin{verbatim}
+HDRDSSSSDSDSDHDHDHDHDRDHDSSDSDSDSDHDHDHD
+RDRDRDHSRDRDRDRDRDSSDHDRDRDSDSDRDRDRDHDH
+DRDHDRDRDRDSDSDSDHSDSRDSDRSSDHSSDSSDSDRD
+SDSDSDSDSDRDRDHSDSSSDSSRDSDRSSSDHDSDSDRS
+DSDSDRDSDRDRDSSDSDSDSDRDSDSDSDSDSDSRDRDS
+\end{verbatim}
+\caption{The first 200 bytes (of 12,309) of a training sequence against the
+Facebook Wikipedia page. From run links/0010.}
+\end{figure}
+
+We implemented this attack against the top 100 Wikipedia pages
+\cite{wikitop2013}. The probe locations we chose are as follows.
 
 \begin{enumerate}
     \item At the top of the \texttt{parse\_html()} function, which begins the
         process of parsing the downloaded HTML.
     \item At the top of \texttt{html\_stack\_dup()}, which duplicates the element
-        at the top of a stack used while parsing various HTML tags.
+        at the top of a stack used while parsing some HTML tags.
     \item On \texttt{html\_h()}, the function that parses HTML header tags (h1,
         h2, h3...).
-    \item On \texttt{html\_span()}, the function that parses HTML span tags.
+    \item On \texttt{html\_span()}, the function that parses span tags.
 \end{enumerate}
 
-To chose the probe locations, we aimed for significant parts of the parsing code
-that were far enough away from each other to minimize noise in the measurements
-(e.g. due to the CPU prefetching code it won't actually execute).
+These were chosen by trial and error to maximize the accuracy of the attack. We
+aimed for locations in the parsing code that were far enough apart from each
+other in the binary to reduce the amount of noise (i.e. from the CPU prefetching
+code it won't actually execute), and whose order of execution was likely to vary
+between Wikipedia pages.
 
-With these probes selected, the attack uses machine learning to determine which
-of the top 100 Wikipedia pages were visited. The attack is divided into three
-phases: (1) training, (2) victim recording, and (3) recovery.
+\subsubsection{Experiment}
 
-In the following discussion, ``taking a sample'' means to record the attack
-tool's output while Links loads one URL.
+Our experiment carries out the attack described above. First the attacker takes
+$T$ training samples of each page. Then, $S$ times, the victim visits
+a particular page. The attacker then tries to recover the page independently for
+each of the $S$ observations of the victim. This is repeated for all of the
+pages in the set. We used the top 100 Wikipedia pages of 2013 as our page set
+\cite{wikitop2013}.
 
-In the training phase, the attacker takes $S$ samples of each URL. This must be
-done on the victim's system with low system load. The attacker should be able to
-do this on an equivalent system that they control, but we have not confirmed
-this.
+On System 1, with $T=10$ and $S=1$, the correct URL was recovered 91\% of the
+time\footnote{Run links/0005}. With $T=5$ and $S=1$, the correct URL was
+recovered 76\% of the time\footnote{Run links/0002}. So the attack is more
+accurate when the attacker has more training samples.
 
-In the victim recording phase, the attacker records the attack tool's output
-while the victim visits one of the URLs.
+We ran a longer experiment\footnote{Run links/0010} on System 2 with $T=5$ and
+$S=10$. The attacker guessed correctly 879 times out of 1000, an 87\% accuracy.
+Every page was correctly identified at least once except for Taylor Swift's
+Wikipedia page. 43 of the pages were correctly identified all 10 times out of
+10. 33 were correctly identified exactly 9 times, 8 were identified 8 times,
+7 were identified 7 times, 4 were identified 6 times, 2 were identified 5 times,
+1 was identified 3 times, 1 was identified 2 times, and 1 was identified
+0 times. So most pages can be reliably identified.
 
-In the recovery phase, the attacker computes the Levenshtein distance (edit
-distance) \cite{levenshtein1966binary} between the victim sample and all of the
-training samples, finding the sample with the least Levenshtein distance. The
-URL that produced this sample is assumed to be the URL the user visited.
+In that experiment, it took 70 seconds on average to recover one page from the
+victim sample. The longest recovery took 80 seconds. Most of this time is spent
+computing Levenshtein distances.
 
-In an experiment on the top 100 most accessed Wikipedia pages of 2013
-\cite{wikitop2013}, with $S=10$ and the victim visiting each page once, 91 of
-the URLs were correctly recovered. With $S=5$, 76 of the URLs are correctly
-recovered. This indicates that with 10 samples, the correct URL can be recovered
-with 91\% accuracy. 
+The plot of the Levenshtein distances betweeen a sample of the victim visiting
+the YouTube Wikipedia page and all of the training samples is shown in figure
+\ref{figure:youtube}. In this case, the attacker makes the right decision since
+the lowest distance corresponds to a training sample of the YouTube page.
 
-This does not completely follow from the experiments, however, since we are only
-letting the victim run each URL once. To establish attack reliability, we need
-to let the victim run each URL multiple times, and correctly recover it most of
-the time. Without trying this, we have not ruled out pathological URLs that
-cannot be distinguished (e.g.\ two pages that are very similar to each other).
-Some preliminary results are known: With $S=2$ and the victim visiting each URL
-10 times, all but one URL (``List of Breaking Bad Episodes'') are recovered
-correctly at least once (the overall correctness for that experiment is 69.7\%).
+The plot of a failed recovery attempt is shown in figure \ref{figure:minaj}. The
+attacker makes the wrong decision in this case because an Eminem training sample
+has the shortest distance from the victim's sample, but the victim actually
+visited the Nicki Minaj page (which is still identifiable as the second-lowest
+point in the plot).
 
-We plan to run a full experiment with 10 samples of each URL, and having the
-victim visit each URL 10 times. With the performance of the current
-implementation, this will take about 4 days to run.
+\begin{figure*}
+    \label{figure:youtube}
+    \centering
+    \input{youtube}
+    \caption{A successful recovery. The Levenshtein distance between the
+    training samples and a recording of the victim visiting the YouTube
+    Wikipedia page. The shortest distance is visible at mark 68 on the page axis
+which corresponds to a YouTube training sample. The outlier at mark 29
+corresponds to a disambiguation page that has a different format from the usual
+Wikipedia page. The order on the page axis is not meaningful.}
+\end{figure*}
+
+\begin{figure*}
+    \label{figure:minaj}
+    \centering
+    \input{minaj}
+    \caption{A failed recovery. The Levenshtein distance between the training samples and
+        a recording of the victim visiting the Nicki Minaj Wikipedia page. The
+    shortest distance (97 on the page axis) corresponds to a training sample of
+the Eminem Wikipedia page. The Nicki Minaj training samples still stand out (55
+on the page axis). The order on the page axis is not meaningful. Distances above
+500 are not shown.}
+\end{figure*}
+
+\subsection{Failures}
+\label{sec:failures}
+
+Here we disclose the programs we looked at without finding any conclusive
+attacks. This section can be taken as evidence that we did not need to look
+``too hard'' to find attacks, but it also shows that attacks are not completely
+trivial to find.
+
+Early on in our investigations we tried extract content from the Evince PDF
+viewer. We got to the point where \textsc{Flush+Reload} appeared (by visual
+inspection) to be partially recovering the sequence of PDF commands in
+a hand-crafted PDF file. Due to lack of time, we did not perform a quantitative
+analysis. 
+
+While looking for an attack against a web browser, we spent some time with
+Firefox, Lynx, and ELinks. When we found the Links attack we stopped looking at
+the other browsers. We only spent a short amount of time (less than a day)
+looking at the code of the other browsers, and we never ran \textsc{Flush+Reload} against
+them.
+
+The fact that we did not find an attack does not mean that none exist. We were
+working under extremely limited time constraints and chose to go with the first
+attacks we found. We expect, but cannot claim, that similar attacks will work
+against the other browsers.
+
+We tried the Links attack on an Amazon EC2 instance and it did not work. Looking
+at the attack tool's output, it appears to be because the VM is running out of
+CPU credit which is making it miss too many measurements. We did not have time
+to investigate further.
+
+\section{Related Work}
+\label{sec:relwork}
+
+Our attacks are based on the \textsc{Flush+Reload} attack \cite{yarom2013flush}.
+The authors provided us with their implementation of the attack, which we
+improved by turning it into a command-line utility and making it accessible to
+Ruby scripts.
+
+The \textsc{Flush+Reload} attack is based on work by Bangerter et al.\ where it was used
+to break an implementation of AES \cite{gullasch2011cache}. It has since been
+applied to GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
+yarom2014recovering}. Our work applies it in a non-cryptographic setting.
+
+The body of literature on cache-based side channels against cryptographic
+software is vast. There are far too many to list here; we refer to the
+interesting cases of extracting RSA keys via power analysis
+\cite{messerges1999power} and sound recording \cite{genkin2013rsa} as well as
+the \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
+yarom2014recovering}.
+
+Our work shows that cache side channel attacks have privacy implications beyond
+breaking cryptography software. We believe we are the first to apply a cache
+side channel against non-cryptographic software to compromise privacy. Cache
+side channels have already been applied one a non-cryptographic context: to
+break kernel address space layout randomization \cite{hund2013practical}.
+
+There is a growing body of work showing that other kinds of side channels are
+successfully breaking privacy. Here we highlight some of that work.
+
+\begin{itemize}
+    \item[--] Some web applications leak information about the user's input through
+          their behavior in communicating with the web server (even over
+          encrypted connections) \cite{bortz2007exposing, chen2010side}.
+    \item[--] Malicious web pages can extract browser history through a side-channel attack
+          \cite{weinberg2011still}. 
+    \item[--] Timing variations in databases make it possible to extract
+          indexed records \cite{futoransky2007nd2db}.
+    \item[--] Variable bit rate encoding leaks words spoken over encrypted VoIP
+          links \cite{white2011phonotactic}.
+    \item[--] In an Android app, the UI state can be inferred through side channels
+          in the GUI framework \cite{chen2014peeking}.
+    \item[--] On Linux, keystroke timings can be learned by watching the size of
+          a victim process's stack \cite{zhang2009peeping} and by observing an
+          SSH connection \cite{song2001timing}. Knowing the timing of keystrokes
+          reveals information about what is being typed.
+    \item[--] Malicious web pages can use ``red pill'' side channels to find out if
+          they are running in a virtual machine (i.e.\ for malware analysis)
+          \cite{ho2014tick}.
+    \item[--] An attacker can learn a victim's Internet traffic volume, as well as
+          individual packet times by exploiting a side channel in router
+          scheduling algorithms. \cite{kadloor2010low}.
+    \item[--] A smartphone app can infer what the user is typing from accelerometer
+          and gyroscope measurements \cite{owusu2012accessory,
+          cai2012practicality}.
+    \item[--] Profiling a server's power use reveals which virtual machines are
+          running on it \cite{hlavacs2011energy}.
+    \item[--] Text can be recovered from the sounds dot-matrix printers make
+          \cite{backes2010acoustic}.
+\end{itemize}
+
+The list above shows that the days of side channels only being a problem for
+cryptographic software are long gone. 
+
+The attacks we presented show that at least one generic cache side channel
+attack can be used to compromise the user's privacy. We believe these attacks
+represent baby steps towards understanding the full implication of the
+\textsc{Flush+Reload} attack, and we hope they will motivate more research on
+the topic.
 
 \section{Future Work}
 \label{sec:future}
 
-As noted above, we only ran part of the Links experiment. Next, we have to run
-the full experiment. There are also improvements to be made to the TrueCrypt
-attack. We also need to measure and report on how long the attacks take to
-perform.
+We found the probe locations for our attacks manually. This involved reading the
+source code to get an understanding of how the program works, then making
+educated guesses about the best probe locations. This can easily amount to a few
+days of work per attack. Therefore, our attacks were restricted to simple parts
+of simple programs, i.e. we attacked Links instead of a modern web browser like
+Firefox.
 
-For simplicity, experiments are run with the spy and victim processes running as
-the same user. If the attacker were running as the same user, they could just
-attach a debugger to the victim process. So, we have to re-run the experiments
-with the processes separated.
+In the future, we plan to automate as much of the manual work as possible. We
+hypothesize that input distinguishing attacks can be found automatically,
+without needing access to the source code. Given memory access traces of
+a program running on different inputs, it should be possible to automatically
+infer which probe locations are the most useful for distinguishing the inputs
+(e.g. by taking the ones that maximize the Levenshtein distance).
 
-The attacks presented above were hand-crafted. It took approximately a day of
-work to find the best probe locations for the TrueCrypt probes. Links was chosen
-because it was the first I was able to exploit out of Elinks, Firefox, Lynx, and
-Links. To strengthen the argument that the FLUSH+RELOAD attack affects
-non-cryptographic software, we should build a tool that automatically finds the
-best probe locations. 
+If we can successfully automate attack-finding, we plan on attacking programs
+with larger user bases and developing a metasploit-like exploitation framework.
 
-To start, we will try to automatically distinguish whether a program $P$ was run
-with one of two inputs $I_1$ or $I_2$. The goal is to build a tool which will
-take memory access recordings of $P$ running on $I_1$ and $I_2$, and find the
-3 or 4 probe locations that best exhibit the differences.
+Quantitatively, our attacks only need a small amount of information from the
+target programs. For TrueCrypt, we are only extracting one bit of information.
+The Links attack only needs to extract a number of bits logarithmic in the
+number of pages we want to distinguish between (6.6 bits for 100 pages). We
+should find out how much information \textsc{Flush+Reload} can extract from
+non-cryptographic programs. In particular, can \textsc{Flush+Reload} extract
+previously-unknown user input from a program in any plausible scenario?
 
-We can reduce the amount of noise in the memory access recordings by recording
-multiple samples, then taking the shortest ones (the ones with the least overall
-number of memory accesses).
+Knowing that \textsc{Flush+Reload} has privacy implications to regular users and
+not just users of cryptography, there will be a higher demand to know if one's
+system is vulnerable. A database of vulnerable processors should be created, and
+an easy-to-use test tool should be developed, so that users can determine if
+their processors are vulnerable. With this knowledge, consumers can make better
+purchasing decisions.
 
-Once noise is reduced, we can model the problem as follows.
+The \textsc{Flush+Reload} attack does not work on AMD processors. It has been speculated
+that this is because ``AMD caches are non-inclusive, i.e. data in L1 does not
+need to also be in L2 or L3, as is the case with the Intel caches.''
+\cite{yarom2013flush} The question of why \textsc{Flush+Reload} does not work on AMD
+should be answered conclusively with empirical data. Without a complete
+understanding, we cannot say for sure that AMD processors are not vulnerable. 
 
-\textbf{Maximum-Stripped-LD}: Given an alphabet $\Sigma$ and strings $T_1, T_2
-\in \Sigma^{*}$, find the set $P \subseteq \Sigma$ with $|P| \leq 4$ such that
-the Levenshtein distance between $S_P(T_1)$ and $S_P(T_2)$ is maximal. Here,
-$S_P(\omega) \in P^{*}$ denotes the string created by removing all characters
-from $\omega$ that are not in $P$.
+Some virtual machine hypervisors deduplicate pages between virtual machines. If
+two physical pages have identical content, the hypervisor will change the page
+tables so that both virtual machines access the same physical page. Two isolated
+virtual machines on the same hardware can communicate by checking whether their
+pages got deduplicated. The resulting covert channel can move 80 bits per
+second, but with latencies of up to five minutes \cite{xiao2013security}. Using
+\textsc{Flush+Reload} to communicate through the deduplicated pages could yield
+similar data rates with less latency.
 
-In this formalization, $\Sigma$ is the set of all cache lines in the code
-segment of the program. $T_1$ and $T_2$ are the noise-reduced recordings of
-which cache lines were accessed on inputs $I_1$ and $I_2$ respectively. The set
-$P$ is to be the set of cache lines monitored by probes. We maximize the
-Levenshtein distance since that is what the attack tool will use to distinguish
-the inputs.
-
-The obvious brute-force algorithm for \textbf{Maximum-Stripped-LD} takes
-$O(n^6)$ time in the size of $\Sigma$ ($O(n^4)$ Levenshtein distance
-computations, each of which take roughly $O(n^2)$ time). This is probably too
-slow, so we may have to find a faster algorithm. Some early optimization ideas
-are to (1) collapse a run of $n$ of the same character down to just one
-occurrence of that character, and (2) remove the longest common substrings from
-$T_1$ and $T_2$ (which most likely correspond to code that runs regardless of
-what the input is).
-
-Once the automatic probe locator is built, we can evaluate it by using it to
-attack various applications. Some ideas follow:
-
-\begin{itemize}
-    \item Re-discover the TrueCrypt and Links attacks automatically.
-    \item Determine when a message is being sent or received in Pidgin.
-    \item Determine when a new email arrives, a mail filter is applied, is read,
-          or is starred, in Thunderbird.
-    \item Determine which of two GnuPG private keys were used to create
-          a signature. A negative result will confirm that the original attacks
-          against GnuPG are fixed. A positive result indicates some information
-          about the key is still being leaked.
-    \item Determine which of two functions are called in a PHP script.
-    \item Determine whether a \texttt{SELECT} or \texttt{INSERT} query was
-          executed against a database.
-    \item Try to generalize the probe finder to distinguish $N$ inputs instead
-          of just 2.
-\end{itemize}
+When memory deduplication is accomplished by matching page contents, an attacker
+can force a deduplication to happen on any page whose contents they know.
+Therefore, if an attacker knows or can predict some data inside another process,
+they can spy on it with \textsc{Flush+Reload}. This might reveal more
+information than spying on the program code alone.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-Side channel attacks exploit the boundary between the abstract notion of
-a computer program and its real physical implementation. They use physical
-measurements of time, power, vibrations, and radiation to learn what a computer
-is doing. Most research has focused on applying these attacks to cryptographic
-systems. We have shown that the FLUSH+RELOAD attack can be used against
-non-cryptographic applications to compromise the user's privacy. Creating these
-attacks requires manual effort, and we propose automating the process as the
-next stage of this project.
+Classically, side channel attacks are used to extract encryption keys from
+software and hardware implementations of cryptography. More recently, side
+channel attacks are being used to compromise privacy in more general settings.
+We presented two attacks that continue this trend. 
+
+Our attacks let an attacker (1) determine whether a TrueCrypt volume contains
+a hidden volume and (2) determine which of the top 100 Wikipedia pages a victim
+visited with the Links web browser.
+
+These attacks are not very damaging on their own, but they are part of a growing
+body of work that applies side channels in a much broader setting than breaking
+cryptography. We have proposed future work to evaluate the automated discovery
+of more powerful attacks based on \textsc{Flush+Reload}.
+
+In addition to presenting a novel use of the \textsc{Flush+Reload} side channel, we hope
+to have set an example by releasing our attack implementations, experiment
+implementations, and all of our experiment data prior to publication.
 
 \bibliographystyle{abbrv}
 \bibliography{proposal}
+
+\begin{appendices}
+    \section{Reproducing Our Work}
+    \label{sec:reproducing}
+
+    The attack tools, experiment experiment implementations, and experiment data
+    are all available for download on the author's website.\footnote{This
+    URL is not public yet}
+
+    \texttt{https://defuse.ca/compromising-privacy-flush-reload.htm}
+
+    For longevity, a second copy of everything is archived in the Internet
+    Archive\footnote{Actually, it is not on the Internet Archive yet}.
+
+    \texttt{https://archive.org/\textbf{URL-TO-BE-DETERMINED}}
+
+    The Links experiment should work without modification on vulnerable
+    hardware. Give it a try!
+
+    Throughout this paper we have referred to experiment runs by the name of the
+    experiment followed by a four-digit run number. The experiment name
+    corresponds to a directory name in the archive, and the run number
+    corresponds to a subdirectory of that directory. For example, the
+    truecrypt/0003 data can be found in
+    \texttt{experiments/truecrypt/runs/0003}.
+\end{appendices}
 
 \end{document}
 

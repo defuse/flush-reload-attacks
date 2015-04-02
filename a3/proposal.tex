@@ -26,7 +26,7 @@ edited a draft of this document before it was submitted.}\\
 \begin{abstract}
 Side channel attacks are almost always applied to cryptography-related software
 and hardware, so we ask whether significant side-channel vulnerabilities exist
-in non-cryptographic systems. In this Interim report, we discuss evidence that
+in non-cryptographic systems. In this interim report, we present evidence that
 the FLUSH+RELOAD side channel attack can be successfully applied to
 non-cryptographic software. In particular, we show how to distinguish between
 hidden and normal TrueCrypt volumes, and to see which of the top 100 most
@@ -36,7 +36,7 @@ attacks automatically.
 \end{abstract}
 
 \section{Introduction}
-\label{sec:attacks}
+\label{sec:intro}
 
 Computers are physical realizations of abstract machines. Therefore, when we
 program computers, it is easiest to think abstractly. Systems are organized into
@@ -110,11 +110,11 @@ Despite their prevalence, we still don't understand them very well. The next
 section presents some open questions that this project will try to answer.
 
 In this section, we described what side-channel attacks are and why we care
-about them. In Section \ref{sec:problem}, we present the research questions that we are
-trying to answer. Section \ref{sec:relwork} reviews related work and the
+about them. In Section \ref{sec:problem}, we present the research questions that
+we are trying to answer. Section \ref{sec:relwork} reviews related work and the
 FLUSH+RELOAD attack that our research is built on. Research methodology is
 described in Section \ref{sec:methods}. Attacks confirming our hypothesis are
-given in \ref{sec:attacks}. Section \ref{sec:future} explains where we
+given in Section \ref{sec:results}. Section \ref{sec:future} explains where we
 will go from here, and finally Section \ref{sec:conclusion} concludes.
 
 \section{Research Problem}
@@ -139,14 +139,14 @@ keep secret, making them more likely to influence the side channels.
 
 It makes sense why cryptography is attacked, but it is unclear if this focus on
 cryptography is because non-cryptographic programs can not be attacked, or if
-cryptography is just the low-hanging fruit that gets attacked first. This is an
-important question to resolve, since if non-cryptographic programs \emph{are}
-just as vulnerable to side-channels, we might be overlooking serious
-vulnerabilities in the programs we use every day. An attack against a regular
-program can be just as devastating as an attack against an implementation of
-cryptography. For example, if it is possible for one user to spy on another
-user's keystrokes as they compose an email, that is just as serious an attack as
-if the first user could steal the second user's PGP private key.
+cryptography just gets attacked first. This is an important question to resolve,
+since if non-cryptographic programs \emph{are} just as vulnerable to
+side-channels, we might be overlooking serious vulnerabilities in the programs
+we use every day. An attack against a regular program can be just as devastating
+as an attack against an implementation of cryptography. For example, if it is
+possible for one user to spy on another user's keystrokes as they compose an
+email, that is just as serious an attack as if the first user could steal the
+second user's PGP private key.
 
 This project will try to answer that question. In particular, we ask:
 
@@ -255,11 +255,11 @@ applied to lots of different programs.
 
 
 By exhibiting attacks, we show that FLUSH+RELOAD can be used against
-non-cryptographic software to breach the user's privacy. For each software, we
-find a feature where private information about the user's activities may be
-leaked. With the feature identified, we manually review the program's code and
-find the best locations in memory to place FLUSH+RELOAD probes for maximum
-information leakage.
+non-cryptographic software to breach the user's privacy. For each piece of
+software, we find a feature where private information about the user's
+activities may be leaked. With the feature identified, we manually review the
+program's code and find the best locations in memory to place FLUSH+RELOAD
+probes for maximum information leakage.
 
 Attacks are implemented with the following tools:
 
@@ -318,16 +318,16 @@ using the Links web browser.
 
 TrueCrypt is disk encryption software that supports storing encrypted
 filesystems (called ``volumes'') in files. TrueCrypt has a ``hidden volume''
-feature, which hides a secret volume inside a normal volume one to provide
-plausible deniability. The idea is that it is impossible to tell whether
-a hidden volume exists, so law enforcement (in some countries) could not legally
-force the user to disclose the password.
+feature, which hides a secret volume inside a normal volume to provide plausible
+deniability. The idea is that it is impossible to tell whether a hidden volume
+exists, so law enforcement (in some countries) could not legally force the user
+to disclose the password.
 
-TrueCrypt has two classes representing the layout of version-two hidden and
-normal volumes: \texttt{VolumeLayoutV2Normal} and \texttt{VolumeLayoutV2Hidden}.
-Both of these classes implement the \texttt{VolumeLayout} interface. There are
-three other classes for different kinds of layouts, but they are not relevant to
-this attack. 
+TrueCrypt has two classes representing the layout of the second version of
+hidden and normal volumes: \texttt{VolumeLayoutV2Normal} and
+\texttt{VolumeLayoutV2Hidden}. Both of these classes implement the
+\texttt{VolumeLayout} interface. There are three other classes for different
+kinds of layouts, but they are not relevant to this attack. 
 
 When TrueCrypt mounts a volume, it creates instances of all five
 \texttt{VolumeLayout} classes and tries to decrypt the volume with each until
@@ -343,7 +343,7 @@ follows:
 
 \begin{enumerate}
     \item On \texttt{VolumeLayoutV2Normal::GetDataSize}.
-    \item On the entrypoint to the TrueCrypt binary.
+    \item On the entry point to the TrueCrypt binary.
 \end{enumerate}
 
 We tried placing probes on \texttt{VolumeLayoutV2Normal::GetDataSize} and
@@ -364,14 +364,14 @@ follows:
           Otherwise, the volume is hidden.
 \end{itemize}
 
-We implemented the attack in an experiment, which does the following:
+We implemented the attack in an experiment, whose script does the following:
 
 \begin{enumerate}
     \item Create two 1,000,000-byte TrueCrypt volumes. One of which is normal,
-        the other hidden. Both having the same password.
+        the other hidden. Both have the same password.
     \item Repeat the following $S$ times:
         \begin{enumerate}
-            \item Dismount both volumes, to ensure neither of them is mounted.
+            \item Unmount both volumes, to ensure neither of them is mounted.
             \item Start the attack tool running on the TrueCrypt binary.
             \item Randomly mount either the normal or hidden volume with
                   TrueCrypt's command-line interface.
@@ -390,7 +390,7 @@ times (97\% of the time).
 
 So far, we have only tried this attack using TrueCrypt's command-line interface,
 and the attacker has to know that the user ran TrueCrypt to mount a volume (and
-not some other task, like dismounting a volume). Most TrueCrypt users use the
+not some other task, like unmounting a volume). Most TrueCrypt users use the
 graphical interface. We believe this attack can be extended to work with the
 graphical interface (which uses the same volume mounting code), and to detect
 when a volume is being mounted (by placing a third probe on volume-mounting
@@ -418,22 +418,23 @@ that were far enough away from each other to minimize noise in the measurements
 
 With these probes selected, the attack uses machine learning to determine which
 of the top 100 Wikipedia pages were visited. The attack is divided into three
-phases: (1) Training, (2) Victim Recording, and (3) Recovery.
+phases: (1) training, (2) victim recording, and (3) recovery.
 
 In the following discussion, ``taking a sample'' means to record the attack
 tool's output while Links loads one URL.
 
-In the Training phase, the attacker takes $S$ samples of each URL. This must be
-done on the victim's system with low system load. The attacker should be to do
-this on an equivalent system that they control, but we have not confirmed this.
+In the training phase, the attacker takes $S$ samples of each URL. This must be
+done on the victim's system with low system load. The attacker should be able to
+do this on an equivalent system that they control, but we have not confirmed
+this.
 
-In the Victim Recording phase, the attacker records the attack tool's output
+In the victim recording phase, the attacker records the attack tool's output
 while the victim visits one of the URLs.
 
-In the Recovery phase, the attacker computes the Levenshtein distance (edit
-distance) between the victim sample and all of the training samples, finding the
-sample with the least Levenshtein distance. The URL that produced this sample is
-assumed to be the URL the user visited.
+In the recovery phase, the attacker computes the Levenshtein distance (edit
+distance) \cite{levenshtein1966binary} between the victim sample and all of the
+training samples, finding the sample with the least Levenshtein distance. The
+URL that produced this sample is assumed to be the URL the user visited.
 
 In an experiment on the top 100 most accessed Wikipedia pages of 2013
 \cite{wikitop2013}, with $S=10$ and the victim visiting each page once, 91 of
@@ -459,7 +460,7 @@ implementation, this will take about 4 days to run.
 
 As noted above, we only ran part of the Links experiment. Next, we have to run
 the full experiment. There are also improvements to be made to the TrueCrypt
-attack. We are also need to measure and report on how long the attacks take to
+attack. We also need to measure and report on how long the attacks take to
 perform.
 
 For simplicity, experiments are run with the spy and victim processes running as
@@ -487,7 +488,7 @@ Once noise is reduced, we can model the problem as follows.
 
 \textbf{Maximum-Stripped-LD}: Given an alphabet $\Sigma$ and strings $T_1, T_2
 \in \Sigma^{*}$, find the set $P \subseteq \Sigma$ with $|P| \leq 4$ such that
-The Levenshtein distance between $S_P(T_1)$ and $S_P(T_2)$ is maximal. Here,
+the Levenshtein distance between $S_P(T_1)$ and $S_P(T_2)$ is maximal. Here,
 $S_P(\omega) \in P^{*}$ denotes the string created by removing all characters
 from $\omega$ that are not in $P$.
 
@@ -502,8 +503,8 @@ The obvious brute-force algorithm for \textbf{Maximum-Stripped-LD} takes
 $O(n^6)$ time in the size of $\Sigma$ ($O(n^4)$ Levenshtein distance
 computations, each of which take roughly $O(n^2)$ time). This is probably too
 slow, so we may have to find a faster algorithm. Some early optimization ideas
-are to (1) Collapse a run of $n$ of the same character down to just one
-occurrence of that character, and (2) Remove the longest common substrings from
+are to (1) collapse a run of $n$ of the same character down to just one
+occurrence of that character, and (2) remove the longest common substrings from
 $T_1$ and $T_2$ (which most likely correspond to code that runs regardless of
 what the input is).
 
