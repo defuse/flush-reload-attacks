@@ -1,0 +1,284 @@
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\title{Compromising privacy with the FLUSH+RELOAD attack}
+\subtitle{CPSC 502.04 Presentation}
+
+\author{Taylor Hornby \and John Aycock}
+
+\begin{document}
+% =============================================================================
+% TITLE PAGE
+% =============================================================================
+    \frame{\titlepage}
+
+% =============================================================================
+% SIDE CHANNELS
+% =============================================================================
+\begin{frame}
+    \frametitle{Side Channel Attacks}
+    Your code might do the right thing, but it still leaks the key.
+    \begin{itemize}
+        \item Get RSA key from smartcard by looking at power use.
+        \item Get RSA key by listening closely.
+        \item Lots more.
+    \end{itemize}
+\end{frame}
+
+% =============================================================================
+% FLUSH+RELOAD
+% =============================================================================
+
+\begin{frame}
+    \frametitle{\textsc{Flush+Reload}}
+    \framesubtitle{Cache Architecture}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\textsc{Flush+Reload}}
+    \framesubtitle{Sharing Physical Memory}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\textsc{Flush+Reload}}
+    \framesubtitle{Spying on A Program}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\textsc{Flush+Reload}}
+    \framesubtitle{Simple Example}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\textsc{Flush+Reload}}
+    \framesubtitle{Breaking Crypto}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\textsc{Flush+Reload}}
+    \framesubtitle{More than Crypto?}
+
+    In theory every time a program branches it's leaking information about the
+    input.
+
+    \begin{itemize}
+        \item Text editors?
+        \item Email programs?
+        \item Compression?
+        \item GUI Apps? Can you see which buttons they are pressing? Mouse movements?
+        \item Spell checking?
+    \end{itemize}
+
+    How bad is it? Let's try attacking things.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+
+    We found two attacks:
+    \begin{itemize}
+        \item TrueCrypt: Do you have a hidden volume?
+        \item Links: Which of the top 100 Wikipedia pages did you visit?
+    \end{itemize}
+\end{frame}
+
+% =============================================================================
+% TrueCrypt Attack
+% =============================================================================
+
+\begin{frame}
+    \frametitle{TrueCrypt Attack}
+    \framesubtitle{Goal}
+
+    \begin{itemize}
+        \item TrueCrypt is full-disk encryption software.
+        \item Hidden volumes.
+        \item \textbf{Goal: Can we find out if the volume is hidden?}
+        \item Your adversary will know to keep torturing you.
+    \end{itemize}
+
+    % TODO: put truecrypt screenshot/logo here, maybe hidden volume UI page?
+\end{frame}
+
+\begin{frame}
+    \frametitle{TrueCrypt Attack}
+    \framesubtitle{Implementation 1}
+
+    Different \texttt{VolumeLayout} classes for different types of volumes.
+
+    % TODO: put picture of TrueCrypt disassembly
+\end{frame}
+
+\begin{frame}
+    \frametitle{TrueCrypt Attack}
+    \framesubtitle{Implementation 2}
+
+    We put probes on:
+
+    \begin{enumerate}
+        \item \texttt{\_start}
+        \item \texttt{VolumeLayoutV2Normal::GetDataSize()}
+    \end{enumerate}
+
+    Watch the user mount a volume. If observed probe sequence ends with the
+    \texttt{GetDataSize()} probe, the volume is normal. Otherwise, it's hidden.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{TrueCrypt Attack}
+    \framesubtitle{It Works}
+
+    % TODO: introduce experiment systems
+
+    \begin{itemize}
+        \item Attack work on System 2, but,
+        \item On System 1, it consistently gets it right over 80\% of the time.
+    \end{itemize}
+
+\end{frame}
+
+% =============================================================================
+% Links Attack
+% =============================================================================
+
+\begin{frame}
+    \frametitle{Links Attack}
+    \framesubtitle{Goal}
+
+    % TODO: screenshot of lynx on wikipedia homepage
+
+    \begin{itemize}
+        \item Links (not Lynx or ELinks) is a command-line web browser.
+        \item \textbf{Goal: We know you visited one of 100 Wikipedia pages, but
+        which one?}
+        \item We can probably tell which disease you are looking up.
+        \item We used the Top 100 Wikipedia pages of 2013.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Links Attack}
+    \framesubtitle{Implementation 1}
+
+    Put probes on the HTML parsing code. Trial-and-error to find the best
+    locations.
+
+    \begin{itemize}
+        \item \texttt{parse\_html()}
+        \item \texttt{html\_stack\_dup()}
+        \item \texttt{html\_h()}
+        \item \texttt{html\_span()}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Links Attack}
+    \framesubtitle{Implementation 2}
+
+    Spy on Links while it loads the page.
+
+
+\begingroup
+\fontsize{7pt}{7pt}\selectfont
+\begin{verbatim}
+HDRDSSSSDSDSDHDHDHDHDRDHDSSDSDSDSDHDHDHDRDRDRDHSRDRDRDRDRDSSDHDRDRDSDSDRDRDRDHDH
+DRDHDRDRDRDSDSDSDHSDSRDSDRSSDHSSDSSDSDRDSDSDSDSDSDRDRDHSDSSSDSSRDSDRSSSDHDSDSDRS
+DSDSDRDSDRDRDSSDSDSDSDRDSDSDSDSDSDSRDRDSDSDSRDRDRDRDRDSDSRDSDRDRDRDHSDRDRDRDRDRD
+RDSDSDRDSDSDRDRDRDRDHSDRDRDSDSDSSDSSDRDRDSSDSSDSDSDRSDRDSSDSDSDSDSDRDSDRDSDSDSDS
+RSDRDSHSDSDSDSRDRDSDSSDRDRDSHSDRDSDSRDHSDRDRDRDRSSDSDSDSDRDRDSDSDSDSDSRSRDHSSDSD
+SDSDRDSDRDSDSDSSDRDSDRDSDSDSDSDSRDRDSDSDSRDSHSDRDSDSDSDSDRDSDSDSSDSDSDSSDSDSDRDS
+RDRDRDRDHDSDRDRDRDRDHDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDRDSHSDRDSDRDHD
+RDRHDHSDRDRDSDSSSDSDSDSDRDSDSDSDSDRDSDSDSDSDRDSDSDSDSDRDSDSDSDRSDSDSDRDHDHDSDSDS
+DSDSDRDSHDSDSDSDSDSDRDSDSSDRDSDRDRHDSDSDRDSDRDHDSDSDSDSDHSDSSSDSDSSDHDSSSDSDHDHS
+DSSDSDSDSSDSDSDSDSDSSSSDSDSSDSDSDSDSDSDSDSDSDSSDSDSDSDSDSSDSDSDSDSDSDSSDSDSDSDSD
+SDSDSSDSDSDSDSDSDSDSDSDSDSDSSDSSSDSSDSDSSDSDSDSDSDSDSDSDSDSDSDSDSSDSDSSDSDSDSDSD
+SSDSDSSDSSDSDSSDSSDSDSDSDSSDSDSDSDSSDSDSDSDSSDSDSDSDSSDSDSDSDSSDSDSDSSDSDSDSDSDS
+SDSSDSDSDSDSSDSDSDSDSDSDSSDSDSSSDSDSDSDSDSDSDSDSDSHSSDSSSDSSDSDSSSDSDSDSDSDSDSDS
+DSSDSDSSDSSDSDHDSSDSDHDHDSSDSSDSDSDSSDSDSDSDSDSDSDSDSDRDSSDSDSDSDSDSDSDSDSDSDHSD
+SDSDSDSDHSDSDSDSHSDSDSDHSSDSDSDSDSSDSDSDSDSDSDSDHDHDSDSDSDSDSDSDSDSDSDSDSDSDSDSD
+SHDHDSDSDSDSDSDHDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSSDSDSSDHDSDSDHSDRDHDSDSDSSDS
+DSDSDSDSDSSHSDSSDSDSDSDSDSDSDSDSDSDSDSSDSDSDSDSDSDSDSSDSDSDSDSDSDSDSDSDSDSDHDSDS
+DSDSDSDSDHDSSDSDSDSDSDSDSDSDSDSDSDSSDSDSDSDSDSDSDHDSDSDSDSDSDSDHDSDSDSDSDSDSDSDS
+SDHSDHDSSDSDSDSDSDSDSDSDSDSDSDSDSDHDSDSDSDSDSSDSDSSDSDSDSDSSDSDSHDSDSDSDSDSDSSDS
+DSSDSDSSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSSDSDSDSSDSSDSDSDSDSDSDHSDS
+DHSHDSSSDSDSDSDRDSDSSDSDSDSDSDSDSDSSDSDSDSDSDHDSSHDSDRDSDRDSSRDRDHDSDSRDRDRDSSDR
+DSDSDSRDRDRDSDSRDRDSDSDRDRDSDSDSRDRDSDSRDRDRDRDRDSDSSDRDRDSDSRDRDSDSRDRDRDSDSDSD
+RDRDSDSDSRDRDSDSSDRDSDSRDRDSDSRDRDRDRDRDSDSDSRDRDSDSRDRSDSDSRDRDRDSDSDRDRDRDSDSD
+SRDRDSDSSDRDRDSDSDSRDRDRDSDSSDRDRDRDRDRDRDRDRDRHDSDSDRDSDSSDSDSDSDSDSDSDSDRDSDSD
+SDSDSDSDRHDSDSDRDRDRDRDRDRDSDSSDSDHSDSSDSDSDSDSDSDSSDSDSDSDSDSHSDSDHDSDSDSSDSDHD
+SDSDSDSSDSDSDSDHSDSDSDSSDSDSDSDSDSDSSDHSDHDSDSDSDSDHSSDSHDSDRDHDSDHDHSDSDSDHDSDS
+SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSHDSDSDSDSSDSDSDSDSDSDSDSDSDSDSDSSDHDSSDSDSDSDSD
+SDSRDSDSSDSDSDSDSHDHDRDHDHDHDHDHDSDSDSDSDS...
+\end{verbatim}
+\endgroup
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Links Attack}
+    \framesubtitle{Implementation 3}
+
+    Phases of attack:
+
+    \begin{enumerate}
+        \item Training: Just save 5 to 10 samples of each page.
+        \item Spy on the victim: Record the victim visiting a page once.
+        \item Recovery: Find the sample with the smallest Levenshtein distance.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Links Attack}
+    \framesubtitle{Levenshtein Distances}
+
+    % TODO: the youtube LD graphic
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Links Attack}
+    \framesubtitle{Demo}
+    Demo!
+\end{frame}
+
+\begin{frame}
+    \frametitle{Links Attack}
+    \framesubtitle{It Works}
+
+    % TODO: introduce experiment systems
+
+    \begin{itemize}
+        \item Works very well on both System 1 and System 2.
+        \item 10 samples of each page: Gets it right about 90\% of the time.
+        \item 5 samples: about 75\%.
+    \end{itemize}
+
+    % TODO: chart showing most pages are reliably identified
+
+\end{frame}
+
+% =============================================================================
+% Conclusion
+% =============================================================================
+
+\begin{frame}
+    \frametitle{Conclusion}
+
+    \begin{itemize}
+        \item These are boring attacks.
+        \begin{itemize}
+            \item TrueCrypt: 1 bit.
+            \item Links: $\log_2(100) = 6.6$ bits.
+        \end{itemize}
+
+        \item Can we automate attack discovery?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    Thanks for listening! Questions?
+\end{frame}
+
+\end{document}
