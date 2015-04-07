@@ -1,10 +1,13 @@
 \documentclass{beamer}
 \usetheme{Warsaw}
+\usepackage{tabularx}
 
-\title{Compromising privacy with the FLUSH+RELOAD attack}
-\subtitle{CPSC 502.04 Presentation}
+\usepackage{graphicx}
 
-\author{Taylor Hornby \and John Aycock}
+\title{FLUSH+RELOAD vs. Privacy}
+
+\author{Taylor Hornby \and John Aycock\footnote{He hasn't seen these
+slides yet, so if my presentation sucks it's not his fault.}}
 
 \begin{document}
 % =============================================================================
@@ -19,9 +22,11 @@
     \frametitle{Side Channel Attacks}
     Your code might do the right thing, but it still leaks the key.
     \begin{itemize}
-        \item Get RSA key from smartcard by looking at power use.
-        \item Get RSA key by listening closely.
-        \item Lots more.
+        \item Radio.
+        \item Power.
+        \item Sound.
+        \item Time.
+        \item \emph{Lots more.}
     \end{itemize}
 \end{frame}
 
@@ -32,54 +37,111 @@
 \begin{frame}
     \frametitle{\textsc{Flush+Reload}}
     \framesubtitle{Cache Architecture}
+
+    \begin{itemize}
+        \item Memory is divided into \textbf{cache lines} (64 bytes).
+        \item Caching is based on the \textbf{physical address}.
+        \item A cache line is either cached or not cached.
+        \item L3 cache is shared between cores.
+    \end{itemize}
+
+    \begin{center}
+        \includegraphics{cachearch.png}
+    \end{center}
+
 \end{frame}
 
 \begin{frame}
     \frametitle{\textsc{Flush+Reload}}
     \framesubtitle{Sharing Physical Memory}
+
+    \begin{center}
+        \includegraphics{codesharing.png}
+    \end{center}
+
+    \begin{itemize}
+        \item Physical memory is \textbf{shared for program code}.
+        \item ``Cachedness'' of Alice's and Bob's code is the same.
+        \item When Alice runs code, it gets loaded into the cache.
+        \item Bob can tell what code Alice is running.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{\textsc{Flush+Reload}}
     \framesubtitle{Spying on A Program}
+
+    \textbf{Input:} Some \textbf{probes} (cache line addresses) Bob wants to spy
+    on.
+    
+    \begin{enumerate}
+        \item Flush the probes out of the cache.
+        \item Wait.
+        \item Check which probes Alice loaded into the cache.
+        \item Repeat.
+    \end{enumerate}
+
+    \textbf{Output:} The \textbf{sequence of probes} that Alice loaded during
+    the waiting periods.
 \end{frame}
+
 
 \begin{frame}
     \frametitle{\textsc{Flush+Reload}}
+    \framesubtitle{Timing the Cache}
+
+    How does Bob tell if a line is in the cache? \textbf{Time it.}
+
+    \includegraphics[width=10cm,keepaspectratio]{benchmark.png}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{\textsc{Flush+Reload}}
     \framesubtitle{Simple Example}
+
+    \begin{verbatim}
+    int main() {
+        while (1) {
+           foo();
+           bar();
+        }
+    }
+    \end{verbatim}
+
+    \includegraphics[width=10cm,keepaspectratio]{simpledemo.png}
 \end{frame}
 
 \begin{frame}
     \frametitle{\textsc{Flush+Reload}}
     \framesubtitle{Breaking Crypto}
+
+    What can it do?
+
+    \begin{itemize}
+        \item \textbf{2011}: Breaks the AES in OpenSSL \footnote{Bangerter et al.}
+        \item \textbf{2013}: GnuPG RSA broken (after one decryption!). \footnote{Yuval Yarom and Katrina Falkner}
+        \item \textbf{2014}: OpenSSL ECSDA nonce (after one signature!) \footnote{Yuval Yarom and Naomi Benger}
+        \item \textbf{2014}: OpenSSL ECDSA private key (after 200 signatures). \footnote{Naomi Benger et al.}
+    \end{itemize}
+
+    Really powerful attack!
 \end{frame}
 
 \begin{frame}
     \frametitle{\textsc{Flush+Reload}}
     \framesubtitle{More than Crypto?}
 
-    In theory every time a program branches it's leaking information about the
-    input.
+    In theory, \textbf{code branch = information leak}
 
     \begin{itemize}
-        \item Text editors?
-        \item Email programs?
+        \item Which button did the user click?
+        \item Vim / Emacs commands?
+        \item Email: New mail events. Reply events. (Metadata)
         \item Compression?
-        \item GUI Apps? Can you see which buttons they are pressing? Mouse movements?
-        \item Spell checking?
+        \item Scripting languages (steal source code?)
     \end{itemize}
 
-    How bad is it? Let's try attacking things.
-\end{frame}
-
-\begin{frame}
-    \frametitle{Outline}
-
-    We found two attacks:
-    \begin{itemize}
-        \item TrueCrypt: Do you have a hidden volume?
-        \item Links: Which of the top 100 Wikipedia pages did you visit?
-    \end{itemize}
+    How bad is it? We found two attacks.
 \end{frame}
 
 % =============================================================================
@@ -90,12 +152,21 @@
     \frametitle{TrueCrypt Attack}
     \framesubtitle{Goal}
 
-    \begin{itemize}
-        \item TrueCrypt is full-disk encryption software.
-        \item Hidden volumes.
-        \item \textbf{Goal: Can we find out if the volume is hidden?}
-        \item Your adversary will know to keep torturing you.
-    \end{itemize}
+    \begin{center}
+    {\Large Attack \#1: TrueCrypt}
+    \end{center}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \includegraphics[width=4cm,keepaspectratio]{tclogo.png}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+        \begin{itemize}
+            \item Full-disk encryption software.
+            \item Hidden volumes (coercion defense).
+            \item Goal: \textbf{Find out if the volume is hidden.}
+        \end{itemize}
+        \end{column}
+    \end{columns}
 
     % TODO: put truecrypt screenshot/logo here, maybe hidden volume UI page?
 \end{frame}
@@ -104,36 +175,61 @@
     \frametitle{TrueCrypt Attack}
     \framesubtitle{Implementation 1}
 
-    Different \texttt{VolumeLayout} classes for different types of volumes.
+    \begin{itemize}
+        \item C++
+        \item \texttt{VolumeLayout} classes:
+            \begin{itemize}
+                \item VolumeLayoutV2\textbf{Normal}
+                \item VolumeLayoutV2\textbf{Hidden}
+            \end{itemize}
+        \item \texttt{GetDataSize()} called on the layout class that works.
+        \item Good place for \textsc{Flush+Reload} probes!
+    \end{itemize}
 
-    % TODO: put picture of TrueCrypt disassembly
 \end{frame}
 
 \begin{frame}
     \frametitle{TrueCrypt Attack}
     \framesubtitle{Implementation 2}
 
-    We put probes on:
+    Probes:
 
     \begin{enumerate}
         \item \texttt{\_start}
         \item \texttt{VolumeLayoutV2Normal::GetDataSize()}
     \end{enumerate}
 
-    Watch the user mount a volume. If observed probe sequence ends with the
-    \texttt{GetDataSize()} probe, the volume is normal. Otherwise, it's hidden.
+    Attack:
+
+    \begin{itemize}
+        \item Spy on victim mounting the volume.
+        \item If probe sequence \textbf{ends} in \texttt{VolumeLayoutV2Normal} hit, output ``normal.''
+        \item Otherwise, assume ``hidden.''
+    \end{itemize}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{TrueCrypt Attack}
-    \framesubtitle{It Works}
+    \framesubtitle{It Works (Sort of)}
 
-    % TODO: introduce experiment systems
+\begin{verbatim}
+    Volume is: normal
+    Flush+Reload: S|S|S|S| S|S|R|S|S|S| R|
+    Attacker says: normal (right!)
+
+    Volume is: hidden
+    Flush+Reload: S|S|S|S|S| S| S|S|S|R|S|S|S|S|S|
+    Attacker says: hidden (right!)
+\end{verbatim}
 
     \begin{itemize}
-        \item Attack work on System 2, but,
-        \item On System 1, it consistently gets it right over 80\% of the time.
+        \item My Laptop: Gets it right over 80\% of the time.
+        \item Web Server: Doesn't work!
+            \begin{itemize}
+                \item Instruction prefetching.
+                \item Code is too close together.
+            \end{itemize}
     \end{itemize}
 
 \end{frame}
@@ -146,23 +242,28 @@
     \frametitle{Links Attack}
     \framesubtitle{Goal}
 
-    % TODO: screenshot of lynx on wikipedia homepage
-
-    \begin{itemize}
-        \item Links (not Lynx or ELinks) is a command-line web browser.
-        \item \textbf{Goal: We know you visited one of 100 Wikipedia pages, but
-        which one?}
-        \item We can probably tell which disease you are looking up.
-        \item We used the Top 100 Wikipedia pages of 2013.
-    \end{itemize}
+    \begin{center}
+    {\Large Attack \#2: Links}
+    \end{center}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \includegraphics[width=3.5cm,keepaspectratio]{linkslogo.png}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+        \begin{itemize}
+            \item Command line web browser.
+            \item \textbf{Which web page did you just visit?}
+            \item Distinguish between the top 100 Wikipedia pages.
+        \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
     \frametitle{Links Attack}
     \framesubtitle{Implementation 1}
 
-    Put probes on the HTML parsing code. Trial-and-error to find the best
-    locations.
+    Probe the HTML parsing code:
 
     \begin{itemize}
         \item \texttt{parse\_html()}
@@ -171,14 +272,15 @@
         \item \texttt{html\_span()}
     \end{itemize}
 
+    Trial and error to find the best ones (with Wikipedia in mind).
+
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Links Attack}
     \framesubtitle{Implementation 2}
 
-    Spy on Links while it loads the page.
-
+    Vist the Facebook Wikipedia page, we see...
 
 \begingroup
 \fontsize{7pt}{7pt}\selectfont
@@ -204,15 +306,10 @@ DSDSDSDSDHDSSDSDSDSDSDSDSDSDSDSDSDSSDSDSDSDSDSDSDHDSDSDSDSDSDSDHDSDSDSDSDSDSDSDS
 SDHSDHDSSDSDSDSDSDSDSDSDSDSDSDSDSDHDSDSDSDSDSSDSDSSDSDSDSDSSDSDSHDSDSDSDSDSDSSDS
 DSSDSDSSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSSDSDSDSSDSSDSDSDSDSDSDHSDS
 DHSHDSSSDSDSDSDRDSDSSDSDSDSDSDSDSDSSDSDSDSDSDHDSSHDSDRDSDRDSSRDRDHDSDSRDRDRDSSDR
-DSDSDSRDRDRDSDSRDRDSDSDRDRDSDSDSRDRDSDSRDRDRDRDRDSDSSDRDRDSDSRDRDSDSRDRDRDSDSDSD
-RDRDSDSDSRDRDSDSSDRDSDSRDRDSDSRDRDRDRDRDSDSDSRDRDSDSRDRSDSDSRDRDRDSDSDRDRDRDSDSD
-SRDRDSDSSDRDRDSDSDSRDRDRDSDSSDRDRDRDRDRDRDRDRDRHDSDSDRDSDSSDSDSDSDSDSDSDSDRDSDSD
-SDSDSDSDRHDSDSDRDRDRDRDRDRDSDSSDSDHSDSSDSDSDSDSDSDSSDSDSDSDSDSHSDSDHDSDSDSSDSDHD
-SDSDSDSSDSDSDSDHSDSDSDSSDSDSDSDSDSDSSDHSDHDSDSDSDSDHSSDSHDSDRDHDSDHDHSDSDSDHDSDS
-SDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSDSHDSDSDSDSSDSDSDSDSDSDSDSDSDSDSDSSDHDSSDSDSDSDSD
-SDSRDSDSSDSDSDSDSHDHDRDHDHDHDHDHDSDSDSDSDS...
+DSDSDSRDRDRDSDSRDRDSDSDRDRDSDSDSRDRDSDSRDRDRDRDRDSDSSDRDRDSDSRDRDSDSRDRDRDSDSDSD...
 \end{verbatim}
 \endgroup
+Challenge: \textbf{Identify the page from this string.}
 
 \end{frame}
 
@@ -223,41 +320,49 @@ SDSRDSDSSDSDSDSDSHDHDRDHDHDHDHDHDSDSDSDSDS...
     Phases of attack:
 
     \begin{enumerate}
-        \item Training: Just save 5 to 10 samples of each page.
-        \item Spy on the victim: Record the victim visiting a page once.
-        \item Recovery: Find the sample with the smallest Levenshtein distance.
+        \item \textbf{Training:} Save 10 samples of each page.
+        \item \textbf{Spy on the victim:} Record the victim visiting a page once.
+        \item \textbf{Recovery:} Find the ``closest'' sample.
     \end{enumerate}
+
+    ``Closeness'' is measured by Levenshtein distance.
 \end{frame}
 
 \begin{frame}
     \frametitle{Links Attack}
     \framesubtitle{Levenshtein Distances}
 
-    % TODO: the youtube LD graphic
+    \includegraphics[width=\textwidth,keepaspectratio]{distanceplot.png}
 
-\end{frame}
-
-\begin{frame}
-    \frametitle{Links Attack}
-    \framesubtitle{Demo}
-    Demo!
 \end{frame}
 
 \begin{frame}
     \frametitle{Links Attack}
     \framesubtitle{It Works}
 
-    % TODO: introduce experiment systems
-
-    \begin{itemize}
-        \item Works very well on both System 1 and System 2.
-        \item 10 samples of each page: Gets it right about 90\% of the time.
-        \item 5 samples: about 75\%.
-    \end{itemize}
-
-    % TODO: chart showing most pages are reliably identified
-
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \input{identifycounts}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{itemize}
+                \item Works well on both systems we tried.
+                \item \textbf{10 samples: 90\%}
+                \item 5 samples: 75\%.
+            \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Links Attack}
+    \framesubtitle{Demo}
+
+    \begin{center}
+    {\Large Demo!}
+    \end{center}
+\end{frame}
+
 
 % =============================================================================
 % Conclusion
@@ -267,13 +372,18 @@ SDSRDSDSSDSDSDSDSHDHDRDHDHDHDHDHDSDSDSDSDS...
     \frametitle{Conclusion}
 
     \begin{itemize}
-        \item These are boring attacks.
+        \item These are \textbf{boring attacks}.
         \begin{itemize}
             \item TrueCrypt: 1 bit.
             \item Links: $\log_2(100) = 6.6$ bits.
         \end{itemize}
-
-        \item Can we automate attack discovery?
+        \item But shows \textsc{Flush+Reload} is bad for privacy.
+        \item Can we do better?
+            \begin{itemize}
+                \item Automate it.
+                \item Try all of those ideas...
+            \end{itemize}
+        \item FUD: Multi-user systems are doomed!
     \end{itemize}
 \end{frame}
 

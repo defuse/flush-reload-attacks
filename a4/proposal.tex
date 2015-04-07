@@ -10,7 +10,7 @@
 % paragraphs so that they don't.
 %\sloppy
 
-\title{Compromising Privacy with the FLUSH+RELOAD attack\titlenote{Submitted April 5, 2015}}
+\title{Compromising Privacy with the FLUSH+RELOAD attack\titlenote{Submitted April 4, 2015}}
 \subtitle{CPSC 502.04 Project Final Report}
 
 \numberofauthors{1}
@@ -68,27 +68,28 @@ a shared system (1) determine whether the TrueCrypt volume a victim mounted
 contained a hidden volume or not, and (2) determine which of the top 100
 Wikipedia pages the victim visited using the Links web browser.
 
-This is the first time that a generic cache-based side channel has been used to
-compromise privacy by attacking a non-cryptographic application. The attacks we
-present show that cache side channels have implications beyond just extracting
-secret keys from cryptography software. We hope that the attacks will bring more
-attention to the privacy issues caused by cache side channels, and the
-\textsc{Flush+Reload} attack in particular.
+To the best of our knowledge, this is the first time that a generic cache-based
+side channel has been used to compromise privacy by attacking
+a non-cryptographic application. The attacks we present show that cache side
+channels have implications beyond just extracting secret keys from cryptography
+software. We hope that the attacks will bring more attention to the privacy
+issues caused by cache side channels, and the \textsc{Flush+Reload} attack in
+particular.
 
 We developed a robust \textsc{Flush+Reload} attack tool based on code the
 original paper's authors gave us. Our code is published online under an
-open-source license (see appendix \ref{sec:reproducing}), so other researchers
+open-source license (see Appendix \ref{sec:reproducing}), so other researchers
 can quickly reproduce our work and start developing better attacks. The source
 code for our experiments and the data they produced is being made available as
 well. We hope more researchers will follow our example of making code and data
-available prior to publication.
+available at the time of publication.
 
-In the next section, we summarize the \textsc{Flush+Reload} side channel that our attacks
+In the next Section, we summarize the \textsc{Flush+Reload} side channel that our attacks
 are based on. Section 3 describes our implementation of the \textsc{Flush+Reload} attack
 and explains our experimental methodology. The attacks and experimental results
-are given in section 4. Section 5 highlights recent work using side channels to
+are given in Section 4. Section 5 highlights recent work using side channels to
 break privacy and explains how our contributions fit in with that work. Finally
-we list some ideas for future work in section 6, and conclude in section 7.
+we list some ideas for future work in Section 6, and conclude in Section 7.
 
 \section{The Flush+Reload Attack}
 
@@ -105,21 +106,22 @@ Here we give a brief explanation of the \textsc{Flush+Reload} attack with enough
 to understand our attacks. For all of the details, refer to Yuval Yarom and
 Katrina Falkner's paper \cite{yarom2013flush}.
 
-\textsc{Flush+Reload} is a generic L3 (or last-level) cache side channel attack. It takes
-advantage of executable code page sharing between processes. If Alice is the
-first to run a program, the operating system will load the program into physical
-memory. When Bob comes along and runs the same program, instead of loading
-a second copy into memory, the operating system will set Bob's page tables to
-use the copy that was loaded into memory for Alice. The result is that both
-Alice and Bob are working off of the same physical memory. If Bob can determine
-which cache lines of the shared memory are present in the cache over time, he
-can tell which cache lines Alice's process accesses over time. This is what the
-\textsc{Flush+Reload} attack does.
+\textsc{Flush+Reload} is a generic L3 (or last-level, in case the system does
+not have an L3 cache) cache side channel attack. It takes advantage of
+executable code page sharing between processes. If Alice is the first to run
+a program, the operating system will load the program into physical memory. When
+Bob comes along and runs the same program, instead of loading a second copy into
+memory, the operating system will set Bob's page tables to use the copy that was
+loaded into memory for Alice. The result is that both Alice and Bob are working
+off of the same physical memory. If Bob can determine which cache lines of the
+shared memory are present in the cache over time, he can tell which cache lines
+Alice's process accesses over time. This is what the \textsc{Flush+Reload}
+attack does.
 
-Suppose attacker knows their victim is running a certain program and would like
-to see which code the victim's process is running. \textsc{Flush+Reload} lets
-the attacker select a handful of cache lines to watch, called ``probes.'' The
-attacker flushes those lines out of the cache, waits for a certain number of
+Suppose an attacker knows their victim is running a certain program and would
+like to see which code the victim's process is running. \textsc{Flush+Reload}
+lets the attacker select a handful of cache lines to watch, called ``probes.''
+The attacker flushes those lines out of the cache, waits for a certain number of
 clock cycles, then times how long it takes to read those lines. If the read is
 fast (i.e. consistent with being in the L3 cache), it means the victim accessed
 the line during the waiting period. If the read is slow, the victim did not
@@ -128,22 +130,28 @@ to see which code the victim process is executing over time.
 
 For example, the attack against GnuPG puts probes on the RSA modular
 exponentiation routines and uses a waiting time of 2048 clock cycles.
-Effectively, the attacker gets 1.5 MHz resolution view into what the victim's
+Effectively, the attacker gets a 1.5 MHz resolution view into what the victim's
 process is doing \cite{yarom2013flush}.
 
-In summary, the attacker specifies (1) a few (roughly 1 to 5; adding more probes
-makes the measurements less reliable) probe locations within a binary and (2)
+The attack assumes only one instance of the spied-on program is running at
+a time. If multiple instances are running, an access to a probed cache line by
+any instance will trigger the probe. Only one attacking process can run at
+a time on a CPU core. If a pair of attacking processes have to contend for CPU
+time, they will miss measurements. So it is assumed only one attacking process
+can run at a time.
+
+In summary, the attacker specifies a few (roughly 1 to 5, where adding more
+probes makes the measurements less reliable) probe locations within a binary and
 the amount of clock cycles to wait between measurements. As output, the attacker
 learns the sequence of probes that were accessed during the waiting periods.
 
 \section{Methods}
 \label{sec:methods}
 
-We set out to see if the \textsc{Flush+Reload} attack had privacy implications beyond
-attacking cryptographic software. We did this by (1) brainstorming possible
-attacks, (2) selecting a program to attack, (3) manually implementing the attack
-as best we could, and then (4) running experiments to see how well the attack
-works.
+We set out to see if the \textsc{Flush+Reload} attack had privacy implications
+beyond attacking cryptographic software. We did this by brainstorming possible
+attacks, selecting a program to attack, manually implementing the attack as best
+we could, and then running experiments to see how well the attack works.
 
 The binaries we attacked were built from source. We left symbols in to make it
 easier to find the probe locations in the binary. Symbols are not required for
@@ -152,11 +160,11 @@ would take longer.
 
 To make sure that we did not cherry pick vulnerable programs, we kept track of
 all the programs we looked at without developing any attacks. These are
-disclosed in section \ref{sec:failures}.
+disclosed in Section \ref{sec:failures}.
 
 \subsection{Attack Implementation}
 
-The attacks are built on the following tools.
+The attacks are built on the following tools that we built.
 
 \begin{itemize}
     \item A \textsc{Flush+Reload} attack tool, written in C, takes a binary and probe
@@ -176,11 +184,10 @@ The attacks are built on the following tools.
 
 \subsection{Experimental Evaluation}
 
-We ran experiments on two systems. The first system is an author's personal
-laptop. The second system is the dedicated server hosting the same author's
-website. The specifications of these systems are given in Table
-\ref{table:specs}. We will refer to these systems as System 1 and System 2,
-respectively.
+We ran experiments on two systems. The first system is a laptop; the second
+system is a dedicated server hosting a low-traffic website. The specifications
+of these systems are given in Table \ref{table:specs}. We will refer to these
+systems as System 1 and System 2, respectively.
 
 \begin{table*}
     \centering
@@ -190,6 +197,8 @@ respectively.
     \hline
     \textbf{Use} & Laptop & Web server \\
     \hline
+    \textbf{OS} & Arch Linux (February 2015) & Debian Wheezy \\
+    \hline
     \textbf{CPU} & Intel Core2 Duo P8700 2.53GHz & Intel Xeon E3-1245 V2 3.40GHz  \\
     \hline
     \textbf{RAM} & 4GiB DDR2 800MHz & 32GiB DDR3 1333MHz \\
@@ -198,17 +207,18 @@ respectively.
     \hline
     \textbf{L2 Cache} & 3MiB Unified & 1MiB Unified \\
     \hline
-    \textbf{L3 Cache} & N/A & 8MiB Unified \\
+    \textbf{L3 Cache} & None & 8MiB Unified \\
     \hline
 \end{tabular}
-\caption{System Specifications. Cache specifications were obtained by the
-\texttt{dmidecode} utility and may not be accurate.}
+\caption{System specifications. Cache specifications were obtained by the
+\texttt{dmidecode} utility and may not be accurate. System 1 does not have a L3
+cache, but FLUSH+RELOAD works with its L2 cache as it is shared between cores.}
 \label{table:specs}
 \end{table*}
 
 All of the experiments have been automated so that they are easy to repeat. The
 source code and data from all experiment runs have been published so that other
-researchers can verify and reproduce our work. See appendix
+researchers can verify and reproduce our work, see Appendix
 \ref{sec:reproducing}.
 
 All experiments were run with low system load.
@@ -223,7 +233,7 @@ Links web browser.
 
 \subsection{TrueCrypt}
 
-TrueCrypt is a popular disk encryption utility. It supports storing encrypted
+TrueCrypt is a popular disk encryption utility that supports storing encrypted
 filesystems in files called TrueCrypt volumes. TrueCrypt gives users the option
 to place a hidden volume inside a normal volume. Given the passphrase to the
 outer normal volume, it is not supposed to be possible to determine whether
@@ -243,11 +253,11 @@ represents the hidden volume layout. There are three other classes for the
 operating system encryption layout and volume layouts from older versions,
 making five volume layout classes in total.
 
-When TrueCrypt mounts a volume, it instantiates of all five layout classes tries
-to decrypt the volume using each one. It has to do this because, by design,
-TrueCrypt volumes are supposed to be indistinguishable from random, so there is
-no way to tell which volume layout is the right one without trying to decrypt
-the volume and seeing if it worked.
+When TrueCrypt mounts a volume, it instantiates all five layout classes and
+tries to decrypt the volume using each one. It has to do this because, by
+design, TrueCrypt volumes are supposed to be indistinguishable from random data,
+so there is no way to tell which volume layout is the right one without trying
+to decrypt the volume and seeing if it worked.
 
 Each class implements a \texttt{GetDataSize()} method. This method is only
 called on a layout object after the volume has been successfully decrypted using
@@ -272,11 +282,15 @@ it does, the volume was normal. If not, the volume was hidden (or what the
 attacker captured was not the result of a mount command; we assume the attacker
 knows that the user is mounting a volume).
 
-\subsection{Experiment}
+\subsubsection{Experiment}
 
-Our experiment creates two 1MB TrueCrypt volumes. The first of which is a normal
-volume. The second contains a hidden volume. Both volumes are protected by the
-same passphrase.
+Our experiment creates two 1MB TrueCrypt volumes. One is a normal volume, one
+contains a hidden volume; both are protected by the same passphrase.
+
+The experiment assumes the attacker knows the TrueCrypt command was run to mount
+a volume, and not some other task (like unmounting a volume). This could be done
+in practice by looking at the process list to see which command-line options
+were passed to TrueCrypt.
 
 The experiment starts the attack tool on the TrueCrypt binary. After waiting for
 the tool to start, it randomly mounts either the normal or hidden volume with
@@ -302,11 +316,6 @@ We only tried the attack with TrueCrypt's command-line interface. The attack
 should extend to the graphical interface, since both interfaces are frontends to
 the same volume mounting code. 
 
-The experiment assumes the attacker knows the TrueCrypt command was run to mount
-a volume, and not some other task (like unmounting a volume). This could be done
-in practice by looking at the process list to see which command-line options
-were passed to TrueCrypt.
-
 \subsection{Links}
 
 Links is a command-line web browser. We are interested in learning which web
@@ -315,19 +324,19 @@ possible to reliably distinguish between the top 100 Wikipedia pages.
 
 \subsubsection{Attack Implementation}
 
-The attack works by placing probes on key locations in Links' HTML parsing code.
-An ad-hoc machine learning technique is used to recognize the visited page from
-a single observed probe sequence.
+The attack works by placing probes on key locations in Links' HTML parsing code
+(described below). An ad-hoc machine learning technique is used to recognize the
+visited page from a single observed probe sequence.
 
-First, the attacker performs a training phase on the victim's machine
-\footnote{It is conceivable that the attacker could perform the training phase
-on a different machine with similar hardware, but we did not try it.}. After the
-training phase, the attacker observes the victim visiting a web page, saving the
-probe sequence. Finally, there is a recovery phase to decide which page the
-victim visited.
+First, the attacker performs a training phase on the victim's
+machine\footnote{It is conceivable that the attacker could perform the training
+phase on a different machine with similar hardware, but we did not try it.}.
+After the training phase, the attacker observes the victim visiting a web page,
+saving the probe sequence. Finally, there is a recovery phase to decide which
+page the victim visited.
 
 In the training phase, the attacker runs the attack tool while they themselves
-visit each page in the set $S$ times. They save the observed probe sequences to
+visit each page in the set $T$ times. They save the observed probe sequences to
 files, labeled with the page that they correspond to.
 
 In the observation phase, the attacker spies on the Links program while the
@@ -344,14 +353,14 @@ we only compute the distance on the first 1000 characters of the recorded
 sequences\footnote{We made this change after the System 1 experiments, so this
 only applies to the System 2 experiments. The System 1 experiments we report
 computed the Levenshtein distance over the entire strings. We need to re-run the
-System 1 experiments with the truncation.}
+System 1 experiments with the truncation.}. The recovery phase can be performed
+offline.
 
 The probe sequences are recorded by taking the attack tool's output as a string,
 which is a sequence of single-character probe names. The first 200 bytes of
-a training sample is shown in figure \ref{figure:probetext}.
+a training sample are shown in Figure \ref{figure:probetext}.
 
 \begin{figure}
-    \label{figure:probetext}
     \centering
 \begin{verbatim}
 HDRDSSSSDSDSDHDHDHDHDRDHDSSDSDSDSDHDHDHD
@@ -362,6 +371,7 @@ DSDSDRDSDRDRDSSDSDSDSDRDSDSDSDSDSDSRDRDS
 \end{verbatim}
 \caption{The first 200 bytes (of 12,309) of a training sequence against the
 Facebook Wikipedia page. From run links/0010.}
+    \label{figure:probetext}
 \end{figure}
 
 We implemented this attack against the top 100 Wikipedia pages
@@ -369,9 +379,9 @@ We implemented this attack against the top 100 Wikipedia pages
 
 \begin{enumerate}
     \item At the top of the \texttt{parse\_html()} function, which begins the
-        process of parsing the downloaded HTML.
+        process of parsing downloaded HTML.
     \item At the top of \texttt{html\_stack\_dup()}, which duplicates the element
-        at the top of a stack used while parsing some HTML tags.
+        at the top of a stack used while parsing HTML tags.
     \item On \texttt{html\_h()}, the function that parses HTML header tags (h1,
         h2, h3...).
     \item On \texttt{html\_span()}, the function that parses span tags.
@@ -379,7 +389,7 @@ We implemented this attack against the top 100 Wikipedia pages
 
 These were chosen by trial and error to maximize the accuracy of the attack. We
 aimed for locations in the parsing code that were far enough apart from each
-other in the binary to reduce the amount of noise (i.e. from the CPU prefetching
+other in the binary to reduce the amount of noise (e.g. from the CPU prefetching
 code it won't actually execute), and whose order of execution was likely to vary
 between Wikipedia pages.
 
@@ -387,9 +397,9 @@ between Wikipedia pages.
 
 Our experiment carries out the attack described above. First the attacker takes
 $T$ training samples of each page. Then, $S$ times, the victim visits
-a particular page. The attacker then tries to recover the page independently for
-each of the $S$ observations of the victim. This is repeated for all of the
-pages in the set. We used the top 100 Wikipedia pages of 2013 as our page set
+a particular page. The attacker tries to recover the page independently for each
+of the $S$ observations of the victim. This is repeated for all of the pages in
+the set. We used the top 100 Wikipedia pages of 2013 as our page set
 \cite{wikitop2013}.
 
 On System 1, with $T=10$ and $S=1$, the correct URL was recovered 91\% of the
@@ -398,51 +408,61 @@ recovered 76\% of the time\footnote{Run links/0002}. So the attack is more
 accurate when the attacker has more training samples.
 
 We ran a longer experiment\footnote{Run links/0010} on System 2 with $T=5$ and
-$S=10$. The attacker guessed correctly 879 times out of 1000, an 87\% accuracy.
+$S=10$. The attacker guessed correctly 879 times out of 1000, an 88\% accuracy.
 Every page was correctly identified at least once except for Taylor Swift's
-Wikipedia page. 43 of the pages were correctly identified all 10 times out of
-10. 33 were correctly identified exactly 9 times, 8 were identified 8 times,
-7 were identified 7 times, 4 were identified 6 times, 2 were identified 5 times,
-1 was identified 3 times, 1 was identified 2 times, and 1 was identified
-0 times. So most pages can be reliably identified.
+Wikipedia page. 43 of the pages where correctly identified all 10 times out of
+10. This is plotted in Figure \ref{figure:identifycounts}, showing that most
+pages can be reliably identified.
+
+\begin{figure}
+    \centering
+    \input{identifycounts}
+    \caption{The number of different
+    pages that were identified a given number of times, out of the 10 victim
+samples of that page. 43 pages were identified every time, and one page was
+never correctly identified.}
+    \label{figure:identifycounts}
+\end{figure}
 
 In that experiment, it took 70 seconds on average to recover one page from the
 victim sample. The longest recovery took 80 seconds. Most of this time is spent
 computing Levenshtein distances.
 
 The plot of the Levenshtein distances betweeen a sample of the victim visiting
-the YouTube Wikipedia page and all of the training samples is shown in figure
+the YouTube Wikipedia page and all of the training samples is shown in Figure
 \ref{figure:youtube}. In this case, the attacker makes the right decision since
 the lowest distance corresponds to a training sample of the YouTube page.
 
-The plot of a failed recovery attempt is shown in figure \ref{figure:minaj}. The
+The plot of a failed recovery attempt is shown in Figure \ref{figure:minaj}. The
 attacker makes the wrong decision in this case because an Eminem training sample
 has the shortest distance from the victim's sample, but the victim actually
 visited the Nicki Minaj page (which is still identifiable as the second-lowest
 point in the plot).
 
 \begin{figure*}
-    \label{figure:youtube}
     \centering
     \input{youtube}
     \caption{A successful recovery. The Levenshtein distance between the
     training samples and a recording of the victim visiting the YouTube
     Wikipedia page. The shortest distance is visible at mark 68 on the page axis
-which corresponds to a YouTube training sample. The outlier at mark 29
-corresponds to a disambiguation page that has a different format from the usual
-Wikipedia page. The order on the page axis is not meaningful.}
+    which corresponds to a YouTube training sample. The outlier at mark 29
+    corresponds to a disambiguation page that has a different format from the
+usual Wikipedia page. The different shapes in a column represent the five
+training samples of that page. The order on the page axis is not meaningful.}
+    \label{figure:youtube}
 \end{figure*}
 
 \begin{figure*}
-    \label{figure:minaj}
     \centering
     \input{minaj}
     \caption{A failed recovery. The Levenshtein distance between the training samples and
         a recording of the victim visiting the Nicki Minaj Wikipedia page. The
-    shortest distance (97 on the page axis) corresponds to a training sample of
-the Eminem Wikipedia page. The Nicki Minaj training samples still stand out (55
-on the page axis). The order on the page axis is not meaningful. Distances above
-500 are not shown.}
+        shortest distance (97 on the page axis) corresponds to a training sample
+        of the Eminem Wikipedia page. The Nicki Minaj training samples still
+        stand out (55 on the page axis). The different shapes in a column
+        represent the five training samples of that page. The order on the page
+        axis is not meaningful.}
+    \label{figure:minaj}
 \end{figure*}
 
 \subsection{Failures}
@@ -467,8 +487,8 @@ them.
 
 The fact that we did not find an attack does not mean that none exist. We were
 working under extremely limited time constraints and chose to go with the first
-attacks we found. We expect, but cannot claim, that similar attacks will work
-against the other browsers.
+attacks we found. We conjecture that similar attacks will work against the other
+browsers.
 
 We tried the Links attack on an Amazon EC2 instance and it did not work. Looking
 at the attack tool's output, it appears to be because the VM is running out of
@@ -488,9 +508,9 @@ to break an implementation of AES \cite{gullasch2011cache}. It has since been
 applied to GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
 yarom2014recovering}. Our work applies it in a non-cryptographic setting.
 
-The body of literature on cache-based side channels against cryptographic
-software is vast. There are far too many to list here; we refer to the
-interesting cases of extracting RSA keys via power analysis
+There is a vast body of literature on attacking cryptographic software and
+hardware with side channels. There are far too many examples to list here; we
+refer to the interesting cases of extracting RSA keys via power analysis
 \cite{messerges1999power} and sound recording \cite{genkin2013rsa} as well as
 the \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
 yarom2014recovering}.
@@ -498,7 +518,7 @@ yarom2014recovering}.
 Our work shows that cache side channel attacks have privacy implications beyond
 breaking cryptography software. We believe we are the first to apply a cache
 side channel against non-cryptographic software to compromise privacy. Cache
-side channels have already been applied one a non-cryptographic context: to
+side channels have already been applied once in a non-cryptographic context: to
 break kernel address space layout randomization \cite{hund2013practical}.
 
 There is a growing body of work showing that other kinds of side channels are
@@ -512,8 +532,8 @@ successfully breaking privacy. Here we highlight some of that work.
           \cite{weinberg2011still}. 
     \item[--] Timing variations in databases make it possible to extract
           indexed records \cite{futoransky2007nd2db}.
-    \item[--] Variable bit rate encoding leaks words spoken over encrypted VoIP
-          links \cite{white2011phonotactic}.
+    \item[--] Variable bit rate encoding can leak words spoken over encrypted
+        VoIP links \cite{white2011phonotactic}.
     \item[--] In an Android app, the UI state can be inferred through side channels
           in the GUI framework \cite{chen2014peeking}.
     \item[--] On Linux, keystroke timings can be learned by watching the size of
@@ -529,8 +549,8 @@ successfully breaking privacy. Here we highlight some of that work.
     \item[--] A smartphone app can infer what the user is typing from accelerometer
           and gyroscope measurements \cite{owusu2012accessory,
           cai2012practicality}.
-    \item[--] Profiling a server's power use reveals which virtual machines are
-          running on it \cite{hlavacs2011energy}.
+    \item[--] Profiling a server's power use can reveal which virtual machines
+        are running on it \cite{hlavacs2011energy}.
     \item[--] Text can be recovered from the sounds dot-matrix printers make
           \cite{backes2010acoustic}.
 \end{itemize}
@@ -562,7 +582,7 @@ infer which probe locations are the most useful for distinguishing the inputs
 (e.g. by taking the ones that maximize the Levenshtein distance).
 
 If we can successfully automate attack-finding, we plan on attacking programs
-with larger user bases and developing a metasploit-like exploitation framework.
+with larger user bases and developing a Metasploit-like exploitation framework.
 
 Quantitatively, our attacks only need a small amount of information from the
 target programs. For TrueCrypt, we are only extracting one bit of information.
@@ -579,11 +599,11 @@ an easy-to-use test tool should be developed, so that users can determine if
 their processors are vulnerable. With this knowledge, consumers can make better
 purchasing decisions.
 
-The \textsc{Flush+Reload} attack does not work on AMD processors. It has been speculated
-that this is because ``AMD caches are non-inclusive, i.e. data in L1 does not
-need to also be in L2 or L3, as is the case with the Intel caches.''
-\cite{yarom2013flush} The question of why \textsc{Flush+Reload} does not work on AMD
-should be answered conclusively with empirical data. Without a complete
+The \textsc{Flush+Reload} attack does not work on AMD processors. It has been
+speculated that this is because ``AMD caches are non-inclusive, i.e. data in L1
+does not need to also be in L2 or L3, as is the case with the Intel caches''
+\cite{yarom2013flush}. The question of why \textsc{Flush+Reload} does not work
+on AMD should be answered conclusively with empirical data. Without a complete
 understanding, we cannot say for sure that AMD processors are not vulnerable. 
 
 Some virtual machine hypervisors deduplicate pages between virtual machines. If
@@ -618,9 +638,10 @@ body of work that applies side channels in a much broader setting than breaking
 cryptography. We have proposed future work to evaluate the automated discovery
 of more powerful attacks based on \textsc{Flush+Reload}.
 
-In addition to presenting a novel use of the \textsc{Flush+Reload} side channel, we hope
-to have set an example by releasing our attack implementations, experiment
-implementations, and all of our experiment data prior to publication.
+In addition to presenting a novel use of the \textsc{Flush+Reload} side channel,
+we hope to have set an example by releasing our attack implementations,
+experiment implementations, and all of our experiment data at the time of
+publication.
 
 \bibliographystyle{abbrv}
 \bibliography{proposal}
@@ -629,17 +650,16 @@ implementations, and all of our experiment data prior to publication.
     \section{Reproducing Our Work}
     \label{sec:reproducing}
 
-    The attack tools, experiment experiment implementations, and experiment data
-    are all available for download on the author's website.\footnote{This
-    URL is not public yet}
+    The attack tools, experiment implementations, and experiment data are all
+    available for download on the author's website.
 
     \texttt{https://defuse.ca/compromising-privacy-flush-reload.htm}
 
-    For longevity, a second copy of everything is archived in the Internet
-    Archive\footnote{Actually, it is not on the Internet Archive yet}.
-
-    \texttt{https://archive.org/\textbf{URL-TO-BE-DETERMINED}}
-
+%    For longevity, a second copy of everything is archived in the Internet
+%    Archive\footnote{Actually, it is not on the Internet Archive yet}.
+%
+%    \texttt{https://archive.org/\textbf{URL-TO-BE-DETERMINED}}
+%
     The Links experiment should work without modification on vulnerable
     hardware. Give it a try!
 
