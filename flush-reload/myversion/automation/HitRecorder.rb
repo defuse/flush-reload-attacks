@@ -83,6 +83,8 @@ breakpoints.each do |addr|
   gdb_script << "break *0x#{addr.to_s(16)}\n"
 end
 gdb_script << "commands 1-#{breakpoints.length}\n"
+gdb_script << "    silent\n"
+gdb_script << "    info reg $pc\n"
 gdb_script << "    cont\n"
 gdb_script << "end\n"
 
@@ -111,6 +113,7 @@ gdb_pid = Process.spawn(
 if $options[:kill_time]
   sleep $options[:kill_time]
   Process.kill("INT", gdb_pid)
+  Process.wait(gdb_pid)
 else
   Process.wait(gdb_pid)
 end
@@ -119,8 +122,8 @@ results = []
 gdb_lines = File.readlines(".run_gdboutput")
 gdb_lines.each do |line|
   line.strip!
-  if /\ABreakpoint (\d)+, (0x[0-9a-fA-F]+) in/ =~ line
-    results << $2.to_i(16)
+  if /\Apc\s+(0x[0-9a-fA-F]+)\s/ =~ line
+    results << $1.to_i(16)
   end
 end
 
