@@ -6,7 +6,7 @@ require 'optparse'
 
 $options = {}
 optparse = OptionParser.new do |opts|
-  opts.banner = "Usage: #{__FILE__} -p <probe file> [-o <output file>] COMMAND"
+  opts.banner = "Usage: #{__FILE__} -p <probe file> [OPTIONS] COMMAND"
 
   $options[:probe_file] = nil
   opts.on( '-p', '--probe-file FILE', 'File with list of addresses to probe.' ) do |path|
@@ -14,13 +14,29 @@ optparse = OptionParser.new do |opts|
   end
 
   $options[:output_file] = nil
-  opts.on( '-o', '--output-file FILE', 'Write output to this file (stdout otherwise)' ) do |path|
+  opts.on( '-o', '--output-file FILE', 'Write output to this file (stdout otherwise).' ) do |path|
     $options[:output_file] = path
   end
 
   $options[:kill_time] = nil
-  opts.on( '-k', '--kill-time SECONDS', 'Kill process this many seconds after starting' ) do |seconds|
+  opts.on( '-k', '--kill-time SECONDS', 'Kill process this many seconds after starting.' ) do |seconds|
     $options[:kill_time] = seconds.to_i
+  end
+
+  # For links we breakpoint close_socket(), the third hit (skipping two)
+  # so 0x412c30:2 -- actually this isn't quite reliable when probes change
+
+  $options[:stop_breakpoints] = []
+  opts.on( '-s', '--stop-breakpoint ADDRESS', 'Stop when this breakpoint gets hit.' ) do |addr|
+    if /\A0x([0-9a-fA-F]+)(:(\d+))?\z/ =~ addr
+      count = 0
+      if $2
+        count = $2.split(':')[1].to_i
+      end
+      $options[:stop_breakpoints] << [$1.to_i(16), count]
+    else
+      # TODO
+    end
   end
 end
 
@@ -88,6 +104,21 @@ gdb_script << "    info reg $pc\n"
 gdb_script << "    cont\n"
 gdb_script << "end\n"
 
+# FIXME HACK
+i = 1
+p $options[:stop_breakpoints]
+$options[:stop_breakpoints].each do |addr_and_count|
+  addr = addr_and_count[0]
+  count = addr_and_count[1]
+
+  gdb_script << "break *0x#{addr.to_s(16)}\n"
+  gdb_script << "ignore #{breakpoints.length + i} #{count}\n"
+  gdb_script << "commands\n"
+  gdb_script << "    quit\n"
+  gdb_script << "end\n"
+  i += 1
+end
+
 gdb_script << "r"
 ARGV.each_with_index do |arg, i|
   # Skip the executable path.
@@ -100,6 +131,10 @@ gdb_script << " > /dev/null 2>&1 \n"
 
 File.open( ".run_gdbcommands", "w" ) do |f|
   f.write(gdb_script)
+end
+
+if File.exist?(".run_gdboutput")
+  File.unlink(".run_gdboutput")
 end
 
 gdb_pid = Process.spawn(
