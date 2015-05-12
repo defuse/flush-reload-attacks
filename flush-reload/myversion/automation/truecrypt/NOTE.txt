@@ -1,0 +1,9 @@
+This tool doesn't work with truecrypt, because the breakpoints never get hit.
+This is probably because either
+
+    (1) TrueCrypt is forking, or
+    (2) TrueCrypt is IPCing to the "core" process that's running
+
+...and I'm not going to spend time fixing it because I have to keep TrueCrypt
+volumes mounted on my system, and don't want to attach GDB to my actual
+TrueCrypt.
