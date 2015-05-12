@@ -90,6 +90,7 @@ probe_lines.each do |line|
 end
 
 gdb_script = ""
+gdb_script << "tty /dev/pts/38\n" #FIXME
 gdb_script << "set logging file .run_gdboutput\n"
 gdb_script << "set logging on\n"
 # TODO: Forking (but do we really need to?)
@@ -106,7 +107,6 @@ gdb_script << "end\n"
 
 # FIXME HACK
 i = 1
-p $options[:stop_breakpoints]
 $options[:stop_breakpoints].each do |addr_and_count|
   addr = addr_and_count[0]
   count = addr_and_count[1]
@@ -124,7 +124,8 @@ ARGV.each_with_index do |arg, i|
   # Skip the executable path.
   next if i == 0
 
-  # FIXME: This isn't correct...
+  # FIXME: This isn't correct (cross-check with usage in
+  # IndividualProbeTester.rb)...
   gdb_script << " #{arg}"
 end
 gdb_script << " > /dev/null 2>&1 \n"
@@ -147,6 +148,7 @@ gdb_pid = Process.spawn(
 )
 if $options[:kill_time]
   sleep $options[:kill_time]
+  # FIXME: We might kill an innocent process here if it's already exited!
   Process.kill("INT", gdb_pid)
   Process.wait(gdb_pid)
 else
