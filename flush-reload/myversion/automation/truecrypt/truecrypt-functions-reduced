@@ -1,0 +1,14 @@
+0x5764b0 TrueCrypt::VolumeLayoutV2Normal::HasBackupHeader() const
+0x5764c0 TrueCrypt::VolumeLayoutV2Hidden::HasBackupHeader() const
+0x576510 TrueCrypt::VolumeLayoutV2Normal::GetDataOffset(unsigned long) const
+0x576520 TrueCrypt::VolumeLayoutV2Normal::GetDataSize(unsigned long) const
+0x576530 TrueCrypt::VolumeLayoutV2Normal::GetMaxDataSize(unsigned long) const
+0x576550 TrueCrypt::VolumeLayoutV2Hidden::GetDataOffset(unsigned long) const
+0x576560 TrueCrypt::VolumeLayoutV2Hidden::GetDataSize(unsigned long) const
+0x576570 TrueCrypt::VolumeLayoutV2Hidden::GetMaxDataSize(unsigned long) const
+0x577000 TrueCrypt::VolumeLayoutV2Hidden::~VolumeLayoutV2Hidden()
+0x577010 TrueCrypt::VolumeLayoutV2Hidden::~VolumeLayoutV2Hidden()
+0x577030 TrueCrypt::VolumeLayoutV2Normal::~VolumeLayoutV2Normal()
+0x577040 TrueCrypt::VolumeLayoutV2Normal::~VolumeLayoutV2Normal()
+0x57a120 TrueCrypt::VolumeLayoutV2Normal::VolumeLayoutV2Normal()
+0x57aec0 TrueCrypt::VolumeLayoutV2Hidden::VolumeLayoutV2Hidden()

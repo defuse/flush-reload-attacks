@@ -1,0 +1,2 @@
+PADDING -t --non-interactive -p 1234 ./standard.tc ; -t --non-interactive -d ./standard.tc
+PADDING -t --non-interactive -p 1234 ./hidden.tc   ; -t --non-interactive -d ./hidden.tc
