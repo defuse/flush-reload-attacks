@@ -4,6 +4,7 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <limits.h>
 
 #include "flushreload.h"
 #include "cpuid.h"
@@ -31,7 +32,7 @@ void startSpying(args_t *args)
 
     /* Find the virtual address the victim binary gets loaded at. */
     unsigned long load_address = elf_get_load_address(args->elf_path);
-    if (load_address == 0) {
+    if (load_address == ULONG_MAX) {
         exit(EXIT_FAILURE);
     }
 
