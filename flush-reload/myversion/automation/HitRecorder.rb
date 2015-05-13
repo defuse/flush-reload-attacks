@@ -105,15 +105,24 @@ probe_lines.each do |line|
 end
 
 
-set_breakpoints = ""
-breakpoints.each do |addr|
-  set_breakpoints << "break *0x#{(addr + $options[:address_offset]).to_s(16)}\n"
+def set_breakpoints(last_breakpoint_number, breakpoints)
+  result = ""
+  breakpoints.each do |addr|
+    result << "break *0x#{(addr + $options[:address_offset]).to_s(16)}\n"
+  end
+  result << "commands #{last_breakpoint_number + 1}-#{last_breakpoint_number + breakpoints.length}\n"
+  result << "    silent\n"
+  result << "    info reg $pc\n"
+  result << "    cont\n"
+  result << "end\n"
+  # Max out at at 100K in the case of a really common function.
+  # FIXME: parameterize this max-out value so the other script can detect it,
+  # and discard ones that are this common (they actually should be way down on
+  # the list anyway, but for correctness' sake)
+  result << "enable count 100000 #{last_breakpoint_number + 1}-#{last_breakpoint_number + breakpoints.length}\n"
+  return result
 end
-set_breakpoints << "commands 1-#{breakpoints.length}\n"
-set_breakpoints << "    silent\n"
-set_breakpoints << "    info reg $pc\n"
-set_breakpoints << "    cont\n"
-set_breakpoints << "end\n"
+
 
 last_breakpoint_number = 0
 gdb_script = ""
@@ -129,8 +138,8 @@ if $options[:solib_cont_times]
   gdb_script << "set stop-on-solib-events 1\n"
 else
   # If it's not a shared library, we can set breakpoints before running.
-  gdb_script << set_breakpoints
-  last_breakpoint_number = breakpoints.length
+  gdb_script << set_breakpoints(last_breakpoint_number, breakpoints)
+  last_breakpoint_number += breakpoints.length
 end
 
 $options[:stop_breakpoints].each do |addr_and_count|
@@ -163,7 +172,8 @@ if $options[:solib_cont_times]
     gdb_script << "cont\n"
   end
   # Now we can set the breakpoints.
-  gdb_script << set_breakpoints
+  gdb_script << set_breakpoints(last_breakpoint_number, breakpoints)
+  last_breakpoint_number += breakpoints.length
   # Continue after the last shared library load (allow execution to proceed).
   gdb_script << "cont\n"
 end

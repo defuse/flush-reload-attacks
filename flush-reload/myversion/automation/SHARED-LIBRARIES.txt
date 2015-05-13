@@ -42,4 +42,5 @@ particular program loads the library from inside GDB.
 Now give that offset (in hex) as the --address-offset argument to
 IndividualProbeTester.rb. Remember how I told you to keep track of the number of
 times you had to press 'c' to get the program to actually run? Pass that number
-as the --shared-library argument.
+as the --shared-library argument. Read the code if you want to know why that's
+necessary.

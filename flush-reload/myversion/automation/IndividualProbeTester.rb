@@ -140,7 +140,9 @@ end
 
 probe_candidates.each do |probe|
   # FIXME: these results don't seem to correspond well with manual runs,
-  # sometimes seems to double?
+  # sometimes seems to double? Hmm... I guess it was just a sporadic issue,
+  # since I am no longer seeing the problem. I'll leave this comment here in
+  # case I get bored and want to investigate later.
   probe.base = count_probe_hits(probe, INPUTS[0])
   probe.same = count_probe_hits(probe, INPUTS[0])
   probe.diff = count_probe_hits(probe, INPUTS[1])
@@ -149,11 +151,6 @@ probe_candidates.each do |probe|
   probe.di_var = (probe.diff - probe.base).abs
 
   probe.metric = probe.di_var - probe.si_var
-end
-
-probe_candidates.reject! do |probe|
-  # Reject probes that have near-zero variance (probably don't depend on input)
-  probe.di_var < 5 && probe.si_var < 5
 end
 
 probe_candidates.sort! do |a,b|
