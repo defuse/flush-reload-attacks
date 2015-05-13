@@ -29,10 +29,24 @@ optparse = OptionParser.new do |opts|
     $options[:output_file] = path
   end
 
-  # FIXME: Default, for now (because for this research it's all we need).
-  $options[:kill_time] = 20
+  $options[:kill_time] = nil
   opts.on( '-k', '--kill-time SECONDS', 'Kill process this many seconds after starting.' ) do |seconds|
     $options[:kill_time] = seconds.to_i
+  end
+
+  $options[:solib_cont_times] = nil
+  opts.on( '-l', '--shared-library TIMES', 'Times to cont in GDB to pass solib loading.' ) do |times|
+    $options[:solib_cont_times] = times.to_i
+  end
+
+  $options[:address_offset] = 0
+  opts.on( '-a', '--address-offset OFFSET', 'Address offset.' ) do |offset|
+    if /\A0x([0-9a-fA-F]+)\z/ =~ offset
+      $options[:address_offset] = $1.to_i(16)
+    else
+      # FIXME
+      raise "FIXME!!!"
+    end
   end
 end
 
@@ -66,19 +80,28 @@ end
 probe_candidates = load_probe_file(optparse, $options[:probe_file])
 
 File.open($options[:input_pool_file], "r") do |f|
-  INPUTS = f.readlines.map { |line| line.strip }
+  INPUTS = f.readlines.map do |line|
+    line.strip!
+    parts = line.split(';')
+    if parts.length == 1
+      setup = parts[0]
+      teardown = nil
+    elsif parts.length == 2
+      setup = parts[0]
+      teardown = parts[1]
+    else
+      exit_with_message(optparse, "Bad input line [#{line}].")
+    end
+    {
+      setup: setup,
+      teardown: teardown
+    }
+  end
 end
 
 if INPUTS.length < 2
   exit_with_message(optparse, "Not enough distinct inputs in the pool.")
 end
-
-## TODO this is temporary, while developing. Eventually move this into a config
-## dir (or file, one input arguments per line)
-#INPUTS = [
-#  ["https://en.wikipedia.org/wiki/Bird"],
-#  ["https://en.wikipedia.org/wiki/Feather"]
-#]
 
 def count_probe_hits(probe, arguments)
   File.open(".run_probefile", "w") do |f|
@@ -87,18 +110,31 @@ def count_probe_hits(probe, arguments)
   if File.exist?(".run_hits")
     File.unlink(".run_hits")
   end
-  ruby_pid = Process.spawn(
-    *["ruby",
-      "HitRecorder.rb",
-      "-p", ".run_probefile",
-      "-o", ".run_hits",
-      "-k", $options[:kill_time].to_s,
-      $options[:elf_file],
-      arguments
-    ]
-  )
+  args = [
+    "ruby",
+    "HitRecorder.rb",
+    "-p", ".run_probefile",
+    "-o", ".run_hits",
+    "-a", "0x#{$options[:address_offset].to_s(16)}"
+  ]
+  if $options[:kill_time]
+    args << "-k"
+    args << $options[:kill_time].to_s
+  end
+  if $options[:solib_cont_times]
+    args << "-l"
+    args << $options[:solib_cont_times].to_s
+  end
+  args << $options[:elf_file]
+  args << arguments[:setup]
+  ruby_pid = Process.spawn(*args)
   Process.wait(ruby_pid)
   count = `wc -l .run_hits`.split(' ')[0].to_i
+
+  if arguments[:teardown]
+      `#{$options[:elf_file]} #{arguments[:teardown]}`
+  end
+
   return count
 end
 

@@ -1,0 +1,2 @@
+/home/firexware/Desktop/hansard/HAN040-E.PDF /tmp/output.ps
+/home/firexware/Desktop/hansard/HAN050-E.PDF /tmp/output.ps

@@ -38,6 +38,21 @@ optparse = OptionParser.new do |opts|
       # TODO
     end
   end
+
+  $options[:solib_cont_times] = nil
+  opts.on( '-l', '--shared-library TIMES', 'Times to cont in GDB to pass solib loading.' ) do |times|
+    $options[:solib_cont_times] = times.to_i
+  end
+
+  $options[:address_offset] = 0
+  opts.on( '-a', '--address-offset OFFSET', 'Address offset.' ) do |offset|
+    if /\A0x([0-9a-fA-F]+)\z/ =~ offset
+      $options[:address_offset] = $1.to_i(16)
+    else
+      # FIXME
+      raise "FIXME!!!"
+    end
+  end
 end
 
 def exit_with_message(optparse, msg)
@@ -89,6 +104,18 @@ probe_lines.each do |line|
   end
 end
 
+
+set_breakpoints = ""
+breakpoints.each do |addr|
+  set_breakpoints << "break *0x#{(addr + $options[:address_offset]).to_s(16)}\n"
+end
+set_breakpoints << "commands 1-#{breakpoints.length}\n"
+set_breakpoints << "    silent\n"
+set_breakpoints << "    info reg $pc\n"
+set_breakpoints << "    cont\n"
+set_breakpoints << "end\n"
+
+last_breakpoint_number = 0
 gdb_script = ""
 gdb_script << "tty /dev/pts/38\n" #FIXME
 gdb_script << "set logging file .run_gdboutput\n"
@@ -96,27 +123,26 @@ gdb_script << "set logging on\n"
 # TODO: Forking (but do we really need to?)
 # gdb_script << "set detach-on-fork off"
 # https://sourceware.org/gdb/onlinedocs/gdb/Forks.html
-breakpoints.each do |addr|
-  gdb_script << "break *0x#{addr.to_s(16)}\n"
-end
-gdb_script << "commands 1-#{breakpoints.length}\n"
-gdb_script << "    silent\n"
-gdb_script << "    info reg $pc\n"
-gdb_script << "    cont\n"
-gdb_script << "end\n"
 
-# FIXME HACK
-i = 1
+if $options[:solib_cont_times]
+  # If it's a shared library, we have to wait for it to load.
+  gdb_script << "set stop-on-solib-events 1\n"
+else
+  # If it's not a shared library, we can set breakpoints before running.
+  gdb_script << set_breakpoints
+  last_breakpoint_number = breakpoints.length
+end
+
 $options[:stop_breakpoints].each do |addr_and_count|
   addr = addr_and_count[0]
   count = addr_and_count[1]
 
   gdb_script << "break *0x#{addr.to_s(16)}\n"
-  gdb_script << "ignore #{breakpoints.length + i} #{count}\n"
+  last_breakpoint_number += 1
+  gdb_script << "ignore #{last_breakpoint_number} #{count}\n"
   gdb_script << "commands\n"
   gdb_script << "    quit\n"
   gdb_script << "end\n"
-  i += 1
 end
 
 gdb_script << "r"
@@ -126,9 +152,21 @@ ARGV.each_with_index do |arg, i|
 
   # FIXME: This isn't correct (cross-check with usage in
   # IndividualProbeTester.rb)...
-  gdb_script << " #{arg}"
+  # FIXME: HACK: this padding lets us pass switches that optparse won't see
+  gdb_script << " #{arg.gsub("PADDING", "")}"
 end
 gdb_script << " > /dev/null 2>&1 \n"
+
+if $options[:solib_cont_times]
+  # Continue to the last shared library load.
+  ($options[:solib_cont_times] - 1).times do |i|
+    gdb_script << "cont\n"
+  end
+  # Now we can set the breakpoints.
+  gdb_script << set_breakpoints
+  # Continue after the last shared library load (allow execution to proceed).
+  gdb_script << "cont\n"
+end
 
 File.open( ".run_gdbcommands", "w" ) do |f|
   f.write(gdb_script)
