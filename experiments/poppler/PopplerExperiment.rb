@@ -5,13 +5,12 @@ if ARGV[0].nil?
   exit(false)
 end
 
-#URL_LIST_FILE = "url_sets/wiki-top-100-of-2013-HTTPS.txt"
-URL_LIST_FILE = "url_sets/small-test.txt"
-SAMPLE_COUNT = 3
+URL_LIST_FILE = "pdf_lists/small-pdflist.txt"
+SAMPLE_COUNT = 5
 OUTPUT_DIR = ARGV[0]
-RUN_BINARY = "binaries/links-arch"
-SPY_BINARY = RUN_BINARY
-PROBES_PATH = "binaries/links-arch-discovered.probes"
+RUN_BINARY = "/home/firexware/Desktop/buildroot/bin/pdftops"
+SPY_BINARY = "/home/firexware/Desktop/buildroot/lib/libpoppler.so.51"
+PROBES_PATH = "libpoppler.probes"
 VICTIM_RUNS = 1
 STRING_TRUNCATE_LENGTH = 1000
 SLEEP_KILL = 7

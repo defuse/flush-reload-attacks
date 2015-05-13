@@ -3,15 +3,15 @@
 $LOAD_PATH << File.dirname( __FILE__ )
 
 require 'optparse'
-require '../../flush-reload/myversion/RubyInterface.rb'
+require 'RubyInterface.rb'
 
 $options = {}
 optparse = OptionParser.new do |opts|
   opts.banner = "Usage: #{__FILE__} [options]"
 
-  $options[:links] = nil
-  opts.on( '-l', '--links-path PATH', 'Path to the links web browser.' ) do |path|
-    $options[:links] = path
+  $options[:spy_binary] = nil
+  opts.on( '-b', '--spy-binary FILE', 'Binary to spy on.') do |path|
+    $options[:spy_binary] = path
   end
 
   $options[:outputdir] = nil
@@ -46,18 +46,18 @@ if Dir.exist?($options[:outputdir])
   exit_with_message(optparse, "Output directory already exists.")
 end
 
-if $options[:links].nil?
-  exit_with_message(optparse, "Missing --links-path (path to links binary)")
+if $options[:spy_binary].nil?
+  exit_with_message(optparse, "Missing --spy-binary.")
 end
 
 if $options[:probefile].nil?
-  exit_with_message(optparse, "Missing --probe-file (path to probe config)")
+  exit_with_message(optparse, "Missing --probe-file.")
 end
 
 Dir.mkdir($options[:outputdir])
 
 begin
-  spy = Spy.new($options[:links])
+  spy = Spy.new($options[:spy_binary])
   spy.loadProbes($options[:probefile])
   spy.start
   trap("SIGINT") do 
@@ -67,15 +67,19 @@ begin
   spy.each_burst do |burst|
     # Ignore blips
     if burst.length > 5
-      # Collapse
+      # NOTE: This code must match up with AttackTrainer.rb 
+      # Join all of the lines.
       burst.gsub!("\n", "")
+      # Remove pipe characters between slots.
       burst.gsub!("|", "")
-      burst.gsub!(/D+/, "D")
-      burst.gsub!(/R+/, "R")
-      burst.gsub!(/H+/, "H")
-      # Commenting this out -- it wasn't there in my orgiginal tests
-      # FIXME put this and the other code in the same place
-      #burst.gsub!(/S+/, "S")
+      # We DON'T remove missed slots here, because we want them to be visible in
+      # the saved experiment output, we DO do that just before computing the
+      # Levenshtein distance.
+
+      # Collapse repeated probes into just one occurance.
+      spy.probe_names.each do |n|
+        burst.gsub!(/#{n}+/, n)
+      end
 
       save_path = File.join( $options[:outputdir], Time.now.to_i.to_s )
       File.open( save_path, "w" ) do |f|

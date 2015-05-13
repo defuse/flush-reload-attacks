@@ -9,21 +9,24 @@ class Spy
   EXIT_BAD_ARGUMENTS = 2
   EXIT_MONOTONICITY = 3
 
-  SPY_PATH = File.join( File.dirname( __FILE__ ), "spy" )
+  SPY_PATH = File.join( File.dirname( __FILE__ ), "..", "spy" )
 
   attr_accessor :elf_path, :threshold, :slot
+  attr_reader :probe_names
 
   def initialize(elf_path = nil)
     @elf_path = elf_path
     @threshold = 120
     @slot = 2048
     @probes = []
+    @probe_names = []
     @spy_io = nil
     @whole_output = nil
   end
 
   def addProbe(name, address)
     if name =~ /\A[A-Za-z]\Z/
+      @probe_names << name
       @probes << name + ':0x' + address.to_s(16)
     else
       raise ArgumentError.new("Name must be exactly one alphabet character.")
@@ -132,7 +135,7 @@ class Spy
     end
 
     lines = raw_output.split("\n")
-    lines.reject! { |l| l.include? "WARNING" }
+    lines.reject! { |l| l.include?("WARNING") || l.include?("Detected ELF type") }
 
     return lines.join("\n")
   end

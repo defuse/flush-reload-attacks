@@ -4,7 +4,7 @@ $LOAD_PATH << File.dirname( __FILE__ )
 
 require 'optparse'
 require 'digest'
-require '../../flush-reload/myversion/RubyInterface.rb'
+require 'RubyInterface.rb'
 
 $options = {}
 optparse = OptionParser.new do |opts|
@@ -20,9 +20,9 @@ optparse = OptionParser.new do |opts|
     $options[:traindir] = dir
   end
 
-  $options[:links] = nil
-  opts.on( '-l', '--links-path PATH', 'Path to the links web browser.' ) do |path|
-    $options[:links] = path
+  $options[:run_binary] = nil
+  opts.on( '-l', '--run-binary PATH', 'Path to the binary to run.' ) do |path|
+    $options[:run_binary] = path
   end
 
   $options[:samples] = 1
@@ -33,6 +33,16 @@ optparse = OptionParser.new do |opts|
   $options[:probefile] = nil
   opts.on( '-p', '--probe-file FILE', 'Probe configuration file.' ) do |path|
     $options[:probefile] = path
+  end
+
+  $options[:sleep_kill] = nil
+  opts.on( '-k', '--sleep-kill SECONDS', 'Kill process after this many seconds.') do |seconds|
+    $options[:sleep_kill] = seconds.to_i
+  end
+
+  $options[:spy_binary] = nil
+  opts.on( '-b', '--spy-binary FILE', 'Binary to spy (default same as --run-binary).') do |path|
+    $options[:spy_binary] = path
   end
 end
 
@@ -64,8 +74,8 @@ if Dir.exist?($options[:traindir])
   exit_with_message(optparse, "Training directory already exists.")
 end
 
-if $options[:links].nil?
-  exit_with_message(optparse, "Missing --links-path (path to links binary).")
+if $options[:run_binary].nil?
+  exit_with_message(optparse, "Missing --run-binary.")
 end
 
 if $options[:probefile].nil?
@@ -74,6 +84,10 @@ end
 
 if $options[:samples] <= 0
   exit_with_message(optparse, "Bad --samples value.")
+end
+
+if $options[:spy_binary].nil?
+  $options[:spy_binary] = $options[:run_binary]
 end
 
 Dir.mkdir($options[:traindir])
@@ -91,25 +105,28 @@ urls.each_with_index do |train_url, index|
   1.upto($options[:samples]) do |sample_n|
     begin
       puts "    #{sample_n}..."
-      spy = Spy.new($options[:links])
+      spy = Spy.new($options[:spy_binary])
       spy.loadProbes($options[:probefile])
       spy.start
 
-      links = IO.popen([$options[:links], train_url, :err=>[:child, :out]])
-      sleep 7
-      # Use SIGINT. SIGKILL leaves the terminal broken.
-      Process.kill("INT", links.pid)
+      run_proc = IO.popen([$options[:run_binary], train_url, :err=>[:child, :out]])
+      if $options[:sleep_kill]
+        sleep 7
+        # Use SIGINT. SIGKILL leaves the terminal broken.
+        Process.kill("INT", run_proc.pid)
+      else
+        Process.wait(run_proc.pid)
+      end
 
+      # NOTE: This code must match up with AttackRecorder.rb
       output = spy.stop.gsub("\n", "")
-
-      # Collapse repeated probes into just one.
+      # Remove pipe characters between slots.
       output.gsub!("|", "")
-      output.gsub!(/D+/, "D")
-      output.gsub!(/R+/, "R")
-      output.gsub!(/H+/, "H")
-      # Commenting this out -- it wasn't there in my orgiginal tests
-      # FIXME put this and the other code in the same place
-      #output.gsub!(/S+/, "S")
+
+      # Collapse repeated probes into just one occurance.
+      spy.probe_names.each do |n|
+        output.gsub!(/#{n}+/, n)
+      end
 
       output_path = File.join($options[:traindir], url_hash + "_" + sample_n.to_s)
       File.open( output_path, "w" ) do |f|

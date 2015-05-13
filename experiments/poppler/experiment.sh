@@ -10,6 +10,6 @@ cp ../../flush-reload/myversion/spy $EXTRA_INPUT/
 cp -R ../../flush-reload/myversion/ruby $EXTRA_INPUT/
 
 status "Running the experiment script..."
-ruby LinksExperiment.rb "$OUTPUT_DIR" 2>$OUTPUT_DIR/stderr | tee $OUTPUT_DIR/stdout
+ruby PopplerExperiment.rb "$OUTPUT_DIR" 2>$OUTPUT_DIR/stderr | tee $OUTPUT_DIR/stdout
 
 exp_completed
