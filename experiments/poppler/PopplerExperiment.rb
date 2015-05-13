@@ -13,6 +13,6 @@ SPY_BINARY = "/tmp/experiment_root/lib/libpoppler.so.51"
 PROBES_PATH = "libpoppler.probes"
 VICTIM_RUNS = 1
 STRING_TRUNCATE_LENGTH = 1000
-SLEEP_KILL = 7
+SLEEP_KILL = false
 
 require '../../flush-reload/myversion/ruby/RunExperiment.rb'
