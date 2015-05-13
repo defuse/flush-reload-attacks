@@ -126,7 +126,8 @@ end
 
 last_breakpoint_number = 0
 gdb_script = ""
-gdb_script << "tty /dev/pts/38\n" #FIXME
+# This may have been necessary for Links, I'm not sure.
+#gdb_script << "tty /dev/pts/38\n" #FIXME
 gdb_script << "set logging file .run_gdboutput\n"
 gdb_script << "set logging on\n"
 # TODO: Forking (but do we really need to?)
