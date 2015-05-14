@@ -1,0 +1,273 @@
+Introduction
+
+- Thanks for coming.
+
+Side Channel Attacks
+
+- So side channels are a big problem in cryptography.
+- You might have written your code perfectly, it might be bug free and pass all
+  of the test vectors.
+- But it's still insecure because it's leaking secrets out through radio waves,
+  power use, sounds, time, or other things like that.
+
+- My research is based on one type of side channel called FLUSH+RELOAD.
+- So we'll review that side channel and then we'll get into some attacks.
+
+** CHange the slide to mention F+R in bold and Yuval Yarom etc. **
+        (and remove the "Lots more")
+
+Cache Architecture
+
+- FLUSH+RELOAD is a cache side channel attack, so we need a bit of background on
+  caching.
+
+- So your computer's memory is divided into regions called cache lines.
+- Your processor has caches that try to remember the cache lines that were used
+  recently, so that you don't always have to go all the way out to main memory
+  to get your data.
+- So this graphic shows sort of how they're laid out. There are different types
+  of caches named according to how far away they are from the processor.
+- So in this processor each core has its own L1 and L2 cache, and then there's
+  the L3 cached shared by all of them.
+
+- And this L3 cache is what FLUSH+RELOAD targets. If you're going after the L1
+  or L2 cache then you have to make sure you're on the same core as your victim
+  so it's a little easier to work with the L3 cache.
+
+Sharing Physical Memory
+
+- The next thing you need to know is that memory is shared between processes.
+- If Alice loads a program, the operating system will load it into physical
+  memory here, but when Bob comes along and runs the same program, instead of
+  loading a second copy, the operating system is just going to point his page
+  tables at the existing copy.
+
+- This is really the crux of the Flush+Reload attack, since it means what's
+  cached for Bob is the same as what's cached for Alice.
+
+- What's cached for Alice depends on what Alice has been doing recently, so if
+  Bob can tell what's cached, he can tell what Alice has been doing.
+
+Spying on a Program
+
+- Okay so with that background in mind, here's how the attack works. Say Bob is
+  interested in watching which code Alice's executing. Now he can't watch
+  everything, but he can pick a few points of interest.
+
+- So Bob gets to pick some probes. These are just a few cache lines that he is
+  interested in monitoring.
+
+- Here's what he does:
+
+    - First he flushes those probes out of the cache, so that they're not cached
+      for Alice or Bob.
+    - He waits a while. Maybe a few thousand clock cycles, to give Alice
+      a chance to run.
+    - Then he checks whether Alice loaded those probes back into the cache. That
+      will tell him whether or not Alice touched that memory when he was
+      waiting.
+
+    - And Bob can repeat that over and over to spy on those probes for as long
+      as he wants.
+
+
+- So what Bob does is first specify some memory locations he's interested in,
+  and what he gets out is the sequence of those locations that Alice touched.
+
+Timing the Cache
+
+- So I didn't tell you how Bob knows if a probe got loaded back into the cache.
+- Well all he has to do is read it and time how long it takes. If it's in the
+  cache it will be fast. If not, it will be slow.
+
+- And this chart just shows that... you can easily see that cached is noticably
+  faster than not cached.
+
+Simple Example
+
+- Okay so here's a simple example of an attack.
+- This here is the program Alice is running. It's just an infinite loop that
+  calls foo() then bar() over and over.
+- Down here is Bob spying on that program. He sets his probes in the foo() and
+  bar() functions, and here's what he sees.
+- There's a bunch of F's followed by B's so his foo() probe is geting hit, then
+  his bar() probe is getting hit.
+- So obviously he can see the pattern.
+
+Breaking Crypto
+
+- So this is a really powerful attack against crypto.
+
+- In 2011 it broke one of the AES implementations in OpenSSL.
+- It's also broken GnuPG's RSA and OpenSSL ECDSA multiple times.
+
+- And these attacks are very powerful as far as side channels go. For example
+  these two, you only need to spy on one decryption to get the private key.
+
+More than Crypto?
+
+- Okay so it's really good at breaking crypto, so what else can it do?
+
+- I mean in theory this side channel says that every branch your code takes is
+  an information leak.
+
+- So here are just some ideas of how it could be used.
+    - Can we spy on button click events to see which button the user is
+      pressing. Can we spy on email to see when the user is getting new mail,
+      and things like that. It seems like these things should be possible.
+
+- So now we get into my research. And basically what I wanted to know was
+  whether things like this were possible. I ended up finding two attacks, so
+  I'll go over those and try to demo one of them.
+
+TrueCrypt/Goal
+
+- If you don't already know what TrueCrypt is, it's a really popular disk
+  encryption tool.
+
+- One of its features is that it can hide a hidden volume inside a normal one.
+- So someone might be torturing you into giving your password and you can give
+  them the password to the normal one and they won't even know the hidden one is
+  there.
+- Our goal for this attack is to find out whether the volume is hidden or not.
+  If your adversary can find that out, they will know to keep torturing you, so
+  you really don't want that to be possible.
+
+TrueCrypt/Implementation 1
+
+- So TrueCrypt is written in C++ and it has different classes for the different
+  kinds of volumes.
+- Two of them are VolumeLayoutV2Normal and VolumeLayoutV2Hidden.
+- And as the names imply, this one is for normal volumes and this one is for
+  Hidden volumes.
+- Each of these has a GetDataSize() method, and it's only called **when a volume
+  is mounted** if that's what type of volume it is. So we can put our probes
+  here and that should tell us whether the volume is hidden or normal.
+
+TrueCrypt/Implementation 2
+
+- Okay here's what we do.
+- We put two probes. One of them is just on the TrueCrypt entrypoint, so it gets
+  triggered whenever a TrueCrypt command gets run.
+- The second we put on the Normal volume's GetDataSize().
+
+- Then the attack works like this.
+    - We spy on the victim as they mount their volume.
+    - We get the sequence of probes, and if it ends in the normal volume one, we
+      know the volume is normal, and otherwise it's hidden.
+
+TrueCrypt/It Works
+
+- So here's just an example. The first one here is mounting a normal volume and
+  it ends in the GetDataSize probe as expected. The second one is mounting
+  a hidden volume and it doesn't end in a GetDataSize probe.
+
+- It turns out this works. At least on my laptop it gets it right over 80% of
+  the time. So if you watched me mount my volume a few times you could be pretty
+  sure that it has a hidden volume in it.
+
+- But I couldn't get it to work on another system. I think it's because the code
+  in the TrueCrypt binary is just too close together, so the processor is
+  prefetching instructions and hitting the probe when it shouldn't be hitting
+  it.
+
+Links/Goal
+
+- Okay here's another attack, this one is a little more interesting.
+- So Links is a command line web browser, and basically what we're trying to do
+  is figure out which page the user is visiting without sniffing the network.
+- So in particular, say we know the user visited one of the top 100 Wikipedia
+  pages, and we're trying to figure out which one of those 100 pages they went
+  to.
+
+Links/Implementation 1
+
+- Okay the idea is to put probes on the HTML parsing code, and differences in
+  the pages will make the observed probe sequences different.
+
+- We found these locations just by trial and error. Basically I just looked at
+  the HTML of some Wikipedia pages, noticed that they have a lot of headers and
+  span elements, so I put them on related parsing functions.
+
+Links/Implementation 2
+
+- So here's what we get when you visit one of the pages. In this case it's
+  the Facebook wiki page. And here's the first bunch of probes that get hit.
+
+- So our challenge is to find out what page made this big ugly string.
+
+Links/Implementaiton 3
+
+- It turns out some really simple machine learning can do it really well.
+- Here's how it works. The attack is broken into three phases.
+    - First, we train by visiting all of the pages ourselves 10 times and saving
+      the probe sequences we see.
+    - After we've trained we spy on the victim as they visit one of the pages.
+    - So we have one of those big ugly strings from the victim. To turn that
+      back into the page they visited, all we just find the closest training
+      sample.
+
+- As our measure of closeness we use the Levenshtein distance, which is the
+  number of basic edits you need to do to bring one string to the other. So you
+  can remove characters, add characters, and change characters, and it counts
+  the number of those you need to do.
+
+Links/Levenshtein Distances
+
+- So here's an example of it working.
+- Along the bottom axis are all of the 100 wikipedia pages.
+- So you can think of one column in this thing as one page.
+- And then if you look very carefully you can see that there are 5 points in
+  each column. Those are the training samples.
+- And what this shows is the distance from the training sample to the string we
+  got when we spied on the victim.
+- We want the closest one, so we look for the lowest point on this graph, and
+  it's right here.
+- This one here is from the YouTube wikipedia page, and it turns out that's what
+  the user visited, so we got it right.
+
+Links/It Works
+
+- It turns out this works really well.
+- If you train on 10 samples, it gets it right 90% of the time.
+- If you train on 5 samples, it drops down to 75% of the time, which is still
+  pretty good.
+- And it works reliably for most of the pages. So there's a few pages it almost
+  never gets right, but most of them it gets right almost all of the time.
+
+Links/Demo
+
+    1. SSH two terminals into defuse.ca with user flushanalysis (one on top, other on bottom).
+    2. CD both into the /research/sidechannels/experiments/links
+    3. Start the attacker program (with some directory in /tmp).
+    4. Run links as the victim on some page (YouTube or Facebook).
+    5. Stop the attacker program.
+    6. Open the file it created ("We have to turn this back into YouTube").
+    7. Run recovery program on that (1000 length limit)
+    8. While waiting, say
+        - I'm using a training set from one of the experiments because it takes
+          a while to generate.
+
+Conclusion
+
+- So these are pretty boring attacks. When you think about it, the TrueCrypt
+  attack is getting just one bit. It's just finding out whether the volume is
+  hidden or not. And the Links attack only needs 6.6 bits to decide which page
+  it was. So compared to the crypto attacks these aren't very interesting.
+
+- But it does show that Flush+Reload can break more than just cryptography.
+
+- I've given two cases where it poses a privacy problem, but think back to that
+  list I gave earlier. I think it's something that deserves a lot more research.
+
+- So in terms of future work I'm planning to try and automate this. It would be
+  really nice to have the same attack working against Firefox, but I don't want
+  to read all of the Firefox code. So it would be nice if I could just give some
+  tool the Firefox binary and it would tell me where to put the probes.
+
+- So if we could find these sorts of input distinguishing attacks automatically,
+  that would be useful as a defense tool too. For example you could test your
+  RSA decryption code to see if you can distinguish between to private keys, and
+  if you can't at all, then you're probably not vulnerable to this attack.
+
+
