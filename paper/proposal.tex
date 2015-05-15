@@ -61,29 +61,35 @@ University of Calgary
 
 \subsection*{Abstract}
 Side channel attacks are typically used to break implementations of
-cryptography. More recently, side channel attacks have been discovered in
-more general settings that violate user privacy. We continue this trend by
-applying the \textsc{Flush+Reload} L3 cache side channel from Yuval Yarom and Katrina
-Falkner \cite{yarom2013flush} to TrueCrypt and the Links web browser. We
-show that an attacker can reliably determine whether a TrueCrypt volume
-mounted by the victim contains a hidden volume or not. We also show that if
-the attacker knows the victim visited one of the top 100 Wikipedia pages in
-the Links browser, they can decide which page was visited with a success
-rate of over 80\%.
+cryptography. More recently, side channel attacks have been discovered in more
+general settings that violate user privacy. We continue this trend by showing
+that the \textsc{Flush+Reload} L3 cache side channel from Yuval Yarom and
+Katrina Falkner \cite{yarom2013flush} can be used to distinguish between inputs
+to non-cryptographic programs. We do so by presenting three attacks. First, we
+attack the Links command-line web browser, showing that an attacker can
+determine which of the top 100 Wikipedia pages the user visited. Second, we show
+that an attacker can determine which of a set of 127 PDFs were processed by the
+poppler PDF rendering library. Finally, we show that an attacker can determine
+whether the TrueCrypt volume the user just mounted contained a hidden volume or
+not. \textbf{TODO: put exact success rate figures here}. We also describe how
+the discovery of new input distinguishing attacks can be discovered
+semi-automatically.
 
 \section{Introduction}
 \label{sec:intro}
 
 Side channels are a well-known class of attack where an adversary learns
 information about their victim through implicit, rather than explicit,
-transmission of information.
+transmission of information. Transmission of information is accomplished through
+media such as radio signals, execution time, power usage, and through the state
+of a computer's memory cache.
 
-Side channels are most frequently used to extract secret keys from
-implementations of cryptography. For example, Thomas Messerges et al.\ were able
-to extract the secret RSA key from a smart card by looking at the amount of
-power it uses \cite{messerges1999power}. More recently, Genkin et al.\ were able
-to extract a secret RSA key just by listening to the sounds a computer makes as
-it is decrypting data \cite{genkin2013rsa}. 
+Side channels are most commonly used to extract secret keys from implementations
+of cryptography. For example, Thomas Messerges et al.\ were able to extract the
+secret RSA key from a smart card by looking at the amount of power it uses
+\cite{messerges1999power}. More recently, Genkin et al.\ were able to extract
+a secret RSA key just by listening to the sounds a computer makes as it is
+decrypting data \cite{genkin2013rsa}. 
 
 Side channel attacks are also being used to compromise user privacy. For
 example, Liang Cai and Hao Chen have shown that keystrokes (including typed PIN
@@ -95,12 +101,18 @@ was searching for, what their income range was, and how they allocated their
 investment funds \cite{chen2010side}.
 
 In this paper, we continue the trend of using side channels to attack the user's
-privacy. We show that the generic L3 cache side channel called \textsc{Flush+Reload}
-\cite{yarom2013flush} can be applied in non-cryptography settings to
-meaningfully violate confidentiality. The attacks we present let an attacker on
-a shared system (1) determine whether the TrueCrypt volume a victim mounted
-contained a hidden volume or not, and (2) determine which of the top 100
-Wikipedia pages the victim visited using the Links web browser.
+privacy. We show that the generic L3 cache side channel called
+\textsc{Flush+Reload} \cite{yarom2013flush} can be applied in non-cryptography
+settings to meaningfully violate confidentiality. We give three examples where
+the attack can be used to figure out which of a set of inputs the user gave to
+a program. In particular, we show how an attacker on a shared system can (1)
+determine which of the top 100 Wikipedia pages the user visited, (2) determine
+which of the 127 PDF files the user passed to the \textsc{pdftops} command, and
+(3) determine whether the TrueCrypt volume the user just mounted contained
+a hidden volume or not.
+
+In addition to the three attacks, we also describe how the process of
+discovering new attacks can be partially automated.
 
 To the best of our knowledge, this is the first time that a generic cache-based
 side channel has been used to compromise privacy by attacking
@@ -118,12 +130,14 @@ code for our experiments and the data they produced is being made available as
 well. We hope more researchers will follow our example of making code and data
 available at the time of publication.
 
-In the next Section, we summarize the \textsc{Flush+Reload} side channel that our attacks
-are based on. Section 3 describes our implementation of the \textsc{Flush+Reload} attack
-and explains our experimental methodology. The attacks and experimental results
-are given in Section 4. Section 5 highlights recent work using side channels to
-break privacy and explains how our contributions fit in with that work. Finally
-we list some ideas for future work in Section 6, and conclude in Section 7.
+In the next Section, we summarize the \textsc{Flush+Reload} side channel that
+our attacks are based on. Section 3 describes our implementation of the
+\textsc{Flush+Reload} attack and explains our experimental methodology. The
+attacks and experimental results are given in Section 4. Section 5 describes how
+the discovery of new attacks can be partially automated. Section 6 highlights
+recent work using side channels to break privacy and explains how our
+contributions fit in with that work. Finally we list some ideas for future work
+in Section 7, and conclude in Section 8.
 
 \section{The Flush+Reload Attack}
 
@@ -136,9 +150,9 @@ executes. It was given the name \textsc{Flush+Reload} and has since been applied
 to break GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
 yarom2014recovering}.
 
-Here we give a brief explanation of the \textsc{Flush+Reload} attack with enough detail
-to understand our attacks. For all of the details, refer to Yuval Yarom and
-Katrina Falkner's paper \cite{yarom2013flush}.
+Here we give a brief explanation of the \textsc{Flush+Reload} attack with enough
+detail to understand our attacks. For all of the details, refer to Yuval Yarom
+and Katrina Falkner's paper \cite{yarom2013flush}.
 
 \textsc{Flush+Reload} is a generic L3 (or last-level, in case the system does
 not have an L3 cache) cache side channel attack. It takes advantage of
@@ -184,13 +198,14 @@ learns the sequence of probes that were accessed during the waiting periods.
 
 We set out to see if the \textsc{Flush+Reload} attack had privacy implications
 beyond attacking cryptographic software. We did this by brainstorming possible
-attacks, selecting a program to attack, manually implementing the attack as best
-we could, and then running experiments to see how well the attack works.
+attacks, selecting a program to attack, implementing the attack as best we could
+(first manually, and later with the help of semi-automated attack discovery
+tools), and then running experiments to see how well the attack works.
 
 The binaries we attacked were built from source. We left symbols in to make it
 easier to find the probe locations in the binary. Symbols are not required for
-the attack to work, but without them, the manual work of discovering the attack
-would take longer.
+the attack to work, but without them, the discovering the attacks would require
+manual reverse engineering work.
 
 To make sure that we did not cherry pick vulnerable programs, we kept track of
 all the programs we looked at without developing any attacks. These are
@@ -214,14 +229,21 @@ The attacks are built on the following tools that we built.
         execution of a command) without having to continually parse the attack
         tool's output. Our attacks are implemented as Ruby scripts that use this
         class.
+
+    \item A semi-automated attack discovery tool. The tool takes as input a list
+        of code addresses in the program and two different inputs to the
+        program. It produces a list of probe sets that are likely able to
+        distinguish between the two inputs. We describe how this tool is used in
+        Section 5.
 \end{itemize}
 
 \subsection{Experimental Evaluation}
 
 We ran experiments on two systems. The first system is a laptop; the second
-system is a dedicated server hosting a low-traffic website. The specifications
-of these systems are given in Table \ref{table:specs}. We will refer to these
-systems as System 1 and System 2, respectively.
+system is a dedicated server hosting a low-traffic website and operating as
+a relay for the Tor network. The specifications of these systems are given in
+Table \ref{table:specs}. We will refer to these systems as System 1 and System
+2, respectively.
 
 \begin{table*}
     \centering
@@ -265,90 +287,12 @@ a victim's TrueCrypt volume is normal or hidden. The second lets the the
 attacker tell which of the top 100 Wikipedia pages the victim visited using the
 Links web browser.
 
-\subsection{TrueCrypt}
-
-TrueCrypt is a popular disk encryption utility that supports storing encrypted
-filesystems in files called TrueCrypt volumes. TrueCrypt gives users the option
-to place a hidden volume inside a normal volume. Given the passphrase to the
-outer normal volume, it is not supposed to be possible to determine whether
-a hidden volume exists. This is to protect the user in case they are coerced
-into revealing their passphrase. They can reveal the passphrase to the outer
-volume and the contents of the hidden volume will be safe. 
-
-Our attack watches the victim mount a TrueCrypt volume and determines whether
-they mounted a hidden volume or a normal one.
-
-\subsubsection{Attack Implementation}
-
-TrueCrypt is written in C++ and has two classes defining the layout of hidden
-and normal volumes. The normal volume layout is represented by the class
-\texttt{VolumeLayoutV2Normal} and the \texttt{VolumeLayoutV2Hidden} class
-represents the hidden volume layout. There are three other classes for the
-operating system encryption layout and volume layouts from older versions,
-making five volume layout classes in total.
-
-When TrueCrypt mounts a volume, it instantiates all five layout classes and
-tries to decrypt the volume using each one. It has to do this because, by
-design, TrueCrypt volumes are supposed to be indistinguishable from random data,
-so there is no way to tell which volume layout is the right one without trying
-to decrypt the volume and seeing if it worked.
-
-Each class implements a \texttt{GetDataSize()} method. This method is only
-called on a layout object after the volume has been successfully decrypted using
-that layout, so it is a good candidate for a \textsc{Flush+Reload} probe.
-
-At first we tried to place probes on both \texttt{VolumeLayoutV2Normal}'s
-\texttt{GetDataSize()} and \texttt{VolumeLayoutV2Hidden}'s
-\texttt{GetDataSize()}. This did not work because in the binary, the hidden
-method immediately follows the normal method, and instruction prefetching
-triggers the hidden probe when the normal method gets executed.
-
-To work around that problem, we placed two \textsc{Flush+Reload} probes. The
-first is placed on the entry point to the TrueCrypt binary, so that we can tell
-when the user runs a TrueCrypt command. The second is placed in
-\texttt{VolumeLayoutV2Normal}'s \texttt{GetDataSize()}, which will get hit once
-when the TrueCrypt binary is loaded, and then once again only if the volume is
-normal.
-
-The attacker records the probe sequence as the victim mounts the volume. They
-check if the probe sequence ends in the \texttt{VolumeLayoutV2Normal} probe. If
-it does, the volume was normal. If not, the volume was hidden (or what the
-attacker captured was not the result of a mount command; we assume the attacker
-knows that the user is mounting a volume).
-
-\subsubsection{Experiment}
-
-Our experiment creates two 1MB TrueCrypt volumes. One is a normal volume, one
-contains a hidden volume; both are protected by the same passphrase.
-
-The experiment assumes the attacker knows the TrueCrypt command was run to mount
-a volume, and not some other task (like unmounting a volume). This could be done
-in practice by looking at the process list to see which command-line options
-were passed to TrueCrypt.
-
-The experiment starts the attack tool on the TrueCrypt binary. After waiting for
-the tool to start, it randomly mounts either the normal or hidden volume with
-TrueCrypt's command-line tool. It stops the attack tool and checks if the last
-probe hit was the \texttt{GetDataSize} probe. If it was, it guesses that the
-volume was normal. If not, it guesses that the volume was hidden. This process
-is repeated over and over $S$ times.
-
-In one run\endnote{Run truecrypt/0001} of the experiment on System 1 with
-$S=500$, the guess was right 416 times (83\% of the time). In a later
-run\endnote{Run truecrypt/0003}, also on System 1, with $S=100$, the guess was
-right 97\% of the time.
-
-We could not reproduce the attack on System 2. We believe this is due to
-differences in the way the two CPUs do instruction prefetching. The code for
-normal volumes and hidden volumes is very close together, so the attack is
-easily foiled by prefetching. System 2's processor seems to prefetch backwards
-and reads the normal volume \texttt{GetDataSize()} code when the hidden volume
-\texttt{GetDataSize()} is executing. This makes it impossible to distinguish the
-two cases on System 2 with these probes.
-
-We only tried the attack with TrueCrypt's command-line interface. The attack
-should extend to the graphical interface, since both interfaces are frontends to
-the same volume mounting code. 
+We present three attacks. The first attack lets an attacker tell whether which
+of the top 100 Wikipedia pages the victim visited using the Links web browser.
+The second attack does the same for the Poppler PDF rendering library,
+distinguishing between 127 PDF transcripts of 2014 Canadian parliamentary
+debates. The third attack determines whether a mounted TrueCrypt volume
+contained a hidden volume or not.
 
 \subsection{Links}
 
@@ -499,6 +443,97 @@ training samples of that page. The order on the page axis is not meaningful.}
     \label{figure:minaj}
 \end{figure*}
 
+\subsection{Poppler}
+
+\subsubsection{Attack Implementation}
+
+\subsubsection{Experiment}
+
+\subsection{TrueCrypt}
+
+TrueCrypt is a popular disk encryption utility that supports storing encrypted
+filesystems in files called TrueCrypt volumes. TrueCrypt gives users the option
+to place a hidden volume inside a normal volume. Given the passphrase to the
+outer normal volume, it is not supposed to be possible to determine whether
+a hidden volume exists. This is to protect the user in case they are coerced
+into revealing their passphrase. They can reveal the passphrase to the outer
+volume and the contents of the hidden volume will be safe. 
+
+Our attack watches the victim mount a TrueCrypt volume and determines whether
+they mounted a hidden volume or a normal one.
+
+\subsubsection{Attack Implementation}
+
+TrueCrypt is written in C++ and has two classes defining the layout of hidden
+and normal volumes. The normal volume layout is represented by the class
+\texttt{VolumeLayoutV2Normal} and the \texttt{VolumeLayoutV2Hidden} class
+represents the hidden volume layout. There are three other classes for the
+operating system encryption layout and volume layouts from older versions,
+making five volume layout classes in total.
+
+When TrueCrypt mounts a volume, it instantiates all five layout classes and
+tries to decrypt the volume using each one. It has to do this because, by
+design, TrueCrypt volumes are supposed to be indistinguishable from random data,
+so there is no way to tell which volume layout is the right one without trying
+to decrypt the volume and seeing if it worked.
+
+Each class implements a \texttt{GetDataSize()} method. This method is only
+called on a layout object after the volume has been successfully decrypted using
+that layout, so it is a good candidate for a \textsc{Flush+Reload} probe.
+
+At first we tried to place probes on both \texttt{VolumeLayoutV2Normal}'s
+\texttt{GetDataSize()} and \texttt{VolumeLayoutV2Hidden}'s
+\texttt{GetDataSize()}. This did not work because in the binary, the hidden
+method immediately follows the normal method, and instruction prefetching
+triggers the hidden probe when the normal method gets executed.
+
+To work around that problem, we placed two \textsc{Flush+Reload} probes. The
+first is placed on the entry point to the TrueCrypt binary, so that we can tell
+when the user runs a TrueCrypt command. The second is placed in
+\texttt{VolumeLayoutV2Normal}'s \texttt{GetDataSize()}, which will get hit once
+when the TrueCrypt binary is loaded, and then once again only if the volume is
+normal.
+
+The attacker records the probe sequence as the victim mounts the volume. They
+check if the probe sequence ends in the \texttt{VolumeLayoutV2Normal} probe. If
+it does, the volume was normal. If not, the volume was hidden (or what the
+attacker captured was not the result of a mount command; we assume the attacker
+knows that the user is mounting a volume).
+
+\subsubsection{Experiment}
+
+Our experiment creates two 1MB TrueCrypt volumes. One is a normal volume, one
+contains a hidden volume; both are protected by the same passphrase.
+
+The experiment assumes the attacker knows the TrueCrypt command was run to mount
+a volume, and not some other task (like unmounting a volume). This could be done
+in practice by looking at the process list to see which command-line options
+were passed to TrueCrypt.
+
+The experiment starts the attack tool on the TrueCrypt binary. After waiting for
+the tool to start, it randomly mounts either the normal or hidden volume with
+TrueCrypt's command-line tool. It stops the attack tool and checks if the last
+probe hit was the \texttt{GetDataSize} probe. If it was, it guesses that the
+volume was normal. If not, it guesses that the volume was hidden. This process
+is repeated over and over $S$ times.
+
+In one run\endnote{Run truecrypt/0001} of the experiment on System 1 with
+$S=500$, the guess was right 416 times (83\% of the time). In a later
+run\endnote{Run truecrypt/0003}, also on System 1, with $S=100$, the guess was
+right 97\% of the time.
+
+We could not reproduce the attack on System 2. We believe this is due to
+differences in the way the two CPUs do instruction prefetching. The code for
+normal volumes and hidden volumes is very close together, so the attack is
+easily foiled by prefetching. System 2's processor seems to prefetch backwards
+and reads the normal volume \texttt{GetDataSize()} code when the hidden volume
+\texttt{GetDataSize()} is executing. This makes it impossible to distinguish the
+two cases on System 2 with these probes.
+
+We only tried the attack with TrueCrypt's command-line interface. The attack
+should extend to the graphical interface, since both interfaces are frontends to
+the same volume mounting code. 
+
 \subsection{Failures}
 \label{sec:failures}
 
@@ -528,6 +563,8 @@ We tried the Links attack on an Amazon EC2 instance and it did not work. Looking
 at the attack tool's output, it appears to be because the VM is running out of
 CPU credit which is making it miss too many measurements. We did not have time
 to investigate further.
+
+\section{Automating Attack Discovery}
 
 \section{Related Work}
 \label{sec:relwork}
