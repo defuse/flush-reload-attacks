@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ruby FindProbeAddresses.rb \
+ruby ../../flush-reload/myversion/ruby/FindProbeAddresses.rb \
     -n 'gmallocn' \
     -n 'PSOutputDev::writePSString(GooString*)' \
     -n 'PSOutputDev::drawString(GfxState*, GooString*)' \
