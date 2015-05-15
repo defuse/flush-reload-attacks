@@ -6,4 +6,4 @@ proposal.pdf: proposal.tex proposal.bib
 	
 .PHONY: clean
 clean:
-	rm -f *.pdf *.bbl *.blg *.log *.aux
+	rm -f *.pdf *.bbl *.blg *.log *.aux *.ent
