@@ -1,6 +1,6 @@
 
 lines = File.readlines(ARGV[0])
-lines.reject! { |l| !(l.start_with? "https://") }
+lines.reject! { |l| !(l.start_with? "../../source/hansard") }
 freq = {}
 mean = 0
 lines.each do |line|
