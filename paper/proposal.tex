@@ -75,8 +75,9 @@ visited (correct 94\% of the time). Our second attack is against the Poppler PDF
 rendering library. We show that an attacker can determine which of a set of 127
 PDFs were processed by Poppler (correct 98\% of the time). Finally, we show how
 an attacker can determine whether the TrueCrypt volume a user just mounted
-contained a hidden volume or not (correct above 80\% of the time). We also
-describe how new input distinguishing attacks can be discovered automatically.
+contained a hidden volume or not (correct above 80\% of the time, but only on
+one of our test systems). We also describe how new input distinguishing attacks
+can be discovered automatically.
 
 \section{Introduction}
 \label{sec:intro}
@@ -642,35 +643,39 @@ accuracy.
 TrueCrypt is a popular disk encryption utility that supports storing encrypted
 filesystems in files called TrueCrypt volumes. TrueCrypt gives users the option
 to place a hidden volume inside a normal volume. Given the passphrase to the
-outer normal volume, it is not supposed to be possible to determine whether
-a hidden volume exists. This is to protect the user in case they are coerced
+outer normal volume, it is not supposed to be possible to determine whether an
+inner hidden volume exists. This is to protect the user in case they are coerced
 into revealing their passphrase. They can reveal the passphrase to the outer
 volume and the contents of the hidden volume will be safe. 
 
 Our attack watches the victim mount a TrueCrypt volume and determines whether
-they mounted a hidden volume or a normal one.
+they mounted a hidden volume or a normal one. This attack is not implemented the
+same way as the Links and Poppler attacks. Our automatic probe discovery tool
+does not work against TrueCrypt, since our tool only supports launching new
+processes, and TrueCrypt's volume mounting code runs in a background process.
+Even if it worked with TrueCrypt, we would not expect it to work since the
+difference in code execution is so tiny.
 
 \subsubsection{Attack Implementation}
 
-TrueCrypt is written in C++ and has two classes defining the layout of hidden
-and normal volumes. The normal volume layout is represented by the class
-\texttt{VolumeLayoutV2Normal} and the \texttt{VolumeLayoutV2Hidden} class
-represents the hidden volume layout. There are three other classes for the
-operating system encryption layout and volume layouts from older versions,
+TrueCrypt is written in C++ and has two classes defining the layout of normal
+and hidden volumes. They are \texttt{VolumeLayout\-V2Normal} and
+\texttt{VolumeLayout\-V2Hidden}, respectively. There are three other classes for
+the operating system encryption layout and volume layouts from older versions,
 making five volume layout classes in total.
 
 When TrueCrypt mounts a volume, it instantiates all five layout classes and
 tries to decrypt the volume using each one. It has to do this because, by
 design, TrueCrypt volumes are supposed to be indistinguishable from random data,
-so there is no way to tell which volume layout is the right one without trying
-to decrypt the volume and seeing if it worked.
+so there is no way to tell which volume layout is the right one in advance; the
+only way is to try to decrypt the volume and see if it works.
 
 Each class implements a \texttt{GetDataSize()} method. This method is only
 called on a layout object after the volume has been successfully decrypted using
 that layout, so it is a good candidate for a \textsc{Flush+Reload} probe.
 
-At first we tried to place probes on both \texttt{VolumeLayoutV2Normal}'s
-\texttt{GetDataSize()} and \texttt{VolumeLayoutV2Hidden}'s
+At first we tried to place probes on both \texttt{VolumeLayout\-V2Normal}'s
+\texttt{GetDataSize()} and \texttt{VolumeLayout\-V2Hidden}'s
 \texttt{GetDataSize()}. This did not work because in the binary, the hidden
 method immediately follows the normal method, and instruction prefetching
 triggers the hidden probe when the normal method gets executed.
@@ -678,20 +683,21 @@ triggers the hidden probe when the normal method gets executed.
 To work around that problem, we placed two \textsc{Flush+Reload} probes. The
 first is placed on the entry point to the TrueCrypt binary, so that we can tell
 when the user runs a TrueCrypt command. The second is placed in
-\texttt{VolumeLayoutV2Normal}'s \texttt{GetDataSize()}, which will get hit once
-when the TrueCrypt binary is loaded, and then once again only if the volume is
-normal.
+\texttt{VolumeLayout\-V2Normal}'s \texttt{GetDataSize()}, which will get hit
+once when the TrueCrypt binary is loaded, and then once again only if the volume
+is normal.
 
-The attacker records the probe sequence as the victim mounts the volume. They
-check if the probe sequence ends in the \texttt{VolumeLayoutV2Normal} probe. If
-it does, the volume was normal. If not, the volume was hidden (or what the
-attacker captured was not the result of a mount command; we assume the attacker
-knows that the user is mounting a volume).
+To find out whether the volume is normal or hidden, the attacker records the
+probe sequence as the victim mounts the volume. They check if the probe sequence
+ends in the \texttt{VolumeLayoutV2Normal} probe. If it does, the volume was
+normal. If not, the volume was hidden (or what the attacker captured was not the
+result of a mount command; we assume the attacker knows that the user is
+mounting a volume).
 
 \subsubsection{Experiment}
 
-Our experiment creates two 1MB TrueCrypt volumes. One is a normal volume, one
-contains a hidden volume; both are protected by the same passphrase.
+Our experiment creates two 1MB TrueCrypt volumes. One is a normal volume, the
+other contains a hidden volume; both are protected by the same passphrase.
 
 The experiment assumes the attacker knows the TrueCrypt command was run to mount
 a volume, and not some other task (like unmounting a volume). This could be done
@@ -701,12 +707,12 @@ were passed to TrueCrypt.
 The experiment starts the attack tool on the TrueCrypt binary. After waiting for
 the tool to start, it randomly mounts either the normal or hidden volume with
 TrueCrypt's command-line tool. It stops the attack tool and checks if the last
-probe hit was the \texttt{GetDataSize} probe. If it was, it guesses that the
-volume was normal. If not, it guesses that the volume was hidden. This process
-is repeated over and over $S$ times.
+probe hit was the \texttt{GetDataSize()} probe. If it was, it guesses that the
+volume is normal. If not, it guesses that the volume is hidden. This process is
+repeated over and over $S$ times.
 
 In one run\endnote{Run truecrypt/0001} of the experiment on System 1 with
-$S=500$, the guess was right 416 times (83\% of the time). In a later
+$S=500$, the guess was right $416$ times (83\% of the time). In a later
 run\endnote{Run truecrypt/0003}, also on System 1, with $S=100$, the guess was
 right 97\% of the time.
 
@@ -716,7 +722,8 @@ normal volumes and hidden volumes is very close together, so the attack is
 easily foiled by prefetching. System 2's processor seems to prefetch backwards
 and reads the normal volume \texttt{GetDataSize()} code when the hidden volume
 \texttt{GetDataSize()} is executing. This makes it impossible to distinguish the
-two cases on System 2 with these probes.
+two cases on System 2 with our choice of probes. Perhaps there is another choice
+of probes that would allow it to work, but we could not find one.
 
 We only tried the attack with TrueCrypt's command-line interface. The attack
 should extend to the graphical interface, since both interfaces are frontends to
@@ -733,24 +740,26 @@ trivial to find.
 Early on in our investigations we tried extract content from the Evince PDF
 viewer. We got to the point where \textsc{Flush+Reload} appeared (by visual
 inspection) to be partially recovering the sequence of PDF commands in
-a hand-crafted PDF file. Due to lack of time, we did not perform a quantitative
-analysis. 
+a hand-crafted PDF file. Due to time constraints, we left it at this point and
+moved on to developing the Links attack. After we found the Links attack and
+wrote the automatic probe finding tool, we went back Poppler and found the
+\texttt{pdftops} attack.
 
 While looking for an attack against a web browser, we spent some time with
 Firefox, Lynx, and ELinks. When we found the Links attack we stopped looking at
 the other browsers. We only spent a short amount of time (less than a day)
-looking at the code of the other browsers, and we never ran \textsc{Flush+Reload} against
-them.
+looking at the code of the other browsers, and we never ran
+\textsc{Flush+Reload} against them.
 
 The fact that we did not find an attack does not mean that none exist. We were
-working under extremely limited time constraints and chose to go with the first
-attacks we found. We conjecture that similar attacks will work against the other
-browsers.
+working under time constraints and chose to go with the first attacks we found.
+We conjecture that similar attacks will work against the other browsers. Indeed,
+our automatic probe finding tool should make it easy to find them.
 
 We tried the Links attack on an Amazon EC2 instance and it did not work. Looking
-at the attack tool's output, it appears to be because the VM is running out of
-CPU credit which is making it miss too many measurements. We did not have time
-to investigate further.
+at the attack tool's output, it appears to be because the virtual machine is
+running out of CPU credit which is making the attack tool miss too many
+measurements. We did not investigate further.
 
 \section{Related Work}
 \label{sec:relwork}
