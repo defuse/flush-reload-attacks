@@ -7,7 +7,7 @@ right_hidden = 0
 File.open( ARGV[0], "r") do |f|
   file = f.read()
   samples = file.split("Sample")
-  samples.reject! { |s| s.empty? }
+  samples.reject! { |s| s.strip.empty? }
   samples.each do |sample|
     if sample.include?("ACTUAL: hidden")
       total_hidden += 1

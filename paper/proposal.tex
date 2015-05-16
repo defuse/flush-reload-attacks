@@ -711,10 +711,18 @@ probe hit was the \texttt{GetDataSize()} probe. If it was, it guesses that the
 volume is normal. If not, it guesses that the volume is hidden. This process is
 repeated over and over $S$ times.
 
-In one run\endnote{Run truecrypt/0001} of the experiment on System 1 with
-$S=500$, the guess was right $416$ times (83\% of the time). In a later
-run\endnote{Run truecrypt/0003}, also on System 1, with $S=100$, the guess was
-right 97\% of the time.
+In one run\endnote{truecrypt/0001} of the experiment on System 1 with $S=500$,
+the guess was right $416$ times (83\% of the time). Of the $255$ trials with
+normal volumes, the guess was right $184$ times. Of the $245$ trials with hidden
+volumes, the guess was right $232$ times. So the error is skewed towards
+mistakenly believing that the volume is hidden. By spying as the volume is
+mounted multiple times, the confidence can be increased. In one
+experiment\endnote{truecrypt/0005} where the attacker is allowed to watch the
+volume get mounted 3 times and then take the majority, they decide right $93$
+times out of $100$. In a longer run\endnote{truecrypt/0006} with
+majority-of-three, the attacker decides right $476$ out of $500$ times (95\%).
+$237/256$ (92.6\%) of the normal samples were correct, $239/244$ (93.4\%) of the
+hidden samples were correct.
 
 We could not reproduce the attack on System 2. We believe this is due to
 differences in the way the two CPUs do instruction prefetching. The code for
