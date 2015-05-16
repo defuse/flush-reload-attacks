@@ -1,5 +1,5 @@
 
-lines = File.readlines("0010/output/stdout")
+lines = File.readlines(ARGV[0])
 lines.reject! { |l| !(l.start_with? "https://") }
 freq = {}
 mean = 0

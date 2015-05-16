@@ -1,0 +1,450 @@
+---
+url_list_file: pdf_lists/pdflist.txt
+sample_count: 5
+run_binary: /tmp/experiment_root/bin/pdftops
+spy_binary: /tmp/experiment_root/lib/libpoppler.so.51
+victim_runs: 1
+truncation_length: 1000
+training_time: 1039.135524353
+sleep_kill: false
+urls:
+  ../../source/hansard/HAN035-E.PDF:
+  - status: pass
+    recovery_time: 2.696098691
+  ../../source/hansard/HAN036-E.PDF:
+  - status: pass
+    recovery_time: 2.707365374
+  ../../source/hansard/HAN037-E.PDF:
+  - status: pass
+    recovery_time: 2.737639995
+  ../../source/hansard/HAN038-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.706405439
+    bad_recovery_url: ../../source/hansard/HAN122-E.PDF
+  ../../source/hansard/HAN039-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.74023453
+    bad_recovery_url: ../../source/hansard/HAN122-E.PDF
+  ../../source/hansard/HAN040-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.695903157
+    bad_recovery_url: ../../source/hansard/HAN139-E.PDF
+  ../../source/hansard/HAN041-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN042-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.688524365
+    bad_recovery_url: ../../source/hansard/HAN088-E.PDF
+  ../../source/hansard/HAN043-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.756271939
+    bad_recovery_url: ../../source/hansard/HAN079-E.PDF
+  ../../source/hansard/HAN044-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN045-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.738197056
+    bad_recovery_url: ../../source/hansard/HAN114-E.PDF
+  ../../source/hansard/HAN046-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN047-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN048-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.695908625
+    bad_recovery_url: ../../source/hansard/HAN137-E.PDF
+  ../../source/hansard/HAN049-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.709282775
+    bad_recovery_url: ../../source/hansard/HAN122-E.PDF
+  ../../source/hansard/HAN050-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.705495116
+    bad_recovery_url: ../../source/hansard/HAN154-E.PDF
+  ../../source/hansard/HAN051-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.726401501
+    bad_recovery_url: ../../source/hansard/HAN141-E.PDF
+  ../../source/hansard/HAN052-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.710694655
+    bad_recovery_url: ../../source/hansard/HAN057-E.PDF
+  ../../source/hansard/HAN053-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.708579366
+    bad_recovery_url: ../../source/hansard/HAN154-E.PDF
+  ../../source/hansard/HAN054-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN055-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.755575953
+    bad_recovery_url: ../../source/hansard/HAN142-E.PDF
+  ../../source/hansard/HAN056-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN057-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.728433559
+    bad_recovery_url: ../../source/hansard/HAN159-E.PDF
+  ../../source/hansard/HAN058-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN059-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.687563001
+    bad_recovery_url: ../../source/hansard/HAN086-E.PDF
+  ../../source/hansard/HAN060-E.PDF:
+  - status: pass
+    recovery_time: 2.692967166
+  ../../source/hansard/HAN061-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.687786214
+    bad_recovery_url: ../../source/hansard/HAN160-E.PDF
+  ../../source/hansard/HAN062-E.PDF:
+  - status: pass
+    recovery_time: 2.725040083
+  ../../source/hansard/HAN063-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN064-E.PDF:
+  - status: pass
+    recovery_time: 2.703503406
+  ../../source/hansard/HAN065-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN066-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.734963622
+    bad_recovery_url: ../../source/hansard/HAN064-E.PDF
+  ../../source/hansard/HAN067-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.739629097
+    bad_recovery_url: ../../source/hansard/HAN134-E.PDF
+  ../../source/hansard/HAN068-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN069-E.PDF:
+  - status: pass
+    recovery_time: 2.700467156
+  ../../source/hansard/HAN070-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN071-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN072-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.756190301
+    bad_recovery_url: ../../source/hansard/HAN122-E.PDF
+  ../../source/hansard/HAN073-E.PDF:
+  - status: pass
+    recovery_time: 2.779413463
+  ../../source/hansard/HAN074-E.PDF:
+  - status: pass
+    recovery_time: 2.731109422
+  ../../source/hansard/HAN075-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN076-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.727110012
+    bad_recovery_url: ../../source/hansard/HAN090-E.PDF
+  ../../source/hansard/HAN077-E.PDF:
+  - status: pass
+    recovery_time: 2.754484001
+  ../../source/hansard/HAN078-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.735976878
+    bad_recovery_url: ../../source/hansard/HAN129-E.PDF
+  ../../source/hansard/HAN079-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN080-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.695525774
+    bad_recovery_url: ../../source/hansard/HAN154-E.PDF
+  ../../source/hansard/HAN081-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.700296776
+    bad_recovery_url: ../../source/hansard/HAN079-E.PDF
+  ../../source/hansard/HAN082-E.PDF:
+  - status: pass
+    recovery_time: 2.701578818
+  ../../source/hansard/HAN083-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN084-E.PDF:
+  - status: pass
+    recovery_time: 2.681799018
+  ../../source/hansard/HAN085-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN086-E.PDF:
+  - status: pass
+    recovery_time: 2.712736068
+  ../../source/hansard/HAN087-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.688595921
+    bad_recovery_url: ../../source/hansard/HAN122-E.PDF
+  ../../source/hansard/HAN088-E.PDF:
+  - status: pass
+    recovery_time: 2.757892882
+  ../../source/hansard/HAN089-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN090-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN091-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.707732865
+    bad_recovery_url: ../../source/hansard/HAN146-E.PDF
+  ../../source/hansard/HAN092-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN093-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN094-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN095-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN096-E.PDF:
+  - status: pass
+    recovery_time: 2.717226545
+  ../../source/hansard/HAN097-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.74415915
+    bad_recovery_url: ../../source/hansard/HAN074-E.PDF
+  ../../source/hansard/HAN098-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN099-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN100-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN101-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.688807353
+    bad_recovery_url: ../../source/hansard/HAN045-E.PDF
+  ../../source/hansard/HAN102-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.712149104
+    bad_recovery_url: ../../source/hansard/HAN146-E.PDF
+  ../../source/hansard/HAN103-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN104-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN105-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN106-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN107-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.687852035
+    bad_recovery_url: ../../source/hansard/HAN071-E.PDF
+  ../../source/hansard/HAN108-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN109-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN110-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN111-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN112-E.PDF:
+  - status: pass
+    recovery_time: 2.701545847
+  ../../source/hansard/HAN113-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.706973268
+    bad_recovery_url: ../../source/hansard/HAN154-E.PDF
+  ../../source/hansard/HAN114-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.741720049
+    bad_recovery_url: ../../source/hansard/HAN161-E.PDF
+  ../../source/hansard/HAN115-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.723326555
+    bad_recovery_url: ../../source/hansard/HAN134-E.PDF
+  ../../source/hansard/HAN116-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN117-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.712247537
+    bad_recovery_url: ../../source/hansard/HAN120-E.PDF
+  ../../source/hansard/HAN118-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.686286749
+    bad_recovery_url: ../../source/hansard/HAN104-E.PDF
+  ../../source/hansard/HAN119-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.692499443
+    bad_recovery_url: ../../source/hansard/HAN071-E.PDF
+  ../../source/hansard/HAN120-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.722258862
+    bad_recovery_url: ../../source/hansard/HAN154-E.PDF
+  ../../source/hansard/HAN121-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.727621333
+    bad_recovery_url: ../../source/hansard/HAN137-E.PDF
+  ../../source/hansard/HAN122-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN123-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN124-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.684954577
+    bad_recovery_url: ../../source/hansard/HAN038-E.PDF
+  ../../source/hansard/HAN125-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.733749316
+    bad_recovery_url: ../../source/hansard/HAN122-E.PDF
+  ../../source/hansard/HAN126-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.705387105
+    bad_recovery_url: ../../source/hansard/HAN146-E.PDF
+  ../../source/hansard/HAN127-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.69702637
+    bad_recovery_url: ../../source/hansard/HAN156-E.PDF
+  ../../source/hansard/HAN128-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN129-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.724784687
+    bad_recovery_url: ../../source/hansard/HAN069-E.PDF
+  ../../source/hansard/HAN130-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN131-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.713678083
+    bad_recovery_url: ../../source/hansard/HAN127-E.PDF
+  ../../source/hansard/HAN132-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN133-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.742084438
+    bad_recovery_url: ../../source/hansard/HAN111-E.PDF
+  ../../source/hansard/HAN134-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.688810143
+    bad_recovery_url: ../../source/hansard/HAN113-E.PDF
+  ../../source/hansard/HAN135-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.767313388
+    bad_recovery_url: ../../source/hansard/HAN104-E.PDF
+  ../../source/hansard/HAN136-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN137-E.PDF:
+  - status: pass
+    recovery_time: 2.709845037
+  ../../source/hansard/HAN138-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.724859153
+    bad_recovery_url: ../../source/hansard/HAN108-E.PDF
+  ../../source/hansard/HAN139-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.729334944
+    bad_recovery_url: ../../source/hansard/HAN040-E.PDF
+  ../../source/hansard/HAN140-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN141-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.689439687
+    bad_recovery_url: ../../source/hansard/HAN048-E.PDF
+  ../../source/hansard/HAN142-E.PDF:
+  - status: pass
+    recovery_time: 2.697546282
+  ../../source/hansard/HAN143-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.701437169
+    bad_recovery_url: ../../source/hansard/HAN112-E.PDF
+  ../../source/hansard/HAN144-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.728364118
+    bad_recovery_url: ../../source/hansard/HAN073-E.PDF
+  ../../source/hansard/HAN145-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN146-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN147-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN148-E.PDF:
+  - status: pass
+    recovery_time: 2.701223427
+  ../../source/hansard/HAN149-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.722014399
+    bad_recovery_url: ../../source/hansard/HAN046-E.PDF
+  ../../source/hansard/HAN150-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.701201743
+    bad_recovery_url: ../../source/hansard/HAN140-E.PDF
+  ../../source/hansard/HAN151-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN152-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN153-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.700788114
+    bad_recovery_url: ../../source/hansard/HAN052-E.PDF
+  ../../source/hansard/HAN154-E.PDF:
+  - status: pass
+    recovery_time: 2.710573578
+  ../../source/hansard/HAN155-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.736004748
+    bad_recovery_url: ../../source/hansard/HAN111-E.PDF
+  ../../source/hansard/HAN156-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.69974068
+    bad_recovery_url: ../../source/hansard/HAN044-E.PDF
+  ../../source/hansard/HAN157-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.708113362
+    bad_recovery_url: ../../source/hansard/HAN137-E.PDF
+  ../../source/hansard/HAN158-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN159-E.PDF:
+  - status: pass
+    recovery_time: 2.732316396
+  ../../source/hansard/HAN160-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.712351383
+    bad_recovery_url: ../../source/hansard/HAN096-E.PDF
+  ../../source/hansard/HAN161-E.PDF:
+  - status: fail_bad_recovery
+    recovery_time: 2.730496277
+    bad_recovery_url: ../../source/hansard/HAN146-E.PDF

@@ -1,0 +1,2679 @@
+---
+url_list_file: pdf_lists/pdflist.txt
+sample_count: 5
+run_binary: /tmp/experiment_root/bin/pdftops
+spy_binary: /tmp/experiment_root/lib/libpoppler.so.51
+victim_runs: 10
+truncation_length: 1000
+training_time: 1075.766263887
+sleep_kill: false
+urls:
+  ../../source/hansard/HAN035-E.PDF:
+  - status: pass
+    recovery_time: 5.162575758
+  - status: pass
+    recovery_time: 2.664604785
+  - status: pass
+    recovery_time: 2.662900473
+  - status: pass
+    recovery_time: 2.660247674
+  - status: pass
+    recovery_time: 2.667031479
+  - status: pass
+    recovery_time: 2.669142902
+  - status: pass
+    recovery_time: 2.661142589
+  - status: pass
+    recovery_time: 2.683299188
+  - status: pass
+    recovery_time: 2.669970494
+  - status: pass
+    recovery_time: 2.658604562
+  ../../source/hansard/HAN036-E.PDF:
+  - status: pass
+    recovery_time: 2.671765737
+  - status: pass
+    recovery_time: 2.675888813
+  - status: pass
+    recovery_time: 2.668081191
+  - status: pass
+    recovery_time: 2.672629659
+  - status: pass
+    recovery_time: 2.6681218
+  - status: pass
+    recovery_time: 2.680070427
+  - status: pass
+    recovery_time: 2.679953498
+  - status: pass
+    recovery_time: 2.668740799
+  - status: pass
+    recovery_time: 2.671108748
+  - status: pass
+    recovery_time: 2.66568949
+  ../../source/hansard/HAN037-E.PDF:
+  - status: pass
+    recovery_time: 2.666125201
+  - status: pass
+    recovery_time: 2.668984751
+  - status: pass
+    recovery_time: 2.688982068
+  - status: pass
+    recovery_time: 2.67450858
+  - status: pass
+    recovery_time: 2.662327914
+  - status: pass
+    recovery_time: 2.655740947
+  - status: pass
+    recovery_time: 2.662061658
+  - status: pass
+    recovery_time: 2.680623292
+  - status: pass
+    recovery_time: 2.666053497
+  - status: pass
+    recovery_time: 2.664489435
+  ../../source/hansard/HAN038-E.PDF:
+  - status: pass
+    recovery_time: 2.656267558
+  - status: pass
+    recovery_time: 2.652982977
+  - status: pass
+    recovery_time: 2.663496813
+  - status: pass
+    recovery_time: 2.665729493
+  - status: pass
+    recovery_time: 2.680201212
+  - status: pass
+    recovery_time: 2.6549403
+  - status: pass
+    recovery_time: 2.659965387
+  - status: pass
+    recovery_time: 2.664146884
+  - status: pass
+    recovery_time: 2.643489326
+  - status: pass
+    recovery_time: 2.66801257
+  ../../source/hansard/HAN039-E.PDF:
+  - status: pass
+    recovery_time: 2.681394531
+  - status: pass
+    recovery_time: 2.683852402
+  - status: pass
+    recovery_time: 2.680100495
+  - status: pass
+    recovery_time: 2.692100825
+  - status: pass
+    recovery_time: 2.682841312
+  - status: pass
+    recovery_time: 2.713887296
+  - status: pass
+    recovery_time: 2.704165104
+  - status: pass
+    recovery_time: 2.684762252
+  - status: pass
+    recovery_time: 2.681906126
+  - status: pass
+    recovery_time: 2.674499755
+  ../../source/hansard/HAN040-E.PDF:
+  - status: pass
+    recovery_time: 2.665525631
+  - status: pass
+    recovery_time: 2.666285177
+  - status: pass
+    recovery_time: 2.668754815
+  - status: pass
+    recovery_time: 2.671343884
+  - status: pass
+    recovery_time: 2.662783782
+  - status: pass
+    recovery_time: 2.668852954
+  - status: pass
+    recovery_time: 2.667724964
+  - status: pass
+    recovery_time: 2.663161782
+  - status: pass
+    recovery_time: 2.662058031
+  - status: pass
+    recovery_time: 2.676906519
+  ../../source/hansard/HAN041-E.PDF:
+  - status: pass
+    recovery_time: 2.659155773
+  - status: pass
+    recovery_time: 2.682693544
+  - status: pass
+    recovery_time: 2.677525775
+  - status: pass
+    recovery_time: 2.655565467
+  - status: pass
+    recovery_time: 2.658296891
+  - status: pass
+    recovery_time: 2.65793492
+  - status: pass
+    recovery_time: 2.664119279
+  - status: pass
+    recovery_time: 2.662894307
+  - status: pass
+    recovery_time: 2.674707724
+  - status: pass
+    recovery_time: 2.658104606
+  ../../source/hansard/HAN042-E.PDF:
+  - status: pass
+    recovery_time: 2.662120805
+  - status: pass
+    recovery_time: 2.66146838
+  - status: pass
+    recovery_time: 2.670787488
+  - status: pass
+    recovery_time: 2.668835983
+  - status: pass
+    recovery_time: 2.675456639
+  - status: pass
+    recovery_time: 2.680403453
+  - status: pass
+    recovery_time: 2.669499945
+  - status: pass
+    recovery_time: 2.670318083
+  - status: pass
+    recovery_time: 2.671840194
+  - status: pass
+    recovery_time: 2.672141225
+  ../../source/hansard/HAN043-E.PDF:
+  - status: pass
+    recovery_time: 2.680293432
+  - status: pass
+    recovery_time: 2.667000277
+  - status: pass
+    recovery_time: 2.657440853
+  - status: pass
+    recovery_time: 2.663136107
+  - status: pass
+    recovery_time: 2.6634122
+  - status: pass
+    recovery_time: 2.680085897
+  - status: pass
+    recovery_time: 2.679628334
+  - status: pass
+    recovery_time: 2.659210163
+  - status: pass
+    recovery_time: 2.658735858
+  - status: pass
+    recovery_time: 2.688930378
+  ../../source/hansard/HAN044-E.PDF:
+  - status: pass
+    recovery_time: 2.667979352
+  - status: pass
+    recovery_time: 2.667337302
+  - status: pass
+    recovery_time: 2.685552115
+  - status: pass
+    recovery_time: 2.678248469
+  - status: pass
+    recovery_time: 2.673072432
+  - status: pass
+    recovery_time: 2.671045904
+  - status: pass
+    recovery_time: 2.678230078
+  - status: pass
+    recovery_time: 2.66953323
+  - status: pass
+    recovery_time: 2.68497709
+  - status: pass
+    recovery_time: 2.687572029
+  ../../source/hansard/HAN045-E.PDF:
+  - status: pass
+    recovery_time: 2.672746685
+  - status: pass
+    recovery_time: 2.678010502
+  - status: pass
+    recovery_time: 2.670410734
+  - status: pass
+    recovery_time: 2.697272871
+  - status: pass
+    recovery_time: 2.67856146
+  - status: pass
+    recovery_time: 2.673860133
+  - status: pass
+    recovery_time: 2.674152568
+  - status: pass
+    recovery_time: 2.683365854
+  - status: pass
+    recovery_time: 2.680257729
+  - status: pass
+    recovery_time: 2.671151022
+  ../../source/hansard/HAN046-E.PDF:
+  - status: pass
+    recovery_time: 2.713941206
+  - status: pass
+    recovery_time: 2.656799996
+  - status: pass
+    recovery_time: 2.667707
+  - status: pass
+    recovery_time: 2.657506772
+  - status: pass
+    recovery_time: 2.650149367
+  - status: pass
+    recovery_time: 2.648968286
+  - status: pass
+    recovery_time: 2.657180598
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.715090873
+  - status: pass
+    recovery_time: 2.650643394
+  ../../source/hansard/HAN047-E.PDF:
+  - status: pass
+    recovery_time: 2.669251853
+  - status: pass
+    recovery_time: 2.666548833
+  - status: pass
+    recovery_time: 2.687628534
+  - status: pass
+    recovery_time: 2.672376368
+  - status: pass
+    recovery_time: 2.672981739
+  - status: pass
+    recovery_time: 2.668920381
+  - status: pass
+    recovery_time: 2.670328324
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.663611399
+  - status: fail_bad_recovery
+    recovery_time: 2.673173677
+    bad_recovery_url: ../../source/hansard/HAN042-E.PDF
+  ../../source/hansard/HAN048-E.PDF:
+  - status: pass
+    recovery_time: 2.665158092
+  - status: pass
+    recovery_time: 2.658101007
+  - status: pass
+    recovery_time: 2.646605232
+  - status: pass
+    recovery_time: 2.655611494
+  - status: pass
+    recovery_time: 2.653473247
+  - status: pass
+    recovery_time: 2.654023101
+  - status: pass
+    recovery_time: 2.64642616
+  - status: pass
+    recovery_time: 2.646976175
+  - status: pass
+    recovery_time: 2.653261354
+  - status: pass
+    recovery_time: 2.645143442
+  ../../source/hansard/HAN049-E.PDF:
+  - status: pass
+    recovery_time: 2.667364535
+  - status: pass
+    recovery_time: 2.67323566
+  - status: pass
+    recovery_time: 2.676408166
+  - status: pass
+    recovery_time: 2.667000913
+  - status: pass
+    recovery_time: 2.675253685
+  - status: pass
+    recovery_time: 2.681954265
+  - status: pass
+    recovery_time: 2.673491212
+  - status: pass
+    recovery_time: 2.67011841
+  - status: pass
+    recovery_time: 2.667319282
+  - status: pass
+    recovery_time: 2.743257921
+  ../../source/hansard/HAN050-E.PDF:
+  - status: pass
+    recovery_time: 2.674454726
+  - status: pass
+    recovery_time: 2.674900329
+  - status: pass
+    recovery_time: 2.670197529
+  - status: pass
+    recovery_time: 2.673006605
+  - status: pass
+    recovery_time: 2.663039631
+  - status: pass
+    recovery_time: 2.694799964
+  - status: pass
+    recovery_time: 2.671002004
+  - status: pass
+    recovery_time: 2.663254297
+  - status: pass
+    recovery_time: 2.694860292
+  - status: pass
+    recovery_time: 2.693326821
+  ../../source/hansard/HAN051-E.PDF:
+  - status: pass
+    recovery_time: 2.648707285
+  - status: pass
+    recovery_time: 2.647053077
+  - status: pass
+    recovery_time: 2.65129289
+  - status: pass
+    recovery_time: 2.638578417
+  - status: pass
+    recovery_time: 2.6412268
+  - status: pass
+    recovery_time: 2.650403621
+  - status: pass
+    recovery_time: 2.642632379
+  - status: pass
+    recovery_time: 2.662673656
+  - status: pass
+    recovery_time: 2.651255384
+  - status: pass
+    recovery_time: 2.641479136
+  ../../source/hansard/HAN052-E.PDF:
+  - status: pass
+    recovery_time: 2.670393522
+  - status: pass
+    recovery_time: 2.663191937
+  - status: pass
+    recovery_time: 2.659655492
+  - status: pass
+    recovery_time: 2.663226588
+  - status: pass
+    recovery_time: 2.674264763
+  - status: pass
+    recovery_time: 2.681490799
+  - status: pass
+    recovery_time: 2.66250363
+  - status: pass
+    recovery_time: 2.656757902
+  - status: pass
+    recovery_time: 2.660892634
+  - status: pass
+    recovery_time: 2.668296154
+  ../../source/hansard/HAN053-E.PDF:
+  - status: pass
+    recovery_time: 2.679898332
+  - status: pass
+    recovery_time: 2.661523442
+  - status: pass
+    recovery_time: 2.660352272
+  - status: pass
+    recovery_time: 2.681476696
+  - status: pass
+    recovery_time: 2.673598609
+  - status: pass
+    recovery_time: 2.668560492
+  - status: pass
+    recovery_time: 2.666581156
+  - status: pass
+    recovery_time: 2.677705093
+  - status: pass
+    recovery_time: 2.665495282
+  - status: pass
+    recovery_time: 2.687055241
+  ../../source/hansard/HAN054-E.PDF:
+  - status: pass
+    recovery_time: 2.678722441
+  - status: pass
+    recovery_time: 2.674674247
+  - status: pass
+    recovery_time: 2.676067199
+  - status: pass
+    recovery_time: 2.676781456
+  - status: pass
+    recovery_time: 2.670811218
+  - status: pass
+    recovery_time: 2.676065343
+  - status: pass
+    recovery_time: 2.670707886
+  - status: pass
+    recovery_time: 2.678565855
+  - status: pass
+    recovery_time: 2.683943469
+  - status: pass
+    recovery_time: 2.678269511
+  ../../source/hansard/HAN055-E.PDF:
+  - status: pass
+    recovery_time: 2.658703608
+  - status: pass
+    recovery_time: 2.685707654
+  - status: pass
+    recovery_time: 2.731953856
+  - status: pass
+    recovery_time: 2.664126653
+  - status: pass
+    recovery_time: 2.66327068
+  - status: pass
+    recovery_time: 2.725327466
+  - status: pass
+    recovery_time: 2.673912545
+  - status: pass
+    recovery_time: 2.661366403
+  - status: pass
+    recovery_time: 2.668298752
+  - status: pass
+    recovery_time: 2.665343558
+  ../../source/hansard/HAN056-E.PDF:
+  - status: pass
+    recovery_time: 2.676666447
+  - status: pass
+    recovery_time: 2.671115453
+  - status: pass
+    recovery_time: 2.665008123
+  - status: pass
+    recovery_time: 2.683965464
+  - status: pass
+    recovery_time: 2.668480776
+  - status: pass
+    recovery_time: 2.66958691
+  - status: pass
+    recovery_time: 2.672773919
+  - status: pass
+    recovery_time: 2.665813234
+  - status: pass
+    recovery_time: 2.662446013
+  - status: pass
+    recovery_time: 2.682711182
+  ../../source/hansard/HAN057-E.PDF:
+  - status: pass
+    recovery_time: 2.667457983
+  - status: pass
+    recovery_time: 2.680499734
+  - status: pass
+    recovery_time: 2.679227656
+  - status: pass
+    recovery_time: 2.664420253
+  - status: pass
+    recovery_time: 2.672834789
+  - status: pass
+    recovery_time: 2.67140935
+  - status: pass
+    recovery_time: 2.666272082
+  - status: pass
+    recovery_time: 2.666821993
+  - status: pass
+    recovery_time: 2.681527401
+  - status: pass
+    recovery_time: 2.665516681
+  ../../source/hansard/HAN058-E.PDF:
+  - status: pass
+    recovery_time: 2.65382469
+  - status: pass
+    recovery_time: 2.642954505
+  - status: pass
+    recovery_time: 2.648649981
+  - status: pass
+    recovery_time: 2.691639909
+  - status: pass
+    recovery_time: 2.653674367
+  - status: pass
+    recovery_time: 2.646947912
+  - status: pass
+    recovery_time: 2.653185841
+  - status: pass
+    recovery_time: 2.645018111
+  - status: pass
+    recovery_time: 2.658510833
+  - status: pass
+    recovery_time: 2.659216638
+  ../../source/hansard/HAN059-E.PDF:
+  - status: pass
+    recovery_time: 2.682048649
+  - status: pass
+    recovery_time: 2.67949351
+  - status: pass
+    recovery_time: 2.69437674
+  - status: pass
+    recovery_time: 2.674855357
+  - status: pass
+    recovery_time: 2.713720841
+  - status: pass
+    recovery_time: 2.68203594
+  - status: pass
+    recovery_time: 2.680291439
+  - status: pass
+    recovery_time: 2.692476217
+  - status: pass
+    recovery_time: 2.704108494
+  - status: pass
+    recovery_time: 2.730148937
+  ../../source/hansard/HAN060-E.PDF:
+  - status: pass
+    recovery_time: 2.669463689
+  - status: pass
+    recovery_time: 2.676207062
+  - status: pass
+    recovery_time: 2.671910563
+  - status: pass
+    recovery_time: 2.67251945
+  - status: pass
+    recovery_time: 2.669484187
+  - status: pass
+    recovery_time: 2.663439054
+  - status: pass
+    recovery_time: 2.667772486
+  - status: pass
+    recovery_time: 2.661884567
+  - status: pass
+    recovery_time: 2.660183036
+  - status: pass
+    recovery_time: 2.668625895
+  ../../source/hansard/HAN061-E.PDF:
+  - status: pass
+    recovery_time: 2.661187341
+  - status: pass
+    recovery_time: 2.660025819
+  - status: pass
+    recovery_time: 2.647688033
+  - status: pass
+    recovery_time: 2.657102859
+  - status: pass
+    recovery_time: 2.65285856
+  - status: pass
+    recovery_time: 2.64781013
+  - status: pass
+    recovery_time: 2.665081477
+  - status: pass
+    recovery_time: 2.637277339
+  - status: pass
+    recovery_time: 2.651684294
+  - status: pass
+    recovery_time: 2.650268778
+  ../../source/hansard/HAN062-E.PDF:
+  - status: pass
+    recovery_time: 2.663341112
+  - status: pass
+    recovery_time: 2.651671646
+  - status: pass
+    recovery_time: 2.676658726
+  - status: pass
+    recovery_time: 2.725017359
+  - status: pass
+    recovery_time: 2.655864745
+  - status: pass
+    recovery_time: 2.660839552
+  - status: pass
+    recovery_time: 2.659514774
+  - status: pass
+    recovery_time: 2.655178033
+  - status: pass
+    recovery_time: 2.698212318
+  - status: pass
+    recovery_time: 2.661894018
+  ../../source/hansard/HAN063-E.PDF:
+  - status: pass
+    recovery_time: 2.651628046
+  - status: pass
+    recovery_time: 2.674941839
+  - status: pass
+    recovery_time: 2.668145632
+  - status: pass
+    recovery_time: 2.658546002
+  - status: pass
+    recovery_time: 2.67940131
+  - status: pass
+    recovery_time: 2.653940178
+  - status: pass
+    recovery_time: 2.66013522
+  - status: pass
+    recovery_time: 2.664457661
+  - status: pass
+    recovery_time: 2.658759684
+  - status: pass
+    recovery_time: 2.658661502
+  ../../source/hansard/HAN064-E.PDF:
+  - status: pass
+    recovery_time: 2.674436488
+  - status: pass
+    recovery_time: 2.688022289
+  - status: pass
+    recovery_time: 2.673799441
+  - status: pass
+    recovery_time: 2.707118013
+  - status: pass
+    recovery_time: 2.690450371
+  - status: pass
+    recovery_time: 2.671589772
+  - status: pass
+    recovery_time: 2.67832091
+  - status: pass
+    recovery_time: 2.678666985
+  - status: pass
+    recovery_time: 2.676607021
+  - status: pass
+    recovery_time: 2.687116123
+  ../../source/hansard/HAN065-E.PDF:
+  - status: pass
+    recovery_time: 2.67650482
+  - status: pass
+    recovery_time: 2.670164544
+  - status: pass
+    recovery_time: 2.671261394
+  - status: pass
+    recovery_time: 2.657361846
+  - status: pass
+    recovery_time: 2.654036331
+  - status: pass
+    recovery_time: 2.713562687
+  - status: pass
+    recovery_time: 2.665852506
+  - status: pass
+    recovery_time: 2.66128881
+  - status: pass
+    recovery_time: 2.664069352
+  - status: pass
+    recovery_time: 2.67133924
+  ../../source/hansard/HAN066-E.PDF:
+  - status: pass
+    recovery_time: 2.665549305
+  - status: pass
+    recovery_time: 2.665794609
+  - status: pass
+    recovery_time: 2.664842589
+  - status: pass
+    recovery_time: 2.673751748
+  - status: pass
+    recovery_time: 2.658982778
+  - status: pass
+    recovery_time: 2.669275804
+  - status: pass
+    recovery_time: 2.662216683
+  - status: pass
+    recovery_time: 2.681646305
+  - status: pass
+    recovery_time: 2.669223802
+  - status: pass
+    recovery_time: 2.687135884
+  ../../source/hansard/HAN067-E.PDF:
+  - status: pass
+    recovery_time: 2.663827805
+  - status: pass
+    recovery_time: 2.664363163
+  - status: pass
+    recovery_time: 2.66910306
+  - status: pass
+    recovery_time: 2.68500566
+  - status: pass
+    recovery_time: 2.677065524
+  - status: pass
+    recovery_time: 2.670762074
+  - status: pass
+    recovery_time: 2.672214703
+  - status: pass
+    recovery_time: 2.662238403
+  - status: pass
+    recovery_time: 2.66633124
+  - status: pass
+    recovery_time: 2.672338863
+  ../../source/hansard/HAN068-E.PDF:
+  - status: pass
+    recovery_time: 2.670424048
+  - status: pass
+    recovery_time: 2.640777354
+  - status: pass
+    recovery_time: 2.632953574
+  - status: pass
+    recovery_time: 2.64423197
+  - status: pass
+    recovery_time: 2.63535571
+  - status: pass
+    recovery_time: 2.658991343
+  - status: pass
+    recovery_time: 2.648744697
+  - status: pass
+    recovery_time: 2.663819841
+  - status: pass
+    recovery_time: 2.647330047
+  - status: pass
+    recovery_time: 2.654143548
+  ../../source/hansard/HAN069-E.PDF:
+  - status: pass
+    recovery_time: 2.683312831
+  - status: pass
+    recovery_time: 2.683964127
+  - status: pass
+    recovery_time: 2.699565024
+  - status: pass
+    recovery_time: 2.676056029
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.682062382
+  - status: pass
+    recovery_time: 2.678009233
+  - status: pass
+    recovery_time: 2.676152252
+  - status: pass
+    recovery_time: 2.676046771
+  - status: pass
+    recovery_time: 2.677826255
+  ../../source/hansard/HAN070-E.PDF:
+  - status: pass
+    recovery_time: 2.675881234
+  - status: pass
+    recovery_time: 2.700364506
+  - status: pass
+    recovery_time: 2.673588352
+  - status: pass
+    recovery_time: 2.665872548
+  - status: pass
+    recovery_time: 2.677982182
+  - status: pass
+    recovery_time: 2.673359945
+  - status: pass
+    recovery_time: 2.664750964
+  - status: pass
+    recovery_time: 2.671815772
+  - status: pass
+    recovery_time: 2.665368064
+  - status: pass
+    recovery_time: 2.674396428
+  ../../source/hansard/HAN071-E.PDF:
+  - status: pass
+    recovery_time: 2.67387989
+  - status: pass
+    recovery_time: 2.688133266
+  - status: pass
+    recovery_time: 2.656058667
+  - status: pass
+    recovery_time: 2.655217936
+  - status: pass
+    recovery_time: 2.657020304
+  - status: pass
+    recovery_time: 2.658552743
+  - status: pass
+    recovery_time: 2.668108822
+  - status: pass
+    recovery_time: 2.645531791
+  - status: pass
+    recovery_time: 2.657903544
+  - status: pass
+    recovery_time: 2.673931213
+  ../../source/hansard/HAN072-E.PDF:
+  - status: pass
+    recovery_time: 2.670070342
+  - status: pass
+    recovery_time: 2.673066855
+  - status: pass
+    recovery_time: 2.661837661
+  - status: pass
+    recovery_time: 2.670214231
+  - status: pass
+    recovery_time: 2.680616233
+  - status: pass
+    recovery_time: 2.668515021
+  - status: pass
+    recovery_time: 2.664473907
+  - status: pass
+    recovery_time: 2.682445375
+  - status: pass
+    recovery_time: 2.663547484
+  - status: pass
+    recovery_time: 2.690364527
+  ../../source/hansard/HAN073-E.PDF:
+  - status: pass
+    recovery_time: 2.674698562
+  - status: pass
+    recovery_time: 2.674648047
+  - status: pass
+    recovery_time: 2.662636324
+  - status: pass
+    recovery_time: 2.660687492
+  - status: pass
+    recovery_time: 2.659153791
+  - status: pass
+    recovery_time: 2.667474505
+  - status: pass
+    recovery_time: 2.681193638
+  - status: pass
+    recovery_time: 2.658100771
+  - status: pass
+    recovery_time: 2.67559664
+  - status: pass
+    recovery_time: 2.665934343
+  ../../source/hansard/HAN074-E.PDF:
+  - status: pass
+    recovery_time: 2.668486774
+  - status: pass
+    recovery_time: 2.662894681
+  - status: pass
+    recovery_time: 2.654780395
+  - status: pass
+    recovery_time: 2.661317404
+  - status: pass
+    recovery_time: 2.657830363
+  - status: fail_bad_recovery
+    recovery_time: 2.689446182
+    bad_recovery_url: ../../source/hansard/HAN086-E.PDF
+  - status: pass
+    recovery_time: 2.653119306
+  - status: pass
+    recovery_time: 2.663493112
+  - status: pass
+    recovery_time: 2.65832021
+  - status: pass
+    recovery_time: 2.661755285
+  ../../source/hansard/HAN075-E.PDF:
+  - status: pass
+    recovery_time: 2.662233814
+  - status: pass
+    recovery_time: 2.671315217
+  - status: pass
+    recovery_time: 2.663153439
+  - status: pass
+    recovery_time: 2.663912586
+  - status: pass
+    recovery_time: 2.686699299
+  - status: pass
+    recovery_time: 2.68529921
+  - status: pass
+    recovery_time: 2.666130533
+  - status: pass
+    recovery_time: 2.654846224
+  - status: pass
+    recovery_time: 2.663367308
+  - status: pass
+    recovery_time: 2.679129599
+  ../../source/hansard/HAN076-E.PDF:
+  - status: pass
+    recovery_time: 2.656400558
+  - status: pass
+    recovery_time: 2.655525034
+  - status: pass
+    recovery_time: 2.655713592
+  - status: pass
+    recovery_time: 2.674410613
+  - status: pass
+    recovery_time: 2.654667516
+  - status: pass
+    recovery_time: 2.660653493
+  - status: pass
+    recovery_time: 2.657519074
+  - status: pass
+    recovery_time: 2.653192203
+  - status: pass
+    recovery_time: 2.654788933
+  - status: pass
+    recovery_time: 2.655608481
+  ../../source/hansard/HAN077-E.PDF:
+  - status: pass
+    recovery_time: 2.663630182
+  - status: pass
+    recovery_time: 2.667844177
+  - status: pass
+    recovery_time: 2.694104593
+  - status: pass
+    recovery_time: 2.667458429
+  - status: pass
+    recovery_time: 2.662500065
+  - status: pass
+    recovery_time: 2.663039128
+  - status: pass
+    recovery_time: 2.66526554
+  - status: pass
+    recovery_time: 2.669516348
+  - status: pass
+    recovery_time: 2.663130735
+  - status: pass
+    recovery_time: 2.664879795
+  ../../source/hansard/HAN078-E.PDF:
+  - status: pass
+    recovery_time: 2.643620937
+  - status: pass
+    recovery_time: 2.64942408
+  - status: pass
+    recovery_time: 2.657947021
+  - status: pass
+    recovery_time: 2.641448573
+  - status: pass
+    recovery_time: 2.662118446
+  - status: pass
+    recovery_time: 2.646632138
+  - status: pass
+    recovery_time: 2.644392254
+  - status: pass
+    recovery_time: 2.646431638
+  - status: pass
+    recovery_time: 2.650630562
+  - status: pass
+    recovery_time: 2.654386206
+  ../../source/hansard/HAN079-E.PDF:
+  - status: pass
+    recovery_time: 2.67901233
+  - status: pass
+    recovery_time: 2.680405142
+  - status: pass
+    recovery_time: 2.672042584
+  - status: pass
+    recovery_time: 2.681741443
+  - status: pass
+    recovery_time: 2.675130346
+  - status: pass
+    recovery_time: 2.684180879
+  - status: pass
+    recovery_time: 2.687830104
+  - status: pass
+    recovery_time: 2.684217749
+  - status: pass
+    recovery_time: 2.683625153
+  - status: pass
+    recovery_time: 2.709592275
+  ../../source/hansard/HAN080-E.PDF:
+  - status: pass
+    recovery_time: 2.691554545
+  - status: pass
+    recovery_time: 2.67810638
+  - status: pass
+    recovery_time: 2.667820096
+  - status: pass
+    recovery_time: 2.678159891
+  - status: pass
+    recovery_time: 2.685217754
+  - status: pass
+    recovery_time: 2.676726236
+  - status: pass
+    recovery_time: 2.675509004
+  - status: pass
+    recovery_time: 2.670067697
+  - status: pass
+    recovery_time: 2.671897814
+  - status: pass
+    recovery_time: 2.70032673
+  ../../source/hansard/HAN081-E.PDF:
+  - status: pass
+    recovery_time: 2.655726481
+  - status: pass
+    recovery_time: 2.652584739
+  - status: pass
+    recovery_time: 2.649400048
+  - status: pass
+    recovery_time: 2.647998379
+  - status: pass
+    recovery_time: 2.653029907
+  - status: pass
+    recovery_time: 2.639793119
+  - status: pass
+    recovery_time: 2.648114684
+  - status: pass
+    recovery_time: 2.65179299
+  - status: pass
+    recovery_time: 2.640617689
+  - status: pass
+    recovery_time: 2.642422327
+  ../../source/hansard/HAN082-E.PDF:
+  - status: pass
+    recovery_time: 2.657672537
+  - status: pass
+    recovery_time: 2.663908334
+  - status: pass
+    recovery_time: 2.66317436
+  - status: pass
+    recovery_time: 2.681837309
+  - status: pass
+    recovery_time: 2.655474234
+  - status: pass
+    recovery_time: 2.671855924
+  - status: pass
+    recovery_time: 2.657556699
+  - status: pass
+    recovery_time: 2.662648242
+  - status: pass
+    recovery_time: 2.668557544
+  - status: fail_recording
+    recovery_time: 
+  ../../source/hansard/HAN083-E.PDF:
+  - status: pass
+    recovery_time: 2.645376763
+  - status: pass
+    recovery_time: 2.65808823
+  - status: pass
+    recovery_time: 2.64995717
+  - status: pass
+    recovery_time: 2.645978877
+  - status: pass
+    recovery_time: 2.661129509
+  - status: pass
+    recovery_time: 2.650898573
+  - status: pass
+    recovery_time: 2.646310721
+  - status: pass
+    recovery_time: 2.650109897
+  - status: pass
+    recovery_time: 2.659290532
+  - status: pass
+    recovery_time: 2.65022845
+  ../../source/hansard/HAN084-E.PDF:
+  - status: pass
+    recovery_time: 2.67566468
+  - status: pass
+    recovery_time: 2.67268627
+  - status: pass
+    recovery_time: 2.675951213
+  - status: pass
+    recovery_time: 2.674262262
+  - status: pass
+    recovery_time: 2.668763958
+  - status: pass
+    recovery_time: 2.674938164
+  - status: pass
+    recovery_time: 2.673992528
+  - status: pass
+    recovery_time: 2.671759601
+  - status: pass
+    recovery_time: 2.688207068
+  - status: pass
+    recovery_time: 2.695070877
+  ../../source/hansard/HAN085-E.PDF:
+  - status: pass
+    recovery_time: 2.654544766
+  - status: pass
+    recovery_time: 2.654997497
+  - status: pass
+    recovery_time: 2.664050328
+  - status: pass
+    recovery_time: 2.653795404
+  - status: pass
+    recovery_time: 2.650134285
+  - status: pass
+    recovery_time: 2.659750239
+  - status: pass
+    recovery_time: 2.651868273
+  - status: pass
+    recovery_time: 2.6531262
+  - status: pass
+    recovery_time: 2.644843217
+  - status: pass
+    recovery_time: 2.654159282
+  ../../source/hansard/HAN086-E.PDF:
+  - status: pass
+    recovery_time: 2.67561751
+  - status: pass
+    recovery_time: 2.666375902
+  - status: pass
+    recovery_time: 2.670151421
+  - status: pass
+    recovery_time: 2.681719121
+  - status: pass
+    recovery_time: 2.678649906
+  - status: pass
+    recovery_time: 2.669024186
+  - status: pass
+    recovery_time: 2.667835904
+  - status: pass
+    recovery_time: 2.666159232
+  - status: pass
+    recovery_time: 2.670106564
+  - status: pass
+    recovery_time: 2.670548139
+  ../../source/hansard/HAN087-E.PDF:
+  - status: pass
+    recovery_time: 2.683931547
+  - status: pass
+    recovery_time: 2.659896747
+  - status: pass
+    recovery_time: 2.671427932
+  - status: pass
+    recovery_time: 2.663143576
+  - status: pass
+    recovery_time: 2.687506518
+  - status: pass
+    recovery_time: 2.659678376
+  - status: pass
+    recovery_time: 2.658259568
+  - status: pass
+    recovery_time: 2.657625414
+  - status: pass
+    recovery_time: 2.656952289
+  - status: pass
+    recovery_time: 2.653118492
+  ../../source/hansard/HAN088-E.PDF:
+  - status: pass
+    recovery_time: 2.715359518
+  - status: pass
+    recovery_time: 2.67455989
+  - status: pass
+    recovery_time: 2.68002004
+  - status: pass
+    recovery_time: 2.680647201
+  - status: pass
+    recovery_time: 2.674156563
+  - status: pass
+    recovery_time: 2.68081377
+  - status: pass
+    recovery_time: 2.688640168
+  - status: pass
+    recovery_time: 2.687368945
+  - status: pass
+    recovery_time: 2.703315483
+  - status: pass
+    recovery_time: 2.735351729
+  ../../source/hansard/HAN089-E.PDF:
+  - status: pass
+    recovery_time: 2.679363635
+  - status: pass
+    recovery_time: 2.694656823
+  - status: pass
+    recovery_time: 2.675357847
+  - status: pass
+    recovery_time: 2.682818916
+  - status: pass
+    recovery_time: 2.695419919
+  - status: pass
+    recovery_time: 2.680928024
+  - status: pass
+    recovery_time: 2.687970404
+  - status: pass
+    recovery_time: 2.669642631
+  - status: pass
+    recovery_time: 2.693645196
+  - status: pass
+    recovery_time: 2.681373935
+  ../../source/hansard/HAN090-E.PDF:
+  - status: pass
+    recovery_time: 2.669543774
+  - status: pass
+    recovery_time: 2.665486857
+  - status: pass
+    recovery_time: 2.655946747
+  - status: pass
+    recovery_time: 2.65329913
+  - status: pass
+    recovery_time: 2.65553213
+  - status: pass
+    recovery_time: 2.659235676
+  - status: pass
+    recovery_time: 2.664547286
+  - status: pass
+    recovery_time: 2.67770428
+  - status: pass
+    recovery_time: 2.674737849
+  - status: pass
+    recovery_time: 2.657317796
+  ../../source/hansard/HAN091-E.PDF:
+  - status: pass
+    recovery_time: 2.674720429
+  - status: pass
+    recovery_time: 2.667706095
+  - status: pass
+    recovery_time: 2.672820487
+  - status: pass
+    recovery_time: 2.669697
+  - status: pass
+    recovery_time: 2.665865827
+  - status: pass
+    recovery_time: 2.67432862
+  - status: pass
+    recovery_time: 2.68860306
+  - status: pass
+    recovery_time: 2.686576409
+  - status: pass
+    recovery_time: 2.691361511
+  - status: pass
+    recovery_time: 2.673923533
+  ../../source/hansard/HAN092-E.PDF:
+  - status: pass
+    recovery_time: 2.662360401
+  - status: pass
+    recovery_time: 2.679416553
+  - status: pass
+    recovery_time: 2.695765507
+  - status: pass
+    recovery_time: 2.675239773
+  - status: pass
+    recovery_time: 2.665628389
+  - status: pass
+    recovery_time: 2.681685905
+  - status: pass
+    recovery_time: 2.664788911
+  - status: pass
+    recovery_time: 2.660107098
+  - status: pass
+    recovery_time: 2.660155882
+  - status: pass
+    recovery_time: 2.676760034
+  ../../source/hansard/HAN093-E.PDF:
+  - status: pass
+    recovery_time: 2.705208804
+  - status: pass
+    recovery_time: 2.684243872
+  - status: pass
+    recovery_time: 2.67395583
+  - status: pass
+    recovery_time: 2.675341988
+  - status: pass
+    recovery_time: 2.690499491
+  - status: pass
+    recovery_time: 2.677335731
+  - status: pass
+    recovery_time: 2.687999469
+  - status: pass
+    recovery_time: 2.694076203
+  - status: pass
+    recovery_time: 2.677480593
+  - status: pass
+    recovery_time: 2.681295501
+  ../../source/hansard/HAN094-E.PDF:
+  - status: pass
+    recovery_time: 2.684827548
+  - status: pass
+    recovery_time: 2.686177455
+  - status: pass
+    recovery_time: 2.665366387
+  - status: pass
+    recovery_time: 2.681437457
+  - status: pass
+    recovery_time: 2.666975589
+  - status: pass
+    recovery_time: 2.664313419
+  - status: pass
+    recovery_time: 2.671551794
+  - status: pass
+    recovery_time: 2.667527472
+  - status: pass
+    recovery_time: 2.669767911
+  - status: pass
+    recovery_time: 2.675653912
+  ../../source/hansard/HAN095-E.PDF:
+  - status: pass
+    recovery_time: 2.659159578
+  - status: pass
+    recovery_time: 2.646712456
+  - status: pass
+    recovery_time: 2.652684992
+  - status: pass
+    recovery_time: 2.651203818
+  - status: pass
+    recovery_time: 2.671801759
+  - status: pass
+    recovery_time: 2.653862799
+  - status: pass
+    recovery_time: 2.643450879
+  - status: pass
+    recovery_time: 2.654048759
+  - status: pass
+    recovery_time: 2.659158009
+  - status: pass
+    recovery_time: 2.662045451
+  ../../source/hansard/HAN096-E.PDF:
+  - status: pass
+    recovery_time: 2.670399457
+  - status: pass
+    recovery_time: 2.675589797
+  - status: pass
+    recovery_time: 2.67342686
+  - status: pass
+    recovery_time: 2.668429271
+  - status: pass
+    recovery_time: 2.695736224
+  - status: pass
+    recovery_time: 2.671655162
+  - status: pass
+    recovery_time: 2.683118641
+  - status: pass
+    recovery_time: 2.669749027
+  - status: pass
+    recovery_time: 2.671508708
+  - status: pass
+    recovery_time: 2.671245902
+  ../../source/hansard/HAN097-E.PDF:
+  - status: pass
+    recovery_time: 2.666196493
+  - status: pass
+    recovery_time: 2.652741115
+  - status: pass
+    recovery_time: 2.657454171
+  - status: pass
+    recovery_time: 2.660582288
+  - status: pass
+    recovery_time: 2.65606038
+  - status: pass
+    recovery_time: 2.66589352
+  - status: pass
+    recovery_time: 2.668931545
+  - status: pass
+    recovery_time: 2.656188607
+  - status: pass
+    recovery_time: 2.666872047
+  - status: pass
+    recovery_time: 2.668231896
+  ../../source/hansard/HAN098-E.PDF:
+  - status: pass
+    recovery_time: 2.672798648
+  - status: pass
+    recovery_time: 2.676175333
+  - status: pass
+    recovery_time: 2.673886891
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.692762024
+  - status: pass
+    recovery_time: 2.683606027
+  - status: pass
+    recovery_time: 2.666862596
+  - status: pass
+    recovery_time: 2.67905341
+  - status: pass
+    recovery_time: 2.68645544
+  - status: pass
+    recovery_time: 2.678193637
+  ../../source/hansard/HAN099-E.PDF:
+  - status: pass
+    recovery_time: 2.67268417
+  - status: pass
+    recovery_time: 2.697534372
+  - status: pass
+    recovery_time: 2.67938512
+  - status: pass
+    recovery_time: 2.670996198
+  - status: pass
+    recovery_time: 2.676927718
+  - status: pass
+    recovery_time: 2.673236366
+  - status: pass
+    recovery_time: 2.683588393
+  - status: pass
+    recovery_time: 2.687094769
+  - status: pass
+    recovery_time: 2.680737957
+  - status: pass
+    recovery_time: 2.673749092
+  ../../source/hansard/HAN100-E.PDF:
+  - status: pass
+    recovery_time: 2.64929884
+  - status: pass
+    recovery_time: 2.685800134
+  - status: pass
+    recovery_time: 2.650041986
+  - status: pass
+    recovery_time: 2.651287067
+  - status: pass
+    recovery_time: 2.6664537
+  - status: pass
+    recovery_time: 2.656232059
+  - status: pass
+    recovery_time: 2.652125745
+  - status: pass
+    recovery_time: 2.678731649
+  - status: pass
+    recovery_time: 2.657184386
+  - status: pass
+    recovery_time: 2.644260842
+  ../../source/hansard/HAN101-E.PDF:
+  - status: pass
+    recovery_time: 2.671570085
+  - status: pass
+    recovery_time: 2.701278772
+  - status: pass
+    recovery_time: 2.666349373
+  - status: pass
+    recovery_time: 2.668702734
+  - status: pass
+    recovery_time: 2.681354701
+  - status: pass
+    recovery_time: 2.675377099
+  - status: pass
+    recovery_time: 2.667454158
+  - status: pass
+    recovery_time: 2.679768792
+  - status: pass
+    recovery_time: 2.73390804
+  - status: pass
+    recovery_time: 2.674736523
+  ../../source/hansard/HAN102-E.PDF:
+  - status: pass
+    recovery_time: 2.65813145
+  - status: pass
+    recovery_time: 2.664988779
+  - status: pass
+    recovery_time: 2.666754993
+  - status: pass
+    recovery_time: 2.675612985
+  - status: pass
+    recovery_time: 2.666945831
+  - status: pass
+    recovery_time: 2.668541155
+  - status: pass
+    recovery_time: 2.663121748
+  - status: pass
+    recovery_time: 2.677119577
+  - status: pass
+    recovery_time: 2.658437391
+  - status: pass
+    recovery_time: 2.660620439
+  ../../source/hansard/HAN103-E.PDF:
+  - status: pass
+    recovery_time: 2.672185031
+  - status: pass
+    recovery_time: 2.681009523
+  - status: pass
+    recovery_time: 2.667762566
+  - status: pass
+    recovery_time: 2.668474989
+  - status: pass
+    recovery_time: 2.66913553
+  - status: pass
+    recovery_time: 2.676591755
+  - status: pass
+    recovery_time: 2.671954982
+  - status: pass
+    recovery_time: 2.694740423
+  - status: pass
+    recovery_time: 2.680975325
+  - status: pass
+    recovery_time: 2.668074551
+  ../../source/hansard/HAN104-E.PDF:
+  - status: pass
+    recovery_time: 2.734082016
+  - status: pass
+    recovery_time: 2.662250356
+  - status: pass
+    recovery_time: 2.675746452
+  - status: pass
+    recovery_time: 2.677626889
+  - status: pass
+    recovery_time: 2.693893632
+  - status: pass
+    recovery_time: 2.680602049
+  - status: pass
+    recovery_time: 2.667682548
+  - status: pass
+    recovery_time: 2.672863221
+  - status: pass
+    recovery_time: 2.682331955
+  - status: pass
+    recovery_time: 2.720445802
+  ../../source/hansard/HAN105-E.PDF:
+  - status: pass
+    recovery_time: 2.671548014
+  - status: pass
+    recovery_time: 2.667039939
+  - status: pass
+    recovery_time: 2.671502081
+  - status: pass
+    recovery_time: 2.673599983
+  - status: pass
+    recovery_time: 2.681405453
+  - status: pass
+    recovery_time: 2.677964979
+  - status: pass
+    recovery_time: 2.675101973
+  - status: pass
+    recovery_time: 2.690387456
+  - status: pass
+    recovery_time: 2.685750382
+  - status: pass
+    recovery_time: 2.673529716
+  ../../source/hansard/HAN106-E.PDF:
+  - status: pass
+    recovery_time: 2.663913668
+  - status: pass
+    recovery_time: 2.666980981
+  - status: pass
+    recovery_time: 2.685127506
+  - status: pass
+    recovery_time: 2.669416423
+  - status: pass
+    recovery_time: 2.677521244
+  - status: pass
+    recovery_time: 2.669987448
+  - status: pass
+    recovery_time: 2.679355566
+  - status: pass
+    recovery_time: 2.685304148
+  - status: pass
+    recovery_time: 2.671900206
+  - status: pass
+    recovery_time: 2.675290189
+  ../../source/hansard/HAN107-E.PDF:
+  - status: pass
+    recovery_time: 2.676249637
+  - status: pass
+    recovery_time: 2.668645497
+  - status: pass
+    recovery_time: 2.680735977
+  - status: pass
+    recovery_time: 2.672526837
+  - status: pass
+    recovery_time: 2.68705777
+  - status: pass
+    recovery_time: 2.66858285
+  - status: pass
+    recovery_time: 2.68853797
+  - status: pass
+    recovery_time: 2.671500889
+  - status: pass
+    recovery_time: 2.673986579
+  - status: pass
+    recovery_time: 2.685863883
+  ../../source/hansard/HAN108-E.PDF:
+  - status: pass
+    recovery_time: 2.714124588
+  - status: pass
+    recovery_time: 2.67076546
+  - status: pass
+    recovery_time: 2.673054426
+  - status: pass
+    recovery_time: 2.668484361
+  - status: pass
+    recovery_time: 2.671625676
+  - status: pass
+    recovery_time: 2.697990156
+  - status: pass
+    recovery_time: 2.672411738
+  - status: pass
+    recovery_time: 2.673902046
+  - status: pass
+    recovery_time: 2.670261809
+  - status: pass
+    recovery_time: 2.680951099
+  ../../source/hansard/HAN109-E.PDF:
+  - status: pass
+    recovery_time: 2.685468949
+  - status: pass
+    recovery_time: 2.671102449
+  - status: pass
+    recovery_time: 2.665978019
+  - status: pass
+    recovery_time: 2.684866198
+  - status: pass
+    recovery_time: 2.671691708
+  - status: pass
+    recovery_time: 2.657285879
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.670007414
+  - status: pass
+    recovery_time: 2.669782842
+  - status: pass
+    recovery_time: 2.671675627
+  ../../source/hansard/HAN110-E.PDF:
+  - status: pass
+    recovery_time: 2.666182351
+  - status: pass
+    recovery_time: 2.661531227
+  - status: pass
+    recovery_time: 2.663865812
+  - status: pass
+    recovery_time: 2.682410819
+  - status: pass
+    recovery_time: 2.65790336
+  - status: pass
+    recovery_time: 2.664698734
+  - status: pass
+    recovery_time: 2.663781871
+  - status: pass
+    recovery_time: 2.669349327
+  - status: pass
+    recovery_time: 2.67926483
+  - status: pass
+    recovery_time: 2.673677146
+  ../../source/hansard/HAN111-E.PDF:
+  - status: pass
+    recovery_time: 2.653838681
+  - status: pass
+    recovery_time: 2.670561289
+  - status: pass
+    recovery_time: 2.648780307
+  - status: pass
+    recovery_time: 2.649583275
+  - status: pass
+    recovery_time: 2.671882628
+  - status: pass
+    recovery_time: 2.662891569
+  - status: pass
+    recovery_time: 2.65991564
+  - status: pass
+    recovery_time: 2.649957796
+  - status: pass
+    recovery_time: 2.651011655
+  - status: pass
+    recovery_time: 2.65987294
+  ../../source/hansard/HAN112-E.PDF:
+  - status: pass
+    recovery_time: 2.682919959
+  - status: pass
+    recovery_time: 2.684865557
+  - status: pass
+    recovery_time: 2.677581021
+  - status: pass
+    recovery_time: 2.674536274
+  - status: pass
+    recovery_time: 2.67716115
+  - status: pass
+    recovery_time: 2.68980389
+  - status: pass
+    recovery_time: 2.681228662
+  - status: pass
+    recovery_time: 2.690727697
+  - status: pass
+    recovery_time: 2.67657142
+  - status: pass
+    recovery_time: 2.676991884
+  ../../source/hansard/HAN113-E.PDF:
+  - status: pass
+    recovery_time: 2.689243321
+  - status: pass
+    recovery_time: 2.670261249
+  - status: pass
+    recovery_time: 2.678209292
+  - status: pass
+    recovery_time: 2.703627187
+  - status: pass
+    recovery_time: 2.702126154
+  - status: pass
+    recovery_time: 2.687874648
+  - status: pass
+    recovery_time: 2.675277728
+  - status: pass
+    recovery_time: 2.668463564
+  - status: pass
+    recovery_time: 2.673927066
+  - status: pass
+    recovery_time: 2.740445594
+  ../../source/hansard/HAN114-E.PDF:
+  - status: pass
+    recovery_time: 2.663623692
+  - status: pass
+    recovery_time: 2.669940292
+  - status: pass
+    recovery_time: 2.659260008
+  - status: pass
+    recovery_time: 2.667751849
+  - status: pass
+    recovery_time: 2.67798599
+  - status: pass
+    recovery_time: 2.671280661
+  - status: pass
+    recovery_time: 2.66601425
+  - status: pass
+    recovery_time: 2.672405035
+  - status: pass
+    recovery_time: 2.675782578
+  - status: pass
+    recovery_time: 2.681032032
+  ../../source/hansard/HAN115-E.PDF:
+  - status: pass
+    recovery_time: 2.679386243
+  - status: pass
+    recovery_time: 2.666760013
+  - status: pass
+    recovery_time: 2.674604876
+  - status: pass
+    recovery_time: 2.659188393
+  - status: pass
+    recovery_time: 2.682393677
+  - status: pass
+    recovery_time: 2.677704878
+  - status: pass
+    recovery_time: 2.668975182
+  - status: pass
+    recovery_time: 2.657018161
+  - status: pass
+    recovery_time: 2.663847649
+  - status: pass
+    recovery_time: 2.669140229
+  ../../source/hansard/HAN116-E.PDF:
+  - status: pass
+    recovery_time: 2.662161101
+  - status: pass
+    recovery_time: 2.661795612
+  - status: pass
+    recovery_time: 2.657210499
+  - status: pass
+    recovery_time: 2.648699029
+  - status: pass
+    recovery_time: 2.667097483
+  - status: pass
+    recovery_time: 2.659132392
+  - status: pass
+    recovery_time: 2.650500405
+  - status: pass
+    recovery_time: 2.664885699
+  - status: pass
+    recovery_time: 2.682942718
+  - status: pass
+    recovery_time: 2.656451981
+  ../../source/hansard/HAN117-E.PDF:
+  - status: pass
+    recovery_time: 2.679925337
+  - status: pass
+    recovery_time: 2.738188462
+  - status: pass
+    recovery_time: 2.683502593
+  - status: pass
+    recovery_time: 2.67729132
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.676356364
+  - status: pass
+    recovery_time: 2.688261995
+  - status: pass
+    recovery_time: 2.669910749
+  - status: pass
+    recovery_time: 2.682274475
+  - status: pass
+    recovery_time: 2.68745896
+  ../../source/hansard/HAN118-E.PDF:
+  - status: pass
+    recovery_time: 2.677535708
+  - status: pass
+    recovery_time: 2.674914134
+  - status: pass
+    recovery_time: 2.686611441
+  - status: pass
+    recovery_time: 2.676266042
+  - status: pass
+    recovery_time: 2.693118713
+  - status: pass
+    recovery_time: 2.672858639
+  - status: pass
+    recovery_time: 2.681722823
+  - status: pass
+    recovery_time: 2.68200928
+  - status: pass
+    recovery_time: 2.696866209
+  - status: pass
+    recovery_time: 2.692427132
+  ../../source/hansard/HAN119-E.PDF:
+  - status: pass
+    recovery_time: 2.665953902
+  - status: pass
+    recovery_time: 2.66647304
+  - status: pass
+    recovery_time: 2.653693866
+  - status: pass
+    recovery_time: 2.658351902
+  - status: pass
+    recovery_time: 2.676935621
+  - status: pass
+    recovery_time: 2.661059334
+  - status: pass
+    recovery_time: 2.662318109
+  - status: pass
+    recovery_time: 2.658209665
+  - status: pass
+    recovery_time: 2.657883147
+  - status: pass
+    recovery_time: 2.660807218
+  ../../source/hansard/HAN120-E.PDF:
+  - status: pass
+    recovery_time: 2.676689989
+  - status: pass
+    recovery_time: 2.690229408
+  - status: pass
+    recovery_time: 2.679606666
+  - status: pass
+    recovery_time: 2.668785444
+  - status: pass
+    recovery_time: 2.67042709
+  - status: pass
+    recovery_time: 2.668135755
+  - status: pass
+    recovery_time: 2.695525849
+  - status: pass
+    recovery_time: 2.697256759
+  - status: pass
+    recovery_time: 2.672168034
+  - status: pass
+    recovery_time: 2.67398151
+  ../../source/hansard/HAN121-E.PDF:
+  - status: pass
+    recovery_time: 2.673900479
+  - status: pass
+    recovery_time: 2.668330078
+  - status: pass
+    recovery_time: 2.649548148
+  - status: pass
+    recovery_time: 2.67119087
+  - status: pass
+    recovery_time: 2.653742549
+  - status: pass
+    recovery_time: 2.656551112
+  - status: pass
+    recovery_time: 2.652117742
+  - status: pass
+    recovery_time: 2.665420781
+  - status: pass
+    recovery_time: 2.655178598
+  - status: pass
+    recovery_time: 2.652680301
+  ../../source/hansard/HAN122-E.PDF:
+  - status: pass
+    recovery_time: 2.738364877
+  - status: pass
+    recovery_time: 2.675801369
+  - status: pass
+    recovery_time: 2.67546142
+  - status: pass
+    recovery_time: 2.692465512
+  - status: pass
+    recovery_time: 2.668550258
+  - status: pass
+    recovery_time: 2.68608095
+  - status: pass
+    recovery_time: 2.672020081
+  - status: pass
+    recovery_time: 2.676139098
+  - status: pass
+    recovery_time: 2.673882339
+  - status: pass
+    recovery_time: 2.681336786
+  ../../source/hansard/HAN123-E.PDF:
+  - status: pass
+    recovery_time: 2.687632382
+  - status: pass
+    recovery_time: 2.69530355
+  - status: pass
+    recovery_time: 2.667834039
+  - status: pass
+    recovery_time: 2.676064077
+  - status: pass
+    recovery_time: 2.666549701
+  - status: pass
+    recovery_time: 2.671736251
+  - status: pass
+    recovery_time: 2.671096463
+  - status: pass
+    recovery_time: 2.668133169
+  - status: pass
+    recovery_time: 2.672289029
+  - status: pass
+    recovery_time: 2.669148835
+  ../../source/hansard/HAN124-E.PDF:
+  - status: pass
+    recovery_time: 2.662416694
+  - status: pass
+    recovery_time: 2.661950958
+  - status: pass
+    recovery_time: 2.655594773
+  - status: pass
+    recovery_time: 2.662035665
+  - status: pass
+    recovery_time: 2.685569635
+  - status: pass
+    recovery_time: 2.684469073
+  - status: pass
+    recovery_time: 2.658931675
+  - status: pass
+    recovery_time: 2.668315751
+  - status: pass
+    recovery_time: 2.671256634
+  - status: pass
+    recovery_time: 2.667328306
+  ../../source/hansard/HAN125-E.PDF:
+  - status: pass
+    recovery_time: 2.66307666
+  - status: pass
+    recovery_time: 2.685530795
+  - status: pass
+    recovery_time: 2.656066295
+  - status: pass
+    recovery_time: 2.655102682
+  - status: pass
+    recovery_time: 2.664752224
+  - status: pass
+    recovery_time: 2.659948235
+  - status: pass
+    recovery_time: 2.649048732
+  - status: pass
+    recovery_time: 2.65811749
+  - status: pass
+    recovery_time: 2.657310062
+  - status: pass
+    recovery_time: 2.659957569
+  ../../source/hansard/HAN126-E.PDF:
+  - status: pass
+    recovery_time: 2.663124317
+  - status: pass
+    recovery_time: 2.676343183
+  - status: pass
+    recovery_time: 2.653061491
+  - status: pass
+    recovery_time: 2.644656418
+  - status: pass
+    recovery_time: 2.65372413
+  - status: pass
+    recovery_time: 2.647987522
+  - status: pass
+    recovery_time: 2.657587635
+  - status: pass
+    recovery_time: 2.643733856
+  - status: pass
+    recovery_time: 2.651295404
+  - status: pass
+    recovery_time: 2.656043724
+  ../../source/hansard/HAN127-E.PDF:
+  - status: pass
+    recovery_time: 2.666003036
+  - status: pass
+    recovery_time: 2.674711162
+  - status: pass
+    recovery_time: 2.672329361
+  - status: pass
+    recovery_time: 2.685491622
+  - status: pass
+    recovery_time: 2.671552112
+  - status: pass
+    recovery_time: 2.67171083
+  - status: pass
+    recovery_time: 2.674379121
+  - status: pass
+    recovery_time: 2.663394078
+  - status: pass
+    recovery_time: 2.678824622
+  - status: pass
+    recovery_time: 2.692245865
+  ../../source/hansard/HAN128-E.PDF:
+  - status: pass
+    recovery_time: 2.670534989
+  - status: pass
+    recovery_time: 2.681033289
+  - status: pass
+    recovery_time: 2.692015233
+  - status: pass
+    recovery_time: 2.670852409
+  - status: pass
+    recovery_time: 2.684213117
+  - status: pass
+    recovery_time: 2.670296287
+  - status: pass
+    recovery_time: 2.679025129
+  - status: pass
+    recovery_time: 2.672074863
+  - status: pass
+    recovery_time: 2.667368217
+  - status: pass
+    recovery_time: 2.684202151
+  ../../source/hansard/HAN129-E.PDF:
+  - status: pass
+    recovery_time: 2.650527083
+  - status: pass
+    recovery_time: 2.663463667
+  - status: pass
+    recovery_time: 2.650115156
+  - status: pass
+    recovery_time: 2.676961654
+  - status: pass
+    recovery_time: 2.647010553
+  - status: pass
+    recovery_time: 2.679314572
+  - status: pass
+    recovery_time: 2.661563774
+  - status: pass
+    recovery_time: 2.649840671
+  - status: pass
+    recovery_time: 2.651883261
+  - status: pass
+    recovery_time: 2.653366505
+  ../../source/hansard/HAN130-E.PDF:
+  - status: pass
+    recovery_time: 2.663764909
+  - status: pass
+    recovery_time: 2.662748235
+  - status: pass
+    recovery_time: 2.668881299
+  - status: pass
+    recovery_time: 2.669280845
+  - status: pass
+    recovery_time: 2.665403737
+  - status: pass
+    recovery_time: 2.663976273
+  - status: pass
+    recovery_time: 2.666861293
+  - status: pass
+    recovery_time: 2.66350583
+  - status: pass
+    recovery_time: 2.661949099
+  - status: pass
+    recovery_time: 2.670033437
+  ../../source/hansard/HAN131-E.PDF:
+  - status: pass
+    recovery_time: 2.674935869
+  - status: pass
+    recovery_time: 2.676297343
+  - status: pass
+    recovery_time: 2.674486265
+  - status: pass
+    recovery_time: 2.678678359
+  - status: pass
+    recovery_time: 2.67400964
+  - status: pass
+    recovery_time: 2.6730928
+  - status: pass
+    recovery_time: 2.676583076
+  - status: pass
+    recovery_time: 2.674883822
+  - status: pass
+    recovery_time: 2.67705657
+  - status: pass
+    recovery_time: 2.673285096
+  ../../source/hansard/HAN132-E.PDF:
+  - status: pass
+    recovery_time: 2.669798711
+  - status: pass
+    recovery_time: 2.683429694
+  - status: pass
+    recovery_time: 2.662833699
+  - status: pass
+    recovery_time: 2.665668538
+  - status: pass
+    recovery_time: 2.677665478
+  - status: pass
+    recovery_time: 2.665249291
+  - status: pass
+    recovery_time: 2.669194101
+  - status: pass
+    recovery_time: 2.6738825
+  - status: pass
+    recovery_time: 2.678850119
+  - status: pass
+    recovery_time: 2.668341898
+  ../../source/hansard/HAN133-E.PDF:
+  - status: pass
+    recovery_time: 2.660435006
+  - status: pass
+    recovery_time: 2.668749431
+  - status: pass
+    recovery_time: 2.684963595
+  - status: pass
+    recovery_time: 2.661241725
+  - status: pass
+    recovery_time: 2.664117364
+  - status: pass
+    recovery_time: 2.668202424
+  - status: pass
+    recovery_time: 2.670628786
+  - status: pass
+    recovery_time: 2.659332992
+  - status: pass
+    recovery_time: 2.666808435
+  - status: pass
+    recovery_time: 2.665288913
+  ../../source/hansard/HAN134-E.PDF:
+  - status: pass
+    recovery_time: 2.674793913
+  - status: pass
+    recovery_time: 2.675938862
+  - status: pass
+    recovery_time: 2.676241681
+  - status: pass
+    recovery_time: 2.68717931
+  - status: pass
+    recovery_time: 2.661227758
+  - status: pass
+    recovery_time: 2.66687599
+  - status: pass
+    recovery_time: 2.687247742
+  - status: pass
+    recovery_time: 2.674079419
+  - status: pass
+    recovery_time: 2.65646404
+  - status: pass
+    recovery_time: 2.664557722
+  ../../source/hansard/HAN135-E.PDF:
+  - status: pass
+    recovery_time: 2.668829968
+  - status: pass
+    recovery_time: 2.683455845
+  - status: pass
+    recovery_time: 2.667664686
+  - status: pass
+    recovery_time: 2.66518481
+  - status: pass
+    recovery_time: 2.665898855
+  - status: pass
+    recovery_time: 2.669080415
+  - status: pass
+    recovery_time: 2.667083277
+  - status: pass
+    recovery_time: 2.666780666
+  - status: pass
+    recovery_time: 2.666198766
+  - status: pass
+    recovery_time: 2.672269609
+  ../../source/hansard/HAN136-E.PDF:
+  - status: pass
+    recovery_time: 2.67202378
+  - status: pass
+    recovery_time: 2.685466367
+  - status: pass
+    recovery_time: 2.675634524
+  - status: pass
+    recovery_time: 2.672411842
+  - status: pass
+    recovery_time: 2.680089775
+  - status: pass
+    recovery_time: 2.670683538
+  - status: pass
+    recovery_time: 2.675473174
+  - status: pass
+    recovery_time: 2.695000707
+  - status: pass
+    recovery_time: 2.673353912
+  - status: pass
+    recovery_time: 2.712845463
+  ../../source/hansard/HAN137-E.PDF:
+  - status: pass
+    recovery_time: 2.663783577
+  - status: pass
+    recovery_time: 2.671155829
+  - status: pass
+    recovery_time: 2.665678377
+  - status: pass
+    recovery_time: 2.708939192
+  - status: pass
+    recovery_time: 2.680866698
+  - status: pass
+    recovery_time: 2.677131837
+  - status: pass
+    recovery_time: 2.685252667
+  - status: pass
+    recovery_time: 2.684930959
+  - status: pass
+    recovery_time: 2.656919508
+  - status: pass
+    recovery_time: 2.657718037
+  ../../source/hansard/HAN138-E.PDF:
+  - status: pass
+    recovery_time: 2.679954859
+  - status: pass
+    recovery_time: 2.681501651
+  - status: pass
+    recovery_time: 2.670814643
+  - status: pass
+    recovery_time: 2.690290622
+  - status: pass
+    recovery_time: 2.700021198
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.676980841
+  - status: pass
+    recovery_time: 2.677098366
+  - status: pass
+    recovery_time: 2.667808099
+  - status: pass
+    recovery_time: 2.682486075
+  ../../source/hansard/HAN139-E.PDF:
+  - status: pass
+    recovery_time: 2.682263907
+  - status: pass
+    recovery_time: 2.685737323
+  - status: pass
+    recovery_time: 2.663485186
+  - status: pass
+    recovery_time: 2.681686178
+  - status: pass
+    recovery_time: 2.738376254
+  - status: pass
+    recovery_time: 2.667794796
+  - status: pass
+    recovery_time: 2.666248121
+  - status: pass
+    recovery_time: 2.672477078
+  - status: pass
+    recovery_time: 2.660493102
+  - status: pass
+    recovery_time: 2.68594607
+  ../../source/hansard/HAN140-E.PDF:
+  - status: pass
+    recovery_time: 2.692512704
+  - status: pass
+    recovery_time: 2.673461276
+  - status: pass
+    recovery_time: 2.668158263
+  - status: pass
+    recovery_time: 2.67245189
+  - status: pass
+    recovery_time: 2.6918116
+  - status: pass
+    recovery_time: 2.675239497
+  - status: pass
+    recovery_time: 2.676002228
+  - status: pass
+    recovery_time: 2.687820762
+  - status: pass
+    recovery_time: 2.669800182
+  - status: pass
+    recovery_time: 2.664987244
+  ../../source/hansard/HAN141-E.PDF:
+  - status: pass
+    recovery_time: 2.673905676
+  - status: pass
+    recovery_time: 2.740038381
+  - status: pass
+    recovery_time: 2.680204143
+  - status: pass
+    recovery_time: 2.675316059
+  - status: pass
+    recovery_time: 2.675554576
+  - status: pass
+    recovery_time: 2.677448859
+  - status: pass
+    recovery_time: 2.687832118
+  - status: pass
+    recovery_time: 2.682282094
+  - status: pass
+    recovery_time: 2.690503179
+  - status: pass
+    recovery_time: 2.697841068
+  ../../source/hansard/HAN142-E.PDF:
+  - status: pass
+    recovery_time: 2.692437362
+  - status: pass
+    recovery_time: 2.684292929
+  - status: pass
+    recovery_time: 2.684725049
+  - status: pass
+    recovery_time: 2.685531022
+  - status: pass
+    recovery_time: 2.685121433
+  - status: pass
+    recovery_time: 2.685305204
+  - status: pass
+    recovery_time: 2.693265651
+  - status: pass
+    recovery_time: 2.679897826
+  - status: pass
+    recovery_time: 2.754585355
+  - status: pass
+    recovery_time: 2.685875615
+  ../../source/hansard/HAN143-E.PDF:
+  - status: pass
+    recovery_time: 2.654022073
+  - status: pass
+    recovery_time: 2.658166119
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.653821374
+  - status: pass
+    recovery_time: 2.656745458
+  - status: pass
+    recovery_time: 2.65767268
+  - status: pass
+    recovery_time: 2.665925202
+  - status: pass
+    recovery_time: 2.654894577
+  - status: pass
+    recovery_time: 2.661986639
+  - status: pass
+    recovery_time: 2.650433334
+  ../../source/hansard/HAN144-E.PDF:
+  - status: fail_recording
+    recovery_time: 
+  - status: pass
+    recovery_time: 2.67563012
+  - status: pass
+    recovery_time: 2.661446512
+  - status: pass
+    recovery_time: 2.700957775
+  - status: pass
+    recovery_time: 2.668964994
+  - status: pass
+    recovery_time: 2.668397863
+  - status: pass
+    recovery_time: 2.688116848
+  - status: pass
+    recovery_time: 2.673516996
+  - status: pass
+    recovery_time: 2.669000841
+  - status: pass
+    recovery_time: 2.67086812
+  ../../source/hansard/HAN145-E.PDF:
+  - status: pass
+    recovery_time: 2.66061259
+  - status: pass
+    recovery_time: 2.653319319
+  - status: pass
+    recovery_time: 2.642432857
+  - status: pass
+    recovery_time: 2.647828448
+  - status: pass
+    recovery_time: 2.657906805
+  - status: pass
+    recovery_time: 2.65657898
+  - status: pass
+    recovery_time: 2.651845134
+  - status: pass
+    recovery_time: 2.655377399
+  - status: pass
+    recovery_time: 2.652855803
+  - status: pass
+    recovery_time: 2.660381234
+  ../../source/hansard/HAN146-E.PDF:
+  - status: pass
+    recovery_time: 2.68500326
+  - status: pass
+    recovery_time: 2.672815335
+  - status: pass
+    recovery_time: 2.685653348
+  - status: pass
+    recovery_time: 2.675038568
+  - status: pass
+    recovery_time: 2.680181132
+  - status: pass
+    recovery_time: 2.699792496
+  - status: pass
+    recovery_time: 2.674968863
+  - status: pass
+    recovery_time: 2.685678017
+  - status: pass
+    recovery_time: 2.683091265
+  - status: pass
+    recovery_time: 2.673768036
+  ../../source/hansard/HAN147-E.PDF:
+  - status: pass
+    recovery_time: 2.663233715
+  - status: pass
+    recovery_time: 2.67975327
+  - status: pass
+    recovery_time: 2.678654109
+  - status: pass
+    recovery_time: 2.664919796
+  - status: pass
+    recovery_time: 2.658296161
+  - status: pass
+    recovery_time: 2.660942374
+  - status: pass
+    recovery_time: 2.675186757
+  - status: pass
+    recovery_time: 2.673060113
+  - status: pass
+    recovery_time: 2.663120761
+  - status: pass
+    recovery_time: 2.661918519
+  ../../source/hansard/HAN148-E.PDF:
+  - status: pass
+    recovery_time: 2.661044104
+  - status: pass
+    recovery_time: 2.675474749
+  - status: pass
+    recovery_time: 2.668060391
+  - status: pass
+    recovery_time: 2.689604367
+  - status: pass
+    recovery_time: 2.674669162
+  - status: pass
+    recovery_time: 2.67286099
+  - status: pass
+    recovery_time: 2.669798563
+  - status: pass
+    recovery_time: 2.681073924
+  - status: pass
+    recovery_time: 2.668136762
+  - status: pass
+    recovery_time: 2.662320079
+  ../../source/hansard/HAN149-E.PDF:
+  - status: pass
+    recovery_time: 2.672844374
+  - status: pass
+    recovery_time: 2.664558088
+  - status: pass
+    recovery_time: 2.662845639
+  - status: pass
+    recovery_time: 2.664947645
+  - status: pass
+    recovery_time: 2.681223901
+  - status: pass
+    recovery_time: 2.66807438
+  - status: pass
+    recovery_time: 2.666453359
+  - status: pass
+    recovery_time: 2.656824757
+  - status: pass
+    recovery_time: 2.664773989
+  - status: pass
+    recovery_time: 2.665411809
+  ../../source/hansard/HAN150-E.PDF:
+  - status: pass
+    recovery_time: 2.650217796
+  - status: pass
+    recovery_time: 2.683153767
+  - status: pass
+    recovery_time: 2.674054559
+  - status: pass
+    recovery_time: 2.668630286
+  - status: pass
+    recovery_time: 2.66149309
+  - status: pass
+    recovery_time: 2.656641668
+  - status: pass
+    recovery_time: 2.659128413
+  - status: pass
+    recovery_time: 2.658052759
+  - status: pass
+    recovery_time: 2.656213406
+  - status: pass
+    recovery_time: 2.672093384
+  ../../source/hansard/HAN151-E.PDF:
+  - status: pass
+    recovery_time: 2.663225749
+  - status: pass
+    recovery_time: 2.690597212
+  - status: pass
+    recovery_time: 2.670134037
+  - status: pass
+    recovery_time: 2.673142429
+  - status: pass
+    recovery_time: 2.673762573
+  - status: pass
+    recovery_time: 2.671649249
+  - status: pass
+    recovery_time: 2.675504177
+  - status: pass
+    recovery_time: 2.718982711
+  - status: pass
+    recovery_time: 2.669924875
+  - status: pass
+    recovery_time: 2.6779656
+  ../../source/hansard/HAN152-E.PDF:
+  - status: pass
+    recovery_time: 2.680981055
+  - status: pass
+    recovery_time: 2.687636504
+  - status: pass
+    recovery_time: 2.691771357
+  - status: pass
+    recovery_time: 2.701933126
+  - status: pass
+    recovery_time: 2.67603824
+  - status: pass
+    recovery_time: 2.676935804
+  - status: pass
+    recovery_time: 2.670000951
+  - status: pass
+    recovery_time: 2.679217999
+  - status: pass
+    recovery_time: 2.673823402
+  - status: pass
+    recovery_time: 2.674462144
+  ../../source/hansard/HAN153-E.PDF:
+  - status: pass
+    recovery_time: 2.651198842
+  - status: pass
+    recovery_time: 2.657590656
+  - status: pass
+    recovery_time: 2.657471077
+  - status: pass
+    recovery_time: 2.664038541
+  - status: pass
+    recovery_time: 2.661200513
+  - status: pass
+    recovery_time: 2.660986795
+  - status: pass
+    recovery_time: 2.657686708
+  - status: pass
+    recovery_time: 2.659962997
+  - status: pass
+    recovery_time: 2.667853025
+  - status: pass
+    recovery_time: 2.659723159
+  ../../source/hansard/HAN154-E.PDF:
+  - status: pass
+    recovery_time: 2.672346949
+  - status: pass
+    recovery_time: 2.687804007
+  - status: pass
+    recovery_time: 2.672156364
+  - status: pass
+    recovery_time: 2.678339093
+  - status: pass
+    recovery_time: 2.681316587
+  - status: pass
+    recovery_time: 2.669058352
+  - status: pass
+    recovery_time: 2.67605884
+  - status: pass
+    recovery_time: 2.666743385
+  - status: pass
+    recovery_time: 2.671128299
+  - status: pass
+    recovery_time: 2.665839748
+  ../../source/hansard/HAN155-E.PDF:
+  - status: pass
+    recovery_time: 2.660625367
+  - status: pass
+    recovery_time: 2.660024614
+  - status: pass
+    recovery_time: 2.663075675
+  - status: pass
+    recovery_time: 2.677994371
+  - status: pass
+    recovery_time: 2.666932838
+  - status: pass
+    recovery_time: 2.66395341
+  - status: pass
+    recovery_time: 2.664856673
+  - status: pass
+    recovery_time: 2.655952578
+  - status: pass
+    recovery_time: 2.662903856
+  - status: pass
+    recovery_time: 2.659202431
+  ../../source/hansard/HAN156-E.PDF:
+  - status: pass
+    recovery_time: 2.681435134
+  - status: pass
+    recovery_time: 2.678822796
+  - status: pass
+    recovery_time: 2.671903006
+  - status: pass
+    recovery_time: 2.685430569
+  - status: pass
+    recovery_time: 2.692263264
+  - status: pass
+    recovery_time: 2.694527653
+  - status: pass
+    recovery_time: 2.683269338
+  - status: pass
+    recovery_time: 2.674136954
+  - status: pass
+    recovery_time: 2.67356291
+  - status: pass
+    recovery_time: 2.685913395
+  ../../source/hansard/HAN157-E.PDF:
+  - status: pass
+    recovery_time: 2.6739988
+  - status: pass
+    recovery_time: 2.685161587
+  - status: pass
+    recovery_time: 2.684930254
+  - status: pass
+    recovery_time: 2.698087045
+  - status: pass
+    recovery_time: 2.679995315
+  - status: pass
+    recovery_time: 2.696172481
+  - status: pass
+    recovery_time: 2.685864286
+  - status: pass
+    recovery_time: 2.686153408
+  - status: pass
+    recovery_time: 2.672750605
+  - status: pass
+    recovery_time: 2.680608084
+  ../../source/hansard/HAN158-E.PDF:
+  - status: pass
+    recovery_time: 2.655977386
+  - status: pass
+    recovery_time: 2.66676689
+  - status: pass
+    recovery_time: 2.676235999
+  - status: pass
+    recovery_time: 2.650415023
+  - status: pass
+    recovery_time: 2.655422616
+  - status: pass
+    recovery_time: 2.714310373
+  - status: pass
+    recovery_time: 2.662040227
+  - status: pass
+    recovery_time: 2.655203657
+  - status: pass
+    recovery_time: 2.649497659
+  - status: pass
+    recovery_time: 2.66047448
+  ../../source/hansard/HAN159-E.PDF:
+  - status: pass
+    recovery_time: 2.650545615
+  - status: pass
+    recovery_time: 2.664019293
+  - status: pass
+    recovery_time: 2.672615905
+  - status: pass
+    recovery_time: 2.672393964
+  - status: pass
+    recovery_time: 2.65759481
+  - status: pass
+    recovery_time: 2.657580295
+  - status: pass
+    recovery_time: 2.666999207
+  - status: pass
+    recovery_time: 2.675733337
+  - status: pass
+    recovery_time: 2.670816966
+  - status: pass
+    recovery_time: 2.67135838
+  ../../source/hansard/HAN160-E.PDF:
+  - status: pass
+    recovery_time: 2.660563854
+  - status: pass
+    recovery_time: 2.667057168
+  - status: pass
+    recovery_time: 2.659286716
+  - status: pass
+    recovery_time: 2.658878865
+  - status: pass
+    recovery_time: 2.678327286
+  - status: pass
+    recovery_time: 2.658215345
+  - status: pass
+    recovery_time: 2.663763379
+  - status: pass
+    recovery_time: 2.656201405
+  - status: pass
+    recovery_time: 2.66294077
+  - status: pass
+    recovery_time: 2.655986335
+  ../../source/hansard/HAN161-E.PDF:
+  - status: pass
+    recovery_time: 2.703783988
+  - status: pass
+    recovery_time: 2.678022144
+  - status: pass
+    recovery_time: 2.675855243
+  - status: pass
+    recovery_time: 2.741663712
+  - status: pass
+    recovery_time: 2.676274958
+  - status: pass
+    recovery_time: 2.67306025
+  - status: pass
+    recovery_time: 2.739438823
+  - status: pass
+    recovery_time: 2.691074121
+  - status: pass
+    recovery_time: 2.670727326
+  - status: pass
+    recovery_time: 2.683456454

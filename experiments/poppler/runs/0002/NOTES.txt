@@ -1,0 +1,8 @@
+Experiment Notes
+-----------------
+Date: Wed May 13 22:21:23 MDT 2015
+
+Huh? There is no output in this directory. In any case, runs/0003 is a complete
+run with the same configuration, that was started only 30 minutes after this
+one. So... something must have gone wrong with this one and I re-started it.
+

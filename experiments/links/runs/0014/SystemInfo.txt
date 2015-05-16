@@ -1,0 +1,132 @@
+
+-------------------------
+Basic Information
+-------------------------
+
+DATE:    Thu May 14 06:36:11 MDT 2015
+UPTIME:   06:36:11 up  8:17,  2 users,  load average: 0.00, 0.02, 0.05
+KERNEL:  Linux fxw-laptop 4.0.1-1-ARCH #1 SMP PREEMPT Wed Apr 29 12:00:26 CEST 2015 x86_64 GNU/Linux
+
+-------------------------
+Memory Usage
+-------------------------
+
+              total        used        free      shared  buff/cache   available
+Mem:        4051732      436824     1932240      375388     1682668     3000580
+Swap:       4000180           0     4000180
+
+-------------------------
+Disk Usage
+-------------------------
+
+Filesystem       1K-blocks      Used Available Use% Mounted on
+dev                2021852         0   2021852   0% /dev
+run                2025864      9792   2016072   1% /run
+/dev/mapper/root 475672560 123559140 327927620  28% /
+tmpfs              2025864        84   2025780   1% /dev/shm
+tmpfs              2025864         0   2025864   0% /sys/fs/cgroup
+tmpfs              2025864    355772   1670092  18% /tmp
+/dev/sda1           963924     41744    856000   5% /boot
+tmpfs               405176        12    405164   1% /run/user/1000
+
+-------------------------
+Processor
+-------------------------
+
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     P8700  @ 2.53GHz
+stepping	: 10
+microcode	: 0xa07
+cpu MHz		: 1600.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm ida dtherm tpr_shadow vnmi flexpriority
+bugs		:
+bogomips	: 5056.70
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     P8700  @ 2.53GHz
+stepping	: 10
+microcode	: 0xa07
+cpu MHz		: 1600.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm ida dtherm tpr_shadow vnmi flexpriority
+bugs		:
+bogomips	: 5056.70
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+-------------------------
+Compiler
+-------------------------
+
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper
+gcc (GCC) 4.9.2 20150304 (prerelease)
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Target: x86_64-unknown-linux-gnu
+Configured with: /build/gcc-multilib/src/gcc-4.9-20150304/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-cloog-backend=isl --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-multilib --disable-werror --enable-checking=release
+Thread model: posix
+gcc version 4.9.2 20150304 (prerelease) (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-v' '--version' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/cc1 -quiet -v -v help-dummy -quiet -dumpbase help-dummy -mtune=generic -march=x86-64 -auxbase help-dummy -version --version -o /tmp/cc3sQO1h.s
+GNU C (GCC) version 4.9.2 20150304 (prerelease) (x86_64-unknown-linux-gnu)
+	compiled by GNU C version 4.9.2 20150304 (prerelease), GMP version 6.0.0, MPFR version 3.1.2-p11, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-v' '-v' '--version' '-mtune=generic' '-march=x86-64'
+ as -v -v --64 --version -o /tmp/ccKOresq.o /tmp/cc3sQO1h.s
+GNU assembler version 2.25.0 (x86_64-unknown-linux-gnu) using BFD version (GNU Binutils) 2.25.0
+GNU assembler (GNU Binutils) 2.25.0
+Copyright (C) 2014 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or later.
+This program has absolutely no warranty.
+This assembler was configured for a target of `x86_64-unknown-linux-gnu'.
+COMPILER_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/lib/gcc/x86_64-unknown-linux-gnu/:/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/lib/gcc/x86_64-unknown-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-v' '--version' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper -plugin-opt=-fresolution=/tmp/ccoFKHkx.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --version /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../.. /tmp/ccKOresq.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib/crtn.o
+collect2 version 4.9.2 20150304 (prerelease)
+/usr/bin/ld -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper -plugin-opt=-fresolution=/tmp/ccoFKHkx.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --version /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../.. /tmp/ccKOresq.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../lib/crtn.o
+GNU ld (GNU Binutils) 2.25.0
+Copyright (C) 2014 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
