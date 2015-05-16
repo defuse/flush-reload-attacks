@@ -419,7 +419,10 @@ source code and data from all experiment runs have been published so that other
 researchers can verify and reproduce our work, see Appendix
 \ref{sec:reproducing}.
 
-All experiments were run with low system load.
+All experiments were run with low system load. For ease of implementation, the
+experiments are run all within the same user account. We confirmed independently
+that the attacks work when the attacker is on one account and the spy is on
+another.
 
 To make sure that we did not cherry pick vulnerable programs, we kept track of
 all the programs we looked at without developing any attacks. These are
