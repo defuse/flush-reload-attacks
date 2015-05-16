@@ -67,13 +67,13 @@ that the \textsc{Flush+Reload} L3 cache side channel from Yuval Yarom and
 Katrina Falkner \cite{yarom2013flush} can be used to distinguish between inputs
 to non-cryptographic programs. We do so by presenting three attacks. First, we
 attack the Links command-line web browser, showing that an attacker can
-determine which of the top 100 Wikipedia pages the user visited. Second, we show
-that an attacker can determine which of a set of 127 PDFs were processed by the
-poppler PDF rendering library. Finally, we show that an attacker can determine
-whether the TrueCrypt volume the user just mounted contained a hidden volume or
-not. \textbf{TODO: put exact success rate figures here}. We also describe how
-the discovery of new input distinguishing attacks can be discovered
-semi-automatically.
+determine which of the top 100 Wikipedia pages the user visited (correct 94\% of
+the time). Second, we show that an attacker can determine which of a set of 127
+PDFs were processed by the poppler PDF rendering library (correct 98\% of the
+time). Finally, we show that an attacker can determine whether the TrueCrypt
+volume the user just mounted contained a hidden volume or not. We also describe
+how to discover new input distinguishing attacks in a partially automated way
+(correct above 80\% of the time).
 
 \section{Introduction}
 \label{sec:intro}
@@ -280,6 +280,50 @@ once to go through with many attacks and recoveries.
 
 \subsection{Using Automation to Find the Best Probes}
 
+The hardest part of discovering a new input distinguishing attack is finding the
+set of probes to spy on. We want to find a set of functions whose order of
+execution best exhibits the differences between the inputs. One way to do this
+is to read the program's code, understand it, and then manually list out some
+functions that are heavily involved in processing the input. This takes time and
+effort. 
+
+In this section, we present a method for automating probe discovery. We describe
+a tool which takes a list of functions as input and produces probe sets that are
+good at distinguishing the inputs. The tool requires symbols, but not source
+code. So as long as the attacker has access to a non-stripped binary, they can
+use the tool to find a good probe set without having a deep understanding of the
+program.
+
+The tool first looks at the symbols in the binary to list out all of the
+functions. Next, some human intelligence is needed to narrow down the list of
+functions into a smaller set that are more likely to depend on the input. This
+filtering can be as simple as keeping all functions whose names contain
+``\texttt{html}'' to get the list of html-parsing functions, as we have done for
+Links, or by looking for functions whose names begin with ``\texttt{Gfx::op}''
+to get the list of functions responsible for PDF commands, as we have done for
+Poppler.
+
+Once the list of functions has been reduced down to a manageable size (e.g. less
+than 100 functions), each potential probe is tested individually. A candidate
+probe is tested by placing a GDB breakpoint on the first instruction in the
+function and counting the number of times it gets executed as the program is
+run. This is done three times for each probe. Twice on one input, giving counts
+$c_1$ and $c_2$, and once on a second, different, input, giving the count $c_3$.
+A score is given to the probe, equal to $|c_3 - c_1| - |c_2 - c_1|$. This
+rewards functions whose counts are stable on the same input but vary on
+different inputs, meaning they likely depend on the input. The list of candidate
+probes are sorted by their scores, and all but the top dozen are rejected.
+
+The reduced and sorted list of functions is then used to generate all possible
+sets of size 4. Sets that contain functions that are within 3 cache lines of
+each other are immediately removed. If two probes are two close together, the
+CPU may fetch instructions ahead of execution and trigger one whenever another
+one is actually executed, in which case there is no point having both probes.
+The remaining sets are sorted by the sums of their rank in the input list (which
+was sorted by score), and this sorted list is given to the user.
+
+In our attacks, we always used the first probe set in the output list.
+
 \textbf{TODO: describe how that works here}
 
 The next section describes our implementation of this attack.
@@ -428,8 +472,8 @@ a pure Ruby implementation of the Levenshtein distance instead of the fast
 native implementation that System 1 was using.
 
 A plot of the Levenshtein distances involved in a successful recovery is shown
-in Figure~\ref{figure:minaj}, and an unsuccessful recovery in
-Figure~\ref{figure:eminem}.
+in Figure~\ref{figure:youtube}, and an unsuccessful recovery in
+Figure~\ref{figure:minaj}.
 
 All of the Wikipedia pages in the set have distinct lengths. So, it is
 reasonable to ask whether this attack is just distinguishing the pages by their
@@ -460,7 +504,7 @@ $S=1$\endnote{links/0005. This experiment was also run before we started
 truncating to 1000 characters.} we saw 91\% accuracy. This indicates that using
 more training samples increases the accuracy of the attack, and that the
 automatically discovered probes are just as good or slightly better than the
-probes we found manually.
+ones we found manually.
 
 \begin{figure*}
     \centering
@@ -490,9 +534,61 @@ training samples of that page. The order on the page axis is not meaningful.}
 
 \subsection{Poppler}
 
-\subsubsection{Attack Implementation}
+Poppler is a PDF rendering library that gets used in software such as Evince and
+Libreoffice. For ease of automation, we attacked the \texttt{pdftops} program,
+which converts PDF files into PostScript files. As our input set, we used the
+127 transcripts of 2014 parliamentary debates made available by the Canadian
+government~\cite{hansard}.
 
-\subsubsection{Experiment}
+We used the automatic probe finding tool to find the best probes amongst the
+functions responsible for executing PDF commands. These functions, of which
+there are 77, are easily identified because their names begin with ``Gfx::op.''
+The probe finding tool returned the following set of probes after using
+\texttt{HAN040-E.PDF} and \texttt{HAN050-E.PDF}, two PDFs in the parliamentary
+debate set, as testing inputs.
+
+\begin{itemize}
+    \item \texttt{Gfx::opShowSpaceText(Object*, int)}
+    \item \texttt{Gfx::opTextMoveSet(Object*, int)}
+    \item \texttt{Gfx::opSetFont(Object*, int)}
+    \item \texttt{Gfx::opTextNextLine(Object*, int)}
+\end{itemize}
+
+On System 1 with $T=5$ and $S=10$\endnote{poppler/0003}, the correct PDF was
+identified $1258$ times out of $1270$, a 99.1\% accuracy. All of the PDFs were
+reliably identifiable. All but one were recovered 9 or 10 times out of 10,
+except for one which was recovered 8 times. In a repeat run on same system with
+$T=5$ and $S=1$\endnote{poppler/0006}, the correct PDF was identified $124$
+times out of $127$, a 97.6\% accuracy.
+
+On System 2 with $T=5$ and $S=1$\endnote{poppler/0001}, the correct PDF was
+identified $126$ times out of $127$, an accuracy of 99.2\%. With $T=5$ and
+$S=10$\endnote{poppler/0007}, the PDF was correctly identified $1260$ times out
+of $1270$, an accuracy of 99.2\%. Again, all but one were identified 9 or 10
+times out of 10, except for one that was identified correctly only 8 times.
+
+Unlike Links, we did not have a working attack against Poppler before we used
+the probe finding tool. So this is an attack that was discovered almost
+automatically. The only human input was the idea to look only at the set of
+functions that execute PDF commands.
+
+We tried running the probe finding tool on the list of all functions in the
+Poppler library. The result is the following set of probes:
+
+\begin{itemize}
+    \item \texttt{gmallocn()}
+    \item \texttt{PSOutputDev::writePSString(GooString*)}
+    \item \texttt{PSOutputDev::drawString(GfxState*, GooString*)}
+    \item \texttt{PSOutputDev::updateTextShift(GfxState*, double)}
+\end{itemize}
+
+We ran an experiment with these probes and $T=5$ and $S=1$ on System 1, and the
+result was that the correct PDF was only identified 21 times out of 127,
+a 16.5\% accuracy. This is much worse than with the other set of probes, but is
+still better than random guessing. With these probes, the \textsc{Flush+Reload}
+tool ran into an error condition, where the CPU's \texttt{RDTSC} counter
+increases non-monotonically, much more frequently than it did with the other
+probes, and that is probably the reason for the reduced accuracy.
 
 \subsection{TrueCrypt}
 
@@ -608,8 +704,6 @@ We tried the Links attack on an Amazon EC2 instance and it did not work. Looking
 at the attack tool's output, it appears to be because the VM is running out of
 CPU credit which is making it miss too many measurements. We did not have time
 to investigate further.
-
-\section{Automating Attack Discovery}
 
 \section{Related Work}
 \label{sec:relwork}
