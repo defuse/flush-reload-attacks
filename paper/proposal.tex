@@ -193,25 +193,85 @@ probes makes the measurements less reliable) probe locations within a binary and
 the amount of clock cycles to wait between measurements. As output, the attacker
 learns the sequence of probes that were accessed during the waiting periods.
 
-\section{Methods}
-\label{sec:methods}
+\section{Using \textsc{Flush+Reload} to Distinguish Inputs}
 
-We set out to see if the \textsc{Flush+Reload} attack had privacy implications
-beyond attacking cryptographic software. We did this by brainstorming possible
-attacks, selecting a program to attack, implementing the attack as best we could
-(first manually, and later with the help of semi-automated attack discovery
-tools), and then running experiments to see how well the attack works.
+In the previous section we described how an attacker can use
+\textsc{Flush+Reload} against a victim process. As output, the attacker gets the
+sequence of probes as they were hit over time. In this section, we give a novel
+method for distinguishing between a set of possible inputs through the
+\textsc{Flush+Reload} side channel. Later, we present actual attacks on Links
+and Poppler that use this technique.
+
+In the scenario we are interested in, the attacker knows the victim is going to
+run a program on some input. The attacker knows that the input is part of a set
+of inputs, all of which are available to the attacker. By spying on the program
+with \textsc{Flush+Reload}, the attacker hopes to figure out which input in the
+set the program was run on.
+
+For example, suppose Alice has just been diagnosed with an illness, and is using
+Wikipedia to research it. The attacker, Mallory, knows Alice was just diagnosed,
+and wants to find out which illness she has. Mallory knows that Alice will visit
+one of, say, 100 Wikipedia pages that are about illnesses. From the
+\textsc{Flush+Reload} output, Mallory is going to try to find out which one.
+
+The first step in the attack is to figure out where to place the
+\textsc{Flush+Reload} probes to best distinguish the input. This can be done by
+reading the program's code and finding functions whose order of execution are
+likely to depend heavily the input. It is possible to do this by hand, but some
+automation can make it easier. We describe how to automate it in Section
+\textbf{TODO}.
+
+With the probes selected, the attack proceeds in three stages. First, the
+attacker goes through a training stage. This must be carried out on the victim's
+machine (or a machine sufficiently similar to it)\endnote{It is conceivable that
+    the attacker could perform the training phase on a different machine with
+similar hardware, but we did not try it.}. Next, the actual attack happens. The
+attacker spies on the victim as they execute the program on one of the inputs.
+Finally, the attacker uses the training data and output from the attack stage to
+recover to determine which input was given to the program.
+
+In the training stage, the attacker simply runs the \textsc{Flush+Reload} attack
+tool against themselves as they run the program on every input in the set
+multiple times. Each observed probe sequence is saved to a file labeled with the
+input that generated it. We refer to the number of times each page is sampled by
+$T$. As $T$ increases, the training stage takes longer to perform, but the
+accuracy of the attack can increase.
+
+In the attack stage, the attacker runs the \textsc{Flush+Reload} attack tool
+against the victim as they pass one of the inputs to the program. The attacker
+saves the observed probe sequence to a file.
+
+In the recovery stage, the attacker finds the probe sequence in the training set
+that is closest to the one observed from the victim. Closeness, here, is
+measured by the Levenshtein distance\cite{levenshtein1966binary}, which is
+defined as the smallest number of basic edits (insertions, deletions, and
+replacements) needed to bring one string to the other. The attacker computes the
+Levenshtein distance between the victim's probe sequence and all of the training
+probe sequences, and the one with the smallest Levenshtein distance tells the
+attacker which input the victim ran the program on.
+
+Before computing the Levenshtein distance, the probe sequences are first
+condensed by collapsing a string of hits to the same probe down into a single
+hit of that probe, and then truncated to 1000 characters. This is done to make
+the recovery stage faster, since the algorithm we use to compute the Levenshtein
+distance has quadratic running time.
+
+The training stage can be done either before or after the attack stage, and the
+attacker can re-use a training set multiple times, so they only need to train
+once to go through with many attacks and recoveries.
+
+\subsection{Using Automation to Find the Best Probes}
+
+\textbf{TODO: describe how that works here}
+
+The next section describes our implementation of this attack.
+
+\section{Attack Implementation}
 
 The binaries we attacked were built from source. We left symbols in to make it
 easier to find the probe locations in the binary. Symbols are not required for
 the attack to work, but without them, the discovering the attacks would require
 manual reverse engineering work.
-
-To make sure that we did not cherry pick vulnerable programs, we kept track of
-all the programs we looked at without developing any attacks. These are
-disclosed in Section \ref{sec:failures}.
-
-\subsection{Attack Implementation}
 
 The attacks are built on the following tools that we built.
 
@@ -235,9 +295,15 @@ The attacks are built on the following tools that we built.
         program. It produces a list of probe sets that are likely able to
         distinguish between the two inputs. We describe how this tool is used in
         Section 5.
+
+    \item A Ruby implementation of the attack procedure described in Section
+          \textbf{TODO}.
 \end{itemize}
 
-\subsection{Experimental Evaluation}
+Before getting into the attacks, we describe our experimental setup in the next
+section.
+
+\section{Experiment Setup}
 
 We ran experiments on two systems. The first system is a laptop; the second
 system is a dedicated server hosting a low-traffic website and operating as
@@ -279,26 +345,32 @@ researchers can verify and reproduce our work, see Appendix
 
 All experiments were run with low system load.
 
-\section{Results}
-\label{sec:results}
+To make sure that we did not cherry pick vulnerable programs, we kept track of
+all the programs we looked at without developing any attacks. These are
+disclosed in Section \ref{sec:failures}.
 
-We present two attacks. The first attack lets an attacker tell whether
-a victim's TrueCrypt volume is normal or hidden. The second lets the the
-attacker tell which of the top 100 Wikipedia pages the victim visited using the
-Links web browser.
+\section{Attacks}
+\label{sec:results}
 
 We present three attacks. The first attack lets an attacker tell whether which
 of the top 100 Wikipedia pages the victim visited using the Links web browser.
 The second attack does the same for the Poppler PDF rendering library,
 distinguishing between 127 PDF transcripts of 2014 Canadian parliamentary
-debates. The third attack determines whether a mounted TrueCrypt volume
-contained a hidden volume or not.
+debates. The Links and Poppler attacks both use the input distinguishing process
+described above. The third attack, which is implemented differently, determines
+whether a mounted TrueCrypt volume contained a hidden volume or not.
+
+For the Links and Poppler attacks, we give the probe locations and report the
+success rate that we saw in our experiements. For the TrueCrypt attack, we
+describe how it works and report the success rate.
 
 \subsection{Links}
 
 Links is a command-line web browser. We are interested in learning which web
 page a user is visiting, out of a set of known pages. We found that it is
 possible to reliably distinguish between the top 100 Wikipedia pages.
+
+
 
 \subsubsection{Attack Implementation}
 

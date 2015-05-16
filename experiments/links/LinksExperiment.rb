@@ -12,7 +12,7 @@ OUTPUT_DIR = ARGV[0]
 RUN_BINARY = "binaries/links-arch"
 SPY_BINARY = RUN_BINARY
 PROBES_PATH = "binaries/links-arch-discovered.probes"
-VICTIM_RUNS = 1
+VICTIM_RUNS = 10
 STRING_TRUNCATE_LENGTH = 1000
 SLEEP_KILL = 7
 
