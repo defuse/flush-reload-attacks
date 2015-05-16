@@ -460,37 +460,6 @@ correctly identified at least twice out of the ten runs. Most were correctly
 identified all 10 times. The distribution is plotted in
 Figure~\ref{figure:distribution}.
 
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            symbolic x coords={10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
-            xtick=data
-          ]
-            \addplot[ybar,fill=blue] coordinates {
-                (10,   71)
-                (9,   15)
-                (8,   9)
-                (7,   2)
-                (6,   0)
-                (5,   0)
-                (4,   1)
-                (3,   1)
-                (2,   1)
-                (1,   0)
-                (0,   0)
-            };
-        \end{axis}
-    \end{tikzpicture}
-    \caption{The distribution of success rates for individual pages. On the $x$
-        axis, the number of times the page was correctly identified out of ten
-        trials. On the $y$ axis, the number of pages that were correctly
-        identified that many times. Most pages were correctly identified in all
-        ten trials.}
-    \label{figure:distribution}
-\end{figure}
-
 A second run on System 1 with $T=10$ and $S=1$\endnote{links/0013} saw the
 correct page being identified $95$ times out of $100$, an accuracy of 95\%.
 Here, it again took $4.1$ seconds to perform a recovery, on average.
@@ -536,6 +505,36 @@ truncating to 1000 characters.} we saw 91\% accuracy. This indicates that using
 more training samples increases the accuracy of the attack, and that the
 automatically discovered probes are just as good or slightly better than the
 ones we found manually.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            symbolic x coords={10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
+            xtick=data
+          ]
+            \addplot[ybar,fill=blue] coordinates {
+                (10,  71)
+                (9,   15)
+                (8,   9)
+                (7,   2)
+                (6,   0)
+                (5,   0)
+                (4,   1)
+                (3,   1)
+                (2,   1)
+                (1,   0)
+                (0,   0)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The distribution of success rates for individual pages. On the $x$
+        axis, the number of times the page was correctly identified out of ten
+        trials. On the $y$ axis, the number of pages that were correctly
+        identified that many times. Most pages were correctly identified in all
+        ten trials.}
+    \label{figure:distribution}
+\end{figure}
 
 \begin{figure*}
     \centering
