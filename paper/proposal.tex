@@ -30,6 +30,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{pgfplots}
 
 \begin{document}
 
@@ -67,13 +68,13 @@ that the \textsc{Flush+Reload} L3 cache side channel from Yuval Yarom and
 Katrina Falkner \cite{yarom2013flush} can be used to distinguish between inputs
 to non-cryptographic programs. We do so by presenting three attacks. First, we
 attack the Links command-line web browser, showing that an attacker can
-determine which of the top 100 Wikipedia pages the user visited. Second, we show
-that an attacker can determine which of a set of 127 PDFs were processed by the
-poppler PDF rendering library. Finally, we show that an attacker can determine
-whether the TrueCrypt volume the user just mounted contained a hidden volume or
-not. \textbf{TODO: put exact success rate figures here}. We also describe how
-the discovery of new input distinguishing attacks can be discovered
-semi-automatically.
+determine which of the top 100 Wikipedia pages the user visited (correct 94\% of
+the time). Second, we show that an attacker can determine which of a set of 127
+PDFs were processed by the poppler PDF rendering library (correct 98\% of the
+time). Finally, we show that an attacker can determine whether the TrueCrypt
+volume the user just mounted contained a hidden volume or not. We also describe
+how to discover new input distinguishing attacks in a partially automated way
+(correct above 80\% of the time).
 
 \section{Introduction}
 \label{sec:intro}
@@ -193,25 +194,145 @@ probes makes the measurements less reliable) probe locations within a binary and
 the amount of clock cycles to wait between measurements. As output, the attacker
 learns the sequence of probes that were accessed during the waiting periods.
 
-\section{Methods}
-\label{sec:methods}
+\section{Using \textsc{Flush+Reload} to Distinguish Inputs}
 
-We set out to see if the \textsc{Flush+Reload} attack had privacy implications
-beyond attacking cryptographic software. We did this by brainstorming possible
-attacks, selecting a program to attack, implementing the attack as best we could
-(first manually, and later with the help of semi-automated attack discovery
-tools), and then running experiments to see how well the attack works.
+In the previous section we described how an attacker can use
+\textsc{Flush+Reload} against a victim process. As output, the attacker gets the
+sequence of probes as they were hit over time. In this section, we give a novel
+method for distinguishing between a set of possible inputs through the
+\textsc{Flush+Reload} side channel. Later, we present actual attacks on Links
+and Poppler that use this technique.
+
+In the scenario we are interested in, the attacker knows the victim is going to
+run a program on some input. The attacker knows that the input is part of a set
+of inputs, all of which are available to the attacker. By spying on the program
+with \textsc{Flush+Reload}, the attacker hopes to figure out which input in the
+set the program was run on.
+
+For example, suppose Alice has just been diagnosed with an illness, and is using
+Wikipedia to research it. The attacker, Mallory, knows Alice was just diagnosed,
+and wants to find out which illness she has. Mallory knows that Alice will visit
+one of, say, 100 Wikipedia pages that are about illnesses. From the
+\textsc{Flush+Reload} output, Mallory is going to try to find out which one.
+
+The first step in the attack is to figure out where to place the
+\textsc{Flush+Reload} probes to best distinguish the input. This can be done by
+reading the program's code and finding functions whose order of execution are
+likely to depend heavily the input. It is possible to do this by hand, but some
+automation can make it easier. We describe how to automate it in Section
+\textbf{TODO}.
+
+With the probes selected, the attack proceeds in three stages. First, the
+attacker goes through a training stage. This must be carried out on the victim's
+machine (or a machine sufficiently similar to it)\endnote{It is conceivable that
+    the attacker could perform the training phase on a different machine with
+similar hardware, but we did not try it.}. Next, the actual attack happens. The
+attacker spies on the victim as they execute the program on one of the inputs.
+Finally, the attacker uses the training data and output from the attack stage to
+recover to determine which input was given to the program.
+
+In the training stage, the attacker simply runs the \textsc{Flush+Reload} attack
+tool against themselves as they run the program on every input in the set
+multiple times. Each observed probe sequence is saved to a file labeled with the
+input that generated it. We refer to the number of times each page is sampled by
+$T$. As $T$ increases, the training stage takes longer to perform, but the
+accuracy of the attack can increase.
+
+In the attack stage, the attacker runs the \textsc{Flush+Reload} attack tool
+against the victim as they pass one of the inputs to the program. The attacker
+saves the observed probe sequence to a file.
+
+In the recovery stage, the attacker finds the probe sequence in the training set
+that is closest to the one observed from the victim. Closeness, here, is
+measured by the Levenshtein distance\cite{levenshtein1966binary}, which is
+defined as the smallest number of basic edits (insertions, deletions, and
+replacements) needed to bring one string to the other. The attacker computes the
+Levenshtein distance between the victim's probe sequence and all of the training
+probe sequences, and the one with the smallest Levenshtein distance tells the
+attacker which input the victim ran the program on.
+
+Before computing the Levenshtein distance, the probe sequences are first
+condensed by collapsing a string of hits to the same probe down into a single
+hit of that probe, and then truncated to 1000 characters. An example is shown in
+Figure~\ref{figure:probetext}. This is done to make the recovery stage faster,
+since the algorithm we use to compute the Levenshtein distance has quadratic
+running time.
+
+\begin{figure}
+    \centering
+\begin{verbatim}
+BDBABABABABABABABABABABABCABABCBABCBCABC
+ABABABCBABCABCBCBDABABACACADBABDBCBABCBA
+BABDBCBABDBCABDBCABDBCABCBCBCBABCBCBABAB
+DBABABDABDBCABDABABCABDBCBCBABCBCBABCBCB
+ABCABCABDABDCBCABCABCBABDABCABDBCABDBCBA
+\end{verbatim}
+\caption{The first 200 bytes (of 24,984) of an observed probe sequence while
+    visiting the Facebook Wikipedia page in Links. From run links/0015.
+    \texttt{A} corresponds to \texttt{kill\_html\_stack\_item()}, \texttt{B} to
+    \texttt{html\_stack\_dup()}, \texttt{C} to \texttt{html\_a()}, and
+    \texttt{D} to \texttt{parse\_html()}}.
+    \label{figure:probetext}
+\end{figure}
+
+The training stage can be done either before or after the attack stage, and the
+attacker can re-use a training set multiple times, so they only need to train
+once to go through with many attacks and recoveries.
+
+\subsection{Using Automation to Find the Best Probes}
+
+The hardest part of discovering a new input distinguishing attack is finding the
+set of probes to spy on. We want to find a set of functions whose order of
+execution best exhibits the differences between the inputs. One way to do this
+is to read the program's code, understand it, and then manually list out some
+functions that are heavily involved in processing the input. This takes time and
+effort. 
+
+In this section, we present a method for automating probe discovery. We describe
+a tool which takes a list of functions as input and produces probe sets that are
+good at distinguishing the inputs. The tool requires symbols, but not source
+code. So as long as the attacker has access to a non-stripped binary, they can
+use the tool to find a good probe set without having a deep understanding of the
+program.
+
+The tool first looks at the symbols in the binary to list out all of the
+functions. Next, some human intelligence is needed to narrow down the list of
+functions into a smaller set that are more likely to depend on the input. This
+filtering can be as simple as keeping all functions whose names contain
+``\texttt{html}'' to get the list of html-parsing functions, as we have done for
+Links, or by looking for functions whose names begin with ``\texttt{Gfx::op}''
+to get the list of functions responsible for PDF commands, as we have done for
+Poppler.
+
+Once the list of functions has been reduced down to a manageable size (e.g. less
+than 100 functions), each potential probe is tested individually. A candidate
+probe is tested by placing a GDB breakpoint on the first instruction in the
+function and counting the number of times it gets executed as the program is
+run. This is done three times for each probe. Twice on one input, giving counts
+$c_1$ and $c_2$, and once on a second, different, input, giving the count $c_3$.
+A score is given to the probe, equal to $|c_3 - c_1| - |c_2 - c_1|$. This
+rewards functions whose counts are stable on the same input but vary on
+different inputs, meaning they likely depend on the input. The list of candidate
+probes are sorted by their scores, and all but the top dozen are rejected.
+
+The reduced and sorted list of functions is then used to generate all possible
+sets of size 4. Sets that contain functions that are within 3 cache lines of
+each other are immediately removed. If two probes are two close together, the
+CPU may fetch instructions ahead of execution and trigger one whenever another
+one is actually executed, in which case there is no point having both probes.
+The remaining sets are sorted by the sums of their rank in the input list (which
+was sorted by score), and this sorted list is given to the user.
+
+In our attacks, we always used the first probe set in the output list.
+
+The next section describes our implementation of this attack.
+
+\section{Attack Implementation}
 
 The binaries we attacked were built from source. We left symbols in to make it
 easier to find the probe locations in the binary. Symbols are not required for
 the attack to work, but without them, the discovering the attacks would require
 manual reverse engineering work.
-
-To make sure that we did not cherry pick vulnerable programs, we kept track of
-all the programs we looked at without developing any attacks. These are
-disclosed in Section \ref{sec:failures}.
-
-\subsection{Attack Implementation}
 
 The attacks are built on the following tools that we built.
 
@@ -235,9 +356,15 @@ The attacks are built on the following tools that we built.
         program. It produces a list of probe sets that are likely able to
         distinguish between the two inputs. We describe how this tool is used in
         Section 5.
+
+    \item A Ruby implementation of the attack procedure described in Section
+          \textbf{TODO}.
 \end{itemize}
 
-\subsection{Experimental Evaluation}
+Before getting into the attacks, we describe our experimental setup in the next
+section.
+
+\section{Experiment Setup}
 
 We ran experiments on two systems. The first system is a laptop; the second
 system is a dedicated server hosting a low-traffic website and operating as
@@ -272,6 +399,12 @@ cache, but FLUSH+RELOAD works with its L2 cache as it is shared between cores.}
 \label{table:specs}
 \end{table*}
 
+To test the input distinguishing attacks, the experiments first perform the
+training stage, taking $T$ samples of each input. Then, for every input in the
+set of size $N$, the vulnerable program is run on the input $S$ times. The probe
+sequences from each of the $SN$ runs are put through the recovery stage
+independently, and we check how many of the recoveries were correct.
+
 All of the experiments have been automated so that they are easy to repeat. The
 source code and data from all experiment runs have been published so that other
 researchers can verify and reproduce our work, see Appendix
@@ -279,143 +412,129 @@ researchers can verify and reproduce our work, see Appendix
 
 All experiments were run with low system load.
 
-\section{Results}
-\label{sec:results}
+To make sure that we did not cherry pick vulnerable programs, we kept track of
+all the programs we looked at without developing any attacks. These are
+disclosed in Section \ref{sec:failures}.
 
-We present two attacks. The first attack lets an attacker tell whether
-a victim's TrueCrypt volume is normal or hidden. The second lets the the
-attacker tell which of the top 100 Wikipedia pages the victim visited using the
-Links web browser.
+\section{Attacks}
+\label{sec:results}
 
 We present three attacks. The first attack lets an attacker tell whether which
 of the top 100 Wikipedia pages the victim visited using the Links web browser.
 The second attack does the same for the Poppler PDF rendering library,
 distinguishing between 127 PDF transcripts of 2014 Canadian parliamentary
-debates. The third attack determines whether a mounted TrueCrypt volume
-contained a hidden volume or not.
+debates. The Links and Poppler attacks both use the input distinguishing process
+described above. The third attack, which is implemented differently, determines
+whether a mounted TrueCrypt volume contained a hidden volume or not.
+
+For the Links and Poppler attacks, we give the probe locations and report the
+success rate that we saw in our experiments. For the TrueCrypt attack, we
+describe how it works and report the success rate.
 
 \subsection{Links}
 
 Links is a command-line web browser. We are interested in learning which web
 page a user is visiting, out of a set of known pages. We found that it is
-possible to reliably distinguish between the top 100 Wikipedia pages.
+possible to reliably distinguish between the top 100 Wikipedia pages of
+2013~\cite{wikitop2013}.
 
-\subsubsection{Attack Implementation}
+To find the Links probes, we ran the automated probe finding tool on the HTML
+parsing functions inside links. The names of these functions all contain the
+string ``html'', so we grepped the list of all functions for ``html'' and gave
+the resulting list of 77 functions to the probe finding tool. The two inputs we
+gave to the probe finding tool were, for no particular reason, the ``Bird'' and
+``Feather'' Wikipedia pages. The tool gave us the following probe set:
 
-The attack works by placing probes on key locations in Links' HTML parsing code
-(described below). An ad-hoc machine learning technique is used to recognize the
-visited page from a single observed probe sequence.
+\begin{itemize}
+    \item \texttt{html\_stack\_item()}
+    \item \texttt{html\_stack\_dup()}
+    \item \texttt{html\_a()}
+    \item \texttt{parse\_html()}
+\end{itemize}
 
-First, the attacker performs a training phase on the victim's
-machine\endnote{It is conceivable that the attacker could perform the training
-phase on a different machine with similar hardware, but we did not try it.}.
-After the training phase, the attacker observes the victim visiting a web page,
-saving the probe sequence. Finally, there is a recovery phase to decide which
-page the victim visited.
+On System 1 with $T=10$ and $S=10$ \endnote{links/0014}, the correct page was
+identified $940$ times out of $1000$, an accuracy of 94\%. In this experiment,
+the average time it took to recover the name of the page from the training
+sequences and the victim sequence was $4.1$ seconds. All pages in the set were
+correctly identified at least twice out of the ten runs. Most were correctly
+identified all 10 times. The distribution is plotted in
+Figure~\ref{figure:distribution}.
 
-In the training phase, the attacker runs the attack tool while they themselves
-visit each page in the set $T$ times. They save the observed probe sequences to
-files, labeled with the page that they correspond to.
+A second run on System 1 with $T=10$ and $S=1$\endnote{links/0013} saw the
+correct page being identified $95$ times out of $100$, an accuracy of 95\%.
+Here, it again took $4.1$ seconds to perform a recovery, on average.
 
-In the observation phase, the attacker spies on the Links program while the
-victim visits one of the pages in the set (it is assumed the attacker knows the
-page they visited is in the set). They write the observed sequence of probes to
-a file.
+On System 2 with $T=10$ and $S=1$\endnote{links/0015}, the correct page was
+identified $98$ times out of $100$. Recovery took $136$ seconds on average.
+Recovery took much longer on System 2, even though it has better hardware,
+because at the time this experiment was run, System 2 was configured to use
+a pure Ruby implementation of the Levenshtein distance instead of the fast
+native implementation that System 1 was using.
 
-Finally, in the recovery phase, the attacker attempts to decide which page the
-victim visited. This is done by computing the Levenshtein distance
-\cite{levenshtein1966binary} between the victim sequence and all of the training
-sequences. The training sequence with the shortest Levenshtein distance from the
-victim's sequence is assumed to be from the same page. To speed up the attack,
-we only compute the distance on the first 1000 characters of the recorded
-sequences\endnote{We made this change after the System 1 experiments, so this
-only applies to the System 2 experiments. The System 1 experiments we report
-computed the Levenshtein distance over the entire strings. We need to re-run the
-System 1 experiments with the truncation.}. The recovery phase can be performed
-offline.
+A plot of the Levenshtein distances involved in a successful recovery is shown
+in Figure~\ref{figure:youtube}, and an unsuccessful recovery in
+Figure~\ref{figure:minaj}.
 
-The probe sequences are recorded by taking the attack tool's output as a string,
-which is a sequence of single-character probe names. The first 200 bytes of
-a training sample are shown in Figure \ref{figure:probetext}.
+All of the Wikipedia pages in the set have distinct lengths. So, it is
+reasonable to ask whether this attack is just distinguishing the pages by their
+lengths. We know this is not the case, however, because the probe sequences are
+truncated to 1000 characters before the Levenshtein distance is computed, and in
+all of the experiment runs mentioned above, most of the training samples have
+lengths above 1000 and so most of the comparisons are between constant-length
+strings. So the order of the probe hits matters, and therefore we are really
+learning information about the content of the page, and not just its length.
 
-\begin{figure}
-    \centering
-\begin{verbatim}
-HDRDSSSSDSDSDHDHDHDHDRDHDSSDSDSDSDHDHDHD
-RDRDRDHSRDRDRDRDRDSSDHDRDRDSDSDRDRDRDHDH
-DRDHDRDRDRDSDSDSDHSDSRDSDRSSDHSSDSSDSDRD
-SDSDSDSDSDRDRDHSDSSSDSSRDSDRSSSDHDSDSDRS
-DSDSDRDSDRDRDSSDSDSDSDRDSDSDSDSDSDSRDRDS
-\end{verbatim}
-\caption{The first 200 bytes (of 12,309) of a training sequence against the
-Facebook Wikipedia page. From run links/0010.}
-    \label{figure:probetext}
-\end{figure}
+Before we built the probe finding tool, we ran experiments with a different set
+of probes that we found manually. We chose these probes by trial and error, and
+by looking through the Links source code to find functions whose order of
+execution should depend on the contents of Wikipedia pages. These are:
 
-We implemented this attack against the top 100 Wikipedia pages
-\cite{wikitop2013}. The probe locations we chose are as follows.
+\begin{itemize}
+    \item \texttt{parse\_html()}
+    \item \texttt{html\_stack\_dup()}
+    \item \texttt{html\_h()}
+    \item \texttt{html\_span()}
+\end{itemize}
 
-\begin{enumerate}
-    \item At the top of the \texttt{parse\_html()} function, which begins the
-        process of parsing downloaded HTML.
-    \item At the top of \texttt{html\_stack\_dup()}, which duplicates the element
-        at the top of a stack used while parsing HTML tags.
-    \item On \texttt{html\_h()}, the function that parses HTML header tags (h1,
-        h2, h3...).
-    \item On \texttt{html\_span()}, the function that parses span tags.
-\end{enumerate}
-
-These were chosen by trial and error to maximize the accuracy of the attack. We
-aimed for locations in the parsing code that were far enough apart from each
-other in the binary to reduce the amount of noise (e.g. from the CPU prefetching
-code it won't actually execute), and whose order of execution was likely to vary
-between Wikipedia pages.
-
-\subsubsection{Experiment}
-
-Our experiment carries out the attack described above. First the attacker takes
-$T$ training samples of each page. Then, $S$ times, the victim visits
-a particular page. The attacker tries to recover the page independently for each
-of the $S$ observations of the victim. This is repeated for all of the pages in
-the set. We used the top 100 Wikipedia pages of 2013 as our page set
-\cite{wikitop2013}.
-
-On System 1, with $T=10$ and $S=1$, the correct URL was recovered 91\% of the
-time\endnote{Run links/0005}. With $T=5$ and $S=1$, the correct URL was
-recovered 76\% of the time\endnote{Run links/0002}. So the attack is more
-accurate when the attacker has more training samples.
-
-We ran a longer experiment\endnote{Run links/0010} on System 2 with $T=5$ and
-$S=10$. The attacker guessed correctly 879 times out of 1000, an 88\% accuracy.
-Every page was correctly identified at least once except for Taylor Swift's
-Wikipedia page. 43 of the pages where correctly identified all 10 times out of
-10. This is plotted in Figure \ref{figure:identifycounts}, showing that most
-pages can be reliably identified.
+With these probes, we saw 76\% accuracy on System 1 with $T=5$ and
+$S=1$\endnote{links/0002. This experiment was run before we started truncating
+to 1000 characters, so the full strings were compared.}. On System 2 with $T=5$
+and $S=10$\endnote{links/0010} we saw 88\% accuracy. With $T=10$ and
+$S=1$\endnote{links/0005. This experiment was also run before we started
+truncating to 1000 characters.} we saw 91\% accuracy. This indicates that using
+more training samples increases the accuracy of the attack, and that the
+automatically discovered probes are just as good or slightly better than the
+ones we found manually.
 
 \begin{figure}
     \centering
-    \input{identifycounts}
-    \caption{The number of different
-    pages that were identified a given number of times, out of the 10 victim
-samples of that page. 43 pages were identified every time, and one page was
-never correctly identified.}
-    \label{figure:identifycounts}
+    \begin{tikzpicture}
+        \begin{axis}[
+            symbolic x coords={10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
+            xtick=data
+          ]
+            \addplot[ybar,fill=blue] coordinates {
+                (10,  71)
+                (9,   15)
+                (8,   9)
+                (7,   2)
+                (6,   0)
+                (5,   0)
+                (4,   1)
+                (3,   1)
+                (2,   1)
+                (1,   0)
+                (0,   0)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \caption{The distribution of success rates for individual pages. On the $x$
+        axis, the number of times the page was correctly identified out of ten
+        trials. On the $y$ axis, the number of pages that were correctly
+        identified that many times. Most pages were correctly identified in all
+        ten trials.}
+    \label{figure:distribution}
 \end{figure}
-
-In that experiment, it took 70 seconds on average to recover one page from the
-victim sample. The longest recovery took 80 seconds. Most of this time is spent
-computing Levenshtein distances.
-
-The plot of the Levenshtein distances betweeen a sample of the victim visiting
-the YouTube Wikipedia page and all of the training samples is shown in Figure
-\ref{figure:youtube}. In this case, the attacker makes the right decision since
-the lowest distance corresponds to a training sample of the YouTube page.
-
-The plot of a failed recovery attempt is shown in Figure \ref{figure:minaj}. The
-attacker makes the wrong decision in this case because an Eminem training sample
-has the shortest distance from the victim's sample, but the victim actually
-visited the Nicki Minaj page (which is still identifiable as the second-lowest
-point in the plot).
 
 \begin{figure*}
     \centering
@@ -445,9 +564,61 @@ training samples of that page. The order on the page axis is not meaningful.}
 
 \subsection{Poppler}
 
-\subsubsection{Attack Implementation}
+Poppler is a PDF rendering library that gets used in software such as Evince and
+Libreoffice. For ease of automation, we attacked the \texttt{pdftops} program,
+which converts PDF files into PostScript files. As our input set, we used the
+127 transcripts of 2014 parliamentary debates made available by the Canadian
+government~\cite{hansard}.
 
-\subsubsection{Experiment}
+We used the automatic probe finding tool to find the best probes amongst the
+functions responsible for executing PDF commands. These functions, of which
+there are 77, are easily identified because their names begin with ``Gfx::op.''
+The probe finding tool returned the following set of probes after using
+\texttt{HAN040-E.PDF} and \texttt{HAN050-E.PDF}, two PDFs in the parliamentary
+debate set, as testing inputs.
+
+\begin{itemize}
+    \item \texttt{Gfx::opShowSpaceText(Object*, int)}
+    \item \texttt{Gfx::opTextMoveSet(Object*, int)}
+    \item \texttt{Gfx::opSetFont(Object*, int)}
+    \item \texttt{Gfx::opTextNextLine(Object*, int)}
+\end{itemize}
+
+On System 1 with $T=5$ and $S=10$\endnote{poppler/0003}, the correct PDF was
+identified $1258$ times out of $1270$, a 99.1\% accuracy. All of the PDFs were
+reliably identifiable. All but one were recovered 9 or 10 times out of 10,
+except for one which was recovered 8 times. In a repeat run on same system with
+$T=5$ and $S=1$\endnote{poppler/0006}, the correct PDF was identified $124$
+times out of $127$, a 97.6\% accuracy.
+
+On System 2 with $T=5$ and $S=1$\endnote{poppler/0001}, the correct PDF was
+identified $126$ times out of $127$, an accuracy of 99.2\%. With $T=5$ and
+$S=10$\endnote{poppler/0007}, the PDF was correctly identified $1260$ times out
+of $1270$, an accuracy of 99.2\%. Again, all but one were identified 9 or 10
+times out of 10, except for one that was identified correctly only 8 times.
+
+Unlike Links, we did not have a working attack against Poppler before we used
+the probe finding tool. So this is an attack that was discovered almost
+automatically. The only human input was the idea to look only at the set of
+functions that execute PDF commands.
+
+We tried running the probe finding tool on the list of all functions in the
+Poppler library. The result is the following set of probes:
+
+\begin{itemize}
+    \item \texttt{gmallocn()}
+    \item \texttt{PSOutputDev::writePSString(GooString*)}
+    \item \texttt{PSOutputDev::drawString(GfxState*, GooString*)}
+    \item \texttt{PSOutputDev::updateTextShift(GfxState*, double)}
+\end{itemize}
+
+We ran an experiment with these probes and $T=5$ and $S=1$ on System 1, and the
+result was that the correct PDF was only identified 21 times out of 127,
+a 16.5\% accuracy. This is much worse than with the other set of probes, but is
+still better than random guessing. With these probes, the \textsc{Flush+Reload}
+tool ran into an error condition, where the CPU's \texttt{RDTSC} counter
+increases non-monotonically, much more frequently than it did with the other
+probes, and that is probably the reason for the reduced accuracy.
 
 \subsection{TrueCrypt}
 
@@ -563,8 +734,6 @@ We tried the Links attack on an Amazon EC2 instance and it did not work. Looking
 at the attack tool's output, it appears to be because the VM is running out of
 CPU credit which is making it miss too many measurements. We did not have time
 to investigate further.
-
-\section{Automating Attack Discovery}
 
 \section{Related Work}
 \label{sec:relwork}

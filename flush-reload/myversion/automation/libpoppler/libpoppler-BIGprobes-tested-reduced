@@ -1,5 +1,4 @@
 0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134)
-0x000b6730 PSOutputDev::writePSString(GooString*)@plt                  (Quality:      12    4359    4347   78360   78372   82719)
 0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717)
 0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717)
 0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580)
