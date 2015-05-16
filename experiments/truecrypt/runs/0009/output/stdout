@@ -1,0 +1,5233 @@
+
+
+Sample 0 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 1 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 2 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 3 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 4 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 5 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 6 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 7 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 8 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 9 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 10 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 11 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 12 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 13 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 14 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 15 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 16 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 17 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 18 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 19 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 20 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 21 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 22 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 23 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 24 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 25 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 26 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 27 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 28 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 29 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 30 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 31 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 32 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 33 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|RS|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 34 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 35 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 36 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 37 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 38 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 39 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 40 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 41 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 42 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 43 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 44 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 45 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 46 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 47 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 48 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 49 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 50 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|
+S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 51 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 52 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 53 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 54 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 55 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 56 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 57 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 58 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 59 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 60 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|{2}
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 61 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 62 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 63 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 64 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 65 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 66 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 67 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|S|R|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 68 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 69 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 70 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 71 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 72 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 73 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 74 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|R|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 75 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 76 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 77 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 78 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|
+S|S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 79 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 80 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 81 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 82 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 83 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 84 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 85 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 86 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 87 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 88 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 89 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|{1}]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 90 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 91 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 92 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 93 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 94 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 95 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 96 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 97 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|
+S|R|S|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 98 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 99 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|S|S|{3}S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 100 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 101 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 102 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 103 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 104 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|R|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 105 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 106 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 107 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 108 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 109 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 110 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 111 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 112 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 113 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 114 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 115 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 116 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 117 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 118 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 119 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 120 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 121 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 122 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|R|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 123 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 124 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 125 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 126 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 127 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 128 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 129 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 130 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 131 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 132 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 133 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 134 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|
+S|S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 135 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 136 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 137 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 138 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 139 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 140 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 141 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 142 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 143 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 144 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 145 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 146 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 147 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 148 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|R|S|S|S|S|S|
+S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 149 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 150 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 151 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 152 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 153 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|S|
+S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 154 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 155 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 156 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 157 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 158 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 159 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 160 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|R|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 161 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 162 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 163 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 164 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 165 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 166 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 167 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 168 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|R|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 169 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 170 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 171 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 172 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 173 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|
+S|S|R|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 174 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 175 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 176 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 177 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 178 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 179 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 180 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 181 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 182 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|RS|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 183 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 184 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 185 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 186 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 187 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|RS|S|S|S|S|S|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 188 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 189 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 190 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 191 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 192 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 193 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 194 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 195 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 196 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 197 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 198 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 199 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 200 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 201 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 202 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|RS|S|S|S|S|
+S|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 203 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 204 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 205 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 206 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 207 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 208 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|S|S|S|S|S|S|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 209 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 210 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 211 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|RS|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 212 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 213 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 214 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 215 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|
+R|
+R|
+S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 216 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 217 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+R|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 218 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 219 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 220 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 221 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 222 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 223 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 224 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|R|S|S|S|
+S|S|R|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 225 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 226 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 227 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 228 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 229 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|
+R|
+S|{111}]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 230 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|RS|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 231 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 232 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 233 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 234 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 235 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|R|S|S|
+S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 236 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 237 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 238 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|
+R|R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 239 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 240 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 241 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 242 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 243 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 244 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|
+R|
+R|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 245 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 246 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 247 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 248 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|RS|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 249 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 250 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|R|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 251 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|S|S|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 252 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 253 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 254 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 255 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|
+S|S|S|
+R|R|
+R|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 256 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 257 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 258 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 259 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 260 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 261 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 262 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 263 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 264 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 265 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 266 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 267 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 268 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 269 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 270 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 271 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 272 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 273 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 274 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 275 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 276 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 277 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 278 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 279 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 280 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 281 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 282 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|RS|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 283 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 284 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 285 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 286 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 287 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 288 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 289 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 290 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 291 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 292 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 293 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 294 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 295 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 296 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 297 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 298 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 299 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 300 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 301 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 302 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 303 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 304 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 305 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 306 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 307 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 308 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 309 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 310 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|RS|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 311 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 312 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 313 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|R|S|S|S|
+S|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 314 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 315 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 316 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 317 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 318 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 319 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 320 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|RS|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 321 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 322 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 323 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 324 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 325 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 326 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|R|S|S|S|S|S|S|
+S|S|S|S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 327 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 328 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|R|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 329 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 330 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 331 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 332 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 333 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 334 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 335 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 336 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 337 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 338 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 339 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|RS|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 340 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 341 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 342 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|R|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 343 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 344 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 345 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 346 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|{1}S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 347 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 348 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 349 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 350 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 351 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 352 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 353 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 354 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|
+S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 355 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 356 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|{1}S|S|
+S|S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 357 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|R|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 358 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 359 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 360 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|{1}S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 361 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 362 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 363 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 364 ----------------------------------------------------
+ACTUAL: hidden
+
+
+Sample 365 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 366 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 367 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 368 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 369 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 370 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 371 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 372 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 373 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 374 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 375 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 376 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 377 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 378 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|S|R|S|S|S|S|
+R|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 379 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 380 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 381 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 382 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 383 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 384 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|
+S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 385 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 386 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 387 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 388 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 389 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 390 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 391 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|
+S|R|S|S|S|S|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 392 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 393 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 394 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 395 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 396 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 397 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 398 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 399 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 400 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 401 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 402 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 403 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|RS|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 404 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 405 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 406 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 407 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 408 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 409 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 410 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 411 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 412 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 413 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 414 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 415 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 416 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 417 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 418 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 419 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 420 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 421 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 422 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 423 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 424 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 425 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 426 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 427 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 428 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 429 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|R|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 430 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 431 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|R|S|S|S|
+S|S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 432 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 433 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|R|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 434 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 435 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 436 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 437 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 438 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 439 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 440 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 441 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|RS|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 442 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 443 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 444 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 445 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 446 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 447 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 448 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 449 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 450 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|S|
+S|S|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 451 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 452 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 453 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 454 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 455 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 456 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|S|S|S|S|{1}]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 457 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 458 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 459 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 460 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 461 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 462 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 463 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 464 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 465 ----------------------------------------------------
+ACTUAL: hidden
+
+
+Sample 466 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 467 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 468 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|R|S|S|
+S|S|S|R|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 469 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 470 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 471 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|{3}
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 472 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 473 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 474 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 475 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 476 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 477 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 478 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|S|S|
+R|
+R|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 479 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 480 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 481 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: []
+DECISION: unknown (blip)
+[:unknown]
+DECISION: unknown
+UNKNOWN##########
+
+
+Sample 482 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|R|S|S|S|S|
+S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 483 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 484 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|
+S|R|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 485 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|
+S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 486 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|S|R|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 487 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 488 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 489 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 490 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|S|S|S|
+S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 491 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 492 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|R|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 493 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|RS|R|S|S|S|S|
+S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 494 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|S|R|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 495 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|S|
+S|R|S|S|S|S|S|
+R|R|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 496 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|S|
+S|S|R|S|S|S|S|S|
+R|
+R|]
+[:standard]
+DECISION: standard
+right
+
+
+Sample 497 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|S|S|S|S|S|
+S|S|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+right
+
+
+Sample 498 ----------------------------------------------------
+ACTUAL: standard
+DECIDING...
+OUTPUT: [S|S|R|S|S|S|S|S|]
+[:hidden]
+DECISION: hidden
+WRONG########################
+
+
+Sample 499 ----------------------------------------------------
+ACTUAL: hidden
+DECIDING...
+OUTPUT: [S|R|S|S|S|S|
+S|R|S|S|S|S|
+S|]
+[:hidden]
+DECISION: hidden
+right
+TOTALS:
+    SMPLS: 500
+    WRONG: 48
+    RIGHT: 441
+    MONO:  2
+    UNK:   9
+    STD:   236
+    HDN:   264
