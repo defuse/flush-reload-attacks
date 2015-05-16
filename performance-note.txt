@@ -1,0 +1,5 @@
+I accidentally installed the `levenshtein` gem on defuse.ca instead of
+`levenshtein-ffi`, so some of the performance measurements on defuse.ca are way
+slower than they could have been if we were using levenshtein-ffi.
+
+I switched to levenshtein-ffi on May 15 7:38 MDT.
