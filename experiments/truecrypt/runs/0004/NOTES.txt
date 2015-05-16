@@ -1,0 +1,6 @@
+Experiment Notes
+-----------------
+Date: Sat May 16 10:53:20 MDT 2015
+
+This one failed because I had left the decide() function doing something
+completely different (see the source code in input/).

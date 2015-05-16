@@ -2,7 +2,7 @@
 
 require '../../flush-reload/myversion/ruby/RubyInterface.rb'
 
-SAMPLES = 500
+SAMPLES = 100
 TC_PATH = "./binaries/truecrypt-arch"
 PROBES_PATH = "./binaries/truecrypt-arch.probes"
 VOLUME_BYTES = 1_000_000

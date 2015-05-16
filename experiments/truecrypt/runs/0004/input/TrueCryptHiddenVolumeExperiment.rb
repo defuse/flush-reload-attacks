@@ -2,13 +2,12 @@
 
 require '../../flush-reload/myversion/ruby/RubyInterface.rb'
 
-SAMPLES = 500
+SAMPLES = 100
 TC_PATH = "./binaries/truecrypt-arch"
 PROBES_PATH = "./binaries/truecrypt-arch.probes"
 VOLUME_BYTES = 1_000_000
 HIDDEN_VOL = "./hidden.tc"
 STANDARD_VOL = "./standard.tc"
-MAJORITY_COUNT = 3
 
 $right = 0
 $wrong = 0
@@ -21,8 +20,8 @@ def decide(output)
   puts "DECIDING..."
   puts "OUTPUT: [#{output}]"
   if output.length >= 4
-    if output.end_with? "R|"
-    #if output.scan("R|").length < 6
+    #if output.end_with? "R|"
+    if output.scan("R|").length < 6
       return :standard
     else
       return :hidden
@@ -109,62 +108,47 @@ if $?.exitstatus != 0
   exit
 end
 
-def array_majority(array)
-  freq = array.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-  return array.max_by { |v| freq[v] }
-end
-
 SAMPLES.times do |i|
   print "\n\n"
   puts "Sample #{i} ----------------------------------------------------"
   begin
+    # Dismount both hidden and standard.
+    IO.popen( [TC_PATH, "-t", "--non-interactive", "-d", HIDDEN_VOL], "r") do |x|
+    end
+    IO.popen( [TC_PATH, "-t", "--non-interactive", "-d", STANDARD_VOL], "r") do |x|
+    end
+
+    sleep 1
+
+    # Start spying
+    spy = Spy.new(TC_PATH)
+    spy.loadProbes(PROBES_PATH)
+    #spy.addProbe("R", 0x576520)
+    #spy.addProbe("S", 0x41c516)
+    ##spy.addProbe("G", 0x57cce0)
+    spy.slot = 20480
+    spy.start
 
     # Randomly mount the hidden or the standard
     actual = :standard
     if rand() < 0.5
       puts "ACTUAL: standard"
+      IO.popen( [TC_PATH, "-t", "--non-interactive", "-p", "1234", STANDARD_VOL], "r") do |x|
+      end
       $standard += 1
     else
       actual = :hidden
       puts "ACTUAL: hidden"
+      IO.popen( [TC_PATH, "-t", "--non-interactive", "-p", "1234", HIDDEN_VOL], "r") do |x|
+      end
       $hidden += 1
     end
 
-    majority = []
+    # Stop the spy, getting the output.
+    result = spy.stop
 
-    MAJORITY_COUNT.times do |k|
-      # Dismount both hidden and standard.
-      IO.popen( [TC_PATH, "-t", "--non-interactive", "-d", HIDDEN_VOL], "r") do |x|
-      end
-      IO.popen( [TC_PATH, "-t", "--non-interactive", "-d", STANDARD_VOL], "r") do |x|
-      end
-
-      # Start spying
-      spy = Spy.new(TC_PATH)
-      spy.loadProbes(PROBES_PATH)
-      spy.slot = 20480
-      spy.start
-
-      sleep 1
-
-      if actual == :standard
-        IO.popen( [TC_PATH, "-t", "--non-interactive", "-p", "1234", STANDARD_VOL], "r") do |x|
-        end
-      else
-        IO.popen( [TC_PATH, "-t", "--non-interactive", "-p", "1234", HIDDEN_VOL], "r") do |x|
-        end
-      end
-
-      # Stop the spy, getting the output.
-      result = spy.stop
-
-      # Decide whether we think it was a hidden or standard.
-      majority << decide(result)
-    end
-
-    p majority
-    decision = array_majority(majority)
-    puts "DECISION: #{decision}"
+    # Decide whether we think it was a hidden or standard.
+    decision = decide(result)
     if decision == actual
       puts "right"
       $right += 1
@@ -175,6 +159,7 @@ SAMPLES.times do |i|
       puts "WRONG########################"
       $wrong += 1
     end
+
 
   rescue MonotonicityError
     $monotonicity += 1
