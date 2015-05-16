@@ -252,9 +252,27 @@ attacker which input the victim ran the program on.
 
 Before computing the Levenshtein distance, the probe sequences are first
 condensed by collapsing a string of hits to the same probe down into a single
-hit of that probe, and then truncated to 1000 characters. This is done to make
-the recovery stage faster, since the algorithm we use to compute the Levenshtein
-distance has quadratic running time.
+hit of that probe, and then truncated to 1000 characters. An example is shown in
+Figure~\ref{figure:probetext}. This is done to make the recovery stage faster,
+since the algorithm we use to compute the Levenshtein distance has quadratic
+running time.
+
+\begin{figure}
+    \centering
+\begin{verbatim}
+BDBABABABABABABABABABABABCABABCBABCBCABC
+ABABABCBABCABCBCBDABABACACADBABDBCBABCBA
+BABDBCBABDBCABDBCABDBCABCBCBCBABCBCBABAB
+DBABABDABDBCABDABABCABDBCBCBABCBCBABCBCB
+ABCABCABDABDCBCABCABCBABDABCABDBCABDBCBA
+\end{verbatim}
+\caption{The first 200 bytes (of 24,984) of an observed probe sequence while
+    visiting the Facebook Wikipedia page in Links. From run links/0015.
+    \texttt{A} corresponds to \texttt{kill\_html\_stack\_item()}, \texttt{B} to
+    \texttt{html\_stack\_dup()}, \texttt{C} to \texttt{html\_a()}, and
+    \texttt{D} to \texttt{parse\_html()}}.
+    \label{figure:probetext}
+\end{figure}
 
 The training stage can be done either before or after the attack stage, and the
 attacker can re-use a training set multiple times, so they only need to train
@@ -338,6 +356,12 @@ cache, but FLUSH+RELOAD works with its L2 cache as it is shared between cores.}
 \label{table:specs}
 \end{table*}
 
+To test the input distinguishing attacks, the experiments first perform the
+training stage, taking $T$ samples of each input. Then, for every input in the
+set of size $N$, the vulnerable program is run on the input $S$ times. The probe
+sequences from each of the $SN$ runs are put through the recovery stage
+independently, and we check how many of the recoveries were correct.
+
 All of the experiments have been automated so that they are easy to repeat. The
 source code and data from all experiment runs have been published so that other
 researchers can verify and reproduce our work, see Appendix
@@ -361,133 +385,82 @@ described above. The third attack, which is implemented differently, determines
 whether a mounted TrueCrypt volume contained a hidden volume or not.
 
 For the Links and Poppler attacks, we give the probe locations and report the
-success rate that we saw in our experiements. For the TrueCrypt attack, we
+success rate that we saw in our experiments. For the TrueCrypt attack, we
 describe how it works and report the success rate.
 
 \subsection{Links}
 
 Links is a command-line web browser. We are interested in learning which web
 page a user is visiting, out of a set of known pages. We found that it is
-possible to reliably distinguish between the top 100 Wikipedia pages.
+possible to reliably distinguish between the top 100 Wikipedia pages of
+2013~\cite{wikitop2013}.
 
+To find the Links probes, we ran the automated probe finding tool on the HTML
+parsing functions inside links. The names of these functions all contain the
+string ``html'', so we grepped the list of all functions for ``html'' and gave
+the resulting list of 77 functions to the probe finding tool. The two inputs we
+gave to the probe finding tool were, for no particular reason, the ``Bird'' and
+``Feather'' Wikipedia pages. The tool gave us the following probe set:
 
+\begin{itemize}
+    \item \texttt{html\_stack\_item()}
+    \item \texttt{html\_stack\_dup()}
+    \item \texttt{html\_a()}
+    \item \texttt{parse\_html()}
+\end{itemize}
 
-\subsubsection{Attack Implementation}
+On System 1 with $T=10$ and $S=10$ \endnote{links/0014}, the correct page was
+identified $940$ times out of $1000$, an accuracy of 94\%. In this experiment,
+the average time it took to recover the name of the page from the training
+sequences and the victim sequence was $4.1$ seconds. All pages in the set were
+correctly identified at least twice out of the ten runs. Most were correctly
+identified all 10 times. The distribution is plotted in \textbf{TODO}.
 
-The attack works by placing probes on key locations in Links' HTML parsing code
-(described below). An ad-hoc machine learning technique is used to recognize the
-visited page from a single observed probe sequence.
+A second run on System 1 with $T=10$ and $S=1$\endnote{links/0013} saw the
+correct page being identified $95$ times out of $100$, an accuracy of 95\%.
+Here, it again took $4.1$ seconds to perform a recovery, on average.
 
-First, the attacker performs a training phase on the victim's
-machine\endnote{It is conceivable that the attacker could perform the training
-phase on a different machine with similar hardware, but we did not try it.}.
-After the training phase, the attacker observes the victim visiting a web page,
-saving the probe sequence. Finally, there is a recovery phase to decide which
-page the victim visited.
+On System 2 with $T=10$ and $S=1$\endnote{links/0015}, the correct page was
+identified $98$ times out of $100$. Recovery took $136$ seconds on average.
+Recovery took much longer on System 2, even though it has better hardware,
+because at the time this experiment was run, System 2 was configured to use
+a pure Ruby implementation of the Levenshtein distance instead of the fast
+native implementation that System 1 was using.
 
-In the training phase, the attacker runs the attack tool while they themselves
-visit each page in the set $T$ times. They save the observed probe sequences to
-files, labeled with the page that they correspond to.
+A plot of the Levenshtein distances involved in a successful recovery is shown
+in Figure~\ref{figure:minaj}, and an unsuccessful recovery in
+Figure~\ref{figure:eminem}.
 
-In the observation phase, the attacker spies on the Links program while the
-victim visits one of the pages in the set (it is assumed the attacker knows the
-page they visited is in the set). They write the observed sequence of probes to
-a file.
+All of the Wikipedia pages in the set have distinct lengths. So, it is
+reasonable to ask whether this attack is just distinguishing the pages by their
+lengths. We know this is not the case, however, because the probe sequences are
+truncated to 1000 characters before the Levenshtein distance is computed, and in
+all of the experiment runs mentioned above, most of the training samples have
+lengths above 1000 and so most of the comparisons are between constant-length
+strings. So the order of the probe hits matters, and therefore we are really
+learning information about the content of the page, and not just its length.
 
-Finally, in the recovery phase, the attacker attempts to decide which page the
-victim visited. This is done by computing the Levenshtein distance
-\cite{levenshtein1966binary} between the victim sequence and all of the training
-sequences. The training sequence with the shortest Levenshtein distance from the
-victim's sequence is assumed to be from the same page. To speed up the attack,
-we only compute the distance on the first 1000 characters of the recorded
-sequences\endnote{We made this change after the System 1 experiments, so this
-only applies to the System 2 experiments. The System 1 experiments we report
-computed the Levenshtein distance over the entire strings. We need to re-run the
-System 1 experiments with the truncation.}. The recovery phase can be performed
-offline.
+Before we built the probe finding tool, we ran experiments with a different set
+of probes that we found manually. We chose these probes by trial and error, and
+by looking through the Links source code to find functions whose order of
+execution should depend on the contents of Wikipedia pages. These are:
 
-The probe sequences are recorded by taking the attack tool's output as a string,
-which is a sequence of single-character probe names. The first 200 bytes of
-a training sample are shown in Figure \ref{figure:probetext}.
+\begin{itemize}
+    \item \texttt{parse\_html()}
+    \item \texttt{html\_stack\_dup()}
+    \item \texttt{html\_h()}
+    \item \texttt{html\_span()}
+\end{itemize}
 
-\begin{figure}
-    \centering
-\begin{verbatim}
-HDRDSSSSDSDSDHDHDHDHDRDHDSSDSDSDSDHDHDHD
-RDRDRDHSRDRDRDRDRDSSDHDRDRDSDSDRDRDRDHDH
-DRDHDRDRDRDSDSDSDHSDSRDSDRSSDHSSDSSDSDRD
-SDSDSDSDSDRDRDHSDSSSDSSRDSDRSSSDHDSDSDRS
-DSDSDRDSDRDRDSSDSDSDSDRDSDSDSDSDSDSRDRDS
-\end{verbatim}
-\caption{The first 200 bytes (of 12,309) of a training sequence against the
-Facebook Wikipedia page. From run links/0010.}
-    \label{figure:probetext}
-\end{figure}
-
-We implemented this attack against the top 100 Wikipedia pages
-\cite{wikitop2013}. The probe locations we chose are as follows.
-
-\begin{enumerate}
-    \item At the top of the \texttt{parse\_html()} function, which begins the
-        process of parsing downloaded HTML.
-    \item At the top of \texttt{html\_stack\_dup()}, which duplicates the element
-        at the top of a stack used while parsing HTML tags.
-    \item On \texttt{html\_h()}, the function that parses HTML header tags (h1,
-        h2, h3...).
-    \item On \texttt{html\_span()}, the function that parses span tags.
-\end{enumerate}
-
-These were chosen by trial and error to maximize the accuracy of the attack. We
-aimed for locations in the parsing code that were far enough apart from each
-other in the binary to reduce the amount of noise (e.g. from the CPU prefetching
-code it won't actually execute), and whose order of execution was likely to vary
-between Wikipedia pages.
-
-\subsubsection{Experiment}
-
-Our experiment carries out the attack described above. First the attacker takes
-$T$ training samples of each page. Then, $S$ times, the victim visits
-a particular page. The attacker tries to recover the page independently for each
-of the $S$ observations of the victim. This is repeated for all of the pages in
-the set. We used the top 100 Wikipedia pages of 2013 as our page set
-\cite{wikitop2013}.
-
-On System 1, with $T=10$ and $S=1$, the correct URL was recovered 91\% of the
-time\endnote{Run links/0005}. With $T=5$ and $S=1$, the correct URL was
-recovered 76\% of the time\endnote{Run links/0002}. So the attack is more
-accurate when the attacker has more training samples.
-
-We ran a longer experiment\endnote{Run links/0010} on System 2 with $T=5$ and
-$S=10$. The attacker guessed correctly 879 times out of 1000, an 88\% accuracy.
-Every page was correctly identified at least once except for Taylor Swift's
-Wikipedia page. 43 of the pages where correctly identified all 10 times out of
-10. This is plotted in Figure \ref{figure:identifycounts}, showing that most
-pages can be reliably identified.
-
-\begin{figure}
-    \centering
-    \input{identifycounts}
-    \caption{The number of different
-    pages that were identified a given number of times, out of the 10 victim
-samples of that page. 43 pages were identified every time, and one page was
-never correctly identified.}
-    \label{figure:identifycounts}
-\end{figure}
-
-In that experiment, it took 70 seconds on average to recover one page from the
-victim sample. The longest recovery took 80 seconds. Most of this time is spent
-computing Levenshtein distances.
-
-The plot of the Levenshtein distances betweeen a sample of the victim visiting
-the YouTube Wikipedia page and all of the training samples is shown in Figure
-\ref{figure:youtube}. In this case, the attacker makes the right decision since
-the lowest distance corresponds to a training sample of the YouTube page.
-
-The plot of a failed recovery attempt is shown in Figure \ref{figure:minaj}. The
-attacker makes the wrong decision in this case because an Eminem training sample
-has the shortest distance from the victim's sample, but the victim actually
-visited the Nicki Minaj page (which is still identifiable as the second-lowest
-point in the plot).
+With these probes, we saw 76\% accuracy on System 1 with $T=5$ and
+$S=1$\endnote{links/0002. This experiment was run before we started truncating
+to 1000 characters, so the full strings were compared.}. On System 2 with $T=5$
+and $S=10$\endnote{links/0010} we saw 88\% accuracy. With $T=10$ and
+$S=1$\endnote{links/0005. This experiment was also run before we started
+truncating to 1000 characters.} we saw 91\% accuracy. This indicates that using
+more training samples increases the accuracy of the attack, and that the
+automatically discovered probes are just as good or slightly better than the
+probes we found manually.
 
 \begin{figure*}
     \centering
