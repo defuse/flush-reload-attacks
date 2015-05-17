@@ -8,7 +8,7 @@ PROBES_PATH = "./binaries/truecrypt-arch.probes"
 VOLUME_BYTES = 1_000_000
 HIDDEN_VOL = "./hidden.tc"
 STANDARD_VOL = "./standard.tc"
-MAJORITY_COUNT = 3
+MAJORITY_COUNT = 1
 
 $right = 0
 $wrong = 0
