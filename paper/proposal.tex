@@ -68,25 +68,25 @@ that the \textsc{Flush+Reload} L3 cache side channel from Yuval Yarom and
 Katrina Falkner \cite{yarom2013flush} can be used to distinguish between inputs
 to non-cryptographic programs. 
 
-We present three attacks that can be carried out by an attacker on a multi-user
-system. Our first attack is against the Links command-line web browser. We show
-that an attacker can determine which of the top 100 Wikipedia pages the user
-visited (correct 94\% of the time). Our second attack is against the Poppler PDF
+We present three attacks that can be carried out on a multi-user system. Our
+first attack is against the Links command-line web browser. We show that an
+attacker can determine which of the top 100 Wikipedia pages the user visited
+(correct 94\% of the time). Our second attack is against the Poppler PDF
 rendering library. We show that an attacker can determine which of a set of 127
-PDFs were processed by Poppler (correct 98\% of the time). Finally, we show how
+PDFs were rendered by Poppler (correct 98\% of the time). Finally, we show how
 an attacker can determine whether the TrueCrypt volume a user just mounted
-contained a hidden volume or not (correct above 80\% of the time, but only on
-one of our test systems). We also describe how new input distinguishing attacks
-can be discovered automatically.
+contained a hidden volume or not (correct above 80\% of the time, but the attack
+only works on one of our test systems). We also describe how new input
+distinguishing attacks can be discovered automatically.
 
 \section{Introduction}
 \label{sec:intro}
 
 Side channels are a well-known category of vulnerabilities where an adversary is
 able to learn information about their victim by observing implicit, rather than
-explicit, channels of information. For example, information may be accidentally
-leaked out through radio signals, execution time, power usage, or through the
-state of a computer processor's memory cache.
+explicit, channels of information. For example, information may be
+unintentionally leaked out through radio signals, execution time, power usage,
+or through the state of a computer processor's memory cache.
 
 Side channels are most commonly used to extract secret keys from implementations
 of cryptography. For example, Thomas Messerges et al.\ were able to extract the
@@ -107,13 +107,13 @@ investment funds \cite{chen2010side}.
 In this paper, we continue the trend of using side channels to attack the user's
 privacy. We show that the generic L3 cache side channel called
 \textsc{Flush+Reload} \cite{yarom2013flush} can be applied in non-cryptography
-settings to meaningfully violate confidentiality. We give three example attacks,
-where each attack determines which of a set of inputs the user passed to
+settings to meaningfully violate confidentiality. We give three concrete
+attacks. Each attack determines which of a set of inputs the user passed to
 a program. Specifically, we show how an attacker on a shared system can (1)
 determine which of the top 100 Wikipedia pages a user visited in the Links web
 browser, (2) determine which of the 127 PDF files a user passed to the
-\textsc{pdftops} command, and (3) determine whether the TrueCrypt volume a user
-just mounted contained a hidden volume or not.
+\texttt{pdftops} command, and (3) determine whether the TrueCrypt volume a user
+just mounted was a hidden volume or not.
 
 In addition to the three attacks, we also describe how the process of
 discovering new attacks can be partially automated.
@@ -138,7 +138,7 @@ In the next section, we summarize the \textsc{Flush+Reload} side channel that
 all of our novel attacks are based on. Section~\ref{sec:distinguishing}
 describes how \textsc{Flush+Reload} can be used to distinguish inputs and how we
 partially automated the process of discovering new attacks.
-Section~\ref{sec:implemenation} describes the software tools the attacks and
+Section~\ref{sec:implementation} describes the software tools the attacks and
 experiments are built from. Section~\ref{sec:experimentsetup} describes our
 experiments. The three attacks are described and evaluated by experiment in
 Section~\ref{sec:results}. Section~\ref{sec:relwork} highlights recent work that
@@ -226,19 +226,21 @@ the 100 pages Alice visited.
 
 The first step in the attack is to figure out where to place the
 \textsc{Flush+Reload} probes to best distinguish the input. This can be done by
-sifting through the program's code and finding functions whose order of
-execution are likely to depend heavily the input. It is possible to do this by
-hand, but some automation can make it easier. We describe how to automate it in
-Section~\ref{sec:automate}.
+sifting through the program's code and finding functions whose frequency and
+order of execution are likely to depend heavily the input. It is possible to do
+this by hand, but some automation can make it easier. We describe how to
+automate it in Section~\ref{sec:automate}. While the side channel allows probes
+to be placed on any cache line, we only consider cache lines containing function
+entrypoints.
 
 With the probes selected, the attack proceeds in three stages. The first stage
 is a training stage. This must be carried out on the victim's machine (or
 a machine sufficiently similar to it)\endnote{It is conceivable that the
-    attacker could perform the training phase on a different machine with
-similar hardware, but we did not try it.}. Next, the actual attack happens. The
-attacker spies on the victim as they execute the program on one of the inputs.
-Finally, the attacker uses the training data and output from the attack stage to
-recover to determine which input was given to the program.
+attacker could perform the training phase on a different machine with similar
+hardware, but we did not try it.}. Next, the actual attack happens: the attacker
+spies on the victim as they execute the program on one of the inputs. Finally,
+the attacker uses the training data and output from the attack stage to to
+determine which input was given to the program.
 
 In the training stage, the attacker simply runs the \textsc{Flush+Reload} attack
 tool against themselves as they run the program on every input in the set
@@ -254,20 +256,20 @@ saves the observed probe sequence to a file.
 
 In the recovery stage, the attacker finds the probe sequence in the training set
 that is closest to the one obtained from the victim. Closeness is measured using
-the Levenshtein distance\cite{levenshtein1966binary}, which is defined as the
+the Levenshtein distance \cite{levenshtein1966binary}, which is defined as the
 smallest number of basic edits (single-character insertions, deletions, and
 replacements) needed to bring one string to the other. The attacker computes the
 Levenshtein distance between the victim's probe sequence and all of the training
 probe sequences, and the one with the smallest Levenshtein distance is assumed
-to be the input the victim passed to the program.
+to correspond to the input the victim passed to the program.
 
 Probe sequences are represented by strings of single-character probe names. An
 example is given in Figure~\ref{figure:probetext}. Before computing the
 Levenshtein distance, the probe sequences are first condensed by collapsing
-a string of hits to the same probe down into a single hit of that probe, and
-then truncated to 1000 characters. This is done to make the recovery stage
-faster, since the algorithm we use to compute the Levenshtein distance has
-quadratic running time.
+sequentially repeated hits of the same probe down into a single hit of that
+probe, and then the whole string is truncated to 1000 characters. This is done
+to make the recovery stage faster, since the algorithm we use to compute the
+Levenshtein distance has quadratic running time.
 
 \begin{figure}
     \centering
@@ -282,12 +284,12 @@ ABCABCABDABDCBCABCABCBABDABCABDBCABDBCBA
     while visiting the Facebook Wikipedia page in Links. From run links/0015.
     \texttt{A} corresponds to \texttt{kill\_html\_stack\_item()}, \texttt{B} to
     \texttt{html\_stack\_dup()}, \texttt{C} to \texttt{html\_a()}, and
-\texttt{D} to \texttt{parse\_html()}}. \label{figure:probetext}
+\texttt{D} to \texttt{parse\_html()}.} \label{figure:probetext}
 \end{figure}
 
 The training stage can be done either before or after the attack stage, and the
 attacker can re-use a training set multiple times, so they only need to train
-once to go through with many attacks and recoveries.
+once to carry out many attacks and recoveries.
 
 \subsection{Using Automation to Find the Best Probes}
 \label{sec:automate}
@@ -300,7 +302,7 @@ functions that are heavily involved in processing the input. This takes time and
 effort. 
 
 In this section, we present a method for automating probe discovery. We describe
-a tool which takes a list of functions as input and produces probe sets that are
+a tool which takes a list of functions as input and finds a set of them that are
 good at distinguishing the inputs. The tool requires symbols, but not source
 code. So as long as the attacker has access to a non-stripped binary, they can
 use the tool to find a good probe set without having a deep understanding of the
@@ -312,7 +314,7 @@ functions. Next, some human intelligence is needed to narrow down the list of
 functions into a smaller set that are more likely to depend on the input. This
 filtering can be as simple as keeping all functions whose names contain
 ``\texttt{html}'' to get the list of html-parsing functions, as we have done for
-Links, or by looking for functions whose names begin with ``\texttt{Gfx::op}''
+Links, or as looking for functions whose names begin with ``\texttt{Gfx::op}''
 to get the list of functions responsible for PDF commands, as we have done for
 Poppler.
 
@@ -322,10 +324,15 @@ probe is tested by placing a GDB breakpoint on the first instruction in the
 function and counting the number of times it gets executed as the program is
 run. This is done three times for each probe. Twice on one input, giving counts
 $c_1$ and $c_2$, and once on a second, different, input, giving the count $c_3$.
-A score is given to the probe, equal to $|c_3 - c_1| - |c_2 - c_1|$. This
-rewards functions whose counts are stable on the same input but vary on
-different inputs, meaning they likely depend on the input. The list of candidate
-probes are sorted by their scores, and all but the top dozen are rejected.
+A score is given to each probe, equal to $|c_3 - c_1| - |c_2 - c_1|$. This
+rewards functions whose execution counts are stable on the same input but vary
+on different inputs, meaning they likely depend on the input. The list of
+candidate probes are sorted by their scores, and all but the top dozen are
+rejected.
+
+% TODO: We're using "function" and "probe" interchangably here.... we use
+% "probe" in the rest of the paper. Should we just pick one, or should we keep
+% it to reinforce the idea that we are probing functions?
 
 The reduced and sorted list of functions is then used to generate all possible
 sets of size 4. Sets that contain functions that are within 3 cache lines of
@@ -334,6 +341,10 @@ CPU may fetch instructions ahead of execution and trigger one whenever another
 one is actually executed, in which case there is no point having both probes.
 The remaining sets are sorted by the sums of their rank in the input list (which
 was sorted by score), and this sorted list is given to the user.
+
+% TODO: The above says "input file", and it *is* the input file (to a component
+% of a toolchain) in our implementation, but in the way we're describing it,
+% "input file" means the original unsorted list.
 
 In our attacks, we always used the first probe set in the output list.
 
@@ -358,11 +369,11 @@ The attacks are built on the following tools that we built.
         as the entire execution of a command). Our attacks are implemented as
         Ruby scripts that use this class.
 
-    \item A Ruby implementation of the semi-automated attack discovery described
-        in Section~\ref{sec:automate}. The tool takes as input a list of
-        executable code addresses in a program and two different inputs. It uses
-        the two inputs to test the quality of each candidate probe, and outputs
-        a set of probes that are likely able to distinguish the inputs.
+    \item A Ruby implementation of the semi-automated attack discovery procedure
+        described in Section~\ref{sec:automate}. The tool takes as input a list
+        of executable code addresses in a program and two different inputs. It
+        uses the two inputs to test the quality of each candidate probe, and
+        outputs a set of probes that are likely able to distinguish the inputs.
 
     \item A Ruby implementation of the attack procedure described in
           Section~\ref{sec:distinguishing}. There is one program for each stage
@@ -462,6 +473,8 @@ gave to the probe finding tool were, for no particular reason, the ``Bird'' and
     \item \texttt{parse\_html()}
 \end{itemize}
 
+% FIXME: The endnotes after numbers look like exponents.
+
 On System 1 with $T=10$ and $S=10$ \endnote{links/0014}, the correct page was
 identified $940$ times out of $1000$, an accuracy of 94\%. In this experiment,
 the average time it took to recover the name of the page from the training
@@ -483,6 +496,10 @@ was configured to use. With $T=10$ and $S=10$\endnote{links/0016}, the correct
 page was identified $977$ times out of $1000$, a 97.7\% accuracy. As on System
 1, most of the pages were correctly identified 9 or 10 times out of 10.
 
+\textbf{TODO: Add the surprising results of testing with training sets from the
+    other machine, and adjust the text above to note that it is possible with
+reduced accuracy, then do the same for poppler.}
+
 A plot of the Levenshtein distances involved in a successful recovery are shown
 in Figure~\ref{figure:youtube}, and those from an unsuccessful recovery are
 shown in Figure~\ref{figure:minaj}.
@@ -499,8 +516,8 @@ not just of its length.
 
 Before we built the probe finding tool, we ran experiments with a different set
 of probes that we found manually. We chose these probes by trial and error,
-looking through the Links source code to find functions whose order of execution
-should depend on the contents of Wikipedia pages. These are:
+looking through the Links source code to find functions whose frequency and
+order of execution should depend on the contents of Wikipedia pages. These are:
 
 \begin{itemize}
     \item \texttt{parse\_html()}
@@ -590,7 +607,7 @@ We used the automatic probe finding tool to find the best probes amongst the
 functions responsible for executing PDF commands. These functions, of which
 there are 77, are easily identified because their names begin with ``Gfx::op.''
 The probe finding tool returned the following set of probes after using
-\texttt{HAN040-E.PDF} and \texttt{HAN050-E.PDF} two PDFs from our input set, as
+\texttt{HAN040-E.PDF} and \texttt{HAN050-E.PDF}, two PDFs from our input set, as
 the test inputs.
 
 \begin{itemize}
@@ -602,10 +619,10 @@ the test inputs.
 
 On System 1 with $T=5$ and $S=10$\endnote{poppler/0003}, the correct PDF was
 identified $1258$ times out of $1270$, a 99.1\% accuracy. All of the PDFs were
-reliably identifiable. All but one were recovered 9 or 10 times out of 10. The
-other one was recovered 8 times. In a repeat run on same system with $T=5$ and
-$S=1$\endnote{poppler/0006}, the correct PDF was identified $124$ times out of
-$127$, a 97.6\% accuracy.
+reliably identifiable, as all but one were recovered 9 or 10 times out of 10.
+The other one was recovered 8 times. In a repeat run on same system with $T=5$
+and $S=1$\endnote{poppler/0006}, the correct PDF was identified $124$ times out
+of $127$, a 97.6\% accuracy.
 
 On System 2 with $T=5$ and $S=1$\endnote{poppler/0001}, the correct PDF was
 identified $126$ times out of $127$, an accuracy of 99.2\%. With $T=5$ and
@@ -614,13 +631,13 @@ of $1270$, an accuracy of 99.2\%. Again, all but one were identified 9 or 10
 times out of 10, except for one that was identified correctly only 8 times.
 
 Unlike Links, we did not have a working attack against Poppler before we used
-the probe finding tool. So this attack that was discovered almost automatically.
-The only human input was the idea to look only at the set of functions that
-execute PDF commands, which is a rather obvious thing to try.
+the probe finding tool. So this attack was discovered almost automatically. The
+only human input was the idea to look only at the set of functions that execute
+PDF commands, which is a rather obvious thing to try.
 
-To test how well the probe finding tool works, we tried running it on the list
-of all functions in the Poppler library. The result is the following set of
-probes:
+To test how well the probe finding tool works in the absence of any human
+intelligence, we tried running it on the list of all 5,397 functions in the
+Poppler library. The result is the following set of probes:
 
 \begin{itemize}
     \item \texttt{gmallocn()}
@@ -651,10 +668,11 @@ volume and the contents of the hidden volume will be safe.
 Our attack watches the victim mount a TrueCrypt volume and determines whether
 they mounted a hidden volume or a normal one. This attack is not implemented the
 same way as the Links and Poppler attacks. Our automatic probe discovery tool
-does not work against TrueCrypt, since our tool only supports launching new
-processes, and TrueCrypt's volume mounting code runs in a background process.
-Even if it worked with TrueCrypt, we would not expect it to work since the
-difference in code execution is so tiny.
+does not work against TrueCrypt, since our tool only supports debugging newly
+launched processes, and TrueCrypt's volume mounting code runs in a background
+process. Even if the required functionality were added to the tool, we would not
+expect it to work with TrueCrypt since the difference between a normal volume
+and a hidden volume in terms of code execution is small.
 
 \subsubsection{Attack Implementation}
 
@@ -689,7 +707,7 @@ is normal.
 
 To find out whether the volume is normal or hidden, the attacker records the
 probe sequence as the victim mounts the volume. They check if the probe sequence
-ends in the \texttt{VolumeLayoutV2Normal} probe. If it does, the volume was
+ends in the \texttt{VolumeLayout\-V2Normal} probe. If it does, the volume was
 normal. If not, the volume was hidden (or what the attacker captured was not the
 result of a mount command; we assume the attacker knows that the user is
 mounting a volume).
@@ -718,11 +736,11 @@ volumes, the guess was right $232$ times. So the error is skewed towards
 mistakenly believing that the volume is hidden. By spying as the volume is
 mounted multiple times, the confidence can be increased. In one
 experiment\endnote{truecrypt/0005} where the attacker is allowed to watch the
-volume get mounted 3 times and then take the majority, they decide right $93$
-times out of $100$. In a longer run\endnote{truecrypt/0006} with
-majority-of-three, the attacker decides right $476$ out of $500$ times (95\%).
-$237/256$ (92.6\%) of the normal samples were correct, $239/244$ (93.4\%) of the
-hidden samples were correct.
+volume get mounted 3 times and then take the majority of their decisions, they
+decide right $93$ times out of $100$. In a longer run\endnote{truecrypt/0006}
+with majority-of-three, the attacker decides right $476$ out of $500$ times
+(95\%). $237/256$ (92.6\%) of the normal samples were correct, $239/244$
+(93.4\%) of the hidden samples were correct.
 
 We could not reproduce the attack on System 2. We believe this is due to
 differences in the way the two CPUs do instruction prefetching. The code for
@@ -731,7 +749,7 @@ easily foiled by prefetching. System 2's processor seems to prefetch backwards
 and reads the normal volume \texttt{GetDataSize()} code when the hidden volume
 \texttt{GetDataSize()} is executing. This makes it impossible to distinguish the
 two cases on System 2 with our choice of probes. Perhaps there is another choice
-of probes that would allow it to work, but we could not find one.
+of probes that would allow the attack to work, but we could not find one.
 
 We only tried the attack with TrueCrypt's command-line interface. The attack
 should extend to the graphical interface, since both interfaces are frontends to
@@ -742,8 +760,7 @@ the same volume mounting code.
 
 Here we disclose the programs we looked at without finding any conclusive
 attacks. This section can be taken as evidence that we did not need to look
-``too hard'' to find attacks, but it also shows that attacks are not completely
-trivial to find.
+``too hard'' to find attacks.
 
 Early on in our investigations we tried extract content from the Evince PDF
 viewer. We got to the point where \textsc{Flush+Reload} appeared (by visual
@@ -760,22 +777,22 @@ looking at the code of the other browsers, and we never ran
 \textsc{Flush+Reload} against them.
 
 The fact that we did not find an attack does not mean that none exist. We were
-working under time constraints and chose to go with the first attacks we found.
+working under time constraints and chose to publish the first attacks we found.
 We conjecture that similar attacks will work against the other browsers. Indeed,
 our automatic probe finding tool should make it easy to find them.
 
 We tried the Links attack on an Amazon EC2 instance and it did not work. Looking
 at the attack tool's output, it appears to be because the virtual machine is
-running out of CPU credit which is making the attack tool miss too many
+running out of CPU credit and that is making the attack tool miss too many
 measurements. We did not investigate further.
 
 \section{Related Work}
 \label{sec:relwork}
 
-Our attacks are based on the \textsc{Flush+Reload} attack \cite{yarom2013flush}.
-The authors provided us with their implementation of the attack, which we
-improved by turning it into a full-featured command-line utility and making it
-accessible to Ruby scripts.
+Our attacks are based on the \textsc{Flush+Reload} side channel
+\cite{yarom2013flush}. The authors provided us with their implementation of the
+attack, which we improved by turning it into a full-featured command-line
+utility and by making it easily accessible to Ruby scripts.
 
 The \textsc{Flush+Reload} attack is based on work by Bangerter et al.\ where it
 was used to break an implementation of AES \cite{gullasch2011cache}. It has
@@ -830,14 +847,13 @@ successfully breaking privacy. Here we highlight some of that work.
           \cite{backes2010acoustic}.
 \end{itemize}
 
-The list above shows that the days of side channels only being a problem for
-cryptographic software are long gone. 
+The list above shows that side channels should no longer be thought of
+principally as threats to cryptography. Rather, they have much broader privacy
+implications.
 
-The attacks we presented show that at least one generic cache side channel
-attack can be used to compromise the user's privacy. We believe these attacks
-represent first steps towards understanding the full implication of the
-\textsc{Flush+Reload} attack, and we hope they will motivate more research on
-the topic.
+We believe our attacks represent first steps towards understanding the power and
+limitations of using the \textsc{Flush+Reload} attack to compromise privacy, and
+we hope they will motivate more research on the topic.
 
 \section{Future Work}
 \label{sec:future}
@@ -847,11 +863,12 @@ should be easy to use the tools we developed to find new attacks.
 
 Quantitatively, our attacks only need a small amount of information from the
 target programs. For TrueCrypt, we are only extracting one bit of information.
-The Links attack only needs to extract a number of bits logarithmic in the
-number of pages we want to distinguish between (6.6 bits for 100 pages). We
-should find out how much information \textsc{Flush+Reload} can extract from
-non-cryptographic programs. In particular, can \textsc{Flush+Reload} extract
-previously-unknown user input from a program in any plausible scenario?
+The Links and Poppler attacks only need to extract a number of bits logarithmic
+in the number of inputs we want to distinguish between (6.6 bits for 100 pages,
+7.0 for 127). We should find out how much information \textsc{Flush+Reload} can
+extract from non-cryptographic programs. In particular, can
+\textsc{Flush+Reload} extract previously-unknown user input from a program in
+any plausible scenario?
 
 Knowing that \textsc{Flush+Reload} has privacy implications to regular users and
 not just users of cryptography, there will be a higher demand to know if one's
@@ -888,10 +905,10 @@ information than spying on the program code alone.
 Classically, side channel attacks are used to extract encryption keys from
 software and hardware implementations of cryptography. More recently, side
 channel attacks are being used to compromise privacy in more general settings.
-We presented two attacks that continue this trend. 
+We presented three attacks that continue this trend. 
 
 Our attacks let an attacker (1) determine which of the top 100 Wikipedia pages
-a victim visited with the links web browser, (2) determine which of the 127
+a victim visited with the Links web browser, (2) determine which of the 127
 debates in the 2014 Canadian parliament a victim transcoded with the
 \texttt{pdftops} command, and (3) determine whether a TrueCrypt volume contains
 a hidden volume when it is mounted.
@@ -919,13 +936,13 @@ publication.
 
     \texttt{https://defuse.ca/compromising-privacy-flush-reload.htm}
 
-%    For longevity, a second copy of everything is archived in the Internet
-%    Archive\endnote{Actually, it is not on the Internet Archive yet}.
-%
-%    \texttt{https://archive.org/\textbf{URL-TO-BE-DETERMINED}}
-%
-    The Links experiment should work without modification on vulnerable
-    hardware. Give it a try!
+    For longevity, a second copy of everything is archived in the Internet
+    Archive.
+
+    \texttt{https://archive.org/\textbf{URL-TO-BE-DETERMINED}}
+
+    The Links and Poppler experiments should work without modification on
+    vulnerable hardware. Give them a try!
 
     Throughout this paper we have referred to experiment runs by the name of the
     experiment followed by a four-digit run number. The experiment name

@@ -1,0 +1,630 @@
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194880 gmallocn                                                    (Quality:      10    4589    4579   90545   90535   95134) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176500 PSOutputDev::writePSString(GooString*)                      (Quality:       4    4347    4343   78370   78366   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00176820 PSOutputDev::drawString(GfxState*, GooString*)              (Quality:       3    4345    4342   78372   78369   82717) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00172410 PSOutputDev::updateTextShift(GfxState*, double)             (Quality:       8    3888    3880   69692   69700   73580) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x000fd820 Gfx::checkArg(Object*, TchkType)                            (Quality:       2    3132    3130   58946   58948   62078) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
+--------------------------------------------------------------------------------
+0x00194c40 greallocn                                                   (Quality:       7    2607    2600   64086   64093   66693) (Quality:      -1      -1      -1      -1      -1      -1)
+0x00192680 GooTimer::start()                                           (Quality:       3    2077    2074   40004   40007   42081) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000ba9c0 GooTimer::GooTimer()@plt                                    (Quality:       1    2075    2074   40007   40008   42082) (Quality:      -1      -1      -1      -1      -1      -1)
+0x000fd900 Gfx::execOp(Object*, Object*, int)                          (Quality:       2    2075    2073   40005   40007   42080) (Quality:      -1      -1      -1      -1      -1      -1)
