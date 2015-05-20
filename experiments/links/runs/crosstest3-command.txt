@@ -1,0 +1,1 @@
+ruby ../../../flush-reload/myversion/ruby/CrossRecovery.rb -t 0014/output/training/ -r 0016/output/recordings/ -m 1000 | tee crosstest3.txt
