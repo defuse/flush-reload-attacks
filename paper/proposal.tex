@@ -103,16 +103,16 @@ real-world examples where they could determine which medical conditions the user
 was searching for, what their income range was, and how they allocated their
 investment funds \cite{chen2010side}.
 
-In this paper, we study additional ways of using side channels to attack the user's
-privacy. We show that the generic L3 cache side channel called
+In this paper, we study additional ways of using side channels to attack the
+user's privacy. We show that the generic L3 cache side channel called
 \textsc{Flush+Reload} \cite{yarom2013flush} can be applied in non-cryptography
-settings to meaningfully violate confidentiality. We give three concrete
-attacks. Each attack determines which of a set of inputs the user passed to
-a program. Specifically, we show how an attacker on a shared system can (1)
-determine which of the top 100 Wikipedia pages a user visited in the Links web
-browser, (2) determine which of the 127 PDF files a user passed to the
-\texttt{pdftops} command, and (3) determine whether the TrueCrypt volume a user
-just mounted was a hidden volume or not.
+settings to meaningfully violate confidentiality. We give three example attacks.
+Each attack determines which of a set of inputs the user passed to a program.
+Specifically, we show how an attacker on a shared system can (1) determine which
+of the top 100 Wikipedia pages a user visited in the Links web browser, (2)
+determine which of 127 PDF files a user passed to the \texttt{pdftops} command,
+and (3) determine whether the TrueCrypt volume a user just mounted was a hidden
+volume or not.
 
 In addition to the three attacks, we also describe how the process of
 discovering new attacks can be partially automated.
@@ -231,7 +231,7 @@ the attack stage to determine which input was given to the program.
 
 In the training stage, the attacker simply runs the \textsc{Flush+Reload} attack
 tool against themselves as they run the program on every input in the set
-multiple times. We refer to the number of times each page is sampled by $T$. As
+multiple times. We refer to the number of times each input is sampled by $T$. As
 $T$ increases, the training stage takes longer to perform, but the success rate
 of the attack can increase. If there are $N$ different inputs, the attacker will
 be left with $NT$ training samples. The training stage can be done either before
@@ -275,10 +275,6 @@ ABCABCABDABDCBCABCABCBABDABCABDBCABDBCBA
     \texttt{html\_stack\_dup()}, \texttt{C} to \texttt{html\_a()}, and
 \texttt{D} to \texttt{parse\_html()}.} \label{figure:probetext}
 \end{figure}
-
-The training stage can be done either before or after the attack stage, and the
-attacker can re-use a training set multiple times, so they only need to train
-once to carry out many attacks and recoveries.
 
 \subsection{Using Automation to Find Probes}
 \label{sec:automate}
@@ -575,7 +571,7 @@ intuitively obvious thing to try.
 
 We used the automatic probe finding tool to find the best probes amongst the
 functions responsible for executing PDF commands. These functions, of which
-there are 77, are easily identified because their names begin with ``Gfx::op.''
+there are 77, are easily identified because their names begin with ``\texttt{Gfx::op}.''
 The probe finding tool returned the following set of probes after using test
 inputs \texttt{HAN040-E.PDF} and \texttt{HAN050-E.PDF} from our input set.
 
@@ -590,12 +586,12 @@ On System 1 with $T=5$ and $S=10$\footnote{poppler/0003}, the correct PDF was
 identified $1258$ times out of $1270$, (99.1\%). All of the PDFs were reliably
 identifiable: all but one were recovered 9 or 10 times out of 10; the other one
 was recovered 8 times. In a repeat run on same system with $T=5$ and
-$S=1$\footnote{poppler/0006}, the correct PDF was identified $124$ times out of
+$S=1$,\footnote{poppler/0006} the correct PDF was identified $124$ times out of
 $127$ (97.6\%).
 
-On System 2 with $T=5$ and $S=1$\footnote{poppler/0001}, the correct PDF was
+On System 2 with $T=5$ and $S=1$,\footnote{poppler/0001} the correct PDF was
 identified $126$ times out of $127$ (99.2\%). With $T=5$ and
-$S=10$\footnote{poppler/0007}, the PDF was correctly identified $1260$ times out
+$S=10$,\footnote{poppler/0007} the PDF was correctly identified $1260$ times out
 of $1270$ (99.2\%). Again, all but one were identified 9 or 10 times out of 10,
 except for one that was identified correctly only 8 times.
 
@@ -696,7 +692,7 @@ the tool to start, it randomly mounts either the normal or hidden volume with
 TrueCrypt's command-line tool. It stops the attack tool and checks if the last
 probe hit was the \texttt{GetDataSize()} probe. If it was, it guesses that the
 volume is normal. If not, it guesses that the volume is hidden. We call the
-number of trials a run of the experiment $S$.
+number of trials in a run of the experiment $S$.
 
 In one run\footnote{truecrypt/0001} of the experiment on System 1 with $S=500$,
 the guess was right $416$ times (83\% of the time). Of the $255$ trials with
@@ -715,7 +711,7 @@ We could not reproduce the attack on System 2. We believe this is due to
 differences in the way the two CPUs do instruction prefetching. The code for
 normal volumes and hidden volumes is very close together, so the attack is
 easily foiled by prefetching. System 2's processor seems to prefetch backwards
-and reads the normal volume \texttt{GetDataSize()} code when the hidden volume
+and read the normal volume \texttt{GetDataSize()} code when the hidden volume
 \texttt{GetDataSize()} is executing. This makes it impossible to distinguish the
 two cases on System 2 with our choice of probes. We were unable to find another
 choice of probes that would allow it to work.
