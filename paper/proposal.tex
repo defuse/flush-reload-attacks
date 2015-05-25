@@ -29,7 +29,6 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{pgfplots}
 
 \begin{document}
 
@@ -75,7 +74,7 @@ rendering library. We show that an attacker can determine which of a set of 127
 PDFs were rendered by Poppler (correct 98\% of the time). Finally, we show how
 an attacker can determine whether the TrueCrypt volume a user just mounted
 contained a hidden volume or not (correct above 80\% of the time, but the attack
-only works on one of our test systems). We also describe how new input
+only works on half of our test systems). We also describe how new input
 distinguishing attacks can be discovered semi-automatically.
 
 \section{Introduction}
@@ -106,8 +105,8 @@ investment funds \cite{chen2010side}.
 In this paper, we study additional ways of using side channels to attack the
 user's privacy. We show that the generic L3 cache side channel called
 \textsc{Flush+Reload} \cite{yarom2013flush} can be applied in non-cryptography
-settings to meaningfully violate confidentiality. We give three example attacks.
-Each attack determines which of a set of inputs the user passed to a program.
+settings to meaningfully violate confidentiality. We give three example attacks, where
+each attack determines which of a set of inputs the user passed to a program.
 Specifically, we show how an attacker on a shared system can (1) determine which
 of the top 100 Wikipedia pages a user visited in the Links web browser, (2)
 determine which of 127 PDF files a user passed to the \texttt{pdftops} command,
@@ -148,7 +147,7 @@ since broken GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
 yarom2014recovering}.
 
 In this section we give a brief explanation of the \textsc{Flush+Reload} attack
-with enough detail to understand our attacks. For all of the details, refer to
+with enough detail to understand our attacks. For full details, refer to
 Yarom and Falkner~\cite{yarom2013flush}.
 
 \textsc{Flush+Reload} is a generic L3 (or last-level, in case the system does
@@ -157,8 +156,8 @@ executable code page sharing between processes. If Alice is the first to run
 a program, the operating system will load the program into physical memory. When
 Bob comes along and runs the same program, instead of loading a second copy into
 memory, the operating system will set Bob's page tables to use the copy that was
-loaded into memory for Alice. The result is that both Alice and Bob are working
-off of the same physical memory. If Bob can determine which cache lines of the
+loaded into memory for Alice. The result is that both Alice and Bob are
+using the same physical memory. If Bob can determine which cache lines of the
 shared memory are present in the cache over time, he can tell which cache lines
 Alice's process accesses over time. This is what the \textsc{Flush+Reload}
 attack does.
@@ -278,12 +277,13 @@ ABCABCABDABDCBCABCABCBABDABCABDBCABDBCBA
 
 \subsection{Using Automation to Find Probes}
 \label{sec:automate}
+\vspace*{-.25em} % fix widow
 
 In our experience, the hardest part of creating a new input distinguishing
 attack is finding the set of probes to spy on. We want to find a set of
 functions whose order of execution best exhibits the differences between the
 inputs. Statically, one way to do this is to read the program's code, understand
-it, and then manually list out some functions that are heavily involved in
+it, and then manually select some functions that are heavily involved in
 processing the input. This takes time and effort. 
 
 In this section, we present a method for partially automating probe discovery.
@@ -294,20 +294,20 @@ they can use the tool to find a good probe set without having a deep
 understanding of the program. Once a good set of probes is discovered, symbols
 are no longer necessary, and the attack will work without them.
 
-The tool first looks at the symbols in the binary to list out all of the
+The tool first looks at the symbols in the binary to list all of the
 functions. Next, some human intervention is needed to narrow down the list of
 functions into a smaller set that are more likely to depend on the input. This
 filtering can be as simple as keeping all functions whose names contain
 ``\texttt{html}'' to get the list of html-parsing functions, as we have done for
-Links, or as looking for functions whose names begin with ``\texttt{Gfx::op}''
+Links, or by looking for functions whose names begin with ``\texttt{Gfx::op}''
 to get the list of functions responsible for PDF commands, as we have done for
 Poppler.
 
-Once the list of functions has been reduced down to a manageable size (e.g. less
+Once the list of functions has been reduced to a manageable size (e.g. less
 than 100 functions), each potential probe is tested individually and
 automatically. A candidate probe is tested by placing a GDB breakpoint on the
 first instruction in the function and counting the number of times it gets
-executed as the program is run. This is done three times for each probe. Twice
+executed as the program is run. This is done three times for each probe: twice
 on one input, giving counts $c_1$ and $c_2$, and once on a second, different,
 input, giving the count $c_3$. A score is given to each probe, equal to $|c_3
 - c_1| - |c_2 - c_1|$. This rewards functions whose execution counts are stable
@@ -322,11 +322,10 @@ the top 10 are rejected.
 The reduced and sorted list of functions is then used to generate all possible
 sets of size 4. Sets that contain functions that are within 3 cache lines of
 each other are immediately removed. If two probes are too close together, the
-CPU may fetch instructions ahead of execution and trigger one whenever another
+CPU's instruction prefetch may trigger one whenever another
 one is actually executed, in which case there is no point having both probes.
 The remaining sets are sorted by the sums of their rank in the input list (which
 was sorted by score), and this sorted list is given to the user.
-
 In our attacks, we always used the first probe set in this output list.
 
 \section{Attack Implementation}
@@ -410,7 +409,7 @@ source code and data from all experiment runs have been published so that other
 researchers can verify and reproduce our work (see Appendix
 \ref{sec:reproducing}).
 
-All experiments were run with low system load. The experiments are run all
+All experiments were run with low system load. The experiments are all run
 within the same user account for simplicity, but we confirmed independently that
 the attacks work when the attacker is on one account and the spy is on another.
 
@@ -442,6 +441,7 @@ The ``Bird'' and
 the probe-finding tool. The tool gave us the following probe set:
 
 \begin{itemize}
+\setlength{\itemsep}{0pt}
     \item \texttt{html\_stack\_item()}
     \item \texttt{html\_stack\_dup()}
     \item \texttt{html\_a()}
@@ -450,12 +450,25 @@ the probe-finding tool. The tool gave us the following probe set:
 
 % FIXME: The endnotes after numbers look like exponents.
 
+\begin{figure}[h]
+    \centering
+    \input{distribution}
+    \vspace*{-2em}
+    \caption{The distribution of success rates for individual pages. The $x$
+        axis is the number of times the page was correctly identified out of ten
+        trials; the $y$ axis is the number of pages that were correctly
+        identified that many times. Most pages were correctly identified in all
+        ten trials.}
+    \vspace*{-1em}
+    \label{figure:distribution}
+\end{figure}
+
 On System 1 with $T=10$ and $S=10$,\footnote{links/0014; interpretation of
 these labels is explained in Appendix~\ref{sec:reproducing}.} the correct page was
 identified $940$ times out of $1000$ (94\%). In this experiment,
 the average time it took to recover the name of the page from the training
 sequences and the victim sequence was $4.1$ seconds. All pages in the set were
-correctly identified at least twice out of the ten runs. Most were correctly
+correctly identified at least twice out of the ten runs, and most were correctly
 identified all 10 times. The distribution is plotted in
 Figure~\ref{figure:distribution}.
 
@@ -501,6 +514,7 @@ looking through the Links source code to find functions whose frequency and
 order of execution should depend on the contents of Wikipedia pages. These are:
 
 \begin{itemize}
+\setlength{\itemsep}{0pt}
     \item \texttt{parse\_html()}
     \item \texttt{html\_stack\_dup()}
     \item \texttt{html\_h()}
@@ -518,17 +532,6 @@ we saw 91\%.\footnote{links/0005. This experiment was also run before we started
 truncating to 1000 characters.} This suggests that using more training samples
 increases the success rate of the attack, and that the automatically discovered
 probes are just as good or slightly better than the ones we found manually.
-
-\begin{figure}
-    \centering
-    \input{distribution}
-    \caption{The distribution of success rates for individual pages. On the $x$
-        axis, the number of times the page was correctly identified out of ten
-        trials. On the $y$ axis, the number of pages that were correctly
-        identified that many times. Most pages were correctly identified in all
-        ten trials.}
-    \label{figure:distribution}
-\end{figure}
 
 \begin{figure*}
     \centering
@@ -576,14 +579,15 @@ The probe finding tool returned the following set of probes after using test
 inputs \texttt{HAN040-E.PDF} and \texttt{HAN050-E.PDF} from our input set.
 
 \begin{itemize}
+\setlength{\itemsep}{0pt}
     \item \texttt{Gfx::opShowSpaceText(Object*, int)}
     \item \texttt{Gfx::opTextMoveSet(Object*, int)}
     \item \texttt{Gfx::opSetFont(Object*, int)}
     \item \texttt{Gfx::opTextNextLine(Object*, int)}
 \end{itemize}
 
-On System 1 with $T=5$ and $S=10$\footnote{poppler/0003}, the correct PDF was
-identified $1258$ times out of $1270$, (99.1\%). All of the PDFs were reliably
+On System 1 with $T=5$ and $S=10,$\footnote{poppler/0003} the correct PDF was
+identified $1258$ times out of $1270$ (99.1\%). All of the PDFs were reliably
 identifiable: all but one were recovered 9 or 10 times out of 10; the other one
 was recovered 8 times. In a repeat run on same system with $T=5$ and
 $S=1$,\footnote{poppler/0006} the correct PDF was identified $124$ times out of
@@ -595,16 +599,17 @@ $S=10$,\footnote{poppler/0007} the PDF was correctly identified $1260$ times out
 of $1270$ (99.2\%). Again, all but one were identified 9 or 10 times out of 10,
 except for one that was identified correctly only 8 times.
 
-Using a training set created on System 1\footnote{poppler/0003} we were able to
-recover 69.6\% of probe sequences recorded on System 2\footnote{poppler/0007}.
+Using a training set\footnote{poppler/0003} created on System 1 we were able to
+recover 69.6\% of probe sequences recorded on System 2.\footnote{poppler/0007}
 Using the training set from System 2, we could recover 69.1\% of the probe
 sequences recorded on System 1.
 
 To test how well the probe finding tool works in the absence of any human
-intelligence, we tried running it on the list of all 5,397 functions in the
+guidance, we tried running it on the list of all 5,397 functions in the
 Poppler library. The result is the following set of probes:
 
 \begin{itemize}
+\setlength{\itemsep}{0pt}
     \item \texttt{gmallocn()}
     \item \texttt{PSOutputDev::writePSString(GooString*)}
     \item \texttt{PSOutputDev::drawString(GfxState*, GooString*)}
@@ -691,11 +696,13 @@ The experiment starts the attack tool on the TrueCrypt binary. After waiting for
 the tool to start, it randomly mounts either the normal or hidden volume with
 TrueCrypt's command-line tool. It stops the attack tool and checks if the last
 probe hit was the \texttt{GetDataSize()} probe. If it was, it guesses that the
-volume is normal. If not, it guesses that the volume is hidden. We call the
-number of trials in a run of the experiment $S$.
+volume is normal. If not, it guesses that the volume is hidden.
 
 In one run\footnote{truecrypt/0001} of the experiment on System 1 with $S=500$,
-the guess was right $416$ times (83\% of the time). Of the $255$ trials with
+the guess was right $416$ times, or 83\%.
+(Recall that we call the
+number of trials in a run of the experiment $S$.)
+Of the $255$ trials with
 normal volumes, the guess was right $184$ times. Of the $245$ trials with hidden
 volumes, the guess was right $232$ times. So the error is skewed towards
 mistakenly believing that the volume is hidden. By spying as the volume is
@@ -805,7 +812,7 @@ an easy-to-use test tool should be developed, so that users can determine if
 their processors are vulnerable. With this knowledge, consumers can make better
 purchasing decisions.
 
-The \textsc{Flush+Reload} attack does not work on AMD processors. It has been
+The \textsc{Flush+Reload} attack does not seem to work on AMD processors. It has been
 speculated that this is because `AMD caches are non-inclusive, i.e. data in L1
 does not need to also be in L2 or L3, as is the case with the Intel caches'
 \cite{yarom2013flush}. The question of why \textsc{Flush+Reload} does not work
@@ -863,7 +870,7 @@ available for download on the first author's website:
 \url{https://defuse.ca/compromising-privacy-flush-reload.htm}.
 For longevity, a second copy of everything is archived in the Internet
 Archive, at
-\url{https://archive.org/\textbf{URL-TO-BE-DETERMINED}}.
+\url{https://archive.org/URL-TO-BE-DETERMINED}.
 
 Throughout this paper we have referred to experiment runs by the name of the
 experiment followed by a four-digit run number. The experiment name
