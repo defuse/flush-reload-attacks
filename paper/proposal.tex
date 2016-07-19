@@ -119,11 +119,11 @@ volume or not.
 In addition to the three attacks, we also describe how the process of
 discovering new attacks can be partially automated.
 
-To the best of our knowledge, this is the first time that a generic cache-based
-side channel has been used to compromise privacy by attacking
-a non-cryptographic application. The attacks we present show that cache side
-channels have implications beyond extracting secret keys from cryptography
-software.
+Our work is not the first to apply cache side-channels to compromise privacy. We
+are aware of at least three other papers that use \textsc{Flush+Reload}
+techniques to compromise privacy \cite{gruss2015cache, zhang2014cross,
+oren2015spy}. Section~\ref{sec:relwork} describes how our work fits in to the
+existing landscape of privacy-compromising cache attacks.
 
 In the next section, we summarize the \textsc{Flush+Reload} side channel that
 all of our novel attacks are based on. Section~\ref{sec:distinguishing}
@@ -132,9 +132,9 @@ partially automated the process of discovering new attacks.
 Section~\ref{sec:implementation} describes the software tools the attacks and
 experiments are built from. Section~\ref{sec:experimentsetup} describes our
 experimental setup. The three attacks are described and evaluated by experiment
-in Section~\ref{sec:results}. Section~\ref{sec:relwork} highlights recent work
-that uses side channels to violate privacy and explains how our contributions
-fit in with that work. Finally, we list some ideas for future work in
+in Section~\ref{sec:results}. Section~\ref{sec:relwork} highlights other attacks
+that use side channels to violate privacy and explains how our contributions fit
+in with that work. Finally, we list some ideas for future work in
 Section~\ref{sec:future} and then conclude in Section~\ref{sec:conclusion}.
 
 \section{The Flush+Reload Attack}
@@ -738,8 +738,7 @@ Our attacks are based on the \textsc{Flush+Reload} attack~\cite{yarom2013flush},
 which in turn is based on work by Bangerter et al.\ where it was used to break
 an implementation of AES \cite{gullasch2011cache}. It has since been applied to
 GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
-yarom2014recovering}. Our work is the first time it has been applied in
-a non-cryptographic setting, to the best of our knowledge.
+yarom2014recovering}.
 
 There is a vast body of literature on attacking cryptographic software and
 hardware with side channels. There are far too many examples to list here; we
@@ -748,14 +747,14 @@ refer to the interesting cases of extracting RSA keys via power analysis
 the \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
 yarom2014recovering}.
 
-Our work shows that cache side channel attacks have privacy implications beyond
-breaking cryptography software. We believe we are the first to apply a cache
-side channel against non-cryptographic user software to compromise privacy. Cache
-side channels have already been applied once in a non-cryptographic context: to
-break kernel address space layout randomization \cite{hund2013practical}.
+Our work shows that cache side channel attacks, \textsc{Flush+Reload} in
+particular, have privacy implications beyond breaking cryptography software.
+This continues the trend of works like \textbf{TODO: relate this work to the
+three other works.}. Cache side channels have also been used to break kernel
+address space layout randomization \cite{hund2013practical}.
 
 There is a growing body of work showing that other kinds of side channels are
-successfully breaking privacy. Here we highlight some of that work.
+successfully breaking privacy, too. Here we highlight some of that work.
 
 \begin{itemize}
     \item[--] Some web applications leak information about the user's input through
@@ -789,9 +788,9 @@ successfully breaking privacy. Here we highlight some of that work.
           \cite{backes2010acoustic}.
 \end{itemize}
 
-We believe our attacks represent first steps towards understanding the power and
-limitations of using the \textsc{Flush+Reload} attack to compromise privacy, and
-we hope they will motivate more research on the topic.
+We believe our attacks represent additional steps towards understanding the
+capabilities and limitations of using the \textsc{Flush+Reload} attack to
+compromise privacy, and we hope they will motivate more research on the topic.
 
 \section{Future Work}
 \label{sec:future}
