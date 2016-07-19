@@ -30,6 +30,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{draftwatermark}
+\usepackage{hyperref}
 \SetWatermarkText{Preprint -- not for distribution.}
 \SetWatermarkScale{0.4}
 
@@ -44,6 +45,7 @@
 %for single author (just remove % characters)
 \author{
 {\rm Taylor Hornby}\\
+\rm \href{mailto:taylor@defuse.ca}{taylor@defuse.ca}\\
 University of Calgary
 % copy the following lines to add more authors
 % \and
@@ -104,7 +106,7 @@ investment funds \cite{chen2010side}.
 
 In this paper, we study additional ways of using side channels to attack the
 user's privacy. We show that the generic L3 cache side channel called
-\textsc{Flush+Reload} \cite{yarom2013flush} can be applied in non-cryptography
+"\textsc{Flush+Reload}" \cite{yarom2013flush} can be applied in non-cryptography
 settings to meaningfully violate confidentiality. We give three example attacks,
 where each attack determines which of a set of inputs the user passed to
 a program. Specifically, we show how an attacker on a shared system can (1)
