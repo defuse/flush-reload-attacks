@@ -106,18 +106,29 @@ investment funds \cite{chen2010side}.
 
 In this paper, we study additional ways of using side channels to attack the
 user's privacy. We show that the generic L3 cache side channel called
-``\textsc{Flush+Reload}'' \cite{yarom2013flush} can be applied in non-cryptography
-settings to meaningfully violate confidentiality. We give three example attacks,
-where each attack determines which of a set of inputs the user passed to
-a program. Specifically, we show how an attacker on a shared system can (1)
-determine which of the top 100 Wikipedia pages a user visited in the Links web
-browser, (2) determine which of 127 PDF files a user passed to the
+``\textsc{Flush+Reload}'' \cite{yarom2013flush} can be applied in
+non-cryptography settings to meaningfully violate confidentiality. We give three
+example attacks, where each attack determines which of a set of inputs the user
+passed to a program. Specifically, we show how an attacker on a shared system
+can (1) determine which of the top 100 Wikipedia pages a user visited in the
+Links web browser, (2) determine which of 127 PDF files a user passed to the
 \texttt{pdftops} command, and (3) determine whether the TrueCrypt volume a user
 just mounted was a hidden volume or not. We chose to attack Links instead of
 a more popular web browser because its codebase was smaller and easier to become
 familiar with; we expect similar attacks to work against the more-popular
 browsers. Our attacks work on a shared system; determining whether they work
 across a virtual machine boundary is left for future work.
+
+The attacks were tested two different Intel processors: a Core2 Duo P8700
+(launched Q4 2008 \cite{intelp8700page}) and a Xeon E3-1245 V2 (launched Q2 2012
+\cite{intele31245page}). Our attack tools don't work on AMD processors because
+their caches are non-inclusive \cite{yarom2013flush}, but Lipp et al.\ have
+shown that \textsc{Flush+Reload} can be implemented on ARM processors with
+non-inclusive caches \cite{lipp2015armageddon}. Making our attacks work on AMD
+processors is left for future work. The source code to our attack tools
+experimentation framework is public, and we encourage you to try to reproduce
+our experiments on your own computer. See Appendix~\ref{sec:reproducing} for
+instructions to obtain the source code.
 
 In addition to the three attacks, we also describe how the process of
 discovering new attacks can be partially automated.
