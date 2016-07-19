@@ -154,13 +154,14 @@ Yarom and Falkner~\cite{yarom2013flush}.
 not have an L3 cache) cache side channel attack. It takes advantage of
 executable code page sharing between processes. If Alice is the first to run
 a program, the operating system will load the program into physical memory. When
-Bob comes along and runs the same program, instead of loading a second copy into
-memory, the operating system will set Bob's page tables to use the copy that was
-loaded into memory for Alice. The result is that both Alice and Bob are
-using the same physical memory. If Bob can determine which cache lines of the
-shared memory are present in the cache over time, he can tell which cache lines
-Alice's process accesses over time. This is what the \textsc{Flush+Reload}
-attack does.
+Bob runs the same program, instead of loading a second copy into memory, the
+operating system will set Bob's page tables to use the copy that was loaded into
+memory for Alice. The result is that both Alice and Bob are using the same
+physical memory. This is fine, because the code is stored in read-only memory,
+so neither user should be able to affect the other. However, if Bob can
+determine which cache lines of the shared memory are present in the cache over
+time, he can tell which cache lines Alice's process accesses over time. This is
+what the \textsc{Flush+Reload} attack does.
 
 Suppose an attacker knows their victim is running a certain program and would
 like to see which code the victim's process is running. \textsc{Flush+Reload}
