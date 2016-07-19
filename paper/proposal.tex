@@ -288,14 +288,17 @@ it, and then manually select some functions that are heavily involved in
 processing the input. This takes time and effort. 
 
 In this section, we present a method for partially automating probe discovery.
-We describe a tool which takes as input the victim program, a list of functions
-in the victim program, and two distinct victim-program inputs. It finds a small
-subset of the functions which are good at distinguishing the victim-program
-inputs. The tool requires symbols, but not source code: as long as the attacker
-has access to a non-stripped binary, they can use the tool to find a good probe
-set without having a deep understanding of the program. Once a good set of
-probes is discovered, symbols are no longer necessary, and the attack will work
-without them.
+We describe a tool which takes as input the victim program and two distinct
+victim-program inputs. It finds a small subset of the victim program's functions
+that are good at distinguishing the victim-program inputs when spied on. The
+tool requires symbols, but not source code: as long as the attacker has access
+to a non-stripped binary, they can use the tool to find a good probe set without
+having a deep understanding of the program. Once a good set of probes is
+discovered, symbols are no longer necessary, and the attack will work without
+them. This tool works at the function level of granularity instead of the
+cache-line level of granularity to keep performance reasonable (each candidate
+probe must be tested individually) and because functions have human-readable
+names which assists with the manual filtering (see below).
 
 The tool first looks at the symbols in the binary to list all of the
 functions. Next, some human intervention is needed to narrow down the list of
