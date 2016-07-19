@@ -226,7 +226,7 @@ carried out on the victim's machine, but the attack still works at a lower
 success rate when the attacker trains on a different system. Next, the actual
 attack happens: the attacker spies on the victim as they execute the program on
 one of the inputs. Finally, the attacker uses the training data and output from
-the attack stage to determine which input was given to the program.
+the attack stage to identify the input was given to the program.
 
 In the training stage, the attacker simply runs the \textsc{Flush+Reload} attack
 tool against themselves as they run the program on every input in the set
@@ -235,29 +235,29 @@ $T$ increases, the training stage takes longer to perform, but the success rate
 of the attack can increase. If there are $N$ different inputs, the attacker will
 be left with $NT$ training samples. The training stage can be done either before
 or after the attack stage, and the attacker can re-use a training set multiple
-times, so they only need to train once to go through with many attacks and
-recoveries.
+times, so they only need to train once to carry out many input identifications.
 
 In the attack stage, the attacker runs the \textsc{Flush+Reload} attack tool
 against the victim as the victim passes one of the inputs to the program. The
 attack tool records the observed probe sequence.
 
-In the recovery stage, the attacker finds the probe sequence in the training set
-that is closest to the one obtained from the victim. Closeness is measured using
-the Levenshtein distance~\cite{levenshtein1966binary}, which is defined as the
-smallest number of basic edits (single-character insertions, deletions, and
-replacements) needed to bring one string to the other. The attacker computes the
-Levenshtein distance between the victim's probe sequence and all of the training
-probe sequences, and the one with the smallest Levenshtein distance is assumed
-to correspond to the input the victim passed to the program.
+In the identification stage, the attacker finds the probe sequence in the
+training set that is closest to the one obtained from the victim. Closeness is
+measured using the Levenshtein distance~\cite{levenshtein1966binary}, which is
+defined as the smallest number of basic edits (single-character insertions,
+deletions, and replacements) needed to bring one string to the other. The
+attacker computes the Levenshtein distance between the victim's probe sequence
+and all of the training probe sequences, and the one with the smallest
+Levenshtein distance is assumed to correspond to the input the victim passed to
+the program.
 
 Probe sequences are represented by strings of single-character probe names. An
 example is given in Figure~\ref{figure:probetext}. Before computing the
 Levenshtein distance, the probe sequences are first condensed by collapsing
 sequentially repeated hits of the same probe down into a single hit of that
 probe, and then the whole string is truncated to 1000 characters. This is done
-to make the recovery stage faster, since the algorithm we use to compute the
-Levenshtein distance has quadratic running time.
+to make the identification stage faster, since the algorithm we use to compute
+the Levenshtein distance has quadratic running time.
 
 \begin{figure}
     \centering
@@ -401,8 +401,8 @@ cache, but FLUSH+RELOAD works with its L2 cache as it is shared between cores.}
 To test the input distinguishing attacks, we first perform the training stage,
 taking $T$ samples of each input. Then, for every input in the set of size $N$,
 the vulnerable program is run on the input $S$ times. The probe sequences from
-each of the $SN$ runs are put through the recovery stage independently, and we
-check how many of the recoveries are correct.
+each of the $SN$ runs are put through the identification stage independently,
+and we check how many of the identifications are correct.
 
 All of the experiments have been automated so that they are easy to repeat. The
 source code and data from all experiment runs have been published so that other
@@ -463,31 +463,30 @@ the probe-finding tool. The tool gave us the following probe set:
     \label{figure:distribution}
 \end{figure}
 
-On System 1 with $T=10$ and $S=10$,\footnote{links/0014; interpretation of
-these labels is explained in Appendix~\ref{sec:reproducing}.} the correct page was
-identified $940$ times out of $1000$ (94\%). In this experiment,
-the average time it took to recover the name of the page from the training
-sequences and the victim sequence was $4.1$ seconds. All pages in the set were
-correctly identified at least twice out of the ten runs, and most were correctly
-identified all 10 times. The distribution is plotted in
-Figure~\ref{figure:distribution}.
+On System 1 with $T=10$ and $S=10$,\footnote{links/0014; interpretation of these
+labels is explained in Appendix~\ref{sec:reproducing}.} the correct page was
+identified $940$ times out of $1000$ (94\%). In this experiment, the average
+time it took to identify the page from the training sequences and the victim
+sequence was $4.1$ seconds. All pages in the set were correctly identified at
+least twice out of the ten runs, and most were correctly identified all 10
+times. The distribution is plotted in Figure~\ref{figure:distribution}.
 
 A second run\footnote{links/0013} on System 1 with $T=10$ and $S=1$ saw the
 correct page being identified $95$ times out of $100$ (95\%).
-Again it took $4.1$ seconds to perform a recovery, on average.
+Again it took $4.1$ seconds to perform an identification, on average.
 
 On System 2 with $T=10$ and $S=1$,\footnote{links/0015} the correct page was
 identified $98$ times out of $100$. Recovery took $136$ seconds on average. The
-recovery took much longer on System 2 despite having a faster processor because
-System 2 was configured to use a pure Ruby implementation of a Levenshtein
-distance algorithm instead of the fast native implementation that System 1 was
-was configured to use. With $T=10$ and $S=10$,\footnote{links/0016} the correct
-page was identified $977$ times out of $1000$ (97.7\%). As on System
+identification took much longer on System 2 despite having a faster processor
+because System 2 was configured to use a pure Ruby implementation of
+a Levenshtein distance algorithm instead of the fast native implementation that
+System 1 was was configured to use. With $T=10$ and $S=10$,\footnote{links/0016}
+the correct page was identified $977$ times out of $1000$ (97.7\%). As on System
 1, most of the pages were correctly identified 9 or 10 times out of 10.
 
-A plot of the Levenshtein distances involved in a successful recovery are shown
-in Figure~\ref{figure:youtube}, and those from an unsuccessful recovery are
-shown in Figure~\ref{figure:minaj}.
+A plot of the Levenshtein distances involved in a successful identification are
+shown in Figure~\ref{figure:youtube}, and those from an unsuccessful
+identification are shown in Figure~\ref{figure:minaj}.
 
 All of the Wikipedia pages in the set have distinct lengths; it is
 reasonable to ask if this attack is only distinguishing the pages by their
@@ -501,12 +500,12 @@ not just its length.
 
 We were curious whether the attack would work if the training were done on
 a different system. To simulate this, we used the training set from an
-experiment\footnote{links/0014} on System 1 to recover victim samples from
+experiment\footnote{links/0014} on System 1 to identify victim samples from
 another experiment\footnote{links/0016} on System 2. The result was that 75.7\%
-of the pages were recovered. Using the training set from System 2 and the victim
-samples from System 1, the recovery was successful 82.4\% of the time. So it is
-best to train on the victim's machine, but the attack can still work when the
-training is done on a different system.
+of the pages were identified correctly. Using the training set from System 2 and
+the victim samples from System 1, the identification was successful 82.4\% of
+the time. So it is better to train on the victim's machine, but the attack can
+still work when the training is done on a different system.
 
 Before we built the probe finding tool, we ran experiments with a different set
 of probes that we found manually. We chose these probes by trial and error,
@@ -536,26 +535,27 @@ probes are just as good or slightly better than the ones we found manually.
 \begin{figure*}
     \centering
     \input{youtube}
-    \caption{A successful recovery. The Levenshtein distance between the
+    \caption{A successful identification. The Levenshtein distance between the
     training samples and a recording of the victim visiting the YouTube
     Wikipedia page. The shortest distance is visible at mark 68 on the page axis
     which corresponds to a YouTube training sample. The outlier at mark 29
     corresponds to a disambiguation page that has a different format from the
-usual Wikipedia page. The different shapes in a column represent the five
-training samples of that page. The order on the page axis is not meaningful.}
+    usual Wikipedia page. The different shapes in a column represent the five
+    training samples of that page. The order on the page axis is not
+    meaningful.}
     \label{figure:youtube}
 \end{figure*}
 
 \begin{figure*}
     \centering
     \input{minaj}
-    \caption{A failed recovery. The Levenshtein distance between the training samples and
-        a recording of the victim visiting the Nicki Minaj Wikipedia page. The
-        shortest distance (97 on the page axis) corresponds to a training sample
-        of the Eminem Wikipedia page. The Nicki Minaj training samples still
-        stand out (55 on the page axis). The different shapes in a column
-        represent the five training samples of that page. The order on the page
-        axis is not meaningful.}
+    \caption{A failed identification. The Levenshtein distance between the
+    training samples and a recording of the victim visiting the Nicki Minaj
+    Wikipedia page. The shortest distance (97 on the page axis) corresponds to
+    a training sample of the Eminem Wikipedia page. The Nicki Minaj training
+    samples still stand out (55 on the page axis). The different shapes in
+    a column represent the five training samples of that page. The order on the
+    page axis is not meaningful.}
     \label{figure:minaj}
 \end{figure*}
 
@@ -589,10 +589,10 @@ probes when we ran it with the input files \texttt{HAN040-E.PDF} and
 
 On System 1 with $T=5$ and $S=10,$\footnote{poppler/0003} the correct PDF was
 identified $1258$ times out of $1270$ (99.1\%). All of the PDFs were reliably
-identifiable: all but one were recovered 9 or 10 times out of 10; the other one
-was recovered 8 times. In a repeat run on same system with $T=5$ and
-$S=1$,\footnote{poppler/0006} the correct PDF was identified $124$ times out of
-$127$ (97.6\%).
+identifiable: all but one were correctly identified 9 or 10 times out of 10; the
+other one was identified correctly 8 times. In a repeat run on same system with
+$T=5$ and $S=1$,\footnote{poppler/0006} the correct PDF was identified $124$
+times out of $127$ (97.6\%).
 
 On System 2 with $T=5$ and $S=1$,\footnote{poppler/0001} the correct PDF was
 identified $126$ times out of $127$ (99.2\%). With $T=5$ and
