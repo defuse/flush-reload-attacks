@@ -481,7 +481,7 @@ identification took much longer on System 2 despite having a faster processor
 because System 2 was configured to use a pure Ruby implementation of
 a Levenshtein distance algorithm instead of the fast native implementation that
 System 1 was was configured to use. With $T=10$ and $S=10$,\footnote{links/0016}
-the correct page was identified $977$ times out of $1000$ (97.7\%). As on System
+the correct page was identified $977$ times out of $1000$ (98\%). As on System
 1, most of the pages were correctly identified 9 or 10 times out of 10.
 
 A plot of the Levenshtein distances involved in a successful identification are
@@ -501,9 +501,9 @@ not just its length.
 We were curious whether the attack would work if the training were done on
 a different system. To simulate this, we used the training set from an
 experiment\footnote{links/0014} on System 1 to identify victim samples from
-another experiment\footnote{links/0016} on System 2. The result was that 75.7\%
+another experiment\footnote{links/0016} on System 2. The result was that 76\%
 of the pages were identified correctly. Using the training set from System 2 and
-the victim samples from System 1, the identification was successful 82.4\% of
+the victim samples from System 1, the identification was successful 82\% of
 the time. So it is better to train on the victim's machine, but the attack can
 still work when the training is done on a different system.
 
@@ -588,22 +588,22 @@ probes when we ran it with the input files \texttt{HAN040-E.PDF} and
 \end{itemize}
 
 On System 1 with $T=5$ and $S=10,$\footnote{poppler/0003} the correct PDF was
-identified $1258$ times out of $1270$ (99.1\%). All of the PDFs were reliably
+identified $1258$ times out of $1270$ (99\%). All of the PDFs were reliably
 identifiable: all but one were correctly identified 9 or 10 times out of 10; the
 other one was identified correctly 8 times. In a repeat run on same system with
 $T=5$ and $S=1$,\footnote{poppler/0006} the correct PDF was identified $124$
-times out of $127$ (97.6\%).
+times out of $127$ (98\%).
 
 On System 2 with $T=5$ and $S=1$,\footnote{poppler/0001} the correct PDF was
-identified $126$ times out of $127$ (99.2\%). With $T=5$ and
+identified $126$ times out of $127$ (99\%). With $T=5$ and
 $S=10$,\footnote{poppler/0007} the PDF was correctly identified $1260$ times out
-of $1270$ (99.2\%). Again, all but one were identified 9 or 10 times out of 10,
+of $1270$ (99\%). Again, all but one were identified 9 or 10 times out of 10,
 except for one that was identified correctly only 8 times.
 
 Using a training set\footnote{poppler/0003} created on System 1 we correctly
-identified the input from 69.6\% of probe sequences recorded on System
+identified the input from 70\% of probe sequences recorded on System
 2.\footnote{poppler/0007} Using the training set from System 2, we correctly
-identified the input from 69.1\% of the probe sequences recorded on System 1.
+identified the input from 69\% of the probe sequences recorded on System 1.
 
 To test how well the probe finding tool works in the absence of any human
 guidance, we tried running it on the list of all 5,397 functions in the
@@ -619,7 +619,7 @@ Poppler library. The result is the following set of probes:
 
 We ran an experiment\footnote{poppler/0004} with these probes and $T=5$ and $S=1$
 on System 1, and the result was that the correct PDF was only identified 21
-times out of 127, only 16.5\%. This is much worse than with the other set
+times out of 127, only 17\%. This is much worse than with the other set
 of probes, but is still better than random guessing. With these probes, the
 \textsc{Flush+Reload} tool ran into an error condition, where the CPU's
 \texttt{RDTSC} counter changes non-monotonically, much more frequently than it
@@ -712,8 +712,8 @@ experiment\footnote{truecrypt/0005} where the attacker is allowed to watch the
 volume get mounted 3 times and then take the majority of their decisions, they
 decide correctly $93$ times out of $100$. In a longer
 run\footnote{truecrypt/0006} with majority-of-three, the attacker decides
-correctly $476$ out of $500$ times (95\%). $237/256$ (92.6\%) of the normal
-samples were correct, $239/244$ (93.4\%) of the hidden samples were correct.
+correctly $476$ out of $500$ times (95\%). $237/256$ (93\%) of the normal
+samples were correct, $239/244$ (93\%) of the hidden samples were correct.
 
 We could not reproduce the attack on System 2. We believe this is due to
 differences in the way the two CPUs do instruction prefetching. The code for
