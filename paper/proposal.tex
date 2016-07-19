@@ -466,24 +466,26 @@ the probe-finding tool. The tool gave us the following probe set:
     \label{figure:distribution}
 \end{figure}
 
-On System 1 with $T=10$ and $S=10$,\footnote{links/0014; interpretation of these
-labels is explained in Appendix~\ref{sec:reproducing}.} the correct page was
-identified $940$ times out of $1000$ (94\%). In this experiment, the average
-time it took to identify the page from the training sequences and the victim
-sequence was $4.1$ seconds. All pages in the set were correctly identified at
-least twice out of the ten runs, and most were correctly identified all 10
-times. The distribution is plotted in Figure~\ref{figure:distribution}.
+On System 1 with $T=10$ training samples and $S=10$ trial
+runs,\footnote{links/0014; interpretation of these labels is explained in
+Appendix~\ref{sec:reproducing}.} the correct page was identified $940$ times out
+of $1000$ (94\%). In this experiment, the average time it took to identify the
+page from the training sequences and the victim sequence was $4.1$ seconds. All
+pages in the set were correctly identified at least twice out of the ten runs,
+and most were correctly identified all 10 times. The distribution is plotted in
+Figure~\ref{figure:distribution}.
 
-A second run\footnote{links/0013} on System 1 with $T=10$ and $S=1$ saw the
-correct page being identified $95$ times out of $100$ (95\%).
-Again it took $4.1$ seconds to perform an identification, on average.
+A second run\footnote{links/0013} on System 1 with $T=10$ training samples and
+$S=1$ trial run saw the correct page being identified $95$ times out of $100$
+(95\%). Again it took $4.1$ seconds to perform an identification, on average.
 
-On System 2 with $T=10$ and $S=1$,\footnote{links/0015} the correct page was
-identified $98$ times out of $100$. Recovery took $136$ seconds on average. The
-identification took much longer on System 2 despite having a faster processor
-because System 2 was configured to use a pure Ruby implementation of
-a Levenshtein distance algorithm instead of the fast native implementation that
-System 1 was was configured to use. With $T=10$ and $S=10$,\footnote{links/0016}
+On System 2 with $T=10$ training samples and $S=1$ trial
+run,\footnote{links/0015} the correct page was identified $98$ times out of
+$100$. Recovery took $136$ seconds on average. The identification took much
+longer on System 2 despite having a faster processor because System 2 was
+configured to use a pure Ruby implementation of a Levenshtein distance algorithm
+instead of the fast native implementation that System 1 was was configured to
+use. With $T=10$ training samples and $S=10$ trial runs,\footnote{links/0016}
 the correct page was identified $977$ times out of $1000$ (98\%). As on System
 1, most of the pages were correctly identified 9 or 10 times out of 10.
 
@@ -526,14 +528,16 @@ order of execution should depend on the contents of Wikipedia pages. These are:
 Note that two of the manually-selected probes were re-discovered by the
 automation tool.
 
-With these probes, we saw 76\% correct classification on System 1 with $T=5$ and
-$S=1$.\footnote{links/0002. This experiment was run before we started truncating
-to 1000 characters, so the full strings were compared.} On System 2 with $T=5$
-and $S=10$\footnote{links/0010} we saw 88\% correctness. With $T=10$ and $S=1$
-we saw 91\%.\footnote{links/0005. This experiment was also run before we started
-truncating to 1000 characters.} This suggests that using more training samples
-increases the success rate of the attack, and that the automatically discovered
-probes are just as good or slightly better than the ones we found manually.
+With these probes, we saw 76\% correct classification on System 1 with $T=5$
+training samples and $S=1$ trial run.\footnote{links/0002. This experiment was
+run before we started truncating to 1000 characters, so the full strings were
+compared.} On System 2 with $T=5$ training samples and $S=10$ trial
+runs\footnote{links/0010} we saw 88\% correctness. With $T=10$ training samples
+and $S=1$ trial run we saw 91\%.\footnote{links/0005. This experiment was also
+run before we started truncating to 1000 characters.} This suggests that using
+more training samples increases the success rate of the attack, and that the
+automatically discovered probes are just as good or slightly better than the
+ones we found manually.
 
 \begin{figure*}
     \centering
@@ -590,16 +594,18 @@ probes when we ran it with the input files \texttt{HAN040-E.PDF} and
     \item \texttt{Gfx::opTextNextLine(Object*, int)}
 \end{itemize}
 
-On System 1 with $T=5$ and $S=10,$\footnote{poppler/0003} the correct PDF was
-identified $1258$ times out of $1270$ (99\%). All of the PDFs were reliably
-identifiable: all but one were correctly identified 9 or 10 times out of 10; the
-other one was identified correctly 8 times. In a repeat run on same system with
-$T=5$ and $S=1$,\footnote{poppler/0006} the correct PDF was identified $124$
-times out of $127$ (98\%).
+On System 1 with $T=5$ training samples and $S=10$ trial
+runs,\footnote{poppler/0003} the correct PDF was identified $1258$ times out of
+$1270$ (99\%). All of the PDFs were reliably identifiable: all but one were
+correctly identified 9 or 10 times out of 10; the other one was identified
+correctly 8 times. In a repeat run on same system with $T=5$ training samples
+and $S=1$ trial runs,\footnote{poppler/0006} the correct PDF was identified
+$124$ times out of $127$ (98\%).
 
-On System 2 with $T=5$ and $S=1$,\footnote{poppler/0001} the correct PDF was
-identified $126$ times out of $127$ (99\%). With $T=5$ and
-$S=10$,\footnote{poppler/0007} the PDF was correctly identified $1260$ times out
+On System 2 with $T=5$ training samples and $S=1$ trial
+run,\footnote{poppler/0001} the correct PDF was identified $126$ times out of
+$127$ (99\%). With $T=5$ training samples and $S=10$ trial
+runs,\footnote{poppler/0007} the PDF was correctly identified $1260$ times out
 of $1270$ (99\%). Again, all but one were identified 9 or 10 times out of 10,
 except for one that was identified correctly only 8 times.
 
@@ -620,14 +626,14 @@ Poppler library. The result is the following set of probes:
     \item \texttt{PSOutputDev::updateTextShift(GfxState*, double)}
 \end{itemize}
 
-We ran an experiment\footnote{poppler/0004} with these probes and $T=5$ and $S=1$
-on System 1, and the result was that the correct PDF was only identified 21
-times out of 127, only 17\%. This is much worse than with the other set
-of probes, but is still better than random guessing. With these probes, the
-\textsc{Flush+Reload} tool ran into an error condition, where the CPU's
-\texttt{RDTSC} counter changes non-monotonically, much more frequently than it
-did with the other probes, and that is probably the reason for the poorer
-result.
+We ran an experiment\footnote{poppler/0004} with these probes and $T=5$ training
+samples and $S=1$ trial run on System 1, and the result was that the correct PDF
+was only identified 21 times out of 127, only 17\%. This is much worse than with
+the other set of probes, but is still better than random guessing. With these
+probes, the \textsc{Flush+Reload} tool ran into an error condition, where the
+CPU's \texttt{RDTSC} counter changes non-monotonically, much more frequently
+than it did with the other probes, and that is probably the reason for the
+poorer result.
 
 \subsection{TrueCrypt}
 
@@ -702,11 +708,9 @@ TrueCrypt's command-line tool. It stops the attack tool and checks if the last
 probe hit was the \texttt{GetDataSize()} probe. If it was, it guesses that the
 volume is normal. If not, it guesses that the volume is hidden.
 
-In one run\footnote{truecrypt/0001} of the experiment on System 1 with $S=500$,
-the guess was right $416$ times, or 83\%.
-(Recall that we call the
-number of trials in a run of the experiment $S$.)
-Of the $255$ trials with
+In one run\footnote{truecrypt/0001} of the experiment on System 1 with $S=500$
+trial runs, the guess was right $416$ times, or 83\%. (Recall that we call the
+number of trials in a run of the experiment $S$.) Of the $255$ trials with
 normal volumes, the guess was right $184$ times. Of the $245$ trials with hidden
 volumes, the guess was right $232$ times. So the error is skewed towards
 mistakenly believing that the volume is hidden. By spying as the volume is
