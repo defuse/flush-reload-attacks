@@ -815,13 +815,6 @@ an easy-to-use test tool should be developed, so that users can determine if
 their processors are vulnerable. With this knowledge, consumers can make better
 purchasing decisions.
 
-The \textsc{Flush+Reload} attack does not seem to work on AMD processors. It has been
-speculated that this is because `AMD caches are non-inclusive, i.e. data in L1
-does not need to also be in L2 or L3, as is the case with the Intel caches'
-\cite{yarom2013flush}. The question of why \textsc{Flush+Reload} does not work
-on AMD should be answered conclusively with empirical evidence. Without a better
-understanding, we cannot say for sure that AMD processors are not vulnerable. 
-
 Some virtual machine hypervisors deduplicate pages between virtual machines. If
 two physical pages have identical content, the hypervisor will change the page
 tables so that both virtual machines access the same physical page. Two isolated
