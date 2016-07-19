@@ -146,11 +146,11 @@ Section~\ref{sec:future} and then conclude in Section~\ref{sec:conclusion}.
 The attacks we present use the \textsc{Flush+Reload} attack by Yuval Yarom and
 Katrina Falkner \cite{yarom2013flush}. The side channel was first described by
 Bangerter et al.\ \cite{gullasch2011cache} where it was used on AES lookup
-tables to extract keys and plaintext during encryption. Yarom and
-Falkner realized the technique could be applied more generally to spy on the
-code a process executes. It was given the name \textsc{Flush+Reload} and has
-since broken GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
-yarom2014recovering}.
+tables to extract keys and plaintext during encryption. Yarom and Falkner
+realized the technique could be applied more generally to spy on the code
+a process executes. It was given the name ``\textsc{Flush+Reload}'' and has
+notably been used to break GnuPG \cite{yarom2013flush} and OpenSSL
+\cite{benger2014ooh, yarom2014recovering}.
 
 In this section we give a brief explanation of the \textsc{Flush+Reload} attack
 with enough detail to understand our attacks. For full details, refer to
@@ -751,8 +751,8 @@ to the same volume mounting code.
 Our attacks are based on the \textsc{Flush+Reload} attack~\cite{yarom2013flush},
 which in turn is based on work by Bangerter et al.\ where it was used to break
 an implementation of AES \cite{gullasch2011cache}. It has since been applied to
-GnuPG \cite{yarom2013flush} and OpenSSL \cite{benger2014ooh,
-yarom2014recovering}.
+GnuPG \cite{yarom2013flush}, OpenSSL \cite{benger2014ooh, yarom2014recovering},
+and other cryptography libraries (\cite{bruinderink2016flush} for example).
 
 There is a vast body of literature on attacking cryptographic software and
 hardware with side channels. There are far too many examples to list here; we
