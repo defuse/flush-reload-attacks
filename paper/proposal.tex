@@ -384,19 +384,19 @@ Table \ref{table:specs}. We will refer to these systems as System 1 and System
     \hline
     \textbf{OS} & Arch Linux (February 2015) & Debian Wheezy \\
     \hline
-    \textbf{CPU} & Intel Core2 Duo P8700 2.53GHz & Intel Xeon E3-1245 V2 3.40GHz  \\
+    \textbf{CPU} & Intel Core2 Duo P8700 2.53GHz (2 cores) & Intel Xeon E3-1245 V2 3.40GHz (4 cores, 8 threads)  \\
     \hline
     \textbf{RAM} & 4GiB DDR2 800MHz & 32GiB DDR3 1333MHz \\
     \hline
-    \textbf{L1 Cache} & 64KiB Split & 256KiB Unified \\
+    \textbf{L1 Cache} & 2x32KiB Instructions + 2x32KiB Data & 4x32KiB Instructions + 4x32KiB Data \\
     \hline
-    \textbf{L2 Cache} & 3MiB Unified & 1MiB Unified \\
+    \textbf{L2 Cache} & 3MiB Shared Unified & 4x256KiB Unified \\
     \hline
-    \textbf{L3 Cache} & None & 8MiB Unified \\
+    \textbf{L3 Cache} & None & 8MiB Shared Unified \\
     \hline
 \end{tabular}
-\caption{System specifications. Cache specifications were obtained by the
-\texttt{dmidecode} utility. System 1 does not have a L3
+\caption{System specifications. Cache specifications were obtained from
+    \texttt{cpu-world.com}. System 1 does not have a L3
 cache, but FLUSH+RELOAD works with its L2 cache as it is shared between cores.}
 \label{table:specs}
 \end{table*}
