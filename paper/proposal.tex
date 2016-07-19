@@ -818,20 +818,13 @@ an easy-to-use test tool should be developed, so that users can determine if
 their processors are vulnerable. With this knowledge, consumers can make better
 purchasing decisions.
 
-Some virtual machine hypervisors deduplicate pages between virtual machines. If
-two physical pages have identical content, the hypervisor will change the page
-tables so that both virtual machines access the same physical page. Two isolated
-virtual machines on the same hardware can communicate by checking whether their
-pages were deduplicated. The resulting covert channel can move 80 bits per
-second, but with latencies of up to five minutes \cite{xiao2013security}. Using
-\textsc{Flush+Reload} to communicate through the deduplicated pages could yield
-similar data rates with less latency.
-
-When memory deduplication is accomplished by matching page contents, an attacker
-can force a deduplication to happen on any page whose contents they know.
-Therefore, if an attacker knows or can predict some data inside another process,
-they can spy on it with \textsc{Flush+Reload}. This might reveal more
-information than spying on the program code alone.
+Some virtual machine hypervisors deduplicate pages between virtual machines.
+When this is accomplished by finding pairs of memory pages with the same
+content, and an attacker can predict the content of a target memory page, the
+attacker can gain the ability to run a \textsc{Flush+Reload} attack on the
+target page by creating a duplicate of it in memory that they control. It's an
+open question if this leads to better privacy-compromising attacks than spying
+on the program code alone.
 
 \section{Conclusion}
 \label{sec:conclusion}
