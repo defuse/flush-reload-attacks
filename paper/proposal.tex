@@ -841,6 +841,13 @@ extract from non-cryptographic programs. In particular, can
 \textsc{Flush+Reload} extract previously-unknown user input from a program in
 any plausible scenario?
 
+Aside from the possibility of developing better attacks, we've left two
+questions unexplored. The first is whether or not these attacks can be made to
+work across virtual machine boundaries, and the second is whether or not they
+can be made to work on processors with exclusive cache architectures, like AMD.
+Lipp et al.'s work on ARM processors suggests that it is possible
+\cite{lipp2015armageddon}.
+
 Knowing that \textsc{Flush+Reload} has privacy implications to regular users and
 not just users of cryptography, there will be a higher demand to know if one's
 system is vulnerable. A database of vulnerable processors should be created, and
