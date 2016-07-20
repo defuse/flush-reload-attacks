@@ -137,10 +137,10 @@ In addition to the three attacks, we also describe how the process of
 discovering new attacks can be partially automated.
 
 Our work is not the first to apply cache side-channels to compromise privacy. We
-are aware of at least three other papers that use \textsc{Flush+Reload}
-techniques to compromise privacy \cite{gruss2015cache, zhang2014cross,
-oren2015spy}. Section~\ref{sec:relwork} describes how our work fits in to the
-existing landscape of privacy-compromising cache attacks.
+are aware of at least four other papers that use cache-based side-channel
+attacks to compromise privacy \cite{gruss2015cache, zhang2014cross, oren2015spy,
+lipp2015armageddon}. Section~\ref{sec:relwork} describes how our work fits in to
+the existing landscape of privacy-compromising cache attacks.
 
 In the next section, we summarize the \textsc{Flush+Reload} side channel that
 all of our novel attacks are based on. Section~\ref{sec:distinguishing}
@@ -775,16 +775,17 @@ refer to the interesting cases of extracting RSA keys via power analysis
 the \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
 yarom2014recovering}.
 
-Our work shows that cache side channel attacks, \textsc{Flush+Reload} in
-particular, have privacy implications beyond breaking cryptography software.
-This continues the trend of works like \textbf{TODO: relate this work to the
-three other works.}. Cache side channels have also been used to break kernel
-address space layout randomization \cite{hund2013practical}.
+Our work further confirms that cache side channel attacks, \textsc{Flush+Reload}
+in particular, have privacy implications beyond breaking cryptography software.
+This continues the trend of works like \cite{zhang2014cross} which TODO,
+\cite{gruss2015cache} which TODO, \cite{oren2015spy} which TODO, and
+\cite{lipp2015armageddon}.  Cache side channels have also been used to break
+kernel address space layout randomization \cite{hund2013practical}.
 
 Readers interested in defending against last-level cache attacks like
 \textsc{Flush+Reload} should see CATalyst \cite{liu2016catalyst}, a hybrid
 software-hardware approach based on Intel Cache Allocation Technology (CAT).
-Some alternative non-Intel-specific defense options are discussed in the
+Some alternate non-Intel-specific defense options are discussed in the
 Countermeasures section of \cite{gruss2015cache}.
 
 There is a growing body of work showing that other kinds of side channels are
@@ -820,6 +821,9 @@ successfully breaking privacy, too. Here we highlight some of that work.
         are running on it \cite{hlavacs2011energy}.
     \item[--] Text can be recovered from the sounds dot-matrix printers make
           \cite{backes2010acoustic}.
+    \item[--] In an attack model where the operating system is malicious but
+        a hypervisor and an application are untrusted, documents and images can
+        be recovered through a page fault side-channel \cite{xu2011exploration}.
 \end{itemize}
 
 We believe our attacks represent additional steps towards understanding the
