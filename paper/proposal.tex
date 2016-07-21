@@ -775,12 +775,17 @@ refer to the interesting cases of extracting RSA keys via power analysis
 the \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
 yarom2014recovering}.
 
-Our work further confirms that cache side channel attacks, \textsc{Flush+Reload}
-in particular, have privacy implications beyond breaking cryptography software.
-This continues the trend of works like \cite{zhang2014cross} which TODO,
-\cite{gruss2015cache} which TODO, \cite{oren2015spy} which TODO, and
-\cite{lipp2015armageddon}.  Cache side channels have also been used to break
-kernel address space layout randomization \cite{hund2013practical}.
+Continuing the trend of using cache side-channels to violate users' privacy, our
+work further confirms that cache side-channel attacks can do worse than just
+breaking cryptography software. Other privacy-compromising side-channel attacks
+attacks are those in \cite{zhang2014cross} which determines the number of
+distinct items in an e-commerce user's shopping cart, \cite{gruss2015cache}
+which infers keystroke information on PCs, \cite{oren2015spy} which infers
+network and mouse activity from inside a sandboxed web page, and
+\cite{lipp2015armageddon} which infers information about the user input on
+Android phones (e.g. when the user swipes vs.\ taps on their phone).  Cache side
+channels have also been used to break kernel address space layout randomization
+\cite{hund2013practical}.
 
 Readers interested in defending against last-level cache attacks like
 \textsc{Flush+Reload} should see the survey of defense options in the
