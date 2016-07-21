@@ -799,9 +799,14 @@ successfully breaking privacy, too. Here we highlight some of that work.
     \item[--] Some web applications leak information about the user's input through
           their behavior in communicating with the web server (even over
           encrypted connections) \cite{bortz2007exposing, chen2010side}.
-      \item[--] Malicious web pages can read text inside an \texttt{iframe} by
-          exploiting differences in the time it takes to run SVG
-          filters~\cite{pixelperfect, andrysco2015subnormal}. 
+    \item[--] Malicious web pages can read text inside an \texttt{iframe} by
+        exploiting differences in the time it takes to run SVG
+        filters~\cite{pixelperfect, andrysco2015subnormal}. 
+    \item[--] Memory deduplication features in new versions of Microsoft Windows
+        makes it possible for a malicious web page to check ``whether the user
+        has specific websites currently opened'' \cite{gruss2015practical} and,
+        when combined with Rowhammer \cite{kim2014flipping}, to execute
+        arbitrary code \cite{bosman2016dedup}.
     \item[--] Timing variations in databases make it possible to extract
           indexed records \cite{futoransky2007nd2db}.
     \item[--] Variable bit rate encoding can leak words spoken over encrypted
