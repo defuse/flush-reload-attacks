@@ -65,7 +65,7 @@ Zcash
 
 \subsection*{Abstract}
 Side channel attacks are typically used to break implementations of
-cryptography. Recently, side channel attacks are being discovered in more
+cryptography. Recently, side-channel attacks are being discovered in more
 general settings that violate user privacy. We build on this work by showing
 that the \textsc{Flush+Reload} L3 cache side channel from Yuval Yarom and
 Katrina Falkner \cite{yarom2013flush} can be used to distinguish between inputs
@@ -136,7 +136,7 @@ instructions to obtain the source code.
 In addition to the three attacks, we also describe how the process of
 discovering new attacks can be partially automated.
 
-Our work is not the first to apply cache side-channels to compromise privacy. We
+Our work is not the first to apply cache side channels to compromise privacy. We
 are aware of at least four other papers that use cache-based side-channel
 attacks to compromise privacy \cite{gruss2015cache, zhang2014cross, oren2015spy,
 lipp2015armageddon}. Section~\ref{sec:relwork} describes how our work fits in to
@@ -171,7 +171,7 @@ with enough detail to understand our attacks. For full details, refer to
 Yarom and Falkner~\cite{yarom2013flush}.
 
 \textsc{Flush+Reload} is a generic L3 (or last-level, in case the system does
-not have an L3 cache) cache side channel attack. It takes advantage of
+not have an L3 cache) cache side-channel attack. It takes advantage of
 executable code page sharing between processes. If Alice is the first to run
 a program, the operating system will load the program into physical memory. When
 Bob runs the same program, instead of loading a second copy into memory, the
@@ -775,7 +775,7 @@ refer to the interesting cases of extracting RSA keys via power analysis
 the \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
 yarom2014recovering}.
 
-Continuing the trend of using cache side-channels to violate users' privacy, our
+Continuing the trend of using cache side channels to violate users' privacy, our
 work further confirms that cache side-channel attacks can do worse than just
 breaking cryptography software. Other privacy-compromising side-channel attacks
 attacks are those in \cite{zhang2014cross} which determines the number of
@@ -796,9 +796,9 @@ There is a growing body of work showing that other kinds of side channels are
 successfully breaking privacy, too. Here we highlight some of that work.
 
 \begin{itemize}
-    \item[--] Some web applications leak information about the user's input through
-          their behavior in communicating with the web server (even over
-          encrypted connections) \cite{bortz2007exposing, chen2010side}.
+    \item[--] Some web applications leak information about the user's input
+        through their behavior in communicating with the web server (even over
+        encrypted connections) \cite{bortz2007exposing, chen2010side}.
     \item[--] Malicious web pages can read text inside an \texttt{iframe} by
         exploiting differences in the time it takes to run SVG
         filters~\cite{pixelperfect, andrysco2015subnormal}. 
@@ -811,9 +811,9 @@ successfully breaking privacy, too. Here we highlight some of that work.
           indexed records \cite{futoransky2007nd2db}.
     \item[--] Variable bit rate encoding can leak words spoken over encrypted
         VoIP links \cite{white2011phonotactic}.
-    \item[--] In an Android app, the UI state can be inferred through side channels
-          in the GUI framework \cite{chen2014peeking} and through interrupt
-          side-channels \cite{diao2016no}.
+    \item[--] In an Android app, the UI state can be inferred through side
+        channels in the GUI framework \cite{chen2014peeking} and through
+        interrupt side channels \cite{diao2016no}.
     \item[--] On Linux, keystroke timings can be learned by watching the size of
           a victim process's stack \cite{zhang2009peeping} and by observing an
           SSH connection \cite{song2001timing}. Knowing the timing of keystrokes
@@ -833,7 +833,7 @@ successfully breaking privacy, too. Here we highlight some of that work.
           \cite{backes2010acoustic}.
     \item[--] In an attack model where the operating system is malicious but
         a hypervisor and an application are untrusted, documents and images can
-        be recovered through a page fault side-channel \cite{xu2011exploration}.
+        be recovered through a page fault side channel \cite{xu2011exploration}.
 \end{itemize}
 
 We believe our attacks represent additional steps towards understanding the
@@ -880,11 +880,11 @@ on the program code alone.
 \section{Conclusion}
 \label{sec:conclusion}
 
-Classically, side channel attacks are used to extract encryption keys from
-software and hardware implementations of cryptography. More recently, side
-channel attacks are being used to compromise privacy in more general settings.
-We presented three attacks that extend this work, along with accompanying tools
-and an automation framework.
+Classically, side-channel attacks are used to extract encryption keys from
+software and hardware implementations of cryptography. More recently,
+side-channel attacks are being used to compromise privacy in more general
+settings. We presented three attacks that extend this work, along with
+accompanying tools and an automation framework.
 
 Our attacks let an attacker (1) determine which of the top 100 Wikipedia pages
 a victim visited with the Links web browser, (2) determine which of the 127
