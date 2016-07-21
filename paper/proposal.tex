@@ -72,15 +72,15 @@ Katrina Falkner \cite{yarom2013flush} can be used to distinguish between inputs
 to non-cryptographic programs on multi-user systems. 
 
 We describe how input-distinguishing attacks can be discovered automatically
-with human assistance and present three concrete attacks. Our first attack is
-against the Links command-line web browser. We show that an attacker can
+(with human assistance) and we present three concrete attacks. Our first attack
+is against the Links command-line web browser. We show that an attacker can
 determine which of the top 100 Wikipedia pages the user visited (correct 94\% of
 the time). Our second attack is against the Poppler PDF rendering library. We
 show that an attacker can determine which of a set of 127 PDFs were rendered by
 Poppler (correct 98\% of the time). Finally, we show how an attacker can
 determine whether the TrueCrypt volume a user just mounted contained a hidden
-volume or not (correct above 80\% of the time, but the attack only works on half
-of our test systems). 
+volume or not (correct above 80\% of the time, but the attack only works on one
+of our two test systems).
 
 \section{Introduction}
 \label{sec:intro}
@@ -117,10 +117,14 @@ can (1) determine which of the top 100 Wikipedia pages a user visited in the
 Links web browser, (2) determine which of 127 PDF files a user passed to the
 \texttt{pdftops} command, and (3) determine whether the TrueCrypt volume a user
 just mounted was a hidden volume or not. We chose to attack Links instead of
-a more popular web browser because its codebase was smaller and easier to become
-familiar with; we expect similar attacks to work against the more-popular
-browsers. Our attacks work on a shared system; determining whether they work
-across a virtual machine boundary is left for future work.
+a more popular web browser because it was easier to automate and its codebase
+was smaller and easier to become familiar with; we expect similar attacks to
+work against the more-popular browsers. Our attacks work across user accounts on
+a shared system; determining whether they also work across virtual machine
+boundaries is left for future work.
+
+In addition to the three attacks, we also describe how the process of
+discovering new attacks can be partially automated.
 
 The attacks were tested two different Intel processors: a Core2 Duo P8700
 (launched Q4 2008 \cite{intelp8700page}) and a Xeon E3-1245 V2 (launched Q2 2012
@@ -128,13 +132,11 @@ The attacks were tested two different Intel processors: a Core2 Duo P8700
 their caches are non-inclusive \cite{yarom2013flush}, but Lipp et al.\ have
 shown that \textsc{Flush+Reload} can be implemented on ARM processors with
 non-inclusive caches \cite{lipp2015armageddon}. Making our attacks work on AMD
-processors is left for future work. The source code to our attack tools
-experimentation framework is public, and we encourage you to try to reproduce
-our experiments on your own computer. See Appendix~\ref{sec:reproducing} for
-instructions to obtain the source code.
+processors is left for future work.
 
-In addition to the three attacks, we also describe how the process of
-discovering new attacks can be partially automated.
+The source code to our attack tools experimentation framework is public, and we
+encourage you to try to reproduce our experiments on your own computer. See
+Appendix~\ref{sec:reproducing} for instructions to obtain the source code.
 
 Our work is not the first to apply cache side channels to compromise privacy. We
 are aware of at least four other papers that use cache-based side-channel
@@ -442,14 +444,14 @@ the attacks work when the attacker is on one account and the spy is on another.
 \section{Attacks}
 \label{sec:results}
 
-We present three attacks. The first attack lets an attacker tell whether which
-of the top 100 Wikipedia pages the victim visited using the Links web browser.
-The second attack does the same for the Poppler PDF rendering library,
+We present three attacks. The first attack lets an attacker tell which of the
+top 100 Wikipedia pages the victim visited using the Links web browser. The
+second attack does the same for the Poppler PDF rendering library,
 distinguishing between 127 PDF transcripts of 2014 Canadian parliamentary
 debates. The Links and Poppler attacks both use the input distinguishing
 procedure exactly as described in Section~\ref{sec:distinguishing}. The third
-attack, which is implemented differently for reasons explained later, determines whether a mounted TrueCrypt
-volume contained a hidden volume or not.
+attack, which is implemented differently for reasons explained later, determines
+whether a mounted TrueCrypt volume contained a hidden volume or not.
 
 \subsection{Links}
 
@@ -772,7 +774,7 @@ There is a vast body of literature on attacking cryptographic software and
 hardware with side channels. There are far too many examples to list here; we
 refer to the interesting cases of extracting RSA keys via power analysis
 \cite{messerges1999power} and sound recording \cite{genkin2013rsa} as well as
-the \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
+other \textsc{Flush+Reload} attacks \cite{yarom2013flush, benger2014ooh,
 yarom2014recovering}.
 
 Continuing the trend of using cache side channels to violate users' privacy, our
@@ -782,28 +784,28 @@ attacks are those in \cite{zhang2014cross} which determines the number of
 distinct items in an e-commerce user's shopping cart, \cite{gruss2015cache}
 which infers keystroke information on PCs, \cite{oren2015spy} which infers
 network and mouse activity from inside a sandboxed web page, and
-\cite{lipp2015armageddon} which infers information about the user input on
-Android phones (e.g. when the user swipes vs.\ taps on their phone).  Cache side
+\cite{lipp2015armageddon} which infers information about user input on Android
+phones (e.g. when the user swipes vs.\ taps on their phone).  Cache side
 channels have also been used to break kernel address space layout randomization
 \cite{hund2013practical}.
 
 Readers interested in defending against last-level cache attacks like
 \textsc{Flush+Reload} should see the survey of defense options in the
-\emph{Countermeasures} section of \cite{gruss2015cache} as well as other works
-like CATalyst \cite{liu2016catalyst}.
+Countermeasures section of \cite{gruss2015cache} as well as other works like
+CATalyst \cite{liu2016catalyst}.
 
 There is a growing body of work showing that other kinds of side channels are
 successfully breaking privacy, too. Here we highlight some of that work.
 
 \begin{itemize}
     \item[--] Some web applications leak information about the user's input
-        through their behavior in communicating with the web server (even over
-        encrypted connections) \cite{bortz2007exposing, chen2010side}.
+        through their requests' size and timing, even when they are sent over an
+        encrypted connection \cite{bortz2007exposing, chen2010side}.
     \item[--] Malicious web pages can read text inside an \texttt{iframe} by
         exploiting differences in the time it takes to run SVG
         filters~\cite{pixelperfect, andrysco2015subnormal}. 
     \item[--] Memory deduplication features in new versions of Microsoft Windows
-        makes it possible for a malicious web page to check ``whether the user
+        make it possible for a malicious web page to check ``whether the user
         has specific websites currently opened'' \cite{gruss2015practical} and,
         when combined with Rowhammer \cite{kim2014flipping}, to execute
         arbitrary code \cite{bosman2016dedup}.
@@ -814,21 +816,12 @@ successfully breaking privacy, too. Here we highlight some of that work.
     \item[--] In an Android app, the UI state can be inferred through side
         channels in the GUI framework \cite{chen2014peeking} and through
         interrupt side channels \cite{diao2016no}.
-    \item[--] On Linux, keystroke timings can be learned by watching the size of
-          a victim process's stack \cite{zhang2009peeping} and by observing an
-          SSH connection \cite{song2001timing}. Knowing the timing of keystrokes
-          reveals information about what is being typed.
-    \item[--] Malicious web pages can use ``red pill'' side channels to find out if
-          they are running in a virtual machine (i.e.\ for malware analysis)
-          \cite{ho2014tick}.
     \item[--] An attacker can learn a victim's Internet traffic volume, as well as
           individual packet times by exploiting a side channel in router
           scheduling algorithms \cite{kadloor2010low}.
     \item[--] A smartphone app can infer what the user is typing from accelerometer
           and gyroscope measurements \cite{owusu2012accessory,
           cai2012practicality}.
-    \item[--] Profiling a server's power use can reveal which virtual machines
-        are running on it \cite{hlavacs2011energy}.
     \item[--] Text can be recovered from the sounds dot-matrix printers make
           \cite{backes2010acoustic}.
     \item[--] In an attack model where the operating system is malicious but
@@ -844,30 +837,17 @@ compromise privacy, and we hope they will motivate more research on the topic.
 \label{sec:future}
 
 There are many more input distinguishing attacks waiting to be discovered. It
-should be easy to use the tools we developed to find new attacks.
+should be easy to use the tools we developed to find new attacks, for example
+against a more popular web browser.
 
-Quantitatively, our attacks only need a small amount of information from the
-target programs. For TrueCrypt, we are only extracting one bit of information.
-The Links and Poppler attacks only need to extract a number of bits logarithmic
-in the number of inputs we want to distinguish between (6.6 bits for 100 pages,
-7.0 for 127). We should find out how much information \textsc{Flush+Reload} can
-extract from non-cryptographic programs. In particular, can
-\textsc{Flush+Reload} extract previously-unknown user input from a program in
-any plausible scenario?
-
-Aside from the possibility of developing better attacks, we've left two
-questions unexplored. The first is whether or not these attacks can be made to
-work across virtual machine boundaries, and the second is whether or not they
-can be made to work on processors with exclusive cache architectures, like AMD.
-Lipp et al.'s work on ARM processors suggests that it is possible
-\cite{lipp2015armageddon}.
-
-Knowing that \textsc{Flush+Reload} has privacy implications to regular users and
-not just users of cryptography, there will be a higher demand to know if one's
-system is vulnerable. A database of vulnerable processors should be created, and
-an easy-to-use test tool should be developed, so that users can determine if
-their processors are vulnerable. With this knowledge, consumers can make better
-purchasing decisions.
+Quantitatively, our attacks only need to extract a small amount of information
+through the side channel in order to work. For TrueCrypt, we are only extracting
+one bit of information. The Links and Poppler attacks only need to extract
+a number of bits logarithmic in the number of inputs we want to distinguish
+between (6.6 bits for 100 pages, 7.0 for 127). We should find out how much
+information \textsc{Flush+Reload} can extract from non-cryptographic programs.
+In particular, can \textsc{Flush+Reload} extract previously-unknown user input
+from a program in any plausible scenario?
 
 Some virtual machine hypervisors deduplicate pages between virtual machines.
 When this is accomplished by finding pairs of memory pages with the same
@@ -876,6 +856,13 @@ attacker can gain the ability to run a \textsc{Flush+Reload} attack on the
 target page by creating a duplicate of it in memory that they control. It's an
 open question if this leads to better privacy-compromising attacks than spying
 on the program code alone.
+
+Aside from the possibility of developing better attacks, we've left two
+questions unexplored. The first is whether or not these attacks can be made to
+work across virtual machine boundaries, and the second is whether or not they
+can be made to work on processors with exclusive cache architectures, like AMD.
+Lipp et al.'s work on ARM processors suggests that it is possible
+\cite{lipp2015armageddon}.
 
 \section{Conclusion}
 \label{sec:conclusion}
