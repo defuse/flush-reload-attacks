@@ -14,6 +14,38 @@ Installing the Dependencies
 To get the attack tools and experiment scripts to work, you'll need to install
 all of this stuff first:
 
+```
+apt-get install build-essential libelf libelf-dev ruby
+```
+
+And the ruby gems:
+
+```
+gem install levenshtein-ffi
+gem install parallel
+gem install gnuplot
+gem install colorize
+gem install graphviz
+```
+
+For your reference, the versions of the dependencies we tested are:
+
+```
+$ ruby -v
+ruby 2.1.5p273 (2014-11-13) [x86_64-linux-gnu]
+```
+
+```
+$ gem list
+
+*** LOCAL GEMS ***
+
+...
+levenshtein-ffi (1.1.0)
+parallel (1.6.1)
+...
+```
+
 Attacking the Links Web Browser
 -------------------------------
 
