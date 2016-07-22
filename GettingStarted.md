@@ -60,6 +60,28 @@ parallel (1.6.1)
 Attacking the Links Web Browser
 -------------------------------
 
+### 1. Build Links from Source
+
+We need a copy of the Links binary with symbols. The one in the debian
+repositories doesn't include symbols, so we have to build it from source. Follow
+these steps to do that.
+
+(If you're using Debian 8 Jessie, you might be able to skip this step and the
+next one by using the binary that's included at
+`experiments/links/binaries/links-debian` and the probe addresses in the file
+`experiments/links/binaries/links-debian.probes`).
+
+### 2. Find the Probe Addresses
+
+### 3. Run the Experiment
+
+### 4. Step-by-Step Attack
+
 Automatically Re-discovering the Links Probes
 ---------------------------------------------
 
+We've already identified good probe locations for distinguishing between web
+pages visited in Links. But, as a demonstration, you can see how these probes
+can be automatically discovered with a bit of human help.
+
+**TODO**
