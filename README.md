@@ -11,7 +11,8 @@ Applications."
 - `flush-reload`: Attack tools, including:
     - `original-from-authors`: The original authors' implementaiton of
       Flush+Reload.
-    - `myversion`: My rewrite of the Flush+Reload attack tool.
+    - `myversion`: My rewrite of the Flush+Reload attack tool. The Ruby attack
+      tools and automated probe finding tools are in `myversion/ruby`.
     - `cachebench`: A tool for timing the difference between cached and
       non-cached memory accesses.
     - `rdtsc-consistency`: A tool to check if the RDTSC timestamp behaves
