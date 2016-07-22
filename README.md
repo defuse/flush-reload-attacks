@@ -5,6 +5,7 @@ This repository contains the source code and experiment data accompanying Taylor
 Hornby's talk at Black Hat 2016 titled "Side-Channel Attacks on Everyday
 Applications."
 
+- `blackhat`: Black Hat talk stuff, like my CFP submission and talk slides.
 - `cpsc502`: Assignments for my undergraduate research project at the University of Calgary.
 - `experiments`: Experiment implementations and all saved experiment run data.
 - `flush-reload`: Attack tools, including:
