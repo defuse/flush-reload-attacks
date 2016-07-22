@@ -77,13 +77,21 @@ next one by using the binary that's included at
 
 **1.1. Download Links Source Code**
 
+TODO
+
 **1.2. Copy the Links Binary**
+
+TODO
 
 ### 2. Find the Probe Addresses
 
 **2.1. Run the Probe Address Finding Tool**
 
+TODO
+
 **2.2. Save the Probe Addresses to a File**
+
+TODO
 
 ### 3. Run the Experiment
 
@@ -132,7 +140,11 @@ spy on somebody.
 
 **4.1. Start the Spy Tool**
 
+TODO
+
 **4.2. Pretend to be the Victim**
+
+TODO
 
 Automatically Rediscovering the Links Probes
 --------------------------------------------
