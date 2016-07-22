@@ -12,6 +12,17 @@ For best results, follow this guide on dedicated hardware. It might not work
 very well in a virtual machine; I know that it doesn't work on the cheaper
 Amazon EC2 instances because of the way they allocate CPU time.
 
+Clone the Repository
+--------------------
+
+The first step is to download the contents of this repository. The guide assumes
+you'll put it in your home directory:
+
+```
+$ cd ~
+$ git clone https://github.com/defuse/flush-reload-attacks.git
+```
+
 Installing the Dependencies
 ---------------------------
 
@@ -30,6 +41,13 @@ gem install parallel
 gem install gnuplot
 gem install colorize
 gem install graphviz
+```
+
+We'll be building Links from source, so install Debian's Links to pull in all of
+the dependencies, and `libssl-dev` to enable SSL/TLS support.
+
+```
+$ apt-get install links libssl-dev
 ```
 
 For your reference, the versions of the dependencies we tested are:
@@ -77,21 +95,51 @@ next one by using the binary that's included at
 
 **1.1. Download Links Source Code**
 
-TODO
+Go to the [Links download page](http://links.twibright.com/download.php) and
+grab the source code to the latest version. When I wrote this, that's 2.13.
 
-**1.2. Copy the Links Binary**
+```
+$ wget http://links.twibright.com/download/links-2.13.tar.gz
+$ tar xvf links-2.13.tar.gz
+```
 
-TODO
+**1.2. Compile Links**
+
+Now compile a Links binary.
+
+```
+$ cd links-2.13
+$ ./configure
+$ make
+```
+
+**1.3. Copy the Links Binary**
+
+Copy the Links binary into the `experiments/links/binaries`:
+
+```
+$ cp links ~/flush-reload-attacks/experiments/links/binaries/links-demo
+```
 
 ### 2. Find the Probe Addresses
 
+I've already identified some good Flush+Reload probe locations to make the
+Wikipedia page distinguishing attack work. They are the first cache lines of the
+functions `kill_html_stack_item()`, `html_stack_dup()`, `html_a()`, and
+`parse_html()`. We need to find the addresses of those cache lines.
+
 **2.1. Run the Probe Address Finding Tool**
 
-TODO
+Run the probe address finding tool to look up the addresses:
+
+```
+ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/FindProbeAddresses.rb -n kill_html_stack_item -n html_stack_dup -n html_a -n parse_html -b binaries/links-demo
+```
 
 **2.2. Save the Probe Addresses to a File**
 
-TODO
+Save those probe addresses to a file. Copy and paste the output into
+`~/flush-reload-attacks/experiments/links/binaries/links-demo.probes`.
 
 ### 3. Run the Experiment
 
