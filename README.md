@@ -16,6 +16,12 @@ Applications."
 - `paper`: The LaTeX source code to the accompanying paper.
 - `source`: Source files, e.g. the PDF files for the libpoppler input distinguishing attack.
 
+Getting Started
+---------------
+
+For step-by-step instructions to perform an attack on your own system, see the
+[Getting Started Guide](GettingStarted.md).
+
 Contributing
 ------------
 
