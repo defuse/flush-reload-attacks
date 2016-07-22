@@ -30,17 +30,13 @@ To get the attack tools and experiment scripts to work, you'll need to install
 all of this stuff first:
 
 ```
-# apt-get install build-essential libelf libelf-dev ruby
+# apt-get install build-essential libelf-dev ruby
 ```
 
 And the ruby gems:
 
 ```
-# gem install levenshtein-ffi
-# gem install parallel
-# gem install gnuplot
-# gem install colorize
-# gem install graphviz
+# gem install levenshtein-ffi parallel gnuplot colorize graphviz
 ```
 
 We'll be building Links from source, so install Debian's Links as an easy way to
@@ -73,10 +69,20 @@ $ gem list
 
 *** LOCAL GEMS ***
 
-...
+bigdecimal (1.2.4)
+colorize (0.8.1)
+ffi (1.9.10)
+gnuplot (2.6.2)
+graphviz (0.3.0)
+io-console (0.4.2)
+json (1.8.1)
 levenshtein-ffi (1.1.0)
-parallel (1.6.1)
-...
+minitest (4.7.5)
+parallel (1.9.0, 1.6.1)
+psych (2.0.5)
+rake (10.1.0)
+rdoc (4.1.0)
+test-unit (2.1.5.0)
 ```
 
 Attacking the Links Web Browser
