@@ -133,7 +133,7 @@ functions `kill_html_stack_item()`, `html_stack_dup()`, `html_a()`, and
 Run the probe address finding tool to look up the addresses:
 
 ```
-ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/FindProbeAddresses.rb -n kill_html_stack_item -n html_stack_dup -n html_a -n parse_html -b binaries/links-demo
+ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/FindProbeAddresses.rb -n kill_html_stack_item -n html_stack_dup -n html_a -n parse_html -b ~/flush-reload-attacks/experiments/links/binaries/links-demo
 ```
 
 **2.2. Save the Probe Addresses to a File**
