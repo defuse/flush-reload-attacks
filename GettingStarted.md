@@ -30,24 +30,24 @@ To get the attack tools and experiment scripts to work, you'll need to install
 all of this stuff first:
 
 ```
-apt-get install build-essential libelf libelf-dev ruby
+# apt-get install build-essential libelf libelf-dev ruby
 ```
 
 And the ruby gems:
 
 ```
-gem install levenshtein-ffi
-gem install parallel
-gem install gnuplot
-gem install colorize
-gem install graphviz
+# gem install levenshtein-ffi
+# gem install parallel
+# gem install gnuplot
+# gem install colorize
+# gem install graphviz
 ```
 
-We'll be building Links from source, so install Debian's Links to pull in all of
-the dependencies, and `libssl-dev` to enable SSL/TLS support.
+We'll be building Links from source, so install Debian's Links as an easy way to
+pull in all of the dependencies, and `libssl-dev` to enable SSL/TLS support.
 
 ```
-$ apt-get install links libssl-dev
+# apt-get install links libssl-dev
 ```
 
 For your reference, the versions of the dependencies we tested are:
