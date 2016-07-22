@@ -9,8 +9,9 @@ Applications."
 - `experiments`: Experiment implementations and all saved experiment run data.
 - `flush-reload`: Attack tools, including:
     - `flush-reload/original-from-authors`: The original authors' implementaiton of Flush+Reload.
-    - `flush-reload/myversion`: My rewrite of the Flush+Reload attack tool. 
-        - `flush-reload/myversion/ruby`: The Ruby attack tools and automated probe finding tools.
+    - `flush-reload/myversion`: My rewrite of the Flush+Reload attack tool.
+        - `flush-reload/myversion/ruby`: The high-level attack tools.
+        - `flush-reload/myversion/automation`: Automated probe-finding tools.
     - `flush-reload/cachebench`: A tool for timing the difference between cached and non-cached memory accesses.
     - `flush-reload/rdtsc-consistency`: A tool to check if the RDTSC timestamp behaves monotonically.
 - `paper`: The LaTeX source code to the accompanying paper.
