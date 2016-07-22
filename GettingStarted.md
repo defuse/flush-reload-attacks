@@ -186,11 +186,19 @@ If the experiment worked for you, then you can try running an attack against
 yourself. This will show you what it's like to use the attack tools to actually
 spy on somebody.
 
-**4.1. Start the Spy Tool**
+**4.1. Train the Top 100 Wikipedia Pages**
 
 TODO
 
-**4.2. Pretend to be the Victim**
+**4.2. Start the Spy Tool**
+
+TODO
+
+**4.3. Pretend to be the Victim**
+
+TODO
+
+**4.4. Figure Out Which Page the Victim Visited**
 
 TODO
 
@@ -201,4 +209,25 @@ I've already found good probe locations for distinguishing between web pages
 visited in Links. But, as a demonstration, you can see how these probes can be
 automatically discovered with a bit of human help.
 
-**TODO**
+From here on, I'm assuming you've followed steps 1-3 of the previous section.
+
+### 1. List all Links Functions
+
+TODO
+
+### 2. Filter the List of Functions
+
+TODO
+
+### 3. Evaluate the Probes Individually
+
+TODO
+
+### 4. Combine the Good Probes into a Probe Set
+
+TODO
+
+### 5. Test the Probe Set You Found
+
+Go back and repeat steps 2 and 3 of the previous section to see how good your
+new probe set is!
