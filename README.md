@@ -26,11 +26,10 @@ For step-by-step instructions to perform an attack on your own system, see the
 Contributing
 ------------
 
-This most recent version of this code lives on GitHub:
-https://github.com/defuse/flush-reload-attacks
-
-Pull requests to this repository are welcome, although I have very limited time
-to review and merge them. Feel free to fork this project if I'm taking too long!
+This most recent version of this code lives [on
+GitHub](https://github.com/defuse/flush-reload-attacks). Pull requests are
+welcome, although I have very limited time to review and merge them. Please fork
+this project if I'm inhibiting your progress!
 
 Acknowledgements
 ----------------
