@@ -127,14 +127,24 @@ Copy the Links binary into the `experiments/links/binaries`:
 $ cp links ~/flush-reload-attacks/experiments/links/binaries/links-demo
 ```
 
-### 2. Find the Probe Addresses
+### 2. Compile the Spying Tool
+
+Compile the `spy` binary which implements the actual Flush+Reload side-channel
+attack:
+
+```
+$ cd ~/flush-reload-attacks/flush-reload/myversion
+$ make
+```
+
+### 3. Find the Probe Addresses
 
 I've already identified some good Flush+Reload probe locations to make the
 Wikipedia page distinguishing attack work. They are the first cache lines of the
 functions `kill_html_stack_item()`, `html_stack_dup()`, `html_a()`, and
 `parse_html()`. We need to find the addresses of those cache lines.
 
-**2.1. Run the Probe Address Finding Tool**
+**3.1. Run the Probe Address Finding Tool**
 
 Run the probe address finding tool to look up the addresses:
 
@@ -142,16 +152,16 @@ Run the probe address finding tool to look up the addresses:
 ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/FindProbeAddresses.rb -n kill_html_stack_item -n html_stack_dup -n html_a -n parse_html -b ~/flush-reload-attacks/experiments/links/binaries/links-demo
 ```
 
-**2.2. Save the Probe Addresses to a File**
+**3.2. Save the Probe Addresses to a File**
 
 Save those probe addresses to a file. Copy and paste the output into
 `~/flush-reload-attacks/experiments/links/binaries/links-demo.probes`.
 
-### 3. Run the Experiment
+### 4. Run the Experiment
 
 To check if the attacks will work on your system, run the automated experiment.
 
-**3.1. Set the Experiment Parameters**
+**4.1. Set the Experiment Parameters**
 
 Go into `experiments/links` and edit the `LinksExperiment.rb` file. This file
 defines all of the parameters for an experiment run.
@@ -164,7 +174,7 @@ Find the `PROBES_PATH` line and change the path to the probe addresses file that
 you created in Step 2.2 above. If you've been following along exactly, this will
 be `binaries/links-demo.probes`.
 
-**3.2. Run the Experiment**
+**4.2. Run the Experiment**
 
 To run the experiment, just run (from within `experiments/links`):
 
@@ -178,7 +188,7 @@ the attack by having a victim visit each of the pages and trying to identify
 which page it was. At the end, you'll see the overall success rate of the
 attack.
 
-**3.3. Try Different Experiment Parameters**
+**4.3. Try Different Experiment Parameters**
 
 By default, the experiment runs using just the top 10 Wikipedia pages, taking
 5 training samples of each page, and has the victim visit each page 10 times.
@@ -186,25 +196,41 @@ This is good for quickly testing if the attack works on your system. If you'd
 like to run a longer and more complete experiment, then change `URL_LIST_FILE`,
 `SAMPLE_COUNT`, and `VICTIM_RUNS` accordingly.
 
-### 4. Step-by-Step Attack
+### 5. Step-by-Step Attack
 
 If the experiment worked for you, then you can try running an attack against
 yourself. This will show you what it's like to use the attack tools to actually
-spy on somebody.
+spy on somebody. I'm assuming you've followed steps 1-4 above.
 
-**4.1. Train the Top 100 Wikipedia Pages**
+**5.1. Train the Top 100 Wikipedia Pages**
+
+Make a directory to hold the training data:
+
+```
+mkdir ~/attack_training
+```
+
+Run the training tool on 100 Wikipedia URLs:
+
+```
+ruby ~/flush-reload-attacks/flush-reload/myversion/ruby/AttackTrainer.rb \
+    --url-list ~/flush-reload-attacks/experiments/links/url_sets/wiki-top-100-of-2013.txt \
+    --train-dir ~/attack_training/demo1 \
+    --run-binary ~/flush-reload-attacks/experiments/links/binaries/links-demo \
+    --probe-file ~/flush-reload-attacks/experiments/links/binaries/links-demo.probes \
+    --samples 10 \
+    --sleep-kill 7
+```
+
+**5.2. Start the Spy Tool**
 
 TODO
 
-**4.2. Start the Spy Tool**
+**5.3. Pretend to be the Victim**
 
 TODO
 
-**4.3. Pretend to be the Victim**
-
-TODO
-
-**4.4. Figure Out Which Page the Victim Visited**
+**5.4. Figure Out Which Page the Victim Visited**
 
 TODO
 
@@ -215,7 +241,7 @@ I've already found good probe locations for distinguishing between web pages
 visited in Links. But, as a demonstration, you can see how these probes can be
 automatically discovered with a bit of human help.
 
-From here on, I'm assuming you've followed steps 1-3 of the previous section.
+From here on, I'm assuming you've followed steps 1-4 of the previous section.
 
 ### 1. List all Links Functions
 
