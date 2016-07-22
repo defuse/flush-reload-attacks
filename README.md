@@ -37,3 +37,9 @@ I would like to thank Prof. John Aycock at the University of Calgary for serving
 as my advisor when I was working on this project for my undergrad thesis. Our
 discussions helped carry the project to the results included here. He also
 contributed edits and improvements to an earlier version of the paper.
+
+Contact
+-------
+
+Taylor's contact information is available [on his
+website](https://defuse.ca/contact.htm).
