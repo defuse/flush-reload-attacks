@@ -5,21 +5,16 @@ This repository contains the source code and experiment data accompanying Taylor
 Hornby's talk at Black Hat 2016 titled "Side-Channel Attacks on Everyday
 Applications."
 
-- `cpsc502`: Assignments for my undergraduate research project at the University
-  of Calgary.
+- `cpsc502`: Assignments for my undergraduate research project at the University of Calgary.
 - `experiments`: Experiment implementations and all saved experiment run data.
 - `flush-reload`: Attack tools, including:
-    - `original-from-authors`: The original authors' implementaiton of
-      Flush+Reload.
-    - `myversion`: My rewrite of the Flush+Reload attack tool. The Ruby attack
-      tools and automated probe finding tools are in `myversion/ruby`.
-    - `cachebench`: A tool for timing the difference between cached and
-      non-cached memory accesses.
-    - `rdtsc-consistency`: A tool to check if the RDTSC timestamp behaves
-      monotonically.
+    - `flush-reload/original-from-authors`: The original authors' implementaiton of Flush+Reload.
+    - `flush-reload/myversion`: My rewrite of the Flush+Reload attack tool. 
+        - `flush-reload/myversion/ruby`: The Ruby attack tools and automated probe finding tools.
+    - `flush-reload/cachebench`: A tool for timing the difference between cached and non-cached memory accesses.
+    - `flush-reload/rdtsc-consistency`: A tool to check if the RDTSC timestamp behaves monotonically.
 - `paper`: The LaTeX source code to the accompanying paper.
-- `source`: Source files, e.g. the PDF files for the libpoppler input
-  distinguishing attack.
+- `source`: Source files, e.g. the PDF files for the libpoppler input distinguishing attack.
 
 Contributing
 ------------
