@@ -77,8 +77,8 @@ next one by using the binary that's included at
 
 ### 4. Step-by-Step Attack
 
-Automatically Re-discovering the Links Probes
----------------------------------------------
+Automatically Rediscovering the Links Probes
+--------------------------------------------
 
 We've already identified good probe locations for distinguishing between web
 pages visited in Links. But, as a demonstration, you can see how these probes
