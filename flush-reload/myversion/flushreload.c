@@ -49,7 +49,7 @@ void startSpying(args_t *args)
             exit(EXIT_BAD_ARGUMENTS);
         }
         if (probe->virtual_address >= load_address + size) {
-            fprintf(stderr, "Virtual address 0x%lx is too high.\n", probe->virtual_address);
+            fprintf(stderr, "Virtual address 0x%lx is too high (%lx, %lx).\n", probe->virtual_address, load_address, size);
             exit(EXIT_BAD_ARGUMENTS);
         }
         probe->mapped_pointer = binary + (probe->virtual_address - load_address);

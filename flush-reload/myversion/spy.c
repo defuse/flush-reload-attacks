@@ -80,10 +80,15 @@ void parseArgs(int argc, char **argv, args_t *args)
                 /* Probe like A:0x400403 */
                 argstr = optarg;
 
+                if (args->probe_count >= MAX_PROBES) {
+                    showHelp("You've exceeded the maximum amount of probes.");
+                    exit(EXIT_BAD_ARGUMENTS);
+                }
+
                 probe_t *probe = &args->probes[args->probe_count];
 
                 /* Grab the name character from the front. */
-                if (strlen(argstr) >= 2 && isalpha(argstr[0]) && argstr[1] == ':') {
+                if (strlen(argstr) >= 2 && isprint(argstr[0]) && argstr[1] == ':') {
                     probe->name = argstr[0];
                 } else {
                     showHelp("Give the probe a 1-character name like A:0xDEADBEEF.");

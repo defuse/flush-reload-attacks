@@ -3,7 +3,7 @@
 
 #include "args.h"
 
-#define MAX_PROBES 16
+#define MAX_PROBES 32
 
 void startSpying(args_t *args);
 
