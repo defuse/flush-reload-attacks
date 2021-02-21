@@ -30,7 +30,7 @@ To get the attack tools and experiment scripts to work, you'll need to install
 all of this stuff first:
 
 ```
-# apt-get install build-essential libelf-dev ruby
+# apt-get install build-essential libelf-dev ruby rsync
 ```
 
 And the ruby gems:
