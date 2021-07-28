@@ -104,7 +104,7 @@ void parseArgs(int argc, char **argv, args_t *args)
                 }
 
                 /* Parse the remainder as an integer in hex. */
-                if (sscanf(argstr, "%10li", &probe->virtual_address) != 1 || probe->virtual_address <= 0) {
+                if (sscanf(argstr, "%18li", &probe->virtual_address) != 1 || probe->virtual_address <= 0) {
                     showHelp("Bad probe address.");
                     exit(EXIT_BAD_ARGUMENTS);
                 }
